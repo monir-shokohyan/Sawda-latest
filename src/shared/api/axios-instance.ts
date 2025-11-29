@@ -1,6 +1,5 @@
 import axios, { CreateAxiosDefaults } from 'axios'
 
-
 const createAxiosInstance = () => {
   const config: CreateAxiosDefaults = {
     baseURL: import.meta.env.VITE_APP_API_URL,

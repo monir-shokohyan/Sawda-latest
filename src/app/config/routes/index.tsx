@@ -1,7 +1,5 @@
 import { RouteType } from '@shared/types/router/route-type'
 
-import { mainRoute } from './folder'
+import { mainRoute } from './dashboard'
 
-export const routes: RouteType[] = [
-  ...mainRoute,
-]
+export const routes: RouteType[] = [...mainRoute]

@@ -1,3 +1,3 @@
 export enum Paths {
- Todo = 'todos',
+  Todo = 'todos',
 }

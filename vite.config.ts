@@ -1,11 +1,10 @@
 import react from '@vitejs/plugin-react-swc'
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 import { qrcode } from 'vite-plugin-qrcode'
 import tailwindcss from '@tailwindcss/vite'
 
 export default () => {
-
   return defineConfig({
     plugins: [react(), viteTsconfigPaths(), qrcode(), tailwindcss()],
     server: {
@@ -13,7 +12,7 @@ export default () => {
       port: 3000,
       host: '0.0.0.0',
     },
-    preview:{
+    preview: {
       open: true,
       port: 3000,
       host: '0.0.0.0',

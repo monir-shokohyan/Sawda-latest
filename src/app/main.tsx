@@ -15,8 +15,8 @@ if (!container) {
 
 createRoot(container).render(
   // <StrictMode>
-    <Providers>
-      <AppRouter />
-    </Providers>
+  <Providers>
+    <AppRouter />
+  </Providers>,
   // </StrictMode>,
 )

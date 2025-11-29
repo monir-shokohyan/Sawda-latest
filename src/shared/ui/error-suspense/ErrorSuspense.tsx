@@ -14,9 +14,7 @@ const ErrorSuspense = ({
   return (
     <Suspense
       key={suspenseKey}
-      fallback={
-        <Loader />
-      }
+      fallback={<Loader />}
     >
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         {children}

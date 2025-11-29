@@ -5,6 +5,6 @@ export const Page = () => {
   return (
     <Content title="dashboard">
       <Dashboard />
-     </Content>
+    </Content>
   )
 }

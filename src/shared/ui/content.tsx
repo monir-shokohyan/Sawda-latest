@@ -8,7 +8,6 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export const Content = ({ title, children, ...props }: Props) => {
   return (
     <Space
-      direction="vertical"
       {...props}
       style={{
         width: '100%',
