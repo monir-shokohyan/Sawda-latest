@@ -155,11 +155,11 @@ const Navbar = () => {
         title="Menu"
         padding="md"
         size="80%"
-        scrollAreaComponent={ScrollArea.Autosize}
+        // scrollAreaComponent={ScrollArea.Autosize}
       >
         <Flex
           gap="sm"
-          h="80vh"
+          h="88vh"
           justify="space-between"
           direction="column"
         >
@@ -206,7 +206,11 @@ const Navbar = () => {
               Place an ad
             </Button>
           </Stack>
-          <LanguageForMobile />
+          <Flex justify="space-between">
+          <LanguageDropDown />
+          <DarkMode />
+          </Flex>
+
         </Flex>
       </Drawer>
     </>
