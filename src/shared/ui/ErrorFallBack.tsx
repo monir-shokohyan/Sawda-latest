@@ -1,29 +1,55 @@
-import { useState } from 'react';
-import { GoAlert } from 'react-icons/go';
-import { useNavigate } from 'react-router-dom';
-import { Tooltip, Button, Text, Stack, Group, Alert, Title, Paper } from '@mantine/core';
-import { TbHome, TbRefresh } from 'react-icons/tb';
+import { useState } from 'react'
+import { GoAlert } from 'react-icons/go'
+import { useNavigate } from 'react-router-dom'
+import {
+  Tooltip,
+  Button,
+  Text,
+  Stack,
+  Group,
+  Alert,
+  Title,
+  Paper,
+} from '@mantine/core'
+import { TbHome, TbRefresh } from 'react-icons/tb'
 
 const ErrorFallback = ({ error }: { error: Error }) => {
-  const navigate = useNavigate();
-  const [showDetails, setShowDetails] = useState(false);
+  const navigate = useNavigate()
+  const [showDetails, setShowDetails] = useState(false)
 
   return (
-    <Paper shadow="sm" p="xl" radius="md" style={{ maxWidth: 600, margin: 'auto', marginTop: '10vh' }}>
-      <Stack align="center" gap="xl">
+    <Paper
+      shadow="sm"
+      p="xl"
+      radius="md"
+      style={{ maxWidth: 600, margin: 'auto', marginTop: '10vh' }}
+    >
+      <Stack
+        align="center"
+        gap="xl"
+      >
         {/* Title and Subtitle */}
         <div style={{ textAlign: 'center' }}>
-          <Title order={2} c="red.7">
+          <Title
+            order={2}
+            c="red.7"
+          >
             Something went wrong
           </Title>
-          <Text c="dimmed" mt="sm">
+          <Text
+            c="dimmed"
+            mt="sm"
+          >
             Unfortunately, an error occurred. Please try again later.
           </Text>
         </div>
 
         {/* Action Buttons */}
         <Group gap="md">
-          <Tooltip label="Reload the page" position="bottom">
+          <Tooltip
+            label="Reload the page"
+            position="bottom"
+          >
             <Button
               leftSection={<TbRefresh size={18} />}
               onClick={() => window.location.reload()}
@@ -33,7 +59,10 @@ const ErrorFallback = ({ error }: { error: Error }) => {
             </Button>
           </Tooltip>
 
-          <Tooltip label="Return to homepage" position="bottom">
+          <Tooltip
+            label="Return to homepage"
+            position="bottom"
+          >
             <Button
               leftSection={<TbHome size={18} />}
               onClick={() => navigate('/')}
@@ -66,7 +95,7 @@ const ErrorFallback = ({ error }: { error: Error }) => {
         )}
       </Stack>
     </Paper>
-  );
-};
+  )
+}
 
-export { ErrorFallback };
+export { ErrorFallback }

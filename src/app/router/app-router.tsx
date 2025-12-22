@@ -13,7 +13,7 @@ export const AppRouter = () => {
       <Route
         element={
           <ErrorSuspense suspenseKey="/layout">
-                <Layout />
+            <Layout />
           </ErrorSuspense>
         }
       >
@@ -33,8 +33,8 @@ export const AppRouter = () => {
               loading={<div>Loading auth status...</div>}
               // fallback={<div>You are not authorized. Please log in.</div>}
               redirectOnFail="/login"
-              >
-                <Layout />
+            >
+              <Layout />
             </Authenticated>
           </ErrorSuspense>
         }

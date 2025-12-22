@@ -4,13 +4,11 @@ import Navbar from './navbar'
 import { useLocation } from 'react-router-dom'
 
 export const AppLayout = () => {
-  const  { pathname }= useLocation()
-  
+  const { pathname } = useLocation()
+
   return (
     <Flex direction="column">
-      {
-        pathname === '/' && <Navbar />
-      }
+      {pathname === '/' && <Navbar />}
       <Content />
     </Flex>
   )

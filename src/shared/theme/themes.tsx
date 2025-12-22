@@ -1,5 +1,5 @@
-import { createTheme, virtualColor, colorsTuple } from '@mantine/core';
-import type { MantineColorsTuple } from '@mantine/core';
+import { createTheme, virtualColor, colorsTuple } from '@mantine/core'
+import type { MantineColorsTuple } from '@mantine/core'
 
 const blueAccent: MantineColorsTuple = [
   '#e5f3ff',
@@ -12,16 +12,16 @@ const blueAccent: MantineColorsTuple = [
   '#0063ba',
   '#004ea1',
   '#003988',
-];
+]
 
-const originalBlue: MantineColorsTuple = colorsTuple('#366FB4');
-const greenAccent: MantineColorsTuple = colorsTuple('#30B352');
-const lightBg: MantineColorsTuple = colorsTuple('#EBEAE8');
-const darkBg: MantineColorsTuple = colorsTuple('#1C1C1E');
-const darkSurface: MantineColorsTuple = colorsTuple('#2B2B2D');
-const grayText: MantineColorsTuple = colorsTuple('#686968');
+const originalBlue: MantineColorsTuple = colorsTuple('#366FB4')
+const greenAccent: MantineColorsTuple = colorsTuple('#30B352')
+const lightBg: MantineColorsTuple = colorsTuple('#EBEAE8')
+const darkBg: MantineColorsTuple = colorsTuple('#1C1C1E')
+const darkSurface: MantineColorsTuple = colorsTuple('#2B2B2D')
+const grayText: MantineColorsTuple = colorsTuple('#686968')
 
-const lightText: MantineColorsTuple = colorsTuple('#FFFFFF');
+const lightText: MantineColorsTuple = colorsTuple('#FFFFFF')
 
 export const theme = createTheme({
   fontFamily: 'Inter, sans-serif',
@@ -74,4 +74,4 @@ export const theme = createTheme({
       dark: 'darkBg',
     }),
   },
-});
+})

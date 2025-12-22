@@ -6,9 +6,8 @@ import { Providers } from '@app/providers'
 import { AppRouter } from './router'
 
 import './main.css'
-import '@mantine/core/styles.css';
-import '@mantine/notifications/styles.css';
-
+import '@mantine/core/styles.css'
+import '@mantine/notifications/styles.css'
 
 const container = document.querySelector('#root')
 
@@ -18,8 +17,8 @@ if (!container) {
 
 createRoot(container).render(
   <StrictMode>
-  <Providers>
-    <AppRouter />
-  </Providers>
+    <Providers>
+      <AppRouter />
+    </Providers>
   </StrictMode>,
 )
