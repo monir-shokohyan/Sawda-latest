@@ -1,5 +1,6 @@
 import { Button, Menu } from '@mantine/core'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { LanguageContants } from './constant'
 
 const LanguageDropDown = () => {
   return (
@@ -18,9 +19,25 @@ const LanguageDropDown = () => {
         </Button>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Item color="textPrimary">English</Menu.Item>
-        <Menu.Item color="textPrimary">Dari</Menu.Item>
-        <Menu.Item color="textPrimary">Pashto</Menu.Item>
+          {LanguageContants.map((option) => {
+                  return (
+                    <Menu.Item
+                      color="textPrimary"
+                      py={0}
+                    >
+                      <Button
+                        variant="transparent"
+                        leftSection={option.icon}
+                        color="textPrimary"
+                        fullWidth
+                        justify="flex-start"
+                        p={0}
+                      >
+                        {option.label}
+                      </Button>
+                    </Menu.Item>
+                  )
+                })}
       </Menu.Dropdown>
     </Menu>
   )

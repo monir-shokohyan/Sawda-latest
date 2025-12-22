@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-export interface Categorytype {
+export interface Languagetype {
   label: string
   icon: ReactElement
 }

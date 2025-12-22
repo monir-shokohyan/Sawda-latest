@@ -1,6 +1,6 @@
-import { ReactElement } from "react"
+import { ReactElement } from 'react'
 
 export interface Profiletype {
-    label: string
-    icon: ReactElement
+  label: string
+  icon: ReactElement
 }

@@ -29,17 +29,21 @@ const ProfileDrownDown = () => {
       <Menu.Dropdown>
         {ProfileConstant.map((option) => {
           return (
-            <Menu.Item color="textPrimary"  py={0}>   
+            <Menu.Item
+              color="textPrimary"
+              py={0}
+            >
               <Button
-                  variant="transparent"
-                  leftSection={option.icon}
-                  color="textPrimary"
-                  fullWidth
-                  justify="flex-start"
-                  p={0}
-                >
-                  {option.label}</Button>
-           </Menu.Item>
+                variant="transparent"
+                leftSection={option.icon}
+                color="textPrimary"
+                fullWidth
+                justify="flex-start"
+                p={0}
+              >
+                {option.label}
+              </Button>
+            </Menu.Item>
           )
         })}
       </Menu.Dropdown>
