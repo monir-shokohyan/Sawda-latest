@@ -149,89 +149,77 @@ const Navbar = () => {
         </Flex>
       </Flex>
 
-    <Drawer
-      opened={drawerOpened}
-      onClose={closeDrawer}
-      title="Menu"
-      padding="md"
-      size="80%"
-      position="left"
-      
-      // Critical fixes for real mobile devices:
-      overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
-      
-      // This is the key: use full height but with proper viewport units
-      styles={{
-        content: {
-          height: '100dvh',        // Dynamic viewport height (best solution)
-          maxHeight: '100dvh',
-          // Alternative fallback if you can't use dvh:
-          // height: 'calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
-        },
-        body: {
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        },
-      }}
-    >
-  <ScrollArea h="100%" offsetScrollbars>
-    <Flex
-      direction="column"
-      justify="space-between"
-      h="100%"
-      gap="sm"
-
-    >
-      <Stack gap="sm" pb="xl">
-        <CategoryDropDown />
-
-        <Button
-          variant="subtle"
-          leftSection={<MdOutlineFavoriteBorder size={20} />}
-          color="textPrimary"
-          fullWidth
-          justify="flex-start"
+      <Drawer
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        title="Menu"
+        padding="md"
+        size="80%"
+        styles={{
+          content: {
+      height: '100dvh',        // Dynamic viewport height (best solution)
+      maxHeight: '100dvh',
+      // Alternative fallback if you can't use dvh:
+      // height: 'calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
+    },
+        }}
+        // scrollAreaComponent={ScrollArea.Autosize}
+      >
+        <Flex
+          gap="sm"
+          h="88dvh"
+          justify="space-between"
+          direction="column"
         >
-          Favorites
-        </Button>
+          <Stack gap="sm">
+            <CategoryDropDown />
 
-        <Button
-          variant="subtle"
-          leftSection={<MdOutlineNotifications size={20} />}
-          color="textPrimary"
-          fullWidth
-          justify="flex-start"
-        >
-          Notifications
-        </Button>
+            <Button
+              variant="subtle"
+              leftSection={<MdOutlineFavoriteBorder size={20} />}
+              color="textPrimary"
+              fullWidth
+              justify="flex-start"
+            >
+              Favorites
+            </Button>
 
-        <Button
-          variant="subtle"
-          leftSection={<MdOutlineMessage size={20} />}
-          color="textPrimary"
-          fullWidth
-          justify="flex-start"
-        >
-          Messages
-        </Button>
+            <Button
+              variant="subtle"
+              leftSection={<MdOutlineNotifications size={20} />}
+              color="textPrimary"
+              fullWidth
+              justify="flex-start"
+            >
+              Notifications
+            </Button>
 
-        <Button
-          fullWidth
-          style={{ backgroundColor: '#3b82f6', borderRadius: 6 }}
-        >
-          Place an ad
-        </Button>
+            <Button
+              variant="subtle"
+              leftSection={<MdOutlineMessage size={20} />}
+              color="textPrimary"
+              fullWidth
+              justify="flex-start"
+            >
+              Messages
+            </Button>
 
-      </Stack>
-
-      <Group justify="space-between" pb="env(safe-area-inset-bottom)" px="md" style={{ borderTop: '1px solid #e5e7eb', paddingTop: 12 }}>
-        <LanguageDropDown />
-        <DarkMode />
-      </Group>
-    </Flex>
-  </ScrollArea>
-</Drawer>
+            <Button
+              fullWidth
+              style={{
+                backgroundColor: '#3b82f6',
+                borderRadius: 6,
+              }}
+            >
+              Place an ad
+            </Button>
+          </Stack>
+          <Flex justify="space-between">
+            <LanguageDropDown />
+            <DarkMode />
+          </Flex>
+        </Flex>
+      </Drawer>
     </>
   )
 }
