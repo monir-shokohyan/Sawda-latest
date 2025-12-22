@@ -1,4 +1,7 @@
 import { DashboardPage } from '@pages/dashboard'
+import { LoginPage } from '@shared/authentication'
+import { ForgotPasswordPage } from '@shared/authentication/forgetPassword'
+import { RegisterPage } from '@shared/authentication/registerPage'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
@@ -10,6 +13,36 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="dashboard">
         <DashboardPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'register',
+    guarded: '',
+    path: '/register',
+    element: (
+      <ErrorSuspense suspenseKey="register">
+        <RegisterPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'login',
+    guarded: '',
+    path: '/login',
+    element: (
+      <ErrorSuspense suspenseKey="login">
+        <LoginPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'forget-password',
+    guarded: '',
+    path: '/forget-password',
+    element: (
+      <ErrorSuspense suspenseKey="forget-password">
+        <ForgotPasswordPage />
       </ErrorSuspense>
     ),
   },

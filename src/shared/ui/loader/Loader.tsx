@@ -1,9 +1,9 @@
-import { Spin } from 'antd'
+import { LoadingOverlay } from "@mantine/core"
 
 const Loader = () => {
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <Spin size="large" />
+      <LoadingOverlay />
     </div>
   )
 }

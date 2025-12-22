@@ -1,5 +1,5 @@
+import { Space } from '@mantine/core'
 import { HTMLAttributes } from 'react'
-import { Space } from 'antd'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title?: string

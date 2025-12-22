@@ -28,3 +28,7 @@
 .selectedCutClass {
   opacity: 50%;
 }
+
+.mantine-Menu-item {
+font-weight: 600;
+}

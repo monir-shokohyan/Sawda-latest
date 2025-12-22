@@ -1,5 +1,5 @@
 import { Dashboard } from '@features/Dashboard'
-import { Flex } from 'antd'
+import { Flex } from '@mantine/core'
 
 const Ui = () => {
   return (
