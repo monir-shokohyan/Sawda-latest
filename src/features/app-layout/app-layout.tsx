@@ -1,6 +1,6 @@
 import { Flex } from '@mantine/core'
 import { Content } from './content'
-import Navbar from './navbar'
+import { Navbar } from './navbar'
 import { useLocation } from 'react-router-dom'
 
 export const AppLayout = () => {
