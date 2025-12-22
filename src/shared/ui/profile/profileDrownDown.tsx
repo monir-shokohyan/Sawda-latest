@@ -14,6 +14,8 @@ const ProfileDrownDown = () => {
     <Menu
       shadow="sm"
       width={200}
+      withArrow
+      transitionProps={{ transition: 'fade-down', duration: 250 }}
     >
       <Menu.Target>
         <Button

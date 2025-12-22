@@ -8,7 +8,12 @@ import { CategoryConstants } from './constant'
 
 const CategoryDropDown = () => {
   return (
-    <Menu shadow="md">
+    <Menu 
+    shadow="sm" 
+    withArrow
+    transitionProps={{ transition: 'fade-down', duration: 250 }}
+    >
+
       <Menu.Target>
         <Button
           variant="subtle"
@@ -16,6 +21,7 @@ const CategoryDropDown = () => {
           rightSection={<MdOutlineKeyboardArrowDown size={20} />}
           color="textPrimary"
           size="sm"
+          justify="flex-start"
         >
           All Categories
         </Button>

@@ -9,12 +9,18 @@ import {
   Stack,
   TextInput,
   useMantineColorScheme,
+  ScrollArea,
+  Divider,
+  Group,
+  Chip,
 } from '@mantine/core'
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux-hooks'
 import { NavbarSelector } from '@shared/reducers'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
+import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
+import LanguageForMobile from '@shared/ui/language/languageForMobile'
 import { ProfileDrownDown } from '@shared/ui/profile/profileDrownDown'
 import {
   MdOutlineFavoriteBorder,
@@ -33,7 +39,6 @@ const Navbar = () => {
 
   const isMobile = useMediaQuery('(max-width: 768px)')
   const isTablet = useMediaQuery('(max-width: 1024px)')
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
 
   return (
     <>
@@ -111,18 +116,7 @@ const Navbar = () => {
                       <MdOutlineMessage size={20} />
                     </ActionIcon>
 
-                    <ActionIcon
-                      variant="subtle"
-                      color="textPrimary"
-                      size="lg"
-                      onClick={() => toggleColorScheme()}
-                    >
-                      {colorScheme === 'dark' ? (
-                        <MdOutlineDarkMode size={20} />
-                      ) : (
-                        <MdOutlineLightMode size={20} />
-                      )}
-                    </ActionIcon>
+                    <DarkMode />
                   </>
                 )}
               </Flex>
@@ -161,51 +155,59 @@ const Navbar = () => {
         title="Menu"
         padding="md"
         size="80%"
+        scrollAreaComponent={ScrollArea.Autosize}
+
       >
-        <Stack gap="sm">
-          <CategoryDropDown />
-          <LanguageDropDown />
+          <Flex gap="sm" h="85vh" justify="space-between" direction="column">
+          <Stack gap="sm">
+            <CategoryDropDown />
 
-          <Button
-            variant="subtle"
-            leftSection={<MdOutlineFavoriteBorder size={18} />}
-            color="gray"
-            fullWidth
-            justify="flex-start"
-          >
-            Favorites
-          </Button>
+            <Button
+              variant="subtle"
+              leftSection={<MdOutlineFavoriteBorder size={20} />}
+              color="textPrimary"
+              fullWidth
+              justify="flex-start"
+            >
+              Favorites
+            </Button>
 
-          <Button
-            variant="subtle"
-            leftSection={<MdOutlineNotifications size={18} />}
-            color="gray"
-            fullWidth
-            justify="flex-start"
-          >
-            Notifications
-          </Button>
+            <Button
+              variant="subtle"
+              leftSection={<MdOutlineNotifications size={20} />}
+              color="textPrimary"
+              fullWidth
+              justify="flex-start"
+            >
+              Notifications
+            </Button>
 
-          <Button
-            variant="subtle"
-            leftSection={<MdOutlineMessage size={18} />}
-            color="gray"
-            fullWidth
-            justify="flex-start"
-          >
-            Messages
-          </Button>
+            <Button
+              variant="subtle"
+              leftSection={<MdOutlineMessage size={20} />}
+              color="textPrimary"
+              fullWidth
+              justify="flex-start"
+            >
+              Messages
+            </Button>
 
-          <Button
-            fullWidth
-            style={{
-              backgroundColor: '#3b82f6',
-              borderRadius: 6,
-            }}
-          >
-            Place an ad
-          </Button>
-        </Stack>
+            <Button
+              fullWidth
+              style={{
+                backgroundColor: '#3b82f6',
+                borderRadius: 6,
+              }}
+            >
+              Place an ad
+            </Button>
+            
+
+          </Stack>
+         <LanguageForMobile />
+          </Flex>
+
+
       </Drawer>
     </>
   )
