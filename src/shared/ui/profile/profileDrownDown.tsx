@@ -2,8 +2,11 @@ import { Button, Menu } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import {
   MdOutlineKeyboardArrowDown,
+  MdOutlineLogout,
   MdOutlinePersonOutline,
+  MdOutlineSettings,
 } from 'react-icons/md'
+import { ProfileConstant } from './constant'
 
 const ProfileDrownDown = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
@@ -24,9 +27,21 @@ const ProfileDrownDown = () => {
         </Button>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Item color="textPrimary">Profile</Menu.Item>
-        <Menu.Item color="textPrimary">Settings</Menu.Item>
-        <Menu.Item color="textPrimary">Logout</Menu.Item>
+        {ProfileConstant.map((option) => {
+          return (
+            <Menu.Item color="textPrimary"  py={0}>   
+              <Button
+                  variant="transparent"
+                  leftSection={option.icon}
+                  color="textPrimary"
+                  fullWidth
+                  justify="flex-start"
+                  p={0}
+                >
+                  {option.label}</Button>
+           </Menu.Item>
+          )
+        })}
       </Menu.Dropdown>
     </Menu>
   )

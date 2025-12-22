@@ -20,11 +20,7 @@ import {
   MdOutlineFavoriteBorder,
   MdOutlineMessage,
   MdOutlineNotifications,
-  MdOutlinePersonOutline,
   MdOutlineShoppingCart,
-  MdLocationOn,
-  MdSearch,
-  MdDarkMode,
   MdOutlineDarkMode,
   MdOutlineLightMode,
 } from 'react-icons/md'

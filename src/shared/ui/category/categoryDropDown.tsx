@@ -1,11 +1,11 @@
 import { Button, Menu } from '@mantine/core'
-import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { MdKeyboardArrowRight, MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { CategoryConstants } from './constant'
 
 const CategoryDropDown = () => {
   return (
     <Menu
       shadow="md"
-      width={200}
     >
       <Menu.Target>
         <Button
@@ -19,9 +19,22 @@ const CategoryDropDown = () => {
         </Button>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Item color="textPrimary">Category 1</Menu.Item>
-        <Menu.Item color="textPrimary">Category 2</Menu.Item>
-        <Menu.Item color="textPrimary">Category 3</Menu.Item>
+         {CategoryConstants.map((option) => {
+                  return (
+                    <Menu.Item color="textPrimary"  py={0}>   
+                      <Button
+                          variant="transparent"
+                          leftSection={option.icon}
+                          color="textPrimary"
+                          fullWidth
+                          justify="flex-start"
+                          p={0}
+                          rightSection={<MdKeyboardArrowRight />}
+                        >
+                          {option.label}</Button>
+                   </Menu.Item>
+                  )
+                })}
       </Menu.Dropdown>
     </Menu>
   )
