@@ -156,9 +156,13 @@ const Navbar = () => {
         padding="md"
         size="80%"
         scrollAreaComponent={ScrollArea.Autosize}
-
       >
-          <Flex gap="sm" h="85vh" justify="space-between" direction="column">
+        <Flex
+          gap="sm"
+          h="80vh"
+          justify="space-between"
+          direction="column"
+        >
           <Stack gap="sm">
             <CategoryDropDown />
 
@@ -201,13 +205,9 @@ const Navbar = () => {
             >
               Place an ad
             </Button>
-            
-
           </Stack>
-         <LanguageForMobile />
-          </Flex>
-
-
+          <LanguageForMobile />
+        </Flex>
       </Drawer>
     </>
   )
