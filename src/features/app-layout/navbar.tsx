@@ -206,11 +206,10 @@ const Navbar = () => {
               Place an ad
             </Button>
           </Stack>
-          <Flex justify="space-between">
-          <LanguageDropDown />
-          <DarkMode />
-          </Flex>
-
+          {/* <Flex justify="space-between">
+            <LanguageDropDown />
+            <DarkMode />
+          </Flex> */}
         </Flex>
       </Drawer>
     </>
