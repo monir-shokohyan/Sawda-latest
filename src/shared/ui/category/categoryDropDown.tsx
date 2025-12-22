@@ -1,54 +1,56 @@
-import { Button, Menu } from '@mantine/core'
 import {
-  MdKeyboardArrowRight,
+  Button,
+  Menu,
+  Stack,
+  Text,
+  ScrollArea,
+} from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import {
   MdOutlineApps,
   MdOutlineKeyboardArrowDown,
-} from 'react-icons/md'
-import { CategoryConstants } from './constant'
+} from 'react-icons/md';
+import { CategoryConstants } from './constant';
 
-const CategoryDropDown = () => {
-  return (
-    <Menu
-      shadow="sm"
-      withArrow
-      transitionProps={{ transition: 'fade-down', duration: 250 }}
+const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const triggerButton = (
+    <Button
+      variant="subtle"
+      leftSection={<MdOutlineApps size={20} />}
+      rightSection={<MdOutlineKeyboardArrowDown size={20} />}
+      color="textPrimary"
+      size="sm"
+      fullWidth={isMobile}
+      justify="flex-start"
     >
-      <Menu.Target>
-        <Button
-          variant="subtle"
-          leftSection={<MdOutlineApps size={20} />}
-          rightSection={<MdOutlineKeyboardArrowDown size={20} />}
-          color="textPrimary"
-          size="sm"
-          justify="flex-start"
-        >
-          All Categories
-        </Button>
-      </Menu.Target>
+      All Categories
+    </Button>
+  );
+
+  return (
+    <Menu shadow="md" position="bottom-start" withArrow>
+      <Menu.Target>{triggerButton}</Menu.Target>
+
       <Menu.Dropdown>
-        {CategoryConstants.map((option) => {
-          return (
-            <Menu.Item
-              color="textPrimary"
-              py={0}
-            >
-              <Button
-                variant="transparent"
+        <ScrollArea h={500} type="auto">
+          <Stack gap={0}>
+            {CategoryConstants.map((option) => (
+              <Menu.Item
+                key={option.label}
+                c="textPrimary"
                 leftSection={option.icon}
-                color="textPrimary"
-                fullWidth
-                justify="flex-start"
-                p={0}
-                rightSection={<MdKeyboardArrowRight />}
+                onClick={() => closeDrawer?.()}
               >
-                {option.label}
-              </Button>
-            </Menu.Item>
-          )
-        })}
+                <Text size="sm">{option.label}</Text>
+              </Menu.Item>
+            ))}
+          </Stack>
+        </ScrollArea>
       </Menu.Dropdown>
     </Menu>
-  )
-}
+  );
+};
 
-export { CategoryDropDown }
+export { CategoryDropDown };

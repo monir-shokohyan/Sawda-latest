@@ -1,39 +1,24 @@
 import {
   Flex,
-  Menu,
   ActionIcon,
   Button,
   Image,
   Burger,
-  Drawer,
-  Stack,
-  TextInput,
-  useMantineColorScheme,
-  ScrollArea,
-  Divider,
-  Group,
-  Chip,
 } from '@mantine/core'
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
-import { useAppDispatch, useAppSelector } from '@shared/hooks/redux-hooks'
-import { NavbarSelector } from '@shared/reducers'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
-import LanguageForMobile from '@shared/ui/language/languageForMobile'
 import { ProfileDrownDown } from '@shared/ui/profile/profileDrownDown'
 import {
   MdOutlineFavoriteBorder,
   MdOutlineMessage,
   MdOutlineNotifications,
   MdOutlineShoppingCart,
-  MdOutlineDarkMode,
-  MdOutlineLightMode,
 } from 'react-icons/md'
+import { MobileNavbar } from './mobile-navbar'
 
 const Navbar = () => {
-  const data = useAppSelector(NavbarSelector)
-  const dispatch = useAppDispatch()
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false)
 
@@ -54,6 +39,7 @@ const Navbar = () => {
             opened={drawerOpened}
             onClick={toggleDrawer}
             size="sm"
+            lineSize={2}
           />
         )}
 
@@ -149,77 +135,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
 
-      <Drawer
-        opened={drawerOpened}
-        onClose={closeDrawer}
-        title="Menu"
-        padding="md"
-        size="80%"
-        styles={{
-          content: {
-      height: '100dvh',        // Dynamic viewport height (best solution)
-      maxHeight: '100dvh',
-      // Alternative fallback if you can't use dvh:
-      // height: 'calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
-    },
-        }}
-        // scrollAreaComponent={ScrollArea.Autosize}
-      >
-        <Flex
-          gap="sm"
-          h="88dvh"
-          justify="space-between"
-          direction="column"
-        >
-          <Stack gap="sm">
-            <CategoryDropDown />
-
-            <Button
-              variant="subtle"
-              leftSection={<MdOutlineFavoriteBorder size={20} />}
-              color="textPrimary"
-              fullWidth
-              justify="flex-start"
-            >
-              Favorites
-            </Button>
-
-            <Button
-              variant="subtle"
-              leftSection={<MdOutlineNotifications size={20} />}
-              color="textPrimary"
-              fullWidth
-              justify="flex-start"
-            >
-              Notifications
-            </Button>
-
-            <Button
-              variant="subtle"
-              leftSection={<MdOutlineMessage size={20} />}
-              color="textPrimary"
-              fullWidth
-              justify="flex-start"
-            >
-              Messages
-            </Button>
-
-            <Button
-              fullWidth
-              style={{
-                backgroundColor: '#3b82f6',
-                borderRadius: 6,
-              }}
-            >
-              Place an ad
-            </Button>
-          </Stack>
-          <Flex justify="space-between">
-            <LanguageDropDown />
-            <DarkMode />
-          </Flex>
-        </Flex>
-      </Drawer>
+      <MobileNavbar drawerOpened={ drawerOpened } closeDrawer={ closeDrawer } />
     </>
   )
 }
