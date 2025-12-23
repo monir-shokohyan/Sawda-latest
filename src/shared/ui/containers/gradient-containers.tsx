@@ -2,8 +2,6 @@ import { ReactNode } from 'react'
 import { Flex, FlexProps } from '@mantine/core'
 import styled, { css } from 'styled-components'
 
-
-
 const COLOR_TOP = '#FFFFFF'
 const COLOR_BOTTOM = '#DFEDEE'
 
@@ -15,8 +13,8 @@ interface GradientFlexProps {
 }
 
 interface GradientContainerProps extends FlexProps {
-  children: ReactNode;
-  gDirection?: GradientDirection;
+  children: ReactNode
+  gDirection?: GradientDirection
 }
 export const GradientFlex = styled(Flex)<GradientFlexProps & FlexProps>`
   background: ${({ $gradientDirection = 'top-to-bottom' }) =>
