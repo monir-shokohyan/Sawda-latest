@@ -6,7 +6,7 @@ export const VerticalBorder = styled.div`
   width: 1.3px;
   background-color: rgb(223, 223, 223);
 `
-export const SText = styled(Text)< TextProps & {children: string}>`
+export const SText = styled(Text)<TextProps & { children: string }>`
   font-family: 'Nunito';
   z-index: 9;
   text-align: start;

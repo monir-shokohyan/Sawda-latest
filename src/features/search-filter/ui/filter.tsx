@@ -11,13 +11,15 @@ import {
 import { CategoryConstants } from '@shared/ui/category/constant'
 import { Categorytype } from '@shared/ui/category/types'
 import { useState } from 'react'
-import { MdAttachMoney, MdCheck, MdOutlineManageSearch } from 'react-icons/md'
+import { MdAttachMoney, MdCheck, MdClose, MdOutlineManageSearch } from 'react-icons/md'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
 import { useMediaQuery } from '@mantine/hooks'
 
 const Filter = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
+
+  const [opened, setOpened] = useState(false)
 
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null)
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null)
@@ -49,6 +51,8 @@ const Filter = () => {
       width={isMobile ? '90%' : '90vw'}
       position="bottom-start"
       withArrow
+      opened={opened}
+      onChange={setOpened}
       closeOnItemClick={false}
       closeOnClickOutside={false}
     >
@@ -57,14 +61,23 @@ const Filter = () => {
           <MdOutlineManageSearch size={isMobile ? 18 : 20} />
         </ActionIcon>
       </Menu.Target>
-      <Menu.Dropdown
-        px={10}
-        py={20}
-      >
-        <Menu.Label>
-          <MdOutlineManageSearch size={13} />
-          <span style={{ marginLeft: '5px' }}>Filter</span>
-        </Menu.Label>
+
+      <Menu.Dropdown px={10} py={20}>
+        <Group justify="space-between" align="center" mb="md">
+          <Menu.Label>
+            <MdOutlineManageSearch size={13} />
+            <span style={{ marginLeft: '5px' }}>Filter</span>
+          </Menu.Label>
+
+          <ActionIcon
+            variant="subtle"
+            color="gray"
+            onClick={() => setOpened(false)}
+            aria-label="Close filter menu"
+          >
+            <MdClose size={18} />
+          </ActionIcon>
+        </Group>
 
         <Flex
           gap={isMobile ? 5 : 20}
@@ -79,16 +92,10 @@ const Filter = () => {
             clearable
             nothingFoundMessage="No category found"
             renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
-                c="textPrimary"
-              >
+              <Group gap="sm" c="textPrimary">
                 {checked && <MdCheck />}
                 {(option as Categorytype).icon}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
+                <Text c="textPrimary" size="sm">
                   {option.label}
                 </Text>
               </Group>
@@ -104,16 +111,10 @@ const Filter = () => {
             value={selectedProvince}
             onChange={handleProvinceChange}
             renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
-                c="textPrimary"
-              >
+              <Group gap="sm" c="textPrimary">
                 {checked && <MdCheck />}
                 {(option as Categorytype).icon}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
+                <Text c="textPrimary" size="sm">
                   {option.label}
                 </Text>
               </Group>
@@ -144,15 +145,9 @@ const Filter = () => {
             }
             w={isMobile ? '100%' : '50%'}
             renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
-                c="textPrimary"
-              >
+              <Group gap="sm" c="textPrimary">
                 {checked && <MdCheck />}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
+                <Text c="textPrimary" size="sm">
                   {option.label}
                 </Text>
               </Group>
@@ -168,15 +163,9 @@ const Filter = () => {
             leftSection={currencyIcon}
             w={isMobile ? '100%' : '50%'}
             renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
-                c="textPrimary"
-              >
+              <Group gap="sm" c="textPrimary">
                 {checked && <MdCheck />}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
+                <Text c="textPrimary" size="sm">
                   {option.label}
                 </Text>
               </Group>
@@ -210,14 +199,8 @@ const Filter = () => {
           />
         </Flex>
 
-        <Flex
-          px={10}
-          mt={30}
-        >
-          <Button
-            leftSection={<TbAdjustmentsHorizontal />}
-            fullWidth
-          >
+        <Flex px={10} mt={30}>
+          <Button leftSection={<TbAdjustmentsHorizontal />} fullWidth>
             Filter ads
           </Button>
         </Flex>

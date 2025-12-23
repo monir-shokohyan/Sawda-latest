@@ -5,8 +5,7 @@ import { Filter } from '../../search-filter/ui/filter'
 import { CardCarousal } from '@features/card-scroll/ui'
 
 function Ui() {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
+  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <Stack
       w="100%"

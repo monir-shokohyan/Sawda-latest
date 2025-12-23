@@ -3,7 +3,6 @@ import { Image } from '@mantine/core'
 import { CategoryTypeProps } from '../types'
 import { SText } from '@shared/styles'
 
-
 const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
   return (
     <CategoryCard
@@ -16,7 +15,7 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
         fw={500}
         c="StextPrimary"
         mb="md"
-        lineClamp={2}  
+        lineClamp={2}
       >
         {category.name}
       </SText>
