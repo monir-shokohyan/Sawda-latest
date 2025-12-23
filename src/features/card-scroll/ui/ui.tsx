@@ -19,30 +19,30 @@ const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
           <Flex
             gap="sm"
             py="sm"
-            px="sm"
+            pr="sm"
           >
             {filteredCategories.map((category) => (
               <CardCategory
                 key={category.id}
                 category={category}
                 isMobile={isMobile}
-                />
-              ))}
+              />
+            ))}
           </Flex>
         </ScrollArea>
       ) : (
         <Flex
-        gap="sm"
-        justify="center"
-        wrap="wrap"
-        pt="sm"
-        px="sm"
+          gap="sm"
+          justify="center"
+          wrap="wrap"
+          pt="sm"
+          px="sm"
         >
           {filteredCategories.map((category) => (
             <CardCategory
-            key={category.id}
-            category={category}
-            isMobile={isMobile}
+              key={category.id}
+              category={category}
+              isMobile={isMobile}
             />
           ))}
         </Flex>

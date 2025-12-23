@@ -10,7 +10,7 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
       $isMobile={isMobile}
     >
       <Text
-        size={isMobile ? "0.7rem" : "sm"}
+        size={isMobile ? '0.7rem' : 'sm'}
         fw={500}
         c="textPrimary"
         mb="md"
@@ -22,8 +22,8 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
       <Image
         src={category.image}
         alt={category.name}
-        h={isMobile ? "45px" : "80px"}
-        w={isMobile ? "45px" : "80px"}
+        h={isMobile ? '45px' : '80px'}
+        w={isMobile ? '45px' : '80px'}
         fit="contain"
         mx="auto"
         style={{
