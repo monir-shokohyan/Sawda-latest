@@ -1,7 +1,7 @@
 import { SearchFilter } from '@features/search-filter/ui'
-import { ActionIcon, Button, Flex } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
-import { MdOutlineManageSearch } from 'react-icons/md'
+import { Filter } from '../../search-filter/ui/filter'
 
 function Ui() {
   const isMobile = useMediaQuery('(max-width: 768px)')
@@ -15,14 +15,7 @@ function Ui() {
         w="100%"
         justify="center"
       >
-        {!isMobile && (
-          <ActionIcon
-            size="xl"
-          >
-            <MdOutlineManageSearch 
-            size={isMobile ? 13 : 20} />
-          </ActionIcon>
-        )}
+        {!isMobile && <Filter />}
         <SearchFilter />
       </Flex>
     </Flex>

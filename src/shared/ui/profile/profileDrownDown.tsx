@@ -22,10 +22,10 @@ const ProfileDrownDown = () => {
           rightSection={<MdOutlineKeyboardArrowDown size={20} />}
           color="textPrimary"
           size="sm"
-          p={5}
+          p={0}
           styles={{
             section: {
-              marginInline: '0',
+              marginInline: isMobile ? '0px' : '8px',
             },
           }}
         >
