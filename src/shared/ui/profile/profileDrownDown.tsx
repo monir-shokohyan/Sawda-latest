@@ -23,11 +23,11 @@ const ProfileDrownDown = () => {
           color="textPrimary"
           size="sm"
           p={5}
-         styles={{
-         section: {
-            marginInline: '0',
-          },  
-  }}
+          styles={{
+            section: {
+              marginInline: '0',
+            },
+          }}
         >
           {isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name'}
         </Button>
