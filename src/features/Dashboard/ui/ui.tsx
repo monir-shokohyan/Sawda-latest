@@ -3,28 +3,34 @@ import { Flex, Group, Stack } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { Filter } from '../../search-filter/ui/filter'
 import { CardCarousal } from '@features/card-scroll/ui'
+import { GradientContainer } from '@shared/ui/containers'
 
 function Ui() {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <Stack
       w="100%"
-      p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
-      gap={30}
+      gap={0}
     >
+
+      <GradientContainer gDirection="top-to-bottom"  >
       <Group
         gap={isMobile ? 10 : 20}
         w="100%"
         justify="center"
-      >
+        p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
+        >
         {!isMobile && <Filter />}
         <SearchFilter isMobile={isMobile} />
       </Group>
+      </GradientContainer>
 
+      <GradientContainer gDirection="bottom-to-top">
       <Flex
         w="100%"
         justify="center"
         direction="column"
+        p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
       >
         <CardCarousal
           isMobile={isMobile}
@@ -37,6 +43,8 @@ function Ui() {
           maxNum={14}
         />
       </Flex>
+      </GradientContainer>
+      
     </Stack>
   )
 }
