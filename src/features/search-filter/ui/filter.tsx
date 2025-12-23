@@ -46,7 +46,7 @@ const Filter = () => {
   return (
     <Menu
       shadow="md"
-      width={isMobile ? '90%' : '66vw'}
+      width={isMobile ? '90%' : '90vw'}
       position="bottom-start"
       withArrow
       closeOnItemClick={false}
@@ -211,15 +211,16 @@ const Filter = () => {
         </Flex>
 
         <Flex
-         px={ 10 }
-         mt={ 30 } 
-         >
-        <Button 
-        leftSection={<TbAdjustmentsHorizontal />}
-        fullWidth
-        >Filter ads</Button>
+          px={10}
+          mt={30}
+        >
+          <Button
+            leftSection={<TbAdjustmentsHorizontal />}
+            fullWidth
+          >
+            Filter ads
+          </Button>
         </Flex>
-
       </Menu.Dropdown>
     </Menu>
   )

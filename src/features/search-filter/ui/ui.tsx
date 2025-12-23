@@ -1,14 +1,10 @@
-import styled from 'styled-components'
 import { FiSearch, FiMic } from 'react-icons/fi'
-import { ActionIcon, Flex, FlexProps, Input } from '@mantine/core'
+import { ActionIcon, Input } from '@mantine/core'
 import { VerticalBorder } from '@shared/styles'
-import { useMediaQuery } from '@mantine/hooks'
 import { Filter } from '@features/search-filter/ui/filter'
 import { InputContainer } from '../styles'
 
-const Ui = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
+const Ui = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <InputContainer
       justify="center"
@@ -22,7 +18,7 @@ const Ui = () => {
         type="text"
         placeholder="Search"
         size="md"
-        w={{ base: '70vw', sm: '70vw', md: '55vw', lg: '55vw' }}
+        w={{ base: '90vw', sm: '90vw', md: '55vw', lg: '70vw' }}
         radius={0}
       />
       <ActionIcon size="input-md">
