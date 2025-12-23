@@ -1,10 +1,4 @@
-import {
-  Flex,
-  ActionIcon,
-  Button,
-  Image,
-  Burger,
-} from '@mantine/core'
+import { Flex, ActionIcon, Button, Image, Burger } from '@mantine/core'
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
@@ -135,7 +129,10 @@ const Navbar = () => {
         </Flex>
       </Flex>
 
-      <MobileNavbar drawerOpened={ drawerOpened } closeDrawer={ closeDrawer } />
+      <MobileNavbar
+        drawerOpened={drawerOpened}
+        closeDrawer={closeDrawer}
+      />
     </>
   )
 }

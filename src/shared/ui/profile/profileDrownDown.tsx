@@ -2,9 +2,7 @@ import { Button, Menu } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import {
   MdOutlineKeyboardArrowDown,
-  MdOutlineLogout,
   MdOutlinePersonOutline,
-  MdOutlineSettings,
 } from 'react-icons/md'
 import { ProfileConstant } from './constant'
 
@@ -24,6 +22,12 @@ const ProfileDrownDown = () => {
           rightSection={<MdOutlineKeyboardArrowDown size={20} />}
           color="textPrimary"
           size="sm"
+          p={5}
+         styles={{
+         section: {
+            marginInline: '0',
+          },  
+  }}
         >
           {isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name'}
         </Button>
