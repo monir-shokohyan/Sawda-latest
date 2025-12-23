@@ -1,6 +1,8 @@
 import { CategoryCard } from '../styles'
-import { Image, Text } from '@mantine/core'
+import { Image } from '@mantine/core'
 import { CategoryTypeProps } from '../types'
+import { SText } from '@shared/styles'
+
 
 const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
   return (
@@ -9,16 +11,15 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
       bg="surface"
       $isMobile={isMobile}
     >
-      <Text
+      <SText
         size={isMobile ? '0.7rem' : 'sm'}
         fw={500}
-        c="textPrimary"
+        c="StextPrimary"
         mb="md"
-        lineClamp={2}
-        style={{ zIndex: 9, textAlign: 'start', fontWeight: 'bolder' }}
+        lineClamp={2}  
       >
         {category.name}
-      </Text>
+      </SText>
       <Image
         src={category.image}
         alt={category.name}
