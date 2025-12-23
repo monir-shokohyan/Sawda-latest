@@ -8,12 +8,11 @@ function Ui() {
   const isMobile = useMediaQuery('(max-width: 768px)')
 
   return (
-   <Stack
+    <Stack
       w="100%"
       p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
       gap={30}
     >
-
       <Group
         gap={isMobile ? 10 : 20}
         w="100%"
@@ -28,10 +27,17 @@ function Ui() {
         justify="center"
         direction="column"
       >
-        <CardCarousal isMobile={isMobile} minNum={1} maxNum={7}/>
-        <CardCarousal isMobile={isMobile} minNum={8} maxNum={14}/>
+        <CardCarousal
+          isMobile={isMobile}
+          minNum={1}
+          maxNum={7}
+        />
+        <CardCarousal
+          isMobile={isMobile}
+          minNum={8}
+          maxNum={14}
+        />
       </Flex>
-
     </Stack>
   )
 }

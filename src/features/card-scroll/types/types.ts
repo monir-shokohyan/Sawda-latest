@@ -1,4 +1,3 @@
-
 export interface CategoryType {
   id: number
   name: string
@@ -7,6 +6,7 @@ export interface CategoryType {
 
 export interface CategoryTypeProps {
   category: CategoryType
+  isMobile: boolean
 }
 
 export interface UiProps {

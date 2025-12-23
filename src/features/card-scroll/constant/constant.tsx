@@ -1,4 +1,4 @@
-import { CategoryType } from "../types";
+import { CategoryType } from '../types'
 
 export const categories: CategoryType[] = [
   { id: 1, name: 'Auto', image: '/category/car.png' },
@@ -21,6 +21,10 @@ export const categories: CategoryType[] = [
     image: '/category/tyre.png',
   },
   { id: 12, name: 'Products for children', image: '/category/kidscart.png' },
-  { id: 13, name: 'Accommodation for travel', image: '/category/travelbag.png' },
+  {
+    id: 13,
+    name: 'Accommodation for travel',
+    image: '/category/travelbag.png',
+  },
   { id: 14, name: 'Beauty & health', image: '/category/lipstick.png' },
 ]
