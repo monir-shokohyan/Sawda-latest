@@ -36,15 +36,15 @@ const Ui = () => {
         type="text"
         placeholder="Search"
         size="md"
-        w={{ base: '70vw', sm: '70vw', md: '40vw', lg: '40vw' }}
+        w={{ base: '70vw', sm: '70vw', md: '55vw', lg: '55vw' }}
         radius={0}
       />
       <ActionIcon size="input-md">
-        <FiSearch size={13} />
+        <FiSearch size={isMobile ? 13 : 16} />
       </ActionIcon>
       <VerticalBorder />
       <ActionIcon size="input-md">
-        <FiMic size={13} />
+        <FiMic size={isMobile ? 13 : 16} />
       </ActionIcon>
     </InputContainer>
   )

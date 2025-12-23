@@ -1,5 +1,5 @@
 import { SearchFilter } from '@features/search-filter/ui'
-import { Button, Flex } from '@mantine/core'
+import { ActionIcon, Button, Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { MdOutlineManageSearch } from 'react-icons/md'
 
@@ -16,13 +16,12 @@ function Ui() {
         justify="center"
       >
         {!isMobile && (
-          <Button
-            size="md"
-            p={15}
+          <ActionIcon
+            size="xl"
           >
-            {' '}
-            <MdOutlineManageSearch size={20} />
-          </Button>
+            <MdOutlineManageSearch 
+            size={isMobile ? 13 : 20} />
+          </ActionIcon>
         )}
         <SearchFilter />
       </Flex>

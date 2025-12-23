@@ -105,9 +105,9 @@ const Navbar = () => {
               <Button
                 size="compact-sm"
                 style={{
-                  backgroundColor: '#3b82f6',
                   borderRadius: 6,
                 }}
+                bg="primary"
               >
                 Place an ad
               </Button>
