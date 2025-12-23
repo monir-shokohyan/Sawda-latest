@@ -14,3 +14,13 @@ export interface UiProps {
   minNum: number
   maxNum: number
 }
+export interface Product {
+  id: number;
+  username: string;
+  timestamp: string;
+  title: string;
+  price: string;
+  originalPrice: string;
+  status: string;
+  liked: boolean;
+}
