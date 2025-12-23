@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  Button,
   Flex,
   Group,
   Menu,
@@ -12,7 +13,7 @@ import { Categorytype } from '@shared/ui/category/types'
 import { useState } from 'react'
 import { MdAttachMoney, MdCheck, MdOutlineManageSearch } from 'react-icons/md'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
-import { TbCurrencyAfghani } from 'react-icons/tb'
+import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
 import { useMediaQuery } from '@mantine/hooks'
 
 const Filter = () => {
@@ -45,7 +46,7 @@ const Filter = () => {
   return (
     <Menu
       shadow="md"
-      width={isMobile ? "92%" : "66vw"}
+      width={isMobile ? '90%' : '66vw'}
       position="bottom-start"
       withArrow
       closeOnItemClick={false}
@@ -56,7 +57,10 @@ const Filter = () => {
           <MdOutlineManageSearch size={isMobile ? 18 : 20} />
         </ActionIcon>
       </Menu.Target>
-      <Menu.Dropdown px={10} py={20}>
+      <Menu.Dropdown
+        px={10}
+        py={20}
+      >
         <Menu.Label>
           <MdOutlineManageSearch size={13} />
           <span style={{ marginLeft: '5px' }}>Filter</span>
@@ -65,7 +69,7 @@ const Filter = () => {
         <Flex
           gap={isMobile ? 5 : 20}
           px={10}
-          wrap={isMobile ? "wrap" : "nowrap"}
+          wrap={isMobile ? 'wrap' : 'nowrap'}
         >
           <Select
             label="Select Category"
@@ -89,7 +93,7 @@ const Filter = () => {
                 </Text>
               </Group>
             )}
-            w={isMobile ? "100%" : "50%"}
+            w={isMobile ? '100%' : '50%'}
           />
           <Select
             label="Select Province"
@@ -114,7 +118,7 @@ const Filter = () => {
                 </Text>
               </Group>
             )}
-            w={isMobile ? "100%" : "50%"}
+            w={isMobile ? '100%' : '50%'}
           />
         </Flex>
 
@@ -122,7 +126,7 @@ const Filter = () => {
           gap={isMobile ? 5 : 20}
           px={10}
           mt={isMobile ? 30 : 10}
-          wrap={isMobile ? "wrap" : "nowrap"}
+          wrap={isMobile ? 'wrap' : 'nowrap'}
         >
           <Select
             label="Select District"
@@ -138,7 +142,7 @@ const Filter = () => {
                 ? 'No districts found'
                 : 'Select a province first'
             }
-            w={isMobile ? "100%" : "50%"}
+            w={isMobile ? '100%' : '50%'}
             renderOption={({ option, checked }) => (
               <Group
                 gap="sm"
@@ -162,7 +166,7 @@ const Filter = () => {
             onChange={(value) => setSelectedCurrency(value || 'AFN')}
             clearable={false}
             leftSection={currencyIcon}
-            w={isMobile ? "100%" : "50%"}
+            w={isMobile ? '100%' : '50%'}
             renderOption={({ option, checked }) => (
               <Group
                 gap="sm"
@@ -184,12 +188,12 @@ const Filter = () => {
           gap={isMobile ? 5 : 20}
           px={10}
           mt={isMobile ? 30 : 10}
-          wrap={isMobile ? "wrap" : "nowrap"}
+          wrap={isMobile ? 'wrap' : 'nowrap'}
         >
           <NumberInput
             label={`Price From (${currencySymbol})`}
             placeholder="From"
-            w={isMobile ? "100%" : "50%"}
+            w={isMobile ? '100%' : '50%'}
             decimalScale={2}
             min={0}
             rightSection={currencyIcon}
@@ -198,16 +202,27 @@ const Filter = () => {
           <NumberInput
             label={`Price To (${currencySymbol})`}
             placeholder="To"
-            w={isMobile ? "100%" : "50%"}
+            w={isMobile ? '100%' : '50%'}
             decimalScale={2}
             min={0}
             rightSection={currencyIcon}
             rightSectionWidth={40}
           />
         </Flex>
+
+        <Flex
+         px={ 10 }
+         mt={ 30 } 
+         >
+        <Button 
+        leftSection={<TbAdjustmentsHorizontal />}
+        fullWidth
+        >Filter ads</Button>
+        </Flex>
+
       </Menu.Dropdown>
     </Menu>
   )
 }
 
-export  { Filter }
+export { Filter }

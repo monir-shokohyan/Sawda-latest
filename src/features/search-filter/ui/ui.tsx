@@ -6,7 +6,6 @@ import { useMediaQuery } from '@mantine/hooks'
 import { Filter } from '@features/search-filter/ui/filter'
 import { InputContainer } from '../styles'
 
-
 const Ui = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
 

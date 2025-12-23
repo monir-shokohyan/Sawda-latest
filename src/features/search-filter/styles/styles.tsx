@@ -1,7 +1,6 @@
 import { Flex, FlexProps } from '@mantine/core'
 import styled from 'styled-components'
 
-
 export const InputContainer = styled(Flex)<FlexProps>`
   height: 42px;
   border-radius: 10px;
