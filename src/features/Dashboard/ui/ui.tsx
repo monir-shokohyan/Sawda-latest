@@ -20,7 +20,7 @@ function Ui() {
           gap={isMobile ? 10 : 20}
           w="100%"
           justify="center"
-          p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
+          p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
         >
           {!isMobile && <Filter />}
           <SearchFilter isMobile={isMobile} />
@@ -30,7 +30,7 @@ function Ui() {
           w="100%"
           justify="center"
           direction="column"
-          p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
+          p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
         >
           <CardCarousal
             isMobile={isMobile}
@@ -48,7 +48,7 @@ function Ui() {
           w="100%"
           justify="center"
           direction="column"
-          p={{ base: 'lg', sm: 'lg', md: 'lg', lg: '50px' }}
+          p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
         >
           <Ads />
         </Flex>

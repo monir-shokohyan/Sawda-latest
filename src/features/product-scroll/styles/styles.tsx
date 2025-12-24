@@ -13,51 +13,23 @@ export const CategoryCard = styled(Card)<{ $isMobile: boolean } & CardProps>`
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-
+  
   &:hover {
     transform: translateY(-4px);
   }
 `
 export const StyledImageContainer = styled.div`
   width: 100%;
-  height: ${rem(250)};
+  height: 13rem;
   background: #e8e8e8;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-`;
-
-export const StyledPlaceholderImage = styled.div`
-  width: ${rem(80)};
-  height: ${rem(80)};
-  border: 3px solid #333;
-  border-radius: ${rem(4)};
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 30px solid #333;
-    left: ${rem(15)};
-    top: ${rem(15)};
+  @media (max-width: 800px){
+    height: 6.5rem;
   }
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: ${rem(15)};
-    height: ${rem(15)};
-    border-radius: 50%;
-    background: #333;
-    right: ${rem(15)};
-    top: ${rem(15)};
-  }
-`;
+`
 
 export const LoaderSpinner = styled.div`
   width: ${rem(40)};
@@ -75,4 +47,4 @@ export const LoaderSpinner = styled.div`
       transform: rotate(360deg);
     }
   }
-`;
+`
