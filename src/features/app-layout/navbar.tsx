@@ -18,7 +18,9 @@ import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
 
 const Navbar = () => {
-  const [openedModal, setOpenedModal] = useState<'message' | 'profile' | 'add' | null>(null)
+  const [openedModal, setOpenedModal] = useState<
+    'message' | 'profile' | 'add' | null
+  >(null)
 
   const isMobile = useMediaQuery('(max-width: 768px)')
   const isTablet = useMediaQuery('(max-width: 1024px)')
@@ -34,8 +36,6 @@ const Navbar = () => {
         align="center"
         style={{ borderBottom: '1px solid #e5e7eb' }}
       >
-   
-
         <Flex
           align="center"
           gap={isMobile ? 12 : 24}
@@ -57,13 +57,11 @@ const Navbar = () => {
           align="center"
           gap={isMobile ? 5 : 16}
         >
-              {
-                !isMobile && <LanguageDropDown />
-              }
-              <Flex>
-               {!isMobile &&
-               <>
-               <ActionIcon
+          {!isMobile && <LanguageDropDown />}
+          <Flex>
+            {!isMobile && (
+              <>
+                <ActionIcon
                   variant="subtle"
                   color="textPrimary"
                   size="lg"
@@ -79,49 +77,42 @@ const Navbar = () => {
                   <MdOutlineShoppingCart size={20} />
                 </ActionIcon>
 
-                    <ActionIcon
-                      variant="subtle"
-                      color="textPrimary"
-                      size="lg"
-                    >
-                      <MdOutlineNotifications size={20} />
-                    </ActionIcon>
+                <ActionIcon
+                  variant="subtle"
+                  color="textPrimary"
+                  size="lg"
+                >
+                  <MdOutlineNotifications size={20} />
+                </ActionIcon>
 
-                    <ActionIcon
-                      variant="subtle"
-                      color="textPrimary"
-                      size="lg"
-                    >
-                      <MdOutlineMessage size={20} />
-                    </ActionIcon>
-               </>
-                    }
+                <ActionIcon
+                  variant="subtle"
+                  color="textPrimary"
+                  size="lg"
+                >
+                  <MdOutlineMessage size={20} />
+                </ActionIcon>
+              </>
+            )}
 
-                    <DarkMode />
-              </Flex>
-              {
-                !isMobile &&  <ProfileDrownDown />
-              }
-              {
-                !isMobile && <Button
-                size="compact-sm"
-                style={{
-                  borderRadius: 6,
-                }}
-                bg="primary"
-              >
-                Place an ad
-              </Button>
-              }
-
-             
-
+            <DarkMode />
+          </Flex>
+          {!isMobile && <ProfileDrownDown />}
+          {!isMobile && (
+            <Button
+              size="compact-sm"
+              style={{
+                borderRadius: 6,
+              }}
+              bg="primary"
+            >
+              Place an ad
+            </Button>
+          )}
         </Flex>
       </Flex>
 
-      {isMobile && (
-        <MobileDownbar setOpenedModal={setOpenedModal} />
-      )}
+      {isMobile && <MobileDownbar setOpenedModal={setOpenedModal} />}
 
       {/* Message Modal */}
       <Modal
@@ -151,7 +142,12 @@ const Navbar = () => {
             >
               <MdArrowBack size={24} />
             </ActionIcon>
-            <Text size="lg" fw={600}>Messages</Text>
+            <Text
+              size="lg"
+              fw={600}
+            >
+              Messages
+            </Text>
           </Flex>
 
           {/* Content */}
@@ -194,7 +190,12 @@ const Navbar = () => {
             >
               <MdArrowBack size={24} />
             </ActionIcon>
-            <Text size="lg" fw={600}>Profile</Text>
+            <Text
+              size="lg"
+              fw={600}
+            >
+              Profile
+            </Text>
           </Flex>
 
           {/* Content */}
@@ -236,7 +237,12 @@ const Navbar = () => {
             >
               <MdArrowBack size={24} />
             </ActionIcon>
-            <Text size="lg" fw={600}>Create Post</Text>
+            <Text
+              size="lg"
+              fw={600}
+            >
+              Create Post
+            </Text>
           </Flex>
 
           <Flex

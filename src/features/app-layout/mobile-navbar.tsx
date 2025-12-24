@@ -1,5 +1,5 @@
-import { ActionIcon, Flex } from '@mantine/core';
-import { Dispatch, SetStateAction } from 'react';
+import { ActionIcon, Flex } from '@mantine/core'
+import { Dispatch, SetStateAction } from 'react'
 
 import {
   MdAdd,
@@ -7,12 +7,12 @@ import {
   MdOutlineFavoriteBorder,
   MdOutlineMessage,
   MdPerson,
-} from 'react-icons/md';
+} from 'react-icons/md'
 
-type ModalType = 'add' | 'message' | 'profile' | null;
+type ModalType = 'add' | 'message' | 'profile' | null
 
 interface MobileDownbarProps {
-  setOpenedModal: Dispatch<SetStateAction<ModalType>>;
+  setOpenedModal: Dispatch<SetStateAction<ModalType>>
 }
 
 const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
@@ -31,11 +31,19 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         zIndex: 100,
       }}
     >
-      <ActionIcon variant="subtle" color="gray" size="xl">
+      <ActionIcon
+        variant="subtle"
+        color="gray"
+        size="xl"
+      >
         <MdHome size={24} />
       </ActionIcon>
 
-      <ActionIcon variant="subtle" color="gray" size="xl">
+      <ActionIcon
+        variant="subtle"
+        color="gray"
+        size="xl"
+      >
         <MdOutlineFavoriteBorder size={24} />
       </ActionIcon>
 
@@ -71,7 +79,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         <MdPerson size={24} />
       </ActionIcon>
     </Flex>
-  );
-};
+  )
+}
 
-export { MobileDownbar };
+export { MobileDownbar }

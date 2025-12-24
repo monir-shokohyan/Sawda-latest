@@ -1,4 +1,5 @@
 import { DashboardPage } from '@pages/dashboard'
+import { ProductDetailPage } from '@pages/product-details'
 import { LoginPage } from '@shared/authentication'
 import { ForgotPasswordPage } from '@shared/authentication/forgetPassword'
 import { RegisterPage } from '@shared/authentication/registerPage'
@@ -13,6 +14,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="dashboard">
         <DashboardPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'product-detail',
+    guarded: '',
+    path: '/product/:id',
+    element: (
+      <ErrorSuspense suspenseKey="product-detail">
+        <ProductDetailPage />
       </ErrorSuspense>
     ),
   },

@@ -6,6 +6,7 @@ import { CardCarousal } from '@features/card-scroll/ui'
 import { GradientContainer } from '@shared/ui/containers'
 import Ads from '@shared/ads/ads'
 import { ProductScroll } from '@features/product-scroll/ui'
+import { GeneralPadding } from '@shared/constants'
 
 function Ui() {
   const isMobile = useMediaQuery('(max-width: 768px)')
@@ -20,7 +21,7 @@ function Ui() {
           gap={isMobile ? 10 : 20}
           w="100%"
           justify="center"
-          p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
+          p={GeneralPadding}
           pos="sticky"
           top={0}
           style={{ zIndex: 10 }}
@@ -33,7 +34,7 @@ function Ui() {
           w="100%"
           justify="center"
           direction="column"
-          p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
+          p={GeneralPadding}
         >
           <CardCarousal
             isMobile={isMobile}
@@ -51,7 +52,7 @@ function Ui() {
           w="100%"
           justify="center"
           direction="column"
-          p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
+          p={GeneralPadding}
         >
           <Ads />
         </Flex>

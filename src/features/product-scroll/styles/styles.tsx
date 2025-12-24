@@ -18,18 +18,6 @@ export const CategoryCard = styled(Card)<{ $isMobile: boolean } & CardProps>`
     transform: translateY(-4px);
   }
 `
-export const StyledImageContainer = styled.div`
-  width: 100%;
-  height: 13rem;
-  background: #e8e8e8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  @media (max-width: 800px) {
-    height: 6.5rem;
-  }
-`
 
 export const LoaderSpinner = styled.div`
   width: ${rem(40)};
