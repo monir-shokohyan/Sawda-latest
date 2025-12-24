@@ -13,16 +13,17 @@ import {
   Flex,
 } from '@mantine/core'
 import { GradientContainer } from '@shared/ui/containers'
-import {
-  LoaderSpinner,
-  StyledImageContainer,
-} from '../styles'
+import { LoaderSpinner, StyledImageContainer } from '../styles'
 import { Product } from '../types'
 import { useMediaQuery } from '@mantine/hooks'
 
 const ImageContainer = () => (
   <StyledImageContainer>
-    <Image src="/placeholder.png" width="100%" height="100%" />
+    <Image
+      src="/placeholder.png"
+      width="100%"
+      height="100%"
+    />
   </StyledImageContainer>
 )
 
@@ -129,7 +130,7 @@ const Ui = () => {
                     >
                       <Group
                         px="md"
-                        py={isMobile ? '5px' :"xs"}
+                        py={isMobile ? '5px' : 'xs'}
                         style={{ borderBottom: '1px solid #e8e8e8' }}
                       >
                         <Avatar
@@ -139,15 +140,18 @@ const Ui = () => {
                         >
                           {product.username.charAt(0).toUpperCase()}
                         </Avatar>
-                        <Flex direction="column" gap={isMobile? '4px' : '0px'}>
+                        <Flex
+                          direction="column"
+                          gap={isMobile ? '4px' : '0px'}
+                        >
                           <Text
                             fw={600}
-                            size={isMobile ? "0.7rem" : 'md'}
+                            size={isMobile ? '0.7rem' : 'md'}
                           >
                             {product.username}
                           </Text>
                           <Text
-                            size={isMobile ? "0.7rem" : 'xs'}
+                            size={isMobile ? '0.7rem' : 'xs'}
                             c="dimmed"
                           >
                             {product.timestamp}
@@ -157,9 +161,13 @@ const Ui = () => {
 
                       <ImageContainer />
 
-                      <Flex px={16} py={isMobile ? '5px' : '16px'} direction="column">
+                      <Flex
+                        px={16}
+                        py={isMobile ? '5px' : '16px'}
+                        direction="column"
+                      >
                         <Text
-                          size={isMobile ? "0.7rem" : "sm"}
+                          size={isMobile ? '0.7rem' : 'sm'}
                           fw={500}
                           lineClamp={1}
                           style={{ flexGrow: 1 }}
@@ -168,16 +176,16 @@ const Ui = () => {
                         </Text>
                         <Group
                           gap="xs"
-                          mt={isMobile ? '5px' : "xs"}
+                          mt={isMobile ? '5px' : 'xs'}
                         >
                           <Text
-                            size={isMobile ? "0.8rem" : "xl"}
+                            size={isMobile ? '0.8rem' : 'xl'}
                             fw={700}
                           >
                             {product.price}
                           </Text>
                           <Text
-                            size={isMobile ? "0.7rem" : "md"}
+                            size={isMobile ? '0.7rem' : 'md'}
                             c="dimmed"
                             td="line-through"
                           >
@@ -189,7 +197,7 @@ const Ui = () => {
                       <Group
                         justify="space-between"
                         px="md"
-                        py={isMobile ? '5px' :"xs"}
+                        py={isMobile ? '5px' : 'xs'}
                         style={{ borderTop: '1px solid #e8e8e8' }}
                       >
                         <ActionIcon

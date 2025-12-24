@@ -21,6 +21,9 @@ function Ui() {
           w="100%"
           justify="center"
           p={{ base: 'sm', sm: 'sm', md: 'lg', lg: '50px' }}
+          pos="sticky"
+          top={0}
+          style={{ zIndex: 10 }}
         >
           {!isMobile && <Filter />}
           <SearchFilter isMobile={isMobile} />

@@ -13,7 +13,7 @@ export const CategoryCard = styled(Card)<{ $isMobile: boolean } & CardProps>`
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-  
+
   &:hover {
     transform: translateY(-4px);
   }
@@ -26,7 +26,7 @@ export const StyledImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     height: 6.5rem;
   }
 `

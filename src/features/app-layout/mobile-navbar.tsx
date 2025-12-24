@@ -1,89 +1,77 @@
-import { Button, Drawer, Flex, Stack } from '@mantine/core'
-import { CategoryDropDown } from '@shared/ui/category'
-import { DarkMode } from '@shared/ui/darkMode'
-import { LanguageDropDown } from '@shared/ui/language'
+import { ActionIcon, Flex } from '@mantine/core';
+import { Dispatch, SetStateAction } from 'react';
+
 import {
+  MdAdd,
+  MdHome,
   MdOutlineFavoriteBorder,
   MdOutlineMessage,
-  MdOutlineNotifications,
-} from 'react-icons/md'
+  MdPerson,
+} from 'react-icons/md';
 
-interface props {
-  drawerOpened: boolean
-  closeDrawer: () => void
+type ModalType = 'add' | 'message' | 'profile' | null;
+
+interface MobileDownbarProps {
+  setOpenedModal: Dispatch<SetStateAction<ModalType>>;
 }
 
-const MobileNavbar = ({ drawerOpened, closeDrawer }: props) => {
+const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
   return (
-    <Drawer
-      opened={drawerOpened}
-      onClose={closeDrawer}
-      title="Menu"
-      padding="md"
-      size="80%"
-      styles={{
-        content: {
-          height: '100dvh',
-          maxHeight: '100dvh',
-        },
+    <Flex
+      justify="space-around"
+      align="center"
+      h={60}
+      style={{
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        borderTop: '1px solid #e5e7eb',
+        backgroundColor: 'var(--mantine-color-body)',
+        zIndex: 100,
       }}
     >
-      <Flex
-        gap="sm"
-        h="88dvh"
-        justify="space-between"
-        direction="column"
+      <ActionIcon variant="subtle" color="gray" size="xl">
+        <MdHome size={24} />
+      </ActionIcon>
+
+      <ActionIcon variant="subtle" color="gray" size="xl">
+        <MdOutlineFavoriteBorder size={24} />
+      </ActionIcon>
+
+      <ActionIcon
+        variant="filled"
+        color="blue"
+        size="xl"
+        radius="xl"
+        style={{
+          width: 48,
+          height: 48,
+        }}
+        onClick={() => setOpenedModal('add')}
       >
-        <Stack gap="sm">
-          <CategoryDropDown closeDrawer={closeDrawer} />
+        <MdAdd size={28} />
+      </ActionIcon>
 
-          <Button
-            variant="subtle"
-            leftSection={<MdOutlineFavoriteBorder size={20} />}
-            color="textPrimary"
-            fullWidth
-            justify="flex-start"
-          >
-            Favorites
-          </Button>
+      <ActionIcon
+        variant="subtle"
+        color="gray"
+        size="xl"
+        onClick={() => setOpenedModal('message')}
+      >
+        <MdOutlineMessage size={24} />
+      </ActionIcon>
 
-          <Button
-            variant="subtle"
-            leftSection={<MdOutlineNotifications size={20} />}
-            color="textPrimary"
-            fullWidth
-            justify="flex-start"
-          >
-            Notifications
-          </Button>
+      <ActionIcon
+        variant="subtle"
+        color="gray"
+        size="xl"
+        onClick={() => setOpenedModal('profile')}
+      >
+        <MdPerson size={24} />
+      </ActionIcon>
+    </Flex>
+  );
+};
 
-          <Button
-            variant="subtle"
-            leftSection={<MdOutlineMessage size={20} />}
-            color="textPrimary"
-            fullWidth
-            justify="flex-start"
-          >
-            Messages
-          </Button>
-
-          <Button
-            fullWidth
-            style={{
-              backgroundColor: '#3b82f6',
-              borderRadius: 6,
-            }}
-          >
-            Place an ad
-          </Button>
-        </Stack>
-        <Flex justify="space-between">
-          <LanguageDropDown />
-          <DarkMode />
-        </Flex>
-      </Flex>
-    </Drawer>
-  )
-}
-
-export { MobileNavbar }
+export { MobileDownbar };
