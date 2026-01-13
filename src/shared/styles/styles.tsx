@@ -1,4 +1,4 @@
-import { Text, TextProps } from '@mantine/core'
+import { Menu, MenuItemProps, Text, TextProps } from '@mantine/core'
 import styled from 'styled-components'
 
 export const VerticalBorder = styled.div`
@@ -11,4 +11,9 @@ export const SText = styled(Text)<TextProps & { children: string }>`
   z-index: 9;
   text-align: start;
   font-weight: bolder;
+`
+export const HoveredMenuItem = styled(Menu.Item)<MenuItemProps & {onClick?: () => void}>`
+&:hover{
+  background-color: #d3d3d34b
+}
 `

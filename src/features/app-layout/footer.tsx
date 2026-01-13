@@ -75,6 +75,7 @@ const Footer = () => {
         borderTop: '1px solid #e5e7eb',
         backgroundColor: 'var(--mantine-color-body)',
       }}
+      bg="background.8"
       py={isMobile ? 24 : 32}
       px={isMobile ? 16 : isTablet ? 40 : 100}
       mb={isMobile ? 60 : 0}

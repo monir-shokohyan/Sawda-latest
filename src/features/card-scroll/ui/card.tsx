@@ -7,7 +7,7 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
   return (
     <CategoryCard
       shadow="sm"
-      bg="surface"
+      bg="background.7"
       $isMobile={isMobile}
     >
       <SText

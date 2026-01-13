@@ -34,7 +34,8 @@ const Navbar = () => {
         justify="space-between"
         h={53}
         align="center"
-        style={{ borderBottom: '1px solid #e5e7eb' }}
+        // style={{ borderBottom: '1px solid #e5e7eb' }}
+        bg="background.8"
       >
         <Flex
           align="center"
@@ -100,14 +101,20 @@ const Navbar = () => {
           {!isMobile && <ProfileDrownDown />}
           {!isMobile && (
             <Button
-              size="compact-sm"
-              style={{
-                borderRadius: 6,
-              }}
-              bg="primary"
-            >
-              Place an ad
-            </Button>
+               variant="subtle"
+               color="lightText"
+               size="sm"
+               p={0}
+               px={10}
+               styles={{
+                 section: {
+                   marginInline: isMobile ? '0px' : '8px',
+                 },
+               }}
+               bg="originalBlue"
+             >
+               Place an ad
+             </Button>
           )}
         </Flex>
       </Flex>

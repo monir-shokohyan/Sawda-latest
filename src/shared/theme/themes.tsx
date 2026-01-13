@@ -1,24 +1,37 @@
-import { createTheme, virtualColor, colorsTuple } from '@mantine/core'
+import { createTheme, virtualColor, colorsTuple, MenuDropdown, Menu, Button, Input } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
-const blueAccent: MantineColorsTuple = [
-  '#e5f3ff',
-  '#cce8ff',
-  '#99d1ff',
-  '#66bbff',
-  '#33a4ff',
-  '#0F84F0',
-  '#0078d4',
-  '#0063ba',
-  '#004ea1',
-  '#003988',
+const darkAccent: MantineColorsTuple = [
+  '#FFFFFF',
+  '#F0F8FF',
+  '#B3E5FC',     
+  '#81D4FA',
+  '#4d9adf',
+  '#325a82',
+  '#2c4f73',
+  '#242d3b',
+  '#172029',
+  '#0f1520'
+]
+const lightAccent: MantineColorsTuple = [
+  '#FFFFFF',
+  '#F0F8FF',
+  '#B3E5FC',     
+  '#81D4FA',
+  '#29B6F6',
+  '#0088CC',
+  '#458dd1',
+  '#FFFFFF',
+  'rgb(255, 255, 255)',
+  'rgb(245, 245, 245)'
 ]
 
 const originalBlue: MantineColorsTuple = colorsTuple('#366FB4')
 const greenAccent: MantineColorsTuple = colorsTuple('#30B352')
-const lightBg: MantineColorsTuple = colorsTuple('#EBEAE8')
-const darkBg: MantineColorsTuple = colorsTuple('#1C1C1E')
-const darkSurface: MantineColorsTuple = colorsTuple('#2B2B2D')
+const lightBg: MantineColorsTuple = colorsTuple('rgb(245, 245, 245)')
+const darkBg: MantineColorsTuple = colorsTuple('#130F49')
+const lightSurface: MantineColorsTuple = colorsTuple('#FFFFFF')
+const darkSurface: MantineColorsTuple = colorsTuple('#121B5B')
 const grayText: MantineColorsTuple = colorsTuple('#686968')
 
 const lightText: MantineColorsTuple = colorsTuple('#FFFFFF')
@@ -28,8 +41,11 @@ export const theme = createTheme({
   defaultRadius: 'md',
   primaryColor: 'primary',
 
+  
+  
   colors: {
-    blueAccent,
+    darkAccent,
+    lightAccent,
     originalBlue,
     greenAccent,
     lightBg,
@@ -37,25 +53,24 @@ export const theme = createTheme({
     darkSurface,
     grayText,
     lightText,
+    lightSurface,
 
     primary: virtualColor({
       name: 'primary',
       light: 'originalBlue',
-      dark: 'blueAccent',
+      dark: 'darkAccent',
     }),
-
+    buttonColor: virtualColor({
+      name: 'buttonColor',
+      light: 'originalBlue',
+      dark: 'orginalBlue',
+    }),
+  
     background: virtualColor({
       name: 'background',
-      light: 'lightBg',
-      dark: 'darkBg',
+      light: 'lightAccent',
+      dark: 'darkAccent',
     }),
-
-    surface: virtualColor({
-      name: 'surface',
-      light: 'lightBg',
-      dark: 'darkSurface',
-    }),
-
     textPrimary: virtualColor({
       name: 'textPrimary',
       light: 'grayText',
@@ -67,11 +82,41 @@ export const theme = createTheme({
       light: 'grayText',
       dark: 'grayText',
     }),
-
+    
     navbarBg: virtualColor({
       name: 'navbarBg',
       light: 'lightBg',
       dark: 'darkBg',
     }),
+  },
+  components: {
+    Menu: Menu.extend({
+      styles: (theme) => ({
+        dropdown: {
+          background: theme.colors.background[7],
+        },
+        item: {
+          '&:hover': {
+            backgroundColor: theme.colors.background[7],
+          },
+        },
+      }),
+    }),
+    Input: Input.extend({
+      styles: (theme) => ({
+        input: {
+          backgroundColor: theme.colors.background[8],
+          border: `1px solid ${theme.colors.background[7]}`
+        }
+      })
+
+    })
+    // Button: Button.extend({
+    //   styles: (theme) => ({
+    //     root: {
+    //       background: '#000',
+    //     },
+    //   }),
+    // }),
   },
 })

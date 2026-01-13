@@ -1,10 +1,11 @@
-import { Button, Menu } from '@mantine/core'
+import { Button, Menu, Text } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlinePersonOutline,
 } from 'react-icons/md'
 import { ProfileConstant } from './constant'
+import { HoveredMenuItem } from '@shared/styles'
 
 const ProfileDrownDown = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
@@ -35,21 +36,13 @@ const ProfileDrownDown = () => {
       <Menu.Dropdown>
         {ProfileConstant.map((option) => {
           return (
-            <Menu.Item
-              color="textPrimary"
-              py={0}
-            >
-              <Button
-                variant="transparent"
-                leftSection={option.icon}
-                color="textPrimary"
-                fullWidth
-                justify="flex-start"
-                p={0}
+            <HoveredMenuItem
+                key={option.label}
+                c="textPrimary"
+                leftSection={option.icon}                            
               >
-                {option.label}
-              </Button>
-            </Menu.Item>
+                <Text size="sm">{option.label}</Text>
+              </HoveredMenuItem>
           )
         })}
       </Menu.Dropdown>

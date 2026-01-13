@@ -1,6 +1,7 @@
-import { Button, Menu } from '@mantine/core'
+import { Button, Menu, Text } from '@mantine/core'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { LanguageContants } from './constant'
+import { HoveredMenuItem } from '@shared/styles'
 
 const LanguageDropDown = () => {
   return (
@@ -25,21 +26,16 @@ const LanguageDropDown = () => {
       <Menu.Dropdown>
         {LanguageContants.map((option) => {
           return (
-            <Menu.Item
-              color="textPrimary"
-              py={0}
+         
+            <HoveredMenuItem
+              key={option.label}
+              c="textPrimary"
+              leftSection={option.icon}
+              className='menuHover'
+              
             >
-              <Button
-                variant="transparent"
-                leftSection={option.icon}
-                color="textPrimary"
-                fullWidth
-                justify="flex-start"
-                p={0}
-              >
-                {option.label}
-              </Button>
-            </Menu.Item>
+              <Text size="sm">{option.label}</Text>
+            </HoveredMenuItem>
           )
         })}
       </Menu.Dropdown>

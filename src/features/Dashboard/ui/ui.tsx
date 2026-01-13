@@ -16,7 +16,7 @@ function Ui() {
       w="100%"
       gap={0}
     >
-      <GradientContainer gDirection="top-to-bottom">
+      <GradientContainer>
         <Group
           gap={isMobile ? 10 : 20}
           w="100%"

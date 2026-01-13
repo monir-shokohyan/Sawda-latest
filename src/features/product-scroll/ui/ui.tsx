@@ -77,7 +77,6 @@ const Ui = () => {
           return (
             <GradientContainer
               key={chunkIndex}
-              gDirection={direction}
               p={GeneralPadding}
               pb={{ base: 12, sm: 16, md: 20 }}
             >

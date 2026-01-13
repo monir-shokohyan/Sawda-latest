@@ -17,21 +17,30 @@ function Ui() {
       p={isMobile ? 'md' : GeneralPadding}
     >
       <BreadcrumbsNav items={[{ title: 'Home', href: '/' }, { title: name }]} />
-      <Flex gap={10} p={GeneralPadding}>
-        <Stack  w="65%" >
-            <Text>2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km</Text>
-            <Flex gap={10}>
-              <Button  color="background" c="textPrimary" leftSection={<MdOutlineFavorite />}><Text size="sm">
-                Add to favorites
-                </Text></Button>
-              <Button  color="background" c="textPrimary" leftSection={<MdEditDocument />}><Text size="sm">
-                Add a note
-                </Text></Button>
-            </Flex>
+      <Flex
+        gap={10}
+        p={GeneralPadding}
+      >
+        <Stack w="65%">
+          <Text>2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km</Text>
+          <Flex gap={10}>
+            <Button
+              color="background"
+              c="textPrimary"
+              leftSection={<MdOutlineFavorite />}
+            >
+              <Text size="sm">Add to favorites</Text>
+            </Button>
+            <Button
+              color="background"
+              c="textPrimary"
+              leftSection={<MdEditDocument />}
+            >
+              <Text size="sm">Add a note</Text>
+            </Button>
+          </Flex>
         </Stack>
-        <Group  w="35%" >
-
-        </Group>
+        <Group w="35%"></Group>
       </Flex>
     </Stack>
   )

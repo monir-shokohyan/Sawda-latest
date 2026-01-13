@@ -73,6 +73,7 @@ const ProductCard = ({
           }).toString(),
         })
       }
+      bg="background.7"
     >
       <Group
         px="md"

@@ -62,7 +62,7 @@ const Filter = () => {
       closeOnClickOutside={false}
     >
       <Menu.Target>
-        <ActionIcon size="xl">
+        <ActionIcon size="xl" bg="originalBlue">
           <MdOutlineManageSearch size={isMobile ? 18 : 20} />
         </ActionIcon>
       </Menu.Target>

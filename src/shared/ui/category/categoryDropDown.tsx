@@ -1,11 +1,11 @@
-import { Button, Menu, Stack, Text, ScrollArea } from '@mantine/core'
+import { Button, Menu, Stack, Text, ScrollArea, useMantineTheme, MenuProps, MenuItemProps } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { CategoryConstants } from './constant'
+import { HoveredMenuItem } from '@shared/styles'
 
 const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
-
   const triggerButton = (
     <Button
       variant="subtle"
@@ -30,19 +30,19 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
 
       <Menu.Dropdown>
         <ScrollArea
-          h={500}
+          h={520}
           type="auto"
         >
-          <Stack gap={0}>
+          <Stack gap={0} bg="background.7">
             {CategoryConstants.map((option) => (
-              <Menu.Item
+              <HoveredMenuItem
                 key={option.label}
                 c="textPrimary"
                 leftSection={option.icon}
-                onClick={() => closeDrawer?.()}
+                onClick={() => closeDrawer?.()}                
               >
                 <Text size="sm">{option.label}</Text>
-              </Menu.Item>
+              </HoveredMenuItem>
             ))}
           </Stack>
         </ScrollArea>
