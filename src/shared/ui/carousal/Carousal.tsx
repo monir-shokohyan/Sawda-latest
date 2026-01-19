@@ -89,7 +89,7 @@ const ImageCarousel: React.FC = () => {
         <Carousel
           withIndicators
           height={isMobile ? 300: 500}
-          slideGap="md"
+          slideGap="sm"
           controlsOffset="xl"
           controlSize={50}
           getEmblaApi={setEmbla}
@@ -125,7 +125,7 @@ const ImageCarousel: React.FC = () => {
           emblaOptions={{
             align: 'start'
           }}
-          slideSize="95%"
+          slideSize={isMobile ? "95%" : "97%" }
 
         >
           {images.map((image) => (

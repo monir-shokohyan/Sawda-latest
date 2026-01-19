@@ -17,14 +17,14 @@ function Ui() {
       w="100%"
       gap={0}
       p={isMobile ? 'md' : GeneralPadding}
-      >
+    >
       <BreadcrumbsNav items={[{ title: 'Home', href: '/' }, { title: name }]} />
       <Flex
         gap={10}
         p={isMobile ? '0px' : GeneralPadding}
         wrap="wrap"
       >
-        <Stack w={isMobile ? "100%" : "65%"}>
+        <Stack w={isMobile ? '100%' : '65%'}>
           <Text>2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km</Text>
           <Flex gap={10}>
             <SButton leftSection={<MdOutlineFavorite />}>
@@ -36,7 +36,7 @@ function Ui() {
           </Flex>
           <ImageCarousel />
         </Stack>
-        <Group w={isMobile ? "100%" : "35%"}></Group>
+        <Group w={isMobile ? '100%' : '35%'}></Group>
       </Flex>
     </Stack>
   )
