@@ -8,6 +8,7 @@ import {
   MdOutlineMessage,
   MdPerson,
 } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 type ModalType = 'add' | 'message' | 'profile' | null
 
@@ -16,6 +17,7 @@ interface MobileDownbarProps {
 }
 
 const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
+  const navigate = useNavigate()
   return (
     <Flex
       justify="space-around"
@@ -35,6 +37,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         variant="subtle"
         color="gray"
         size="xl"
+        onClick={() => navigate('/')}
       >
         <MdHome size={24} />
       </ActionIcon>

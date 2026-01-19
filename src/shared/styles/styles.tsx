@@ -42,7 +42,7 @@ export const HoveredSelect = styled(Select)<SelectProps>`
   }
 `
 export const SInput = styled(TextInput)<InputProps>`
- input:focus {
+  input:focus {
     border-color: var(--mantine-color-blue-6);
   }
 `

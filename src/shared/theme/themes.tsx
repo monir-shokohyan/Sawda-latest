@@ -116,8 +116,7 @@ export const theme = createTheme({
         input: {
           backgroundColor: theme.colors.background[8],
         },
-        wrapper: {
-        },
+        wrapper: {},
       }),
     }),
   },

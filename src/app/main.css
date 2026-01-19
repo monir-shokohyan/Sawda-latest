@@ -32,3 +32,12 @@
 .mantine-Menu-item {
   font-weight: 600;
 }
+
+.mantine-Carousel-control{
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: none !important;
+  color: white !important;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+  }
+}
