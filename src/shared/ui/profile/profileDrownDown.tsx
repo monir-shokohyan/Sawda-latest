@@ -37,12 +37,12 @@ const ProfileDrownDown = () => {
         {ProfileConstant.map((option) => {
           return (
             <HoveredMenuItem
-                key={option.label}
-                c="textPrimary"
-                leftSection={option.icon}                            
-              >
-                <Text size="sm">{option.label}</Text>
-              </HoveredMenuItem>
+              key={option.label}
+              c="textPrimary"
+              leftSection={option.icon}
+            >
+              <Text size="sm">{option.label}</Text>
+            </HoveredMenuItem>
           )
         })}
       </Menu.Dropdown>

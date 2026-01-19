@@ -16,6 +16,7 @@ import {
 } from 'react-icons/md'
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
+import { SButton } from '@shared/styles'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
@@ -34,7 +35,6 @@ const Navbar = () => {
         justify="space-between"
         h={53}
         align="center"
-        // style={{ borderBottom: '1px solid #e5e7eb' }}
         bg="background.8"
       >
         <Flex
@@ -100,21 +100,16 @@ const Navbar = () => {
           </Flex>
           {!isMobile && <ProfileDrownDown />}
           {!isMobile && (
-            <Button
-               variant="subtle"
-               color="lightText"
-               size="sm"
-               p={0}
-               px={10}
-               styles={{
-                 section: {
-                   marginInline: isMobile ? '0px' : '8px',
-                 },
-               }}
-               bg="originalBlue"
-             >
-               Place an ad
-             </Button>
+            <SButton
+              variant="subtle"
+              color="lightText"
+              size="sm"
+              p={0}
+              px={10}
+              bg="originalBlue"
+            >
+              Place an ad
+            </SButton>
           )}
         </Flex>
       </Flex>

@@ -26,13 +26,11 @@ const LanguageDropDown = () => {
       <Menu.Dropdown>
         {LanguageContants.map((option) => {
           return (
-         
             <HoveredMenuItem
               key={option.label}
               c="textPrimary"
               leftSection={option.icon}
-              className='menuHover'
-              
+              className="menuHover"
             >
               <Text size="sm">{option.label}</Text>
             </HoveredMenuItem>

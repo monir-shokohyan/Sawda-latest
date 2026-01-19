@@ -1,4 +1,10 @@
-import { Button, Menu, Stack, Text, ScrollArea, useMantineTheme, MenuProps, MenuItemProps } from '@mantine/core'
+import {
+  Button,
+  Menu,
+  Stack,
+  Text,
+  ScrollArea,
+} from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { CategoryConstants } from './constant'
@@ -33,13 +39,16 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
           h={520}
           type="auto"
         >
-          <Stack gap={0} bg="background.7">
+          <Stack
+            gap={0}
+            bg="background.7"
+          >
             {CategoryConstants.map((option) => (
               <HoveredMenuItem
                 key={option.label}
                 c="textPrimary"
                 leftSection={option.icon}
-                onClick={() => closeDrawer?.()}                
+                onClick={() => closeDrawer?.()}
               >
                 <Text size="sm">{option.label}</Text>
               </HoveredMenuItem>

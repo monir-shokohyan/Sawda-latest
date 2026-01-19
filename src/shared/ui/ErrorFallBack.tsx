@@ -3,7 +3,6 @@ import { GoAlert } from 'react-icons/go'
 import { useNavigate } from 'react-router-dom'
 import {
   Tooltip,
-  Button,
   Text,
   Stack,
   Group,
@@ -12,6 +11,7 @@ import {
   Paper,
 } from '@mantine/core'
 import { TbHome, TbRefresh } from 'react-icons/tb'
+import { SButton } from '@shared/styles'
 
 const ErrorFallback = ({ error }: { error: Error }) => {
   const navigate = useNavigate()
@@ -50,36 +50,36 @@ const ErrorFallback = ({ error }: { error: Error }) => {
             label="Reload the page"
             position="bottom"
           >
-            <Button
+            <SButton
               leftSection={<TbRefresh size={18} />}
               onClick={() => window.location.reload()}
               color="blue"
             >
               Reload
-            </Button>
+            </SButton>
           </Tooltip>
 
           <Tooltip
             label="Return to homepage"
             position="bottom"
           >
-            <Button
+            <SButton
               leftSection={<TbHome size={18} />}
               onClick={() => navigate('/')}
               variant="default"
             >
               Home
-            </Button>
+            </SButton>
           </Tooltip>
         </Group>
 
         {/* Toggle Error Details */}
-        <Button
+        <SButton
           variant="subtle"
           onClick={() => setShowDetails(!showDetails)}
         >
           {showDetails ? 'Hide error details' : 'Show error details'}
-        </Button>
+        </SButton>
 
         {/* Error Details */}
         {showDetails && (

@@ -1,6 +1,5 @@
 import {
   ActionIcon,
-  Button,
   Flex,
   Group,
   Menu,
@@ -20,6 +19,7 @@ import {
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
 import { useMediaQuery } from '@mantine/hooks'
+import { HoveredSelect, SActionIcon, SButton } from '@shared/styles'
 
 const Filter = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
@@ -62,9 +62,11 @@ const Filter = () => {
       closeOnClickOutside={false}
     >
       <Menu.Target>
-        <ActionIcon size="xl" bg="originalBlue">
+        <SActionIcon
+          size="xl"
+        >
           <MdOutlineManageSearch size={isMobile ? 18 : 20} />
-        </ActionIcon>
+        </SActionIcon>
       </Menu.Target>
 
       <Menu.Dropdown
@@ -96,7 +98,7 @@ const Filter = () => {
           px={10}
           wrap={isMobile ? 'wrap' : 'nowrap'}
         >
-          <Select
+          <HoveredSelect
             label="Select Category"
             placeholder="Choose a category"
             data={CategoryConstants}
@@ -239,12 +241,12 @@ const Filter = () => {
           px={10}
           mt={30}
         >
-          <Button
+          <SButton
             leftSection={<TbAdjustmentsHorizontal />}
             fullWidth
           >
             Filter ads
-          </Button>
+          </SButton>
         </Flex>
       </Menu.Dropdown>
     </Menu>

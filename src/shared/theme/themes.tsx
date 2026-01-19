@@ -1,32 +1,40 @@
-import { createTheme, virtualColor, colorsTuple, MenuDropdown, Menu, Button, Input } from '@mantine/core'
+import {
+  createTheme,
+  virtualColor,
+  colorsTuple,
+  Menu,
+  Input,
+  Select,
+} from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
 const darkAccent: MantineColorsTuple = [
   '#FFFFFF',
   '#F0F8FF',
-  '#B3E5FC',     
+  '#B3E5FC',
   '#81D4FA',
   '#4d9adf',
   '#325a82',
   '#2c4f73',
   '#242d3b',
   '#172029',
-  '#0f1520'
+  '#0f1520',
 ]
 const lightAccent: MantineColorsTuple = [
   '#FFFFFF',
   '#F0F8FF',
-  '#B3E5FC',     
+  '#B3E5FC',
   '#81D4FA',
   '#29B6F6',
   '#0088CC',
   '#458dd1',
   '#FFFFFF',
   'rgb(255, 255, 255)',
-  'rgb(245, 245, 245)'
+  'rgb(245, 245, 245)',
 ]
 
 const originalBlue: MantineColorsTuple = colorsTuple('#366FB4')
+const originalBlueHover: MantineColorsTuple = colorsTuple('#b43636')
 const greenAccent: MantineColorsTuple = colorsTuple('#30B352')
 const lightBg: MantineColorsTuple = colorsTuple('rgb(245, 245, 245)')
 const darkBg: MantineColorsTuple = colorsTuple('#130F49')
@@ -41,8 +49,6 @@ export const theme = createTheme({
   defaultRadius: 'md',
   primaryColor: 'primary',
 
-  
-  
   colors: {
     darkAccent,
     lightAccent,
@@ -54,18 +60,19 @@ export const theme = createTheme({
     grayText,
     lightText,
     lightSurface,
+    originalBlueHover,
 
     primary: virtualColor({
       name: 'primary',
       light: 'originalBlue',
-      dark: 'darkAccent',
+      dark: 'originalBlue',
     }),
     buttonColor: virtualColor({
       name: 'buttonColor',
       light: 'originalBlue',
       dark: 'orginalBlue',
     }),
-  
+
     background: virtualColor({
       name: 'background',
       light: 'lightAccent',
@@ -82,7 +89,7 @@ export const theme = createTheme({
       light: 'grayText',
       dark: 'grayText',
     }),
-    
+
     navbarBg: virtualColor({
       name: 'navbarBg',
       light: 'lightBg',
@@ -95,10 +102,12 @@ export const theme = createTheme({
         dropdown: {
           background: theme.colors.background[7],
         },
-        item: {
-          '&:hover': {
-            backgroundColor: theme.colors.background[7],
-          },
+      }),
+    }),
+    Select: Select.extend({
+      styles: (theme) => ({
+        dropdown: {
+          background: theme.colors.background[8],
         },
       }),
     }),
@@ -106,17 +115,10 @@ export const theme = createTheme({
       styles: (theme) => ({
         input: {
           backgroundColor: theme.colors.background[8],
-          border: `1px solid ${theme.colors.background[7]}`
-        }
-      })
-
-    })
-    // Button: Button.extend({
-    //   styles: (theme) => ({
-    //     root: {
-    //       background: '#000',
-    //     },
-    //   }),
-    // }),
+        },
+        wrapper: {
+    },
+      }),
+    }),
   },
 })

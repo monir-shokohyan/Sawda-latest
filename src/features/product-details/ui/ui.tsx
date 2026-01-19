@@ -1,7 +1,8 @@
-import { Button, Flex, Group, Stack, Text } from '@mantine/core'
+import { Flex, Group, Stack, Text } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
 import { GeneralPadding } from '@shared/constants'
+import { SButton } from '@shared/styles'
 import { MdEditDocument, MdOutlineFavorite } from 'react-icons/md'
 import { useSearchParams } from 'react-router-dom'
 
@@ -24,20 +25,16 @@ function Ui() {
         <Stack w="65%">
           <Text>2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km</Text>
           <Flex gap={10}>
-            <Button
-              color="background"
-              c="textPrimary"
+            <SButton
               leftSection={<MdOutlineFavorite />}
             >
               <Text size="sm">Add to favorites</Text>
-            </Button>
-            <Button
-              color="background"
-              c="textPrimary"
+            </SButton>
+            <SButton
               leftSection={<MdEditDocument />}
             >
               <Text size="sm">Add a note</Text>
-            </Button>
+            </SButton>
           </Flex>
         </Stack>
         <Group w="35%"></Group>

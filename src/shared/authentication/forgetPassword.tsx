@@ -13,6 +13,7 @@ import {
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { notifications } from '@mantine/notifications'
+import { SButton } from '@shared/styles'
 import { TbMail } from 'react-icons/tb'
 
 export const ForgotPasswordPage = () => {
@@ -105,14 +106,14 @@ export const ForgotPasswordPage = () => {
                   size="md"
                 />
 
-                <Button
+                <SButton
                   fullWidth
                   type="submit"
                   size="md"
                   mt="md"
-                >
+                  >
                   Send Reset Link
-                </Button>
+                </SButton>
               </Stack>
             </form>
 

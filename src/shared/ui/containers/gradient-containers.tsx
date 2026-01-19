@@ -5,10 +5,7 @@ interface GradientContainerProps extends FlexProps {
   children: ReactNode
 }
 
-const GradientContainer = ({
-  children,
-  ...props
-}: GradientContainerProps) => {
+const GradientContainer = ({ children, ...props }: GradientContainerProps) => {
   return (
     <Flex
       direction="column"

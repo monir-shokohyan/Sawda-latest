@@ -4,7 +4,6 @@ import {
   Paper,
   TextInput,
   PasswordInput,
-  Button,
   Title,
   Text,
   Anchor,
@@ -15,6 +14,7 @@ import {
 import { useForm } from '@mantine/form'
 import { notifications } from '@mantine/notifications'
 import { TbMail, TbLock } from 'react-icons/tb'
+import { SButton } from '@shared/styles'
 
 export const RegisterPage = () => {
   const { colorScheme } = useMantineColorScheme()
@@ -136,7 +136,7 @@ export const RegisterPage = () => {
                   size="md"
                 />
 
-                <Button
+                <SButton
                   fullWidth
                   type="submit"
                   loading={isPending}
@@ -144,7 +144,7 @@ export const RegisterPage = () => {
                   mt="md"
                 >
                   Sign Up
-                </Button>
+                </SButton>
               </Stack>
             </form>
 
