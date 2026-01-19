@@ -12,7 +12,7 @@ const ProductDetails = ({
   return (
     <Stack mt={40}>
       <ResText fontSize={26}>Details</ResText>
-      <Stack px={20}>
+      <Stack >
         <Flex
           wrap="wrap"
           gap={30}

@@ -29,7 +29,7 @@ function Ui() {
     <Stack
       w="100%"
       gap={0}
-      p={isMobile ? 'md' : GeneralPadding}
+      p={isMobile ? 'sm' : GeneralPadding}
     >
       <BreadcrumbsNav items={[{ title: 'Home', href: '/' }, { title: name }]} />
       <Flex
@@ -43,10 +43,16 @@ function Ui() {
             2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km
           </ResText>
           <Flex gap={10}>
-            <SButton radius={3} leftSection={<MdOutlineFavorite />}>
+            <SButton
+              radius={3}
+              leftSection={<MdOutlineFavorite />}
+            >
               <Text size="sm">Add to favorites</Text>
             </SButton>
-            <SButton radius={3} leftSection={<MdEditDocument />}>
+            <SButton
+              radius={3}
+              leftSection={<MdEditDocument />}
+            >
               <Text size="sm">Add a note</Text>
             </SButton>
           </Flex>

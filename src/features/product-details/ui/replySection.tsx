@@ -110,6 +110,7 @@ const ReplySection = () => {
             key={text}
             bg="black"
             onClick={() => setValue('message', text, { shouldValidate: true })}
+            size="compact-sm"
           >
             {text}
           </OpacityButton>
