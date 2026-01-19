@@ -1,10 +1,4 @@
-import {
-  Button,
-  Menu,
-  Stack,
-  Text,
-  ScrollArea,
-} from '@mantine/core'
+import { Button, Menu, Stack, Text, ScrollArea } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { CategoryConstants } from './constant'

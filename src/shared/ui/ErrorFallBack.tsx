@@ -1,15 +1,7 @@
 import { useState } from 'react'
 import { GoAlert } from 'react-icons/go'
 import { useNavigate } from 'react-router-dom'
-import {
-  Tooltip,
-  Text,
-  Stack,
-  Group,
-  Alert,
-  Title,
-  Paper,
-} from '@mantine/core'
+import { Tooltip, Text, Stack, Group, Alert, Title, Paper } from '@mantine/core'
 import { TbHome, TbRefresh } from 'react-icons/tb'
 import { SButton } from '@shared/styles'
 

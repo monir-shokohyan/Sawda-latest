@@ -1,4 +1,18 @@
-import { ActionIcon, ActionIconProps, Button, ButtonProps, createPolymorphicComponent, InputProps, Menu, MenuItemProps, Select, SelectProps, Text, TextInput, TextProps } from '@mantine/core'
+import {
+  ActionIcon,
+  ActionIconProps,
+  Button,
+  ButtonProps,
+  createPolymorphicComponent,
+  InputProps,
+  Menu,
+  MenuItemProps,
+  Select,
+  SelectProps,
+  Text,
+  TextInput,
+  TextProps,
+} from '@mantine/core'
 import styled from 'styled-components'
 
 export const VerticalBorder = styled.div`
@@ -26,20 +40,23 @@ export const HoveredSelect = styled(Select)<SelectProps>`
       background-color: #d3d3d34b !important;
     }
   }
-`;
+`
 export const SInput = styled(TextInput)<InputProps>`
-input:focus{
-border-color: var(--mantine-color-blue-6);}
+ input:focus {
+    border-color: var(--mantine-color-blue-6);
+  }
 `
 export const _SButton = styled(Button)<ButtonProps>`
-&:hover{
-  background-color: var(--mantine-color-blue-9) !important;
-}
+  &:hover {
+    background-color: var(--mantine-color-blue-9) !important;
+  }
 `
-export const SButton = createPolymorphicComponent<'button', ButtonProps>(_SButton);
+export const SButton = createPolymorphicComponent<'button', ButtonProps>(
+  _SButton,
+)
 
 export const SActionIcon = styled(ActionIcon)<ActionIconProps>`
-&:hover{
-  background-color: var(--mantine-color-blue-9);
-}
+  &:hover {
+    background-color: var(--mantine-color-blue-9);
+  }
 `

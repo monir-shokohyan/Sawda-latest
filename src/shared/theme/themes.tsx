@@ -117,7 +117,7 @@ export const theme = createTheme({
           backgroundColor: theme.colors.background[8],
         },
         wrapper: {
-    },
+        },
       }),
     }),
   },

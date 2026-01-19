@@ -111,7 +111,7 @@ export const ForgotPasswordPage = () => {
                   type="submit"
                   size="md"
                   mt="md"
-                  >
+                >
                   Send Reset Link
                 </SButton>
               </Stack>

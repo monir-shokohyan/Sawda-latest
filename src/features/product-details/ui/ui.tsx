@@ -25,14 +25,10 @@ function Ui() {
         <Stack w="65%">
           <Text>2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km</Text>
           <Flex gap={10}>
-            <SButton
-              leftSection={<MdOutlineFavorite />}
-            >
+            <SButton leftSection={<MdOutlineFavorite />}>
               <Text size="sm">Add to favorites</Text>
             </SButton>
-            <SButton
-              leftSection={<MdEditDocument />}
-            >
+            <SButton leftSection={<MdEditDocument />}>
               <Text size="sm">Add a note</Text>
             </SButton>
           </Flex>
