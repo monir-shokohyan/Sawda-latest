@@ -22,7 +22,7 @@ import { HoveredSelect, SActionIcon, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
 const Filter = () => {
-  const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
   const [opened, setOpened] = useState(false)
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null)
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null)

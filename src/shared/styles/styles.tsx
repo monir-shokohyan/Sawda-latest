@@ -59,10 +59,10 @@ export const _SGButton = styled(Button)<ButtonProps>`
   }
 `
 
-  export const _OpacityButton = styled(Button)<ButtonProps>`
-    &:hover {
-      opacity: 0.8;
-    }
+export const _OpacityButton = styled(Button)<ButtonProps>`
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 export const SButton = createPolymorphicComponent<'button', ButtonProps>(
@@ -108,8 +108,10 @@ const textStyles = css<StyledTextProps>`
   transition: all 0.3s ease-in-out;
 `
 
-export const ResText = styled(Text)<TextProps & {fontSize: number, children: React.ReactNode} & StyledTextProps >`
-${textStyles}
+export const ResText = styled(Text)<
+  TextProps & { fontSize: number; children: React.ReactNode } & StyledTextProps
+>`
+  ${textStyles}
   font-size: ${({ fontSize }) => fontSize}px;
 
   @media (max-width: 1199px) {
@@ -131,4 +133,4 @@ ${textStyles}
     font-size: ${({ fontSize }) =>
       typeof fontSize === 'number' ? fontSize * 0.7 : fontSize}px;
   }
-`;
+`

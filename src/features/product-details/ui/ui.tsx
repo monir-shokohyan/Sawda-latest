@@ -1,4 +1,12 @@
-import { Avatar,  Flex, Group, Rating, Stack, Text, useMantineTheme } from '@mantine/core'
+import {
+  Avatar,
+  Flex,
+  Group,
+  Rating,
+  Stack,
+  Text,
+  useMantineTheme,
+} from '@mantine/core'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
 import { GeneralPadding } from '@shared/constants'
 import { OpacityButton, ResText, SButton, SGButton } from '@shared/styles'
@@ -12,10 +20,10 @@ import { SimilarAdsSection } from './similarProducts'
 import { ReplySection } from './replySection'
 
 function Ui() {
-  const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
   const [searchParams] = useSearchParams()
   const name = searchParams.get('name') ?? 'Untitled'
-  const theme = useMantineTheme();
+  const theme = useMantineTheme()
 
   return (
     <Stack
@@ -31,7 +39,9 @@ function Ui() {
         wrap="wrap"
       >
         <Stack w={isMobile ? '100%' : '60%'}>
-          <ResText fontSize={26}>2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km</ResText>
+          <ResText fontSize={26}>
+            2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km
+          </ResText>
           <Flex gap={10}>
             <SButton leftSection={<MdOutlineFavorite />}>
               <Text size="sm">Add to favorites</Text>
@@ -40,30 +50,44 @@ function Ui() {
               <Text size="sm">Add a note</Text>
             </SButton>
           </Flex>
-              <ImageCarousel />
-              <ProductDetails DetailsList={DetailsList} DetailsObject={DetailsObject}/>
+          <ImageCarousel />
+          <ProductDetails
+            DetailsList={DetailsList}
+            DetailsObject={DetailsObject}
+          />
 
           {!isMobile && <SimilarAdsSection />}
+        </Stack>
 
-      </Stack>
-
-        <Stack 
-        w={isMobile ? '100%' : '38%'}   
-        pos="sticky"
-        top={30}
-        right={0}
-        h={isMobile ? "auto" : "100vh"}
-        mb={isMobile ? 100 : 0}
+        <Stack
+          w={isMobile ? '100%' : '38%'}
+          pos="sticky"
+          top={30}
+          right={0}
+          h={isMobile ? 'auto' : '100vh'}
+          mb={isMobile ? 100 : 0}
         >
           <ResText fontSize={26}>200,000 AF</ResText>
           <Stack>
-            <SButton size="xl" radius={3}>
-               <Stack gap={0} justify="center" align="center" color='white'>
+            <SButton
+              size="xl"
+              radius={3}
+            >
+              <Stack
+                gap={0}
+                justify="center"
+                align="center"
+                color="white"
+              >
                 <Text size="lg">Show phone</Text>
                 <Text size="sm">+93750 XXX XXX</Text>
-               </Stack>
+              </Stack>
             </SButton>
-            <SGButton size='xl' bg="green" radius={3}>
+            <SGButton
+              size="xl"
+              bg="green"
+              radius={3}
+            >
               <Text size="lg">Write a message</Text>
             </SGButton>
           </Stack>
@@ -84,39 +108,36 @@ function Ui() {
               direction="column"
               gap={isMobile ? '4px' : '0px'}
             >
-              <ResText
-                fontSize={22}
-              >
-                User name
-              </ResText>
+              <ResText fontSize={22}>User name</ResText>
 
               <Group>
-              <ResText
-                fontSize={14}
-              >
-                5.00
-              </ResText>
+                <ResText fontSize={14}>5.00</ResText>
 
-              <Rating value={3.5} fractions={2} readOnly />
+                <Rating
+                  value={3.5}
+                  fractions={2}
+                  readOnly
+                />
 
-              <ResText
-                fontSize={14}
-                c="green"
-              >
-                5 reviews
-              </ResText>
+                <ResText
+                  fontSize={14}
+                  c="green"
+                >
+                  5 reviews
+                </ResText>
               </Group>
-              
-              
             </Flex>
           </Group>
 
-          <OpacityButton bg={theme.colors.backgroundInput[8]} radius={3} c="gray">
+          <OpacityButton
+            bg={theme.colors.backgroundInput[8]}
+            radius={3}
+            c="gray"
+          >
             Subscribe to the seller
           </OpacityButton>
 
-          
-         <ReplySection />
+          <ReplySection />
           {isMobile && <SimilarAdsSection />}
         </Stack>
       </Flex>

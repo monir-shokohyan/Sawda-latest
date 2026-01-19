@@ -9,7 +9,7 @@ import { GeneralPadding } from '@shared/constants'
 import { Responsive } from '@shared/hooks/responsive'
 
 function Ui() {
-    const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
   return (
     <Stack
       w="100%"

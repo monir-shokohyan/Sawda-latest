@@ -5,7 +5,7 @@ import { HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
 const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
-  const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
 
   const triggerButton = (
     <Button

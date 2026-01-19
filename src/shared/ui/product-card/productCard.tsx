@@ -53,8 +53,8 @@ const ProductCard = ({
   product: Product
   handeToggleLike: (id: number) => void
 }) => {
-    const {isMobile} = Responsive()
-    const navigate = useNavigate()
+  const { isMobile } = Responsive()
+  const navigate = useNavigate()
 
   return (
     <MantineCard

@@ -32,7 +32,7 @@ const ReplySection = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-    setValue
+    setValue,
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -56,7 +56,10 @@ const ReplySection = () => {
   return (
     <Stack gap={20}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Stack gap={6} pos="relative">
+        <Stack
+          gap={6}
+          pos="relative"
+        >
           <ActionIcon
             type="submit"
             variant="transparent"
@@ -97,12 +100,16 @@ const ReplySection = () => {
       </form>
 
       {/* Quick replies */}
-      <Flex direction="column" gap={10} align="flex-start">
+      <Flex
+        direction="column"
+        gap={10}
+        align="flex-start"
+      >
         {quickReplies.map((text) => (
           <OpacityButton
             key={text}
             bg="black"
-              onClick={() => setValue('message', text, { shouldValidate: true })}
+            onClick={() => setValue('message', text, { shouldValidate: true })}
           >
             {text}
           </OpacityButton>

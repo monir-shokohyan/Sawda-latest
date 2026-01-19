@@ -58,7 +58,7 @@ const ImageCarousel: React.FC = () => {
   const handleThumbnailClick = (index: number) => {
     embla?.scrollTo(index)
   }
-  const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
 
   return (
     <Container px={0}>

@@ -24,8 +24,8 @@ const Navbar = () => {
     'message' | 'profile' | 'add' | null
   >(null)
 
-    const {isMobile, isTablet} = Responsive()
-    const closeModal = () => setOpenedModal(null)
+  const { isMobile, isTablet } = Responsive()
+  const closeModal = () => setOpenedModal(null)
 
   return (
     <>

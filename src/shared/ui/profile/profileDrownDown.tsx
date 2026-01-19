@@ -8,7 +8,7 @@ import { HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
 const ProfileDrownDown = () => {
-  const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
 
   return (
     <Menu

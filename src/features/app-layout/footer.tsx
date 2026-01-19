@@ -2,8 +2,7 @@ import { Flex, Text, Box, Anchor, Image } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 
 const Footer = () => {
-    const {isMobile, isTablet} = Responsive()
-
+  const { isMobile, isTablet } = Responsive()
 
   const popularSearches = [
     'gaming',

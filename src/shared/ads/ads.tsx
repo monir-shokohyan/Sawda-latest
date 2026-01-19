@@ -11,7 +11,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import { FaBullhorn, FaBullseye, FaRocket, FaUsers } from 'react-icons/fa'
 
 const Ads = () => {
-  const {isMobile} = Responsive()
+  const { isMobile } = Responsive()
 
   return (
     <BackgroundImage
