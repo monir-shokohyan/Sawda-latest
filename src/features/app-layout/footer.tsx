@@ -1,9 +1,9 @@
-import { Flex, Text, Box, Anchor, Group, Stack, Image } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
+import { Flex, Text, Box, Anchor, Image } from '@mantine/core'
+import { Responsive } from '@shared/hooks/responsive'
 
 const Footer = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-  const isTablet = useMediaQuery('(max-width: 1024px)')
+    const {isMobile, isTablet} = Responsive()
+
 
   const popularSearches = [
     'gaming',

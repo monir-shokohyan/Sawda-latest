@@ -1,4 +1,4 @@
-import { Anchor, Breadcrumbs, Text, rem, useMantineTheme } from '@mantine/core'
+import { Anchor, Breadcrumbs, Text } from '@mantine/core'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import { FaHome } from 'react-icons/fa'

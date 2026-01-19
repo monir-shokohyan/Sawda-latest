@@ -18,14 +18,12 @@ import {
 } from 'react-icons/md'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
-import { useMediaQuery } from '@mantine/hooks'
 import { HoveredSelect, SActionIcon, SButton } from '@shared/styles'
+import { Responsive } from '@shared/hooks/responsive'
 
 const Filter = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
+  const {isMobile} = Responsive()
   const [opened, setOpened] = useState(false)
-
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null)
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null)
   const [selectedCurrency, setSelectedCurrency] = useState<string>('AFN')

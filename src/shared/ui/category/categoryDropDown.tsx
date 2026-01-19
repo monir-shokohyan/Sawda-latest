@@ -1,11 +1,12 @@
 import { Button, Menu, Stack, Text, ScrollArea } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { CategoryConstants } from './constant'
 import { HoveredMenuItem } from '@shared/styles'
+import { Responsive } from '@shared/hooks/responsive'
 
 const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const {isMobile} = Responsive()
+
   const triggerButton = (
     <Button
       variant="subtle"

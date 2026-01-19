@@ -1,16 +1,15 @@
 import { SearchFilter } from '@features/search-filter/ui'
 import { Flex, Group, Stack } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 import { Filter } from '../../search-filter/ui/filter'
 import { CardCarousal } from '@features/card-scroll/ui'
 import { GradientContainer } from '@shared/ui/containers'
 import Ads from '@shared/ads/ads'
 import { ProductScroll } from '@features/product-scroll/ui'
 import { GeneralPadding } from '@shared/constants'
+import { Responsive } from '@shared/hooks/responsive'
 
 function Ui() {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
+    const {isMobile} = Responsive()
   return (
     <Stack
       w="100%"

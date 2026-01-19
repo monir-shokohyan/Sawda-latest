@@ -17,16 +17,15 @@ import {
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
 import { SButton } from '@shared/styles'
+import { Responsive } from '@shared/hooks/responsive'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
     'message' | 'profile' | 'add' | null
   >(null)
 
-  const isMobile = useMediaQuery('(max-width: 768px)')
-  const isTablet = useMediaQuery('(max-width: 1024px)')
-
-  const closeModal = () => setOpenedModal(null)
+    const {isMobile, isTablet} = Responsive()
+    const closeModal = () => setOpenedModal(null)
 
   return (
     <>

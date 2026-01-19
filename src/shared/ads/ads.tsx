@@ -7,11 +7,11 @@ import {
   Text,
   Title,
 } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
+import { Responsive } from '@shared/hooks/responsive'
 import { FaBullhorn, FaBullseye, FaRocket, FaUsers } from 'react-icons/fa'
 
 const Ads = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const {isMobile} = Responsive()
 
   return (
     <BackgroundImage

@@ -1,14 +1,15 @@
 import { Button, Menu, Text } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlinePersonOutline,
 } from 'react-icons/md'
 import { ProfileConstant } from './constant'
 import { HoveredMenuItem } from '@shared/styles'
+import { Responsive } from '@shared/hooks/responsive'
 
 const ProfileDrownDown = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const {isMobile} = Responsive()
+
   return (
     <Menu
       shadow="sm"

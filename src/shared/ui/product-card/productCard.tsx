@@ -8,6 +8,7 @@ import {
   Card as MantineCard,
 } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
+import { Responsive } from '@shared/hooks/responsive'
 import { FaEllipsisV, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
@@ -52,8 +53,9 @@ const ProductCard = ({
   product: Product
   handeToggleLike: (id: number) => void
 }) => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-  const navigate = useNavigate()
+    const {isMobile} = Responsive()
+    const navigate = useNavigate()
+
   return (
     <MantineCard
       shadow="sm"
