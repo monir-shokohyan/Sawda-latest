@@ -11,7 +11,7 @@ const ProductDetails = ({
   const { isMobile } = Responsive()
   return (
     <Stack mt={40}>
-      <ResText fontSize={26}>Details</ResText>
+      <ResText c="darkText" fontSize={26}>Details</ResText>
       <Stack>
         <Flex
           wrap="wrap"
@@ -22,11 +22,12 @@ const ProductDetails = ({
               return (
                 <Stack
                   w="45%"
-                  gap={7}
+                  gap={4}
                 >
                   <ResText
                     fontWeight="600"
                     fontSize={18}
+                    c="darkText"
                   >
                     {detail.title}
                   </ResText>
@@ -38,11 +39,12 @@ const ProductDetails = ({
               return (
                 <Stack
                   w="45%"
-                  gap={7}
+                  gap={4}
                 >
                   <ResText
                     fontSize={18}
                     fontWeight="600"
+                    c="darkText"
                   >
                     {detail.title}
                   </ResText>
@@ -64,11 +66,12 @@ const ProductDetails = ({
             return (
               <Stack
                 w="45%"
-                gap={7}
+                gap={4}
               >
                 <ResText
                   fontSize={18}
                   fontWeight="600"
+                  c="darkText"
                 >
                   {detail.title}
                 </ResText>

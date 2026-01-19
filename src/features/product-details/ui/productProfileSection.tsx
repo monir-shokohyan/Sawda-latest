@@ -5,9 +5,7 @@ import { ResText } from '@shared/styles'
 const ProductProfileSection = () => {
   const { isMobile } = Responsive()
   return (
-    <Group
-      py={isMobile ? '5px' : 'xs'}
-    >
+    <Group py={isMobile ? '5px' : 'xs'}>
       <Avatar
         color="blue"
         radius="50%"
@@ -19,7 +17,7 @@ const ProductProfileSection = () => {
         direction="column"
         gap={isMobile ? '4px' : '0px'}
       >
-        <ResText fontSize={18}>User name</ResText>
+        <ResText c="darkText" fontSize={18}>User name</ResText>
 
         <Group>
           <ResText fontSize={12}>5.00</ResText>

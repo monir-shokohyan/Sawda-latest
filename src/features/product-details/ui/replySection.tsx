@@ -5,8 +5,6 @@ import {
   Flex,
   Stack,
   Textarea,
-  Button,
-  Group,
   useMantineTheme,
   ActionIcon,
 } from '@mantine/core'

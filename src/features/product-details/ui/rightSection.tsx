@@ -17,7 +17,8 @@ const RightSection = () => {
       h={isMobile ? 'auto' : '100vh'}
       mb={isMobile ? 100 : 0}
     >
-      <ResText fontSize={26}>200,000 AF</ResText>
+      {!isMobile &&<ResText c="darkText" fontSize={26}>200,000 AF</ResText>}
+
       <Stack>
         <SButton
           size="xl"
@@ -33,6 +34,7 @@ const RightSection = () => {
             <Text size="sm">+93750 XXX XXX</Text>
           </Stack>
         </SButton>
+
         <SGButton
           size="xl"
           bg="green"
@@ -40,6 +42,7 @@ const RightSection = () => {
         >
           <Text size="lg">Write a message</Text>
         </SGButton>
+
       </Stack>
 
       {/* product profile section */}

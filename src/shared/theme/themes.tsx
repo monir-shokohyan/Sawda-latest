@@ -42,7 +42,7 @@ const lightSurface: MantineColorsTuple = colorsTuple('#FFFFFF')
 const darkSurface: MantineColorsTuple = colorsTuple('#121B5B')
 const grayText: MantineColorsTuple = colorsTuple('#686968')
 const grayBg: MantineColorsTuple = colorsTuple('#EBEAE8')
-
+const darkText: MantineColorsTuple = colorsTuple('#000')
 const lightText: MantineColorsTuple = colorsTuple('#FFFFFF')
 
 export const theme = createTheme({
@@ -95,6 +95,11 @@ export const theme = createTheme({
       name: 'textSecondary',
       light: 'grayText',
       dark: 'grayText',
+    }),
+    darkText: virtualColor({
+      name: 'titleText',
+      light: 'darkText',
+      dark: 'lightText',
     }),
 
     navbarBg: virtualColor({

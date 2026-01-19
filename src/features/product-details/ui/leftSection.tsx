@@ -11,9 +11,12 @@ const LeftSection = () => {
   const { isMobile } = Responsive()
   return (
     <Stack w={isMobile ? '100%' : '60%'}>
-      <ResText fontSize={26}>
+
+      {isMobile &&<ResText c="darkText" fontSize={26}>200,000 AF</ResText>}
+      <ResText fontSize={26} c="darkText">
         2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km
       </ResText>
+
       <Flex gap={10}>
         <SButton
           radius={3}
