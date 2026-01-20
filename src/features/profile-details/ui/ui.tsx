@@ -1,12 +1,12 @@
 import {
-  ActionIcon,
-  Button,
   Container,
   Flex,
   Group,
+  Rating,
+  Select,
   Stack,
   Tabs,
-  TextInput,
+  Text,
   useMantineTheme,
 } from '@mantine/core'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
@@ -17,10 +17,11 @@ import { GradientContainer } from '@shared/ui/containers'
 import { ProfileHeader } from './profileHeader'
 import { useState } from 'react'
 import { ResText } from '@shared/styles'
-import { FaSearch } from 'react-icons/fa'
-import { FiFilter } from 'react-icons/fi'
-import { Filter } from '@features/search-filter/ui/filter'
-import { ProductScroll } from '@features/product-scroll/ui'
+import { Listing } from './Listing'
+import { NewestToOldestObj } from '../constant'
+import { MdCheck } from 'react-icons/md'
+import { Categorytype } from '@shared/ui/category/types'
+import { ProfileSection } from '@features/product-card/ui/profileSection'
 
 function Ui() {
   const { isMobile } = Responsive()
@@ -28,6 +29,7 @@ function Ui() {
   const name = searchParams.get('name') ?? 'Untitled'
   const theme = useMantineTheme()
   const [tab, setTab] = useState('Listing')
+  const [selectedFilter, setSelectedFilter] = useState('newest')
 
   return (
     <GradientContainer>
@@ -44,7 +46,6 @@ function Ui() {
         <Container
           fluid
           w="100%"
-          // style={{border: '1px solid red'}}
           px="2.5%"
         >
           <Tabs
@@ -57,6 +58,10 @@ function Ui() {
               <Tabs.Tab value="Reviews">Reviews</Tabs.Tab>
             </Tabs.List>
             <Tabs.Panel value="Listing">
+              <Listing />
+            </Tabs.Panel>
+
+            <Tabs.Panel value="Reviews">
               <Group
                 justify="space-between"
                 align="center"
@@ -66,33 +71,40 @@ function Ui() {
                   fontSize={24}
                   c="textPrimary"
                 >
-                  Listing
+                  Reviews
                 </ResText>
-                <Group
-                  justify="space-between"
-                  align="center"
-                >
-                  <TextInput
-                    placeholder="Search listing..."
-                    radius={5}
-                    size="sm"
-                    rightSection={
-                      <ActionIcon variant="transparent">
-                        <FaSearch />
-                      </ActionIcon>
-                    }
-                  />
 
-                  <Filter
-                    iconSize="lg"
-                    arrowPosition="bottom-end"
-                  />
-                </Group>
+                <Select
+                  data={NewestToOldestObj}
+                  defaultValue={selectedFilter}
+                  value={selectedFilter}
+                  onChange={(value) => setSelectedFilter(value as string)}
+                  checkIconPosition='left'
+                />
               </Group>
-              <ProductScroll allowPadding={false} />
+              {
+                Array.from({length : 10}).map(() =>{
+                  return (
+                    <Flex style={{borderBottom: '1px solid lightgray'}} py={20}>
+                <Stack>
+                  <ProfileSection product={{
+                    username: 'monir198321',
+                    timestamp: '12d 13m',
+                  }}
+                  allowPadding={false}
+                  />
+                  <Rating />
+                  <ResText fontSize={14}>
+                      Good price for the item, though the description could have been clearer. Was really grateful that they were flexible for
+                      meeting up Thanks so much!
+                  </ResText>
+                </Stack>
+                
+              </Flex>
+                  )
+                })
+              }
             </Tabs.Panel>
-
-            <Tabs.Panel value="Reviews">Messages tab content</Tabs.Panel>
           </Tabs>
         </Container>
       </Stack>

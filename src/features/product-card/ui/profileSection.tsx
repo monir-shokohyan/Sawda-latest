@@ -8,6 +8,7 @@ interface ProfileProps {
   showDetails?: boolean
   showTime?: boolean
   size?: 'xl' | 'md' | 'sm' | 'lg'
+  allowPadding?: boolean
 }
 
 const ProfileSection = ({
@@ -15,13 +16,17 @@ const ProfileSection = ({
   showDetails = false,
   showTime = true,
   size = 'md',
+  allowPadding = true
+  
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
   const theme = useMantineTheme()
+  const padding = isMobile ? '5px' : 'xs'
   return (
     <Group
-      p={isMobile ? '5px' : 'xs'}
+      p={padding}
+      pl={allowPadding ? padding : '0px'}
       onClick={(e) => {
         e.stopPropagation()
         navigate({
