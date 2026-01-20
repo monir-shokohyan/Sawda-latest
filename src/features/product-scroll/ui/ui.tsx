@@ -21,7 +21,7 @@ const generateProducts = (start: number, count: number): Product[] => {
   }))
 }
 
-const Ui = () => {
+const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
   const [products, setProducts] = useState<Product[]>(generateProducts(0, 16))
   const [hasMore, setHasMore] = useState(true)
 
@@ -65,20 +65,19 @@ const Ui = () => {
           <Group
             justify="center"
             py="xl"
+            bg="background.9"
           >
             <LoaderSpinner />
           </Group>
         }
       >
         {productChunks.map((chunk, chunkIndex) => {
-          const direction =
-            chunkIndex % 2 === 0 ? 'bottom-to-top' : 'top-to-bottom'
-
           return (
             <GradientContainer
               key={chunkIndex}
-              p={GeneralPadding}
+              px={allowPadding ? GeneralPadding : '0px'}
               pb={{ base: 12, sm: 16, md: 20 }}
+              style={{ overflow: 'hidden' }}
             >
               <Grid gutter={{ base: 12, sm: 16, md: 20 }}>
                 {chunk.map((product) => (

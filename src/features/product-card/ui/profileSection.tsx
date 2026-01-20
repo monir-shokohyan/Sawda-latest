@@ -1,26 +1,33 @@
-import { Avatar, Flex, Group, Text } from '@mantine/core'
+import { Avatar, Flex, Group, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { ProductProps } from '@shared/types/profile'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 interface ProfileProps {
   product: ProductProps
+  showDetails?: boolean
+  showTime?: boolean
+  size?: 'xl' | 'md' | 'sm' | 'lg'
 }
 
-const ProfileSection = ({ product }: ProfileProps) => {
+const ProfileSection = ({
+  product,
+  showDetails = false,
+  showTime = true,
+  size = 'md',
+}: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
+  const theme = useMantineTheme()
   return (
     <Group
-      px="md"
-      py={isMobile ? '5px' : 'xs'}
-      style={{ borderBottom: '1px solid #e8e8e8' }}
+      p={isMobile ? '5px' : 'xs'}
       onClick={(e) => {
         e.stopPropagation()
         navigate({
           pathname: `/profile/${product.username}`,
           search: new URLSearchParams({
-            name: `${product.username.slice(0, 20)}...`,
+            name: `${product.username?.slice(0, 20)}...`,
           }).toString(),
         })
       }}
@@ -28,9 +35,9 @@ const ProfileSection = ({ product }: ProfileProps) => {
       <Avatar
         color="blue"
         radius="xl"
-        size={isMobile ? '33px' : 'md'}
+        size={isMobile ? '33px' : size}
       >
-        {product.username.charAt(0).toUpperCase()}
+        {product.username?.charAt(0).toUpperCase()}
       </Avatar>
       <Flex
         direction="column"
@@ -42,12 +49,24 @@ const ProfileSection = ({ product }: ProfileProps) => {
         >
           {product.username}
         </Text>
-        <Text
-          size={isMobile ? '0.7rem' : 'xs'}
-          c="dimmed"
-        >
-          {product.timestamp}
-        </Text>
+
+        {showTime && (
+          <Text
+            size={isMobile ? '0.7rem' : 'xs'}
+            c="dimmed"
+          >
+            {product.timestamp}
+          </Text>
+        )}
+
+        {showDetails && (
+          <NavLink
+            to="/"
+            style={{ color: theme.colors.textPrimary[8], fontSize: '0.7rem' }}
+          >
+            Profile details
+          </NavLink>
+        )}
       </Flex>
     </Group>
   )

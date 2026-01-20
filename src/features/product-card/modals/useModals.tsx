@@ -20,7 +20,7 @@ const useModals = ({ product, handleToggleLike }: UseModalProps) => {
       navigate({
         pathname: `/product/${product.id}`,
         search: new URLSearchParams({
-          name: `${product.title.slice(0, 20)}...`,
+          name: `${product.title?.slice(0, 20)}...`,
         }).toString(),
       })
       clickTimeout = null
@@ -36,7 +36,7 @@ const useModals = ({ product, handleToggleLike }: UseModalProps) => {
     }
 
     setIsAnimating(true)
-    handleToggleLike(product.id)
+    handleToggleLike(product.id as number)
     setTimeout(() => setIsAnimating(false), 600)
   }
 
@@ -49,7 +49,7 @@ const useModals = ({ product, handleToggleLike }: UseModalProps) => {
     }
 
     setIsAnimating(true)
-    handleToggleLike(product.id)
+    handleToggleLike(product.id as number)
     setTimeout(() => setIsAnimating(false), 600)
   }
 

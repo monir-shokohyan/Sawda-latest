@@ -102,7 +102,7 @@ export const particleAnimation = keyframes`
 
 export const ActionIconWrapper = styled.div<{
   $isAnimating: boolean
-  $liked: boolean
+  $liked?: boolean
 }>`
   transition: transform 0.2s ease;
   display: inline-flex;

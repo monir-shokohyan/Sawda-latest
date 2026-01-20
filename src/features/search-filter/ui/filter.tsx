@@ -3,6 +3,7 @@ import {
   Flex,
   Group,
   Menu,
+  MenuProps,
   NumberInput,
   Select,
   Text,
@@ -21,7 +22,15 @@ import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
 import { HoveredSelect, SActionIcon, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
-const Filter = () => {
+interface FilterProps {
+  iconSize?: 'xl' | 'md' | 'lg' | 'sm'
+  arrowPosition?: MenuProps['position']
+}
+
+const Filter = ({
+  iconSize = 'xl',
+  arrowPosition = 'bottom-start',
+}: FilterProps) => {
   const { isMobile } = Responsive()
   const [opened, setOpened] = useState(false)
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null)
@@ -52,7 +61,7 @@ const Filter = () => {
     <Menu
       shadow="md"
       width={isMobile ? '90%' : '81vw'}
-      position="bottom-start"
+      position={arrowPosition}
       withArrow
       opened={opened}
       onChange={setOpened}
@@ -60,7 +69,7 @@ const Filter = () => {
       closeOnClickOutside={false}
     >
       <Menu.Target>
-        <SActionIcon size="xl">
+        <SActionIcon size={iconSize}>
           <MdOutlineManageSearch size={isMobile ? 18 : 20} />
         </SActionIcon>
       </Menu.Target>
