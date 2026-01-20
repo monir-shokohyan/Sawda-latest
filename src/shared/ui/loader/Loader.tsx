@@ -1,10 +1,11 @@
-import { LoadingOverlay } from '@mantine/core'
+import { LoaderContainer } from './container'
+import { LoadingSkeleton } from './LoadingSkeleton'
 
 const Loader = () => {
   return (
-    <div className="flex h-full w-full items-center justify-center">
-      <LoadingOverlay />
-    </div>
+    <LoaderContainer>
+      <LoadingSkeleton />
+    </LoaderContainer>
   )
 }
 

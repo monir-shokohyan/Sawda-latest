@@ -4,8 +4,8 @@ import { Stack, Grid, Group } from '@mantine/core'
 import { GradientContainer } from '@shared/ui/containers'
 import { LoaderSpinner } from '../styles'
 import { Product } from '../types'
-import { ProductCard } from '@shared/ui/product-card/productCard'
 import { GeneralPadding } from '@shared/constants'
+import { ProductCard } from '@features/product-card'
 
 const generateProducts = (start: number, count: number): Product[] => {
   return Array.from({ length: count }, (_, i) => ({
@@ -88,7 +88,7 @@ const Ui = () => {
                   >
                     <ProductCard
                       product={product}
-                      handeToggleLike={toggleLike}
+                      handleToggleLike={toggleLike}
                     />
                   </Grid.Col>
                 ))}

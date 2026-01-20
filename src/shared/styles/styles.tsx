@@ -134,3 +134,8 @@ export const ResText = styled(Text)<
       typeof fontSize === 'number' ? fontSize * 0.8 : fontSize}px;
   }
 `
+export const SimpleText = styled(Text)<
+  TextProps & { fontSize: number; children: React.ReactNode } & StyledTextProps
+>`
+  ${textStyles}
+`

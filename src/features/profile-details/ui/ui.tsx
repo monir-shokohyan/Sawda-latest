@@ -28,10 +28,7 @@ function Ui() {
           py={isMobile ? '40px' : GeneralPadding}
           wrap="wrap"
         >
-          {/* left section */}
           <LeftSection />
-
-          {/* right section */}
           <RightSection />
         </Flex>
       </Stack>

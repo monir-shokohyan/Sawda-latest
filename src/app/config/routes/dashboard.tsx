@@ -1,5 +1,6 @@
 import { DashboardPage } from '@pages/dashboard'
 import { ProductDetailPage } from '@pages/product-details'
+import { ProfileDetailPage } from '@pages/profile-details'
 import { LoginPage } from '@shared/authentication'
 import { ForgotPasswordPage } from '@shared/authentication/forgetPassword'
 import { RegisterPage } from '@shared/authentication/registerPage'
@@ -24,6 +25,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="product-detail">
         <ProductDetailPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'profile-detail',
+    guarded: '',
+    path: '/profile/:id',
+    element: (
+      <ErrorSuspense suspenseKey="profile-detail">
+        <ProfileDetailPage />
       </ErrorSuspense>
     ),
   },

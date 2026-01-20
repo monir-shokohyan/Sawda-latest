@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-import { Stack, Grid } from '@mantine/core' // assuming you're using Mantine
+import { Stack, Grid } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { Content, IconWrapper, TitleWrapper } from '../styles'
 import { ProductCard } from '@features/product-card'

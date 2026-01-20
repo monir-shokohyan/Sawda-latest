@@ -6,6 +6,8 @@ import { AdminRefineProvider } from './refine-dev'
 import { localStorageColorSchemeManager, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import { theme } from '@shared/theme'
+import ReactLenis from 'lenis/react'
+
 
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
@@ -19,7 +21,23 @@ export const Providers = ({ children }: PropsWithChildren) => {
           theme={theme}
         >
           <Notifications />
-          <AdminRefineProvider>{children}</AdminRefineProvider>
+          <AdminRefineProvider>
+            <ReactLenis
+          root
+          options={{
+            lerp: 0.1,
+            duration: 1.7,
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+            allowNestedScroll: true,
+          }}
+        >
+          {children}
+        </ReactLenis>            
+          </AdminRefineProvider>
         </MantineProvider>
       </Provider>
     </BrowserRouter>
