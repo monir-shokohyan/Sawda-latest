@@ -1,4 +1,4 @@
-import { Flex, Stack } from '@mantine/core'
+import { Stack } from '@mantine/core'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
 import { GeneralPadding } from '@shared/constants'
 import { useSearchParams } from 'react-router-dom'
@@ -20,15 +20,7 @@ function Ui() {
         <BreadcrumbsNav
           items={[{ title: 'Home', href: '/' }, { title: name }]}
         />
-        <Flex
-          gap="2%"
-          p={isMobile ? '0px' : GeneralPadding}
-          py={isMobile ? '40px' : GeneralPadding}
-          wrap="wrap"
-        >
-
-          
-        </Flex>
+        <h1>dsfsdf</h1>
       </Stack>
     </GradientContainer>
   )

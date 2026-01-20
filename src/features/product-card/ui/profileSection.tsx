@@ -18,11 +18,11 @@ const ProfileSection = ({ product }: ProfileProps) => {
       onClick={(e) => {
         e.stopPropagation()
         navigate({
-        pathname: `/profile/${product.username}`,
-        search: new URLSearchParams({
-          name: `${product.username.slice(0, 20)}...`,
-        }).toString(),
-      })
+          pathname: `/profile/${product.username}`,
+          search: new URLSearchParams({
+            name: `${product.username.slice(0, 20)}...`,
+          }).toString(),
+        })
       }}
     >
       <Avatar

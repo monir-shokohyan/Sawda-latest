@@ -10,6 +10,8 @@ const GradientContainer = ({ children, ...props }: GradientContainerProps) => {
     <Flex
       direction="column"
       bg="background.9"
+      w="100%"
+      h="100%"
       {...props}
     >
       {children}

@@ -1,5 +1,3 @@
-const DetailsObject = [
-]
-
+const DetailsObject = []
 
 export { DetailsObject }

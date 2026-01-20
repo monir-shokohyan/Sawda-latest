@@ -3,7 +3,7 @@ import { Flex } from '@mantine/core'
 
 const Ui = () => {
   return (
-    <Flex className="h-full w-full">
+    <Flex w="100%" h="100%">
       <ProfileDetails />
     </Flex>
   )
