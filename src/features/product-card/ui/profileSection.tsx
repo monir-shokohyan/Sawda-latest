@@ -1,6 +1,7 @@
 import { Avatar, Flex, Group, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { ProductProps } from '@shared/types/profile'
+import { useNavigate } from 'react-router-dom'
 
 interface ProfileProps {
   product: ProductProps
@@ -8,6 +9,7 @@ interface ProfileProps {
 
 const ProfileSection = ({ product }: ProfileProps) => {
   const { isMobile } = Responsive()
+  const navigate = useNavigate()
   return (
     <Group
       px="md"
@@ -15,7 +17,12 @@ const ProfileSection = ({ product }: ProfileProps) => {
       style={{ borderBottom: '1px solid #e8e8e8' }}
       onClick={(e) => {
         e.stopPropagation()
-        alert('')
+        navigate({
+        pathname: `/profile/${product.username}`,
+        search: new URLSearchParams({
+          name: `${product.username.slice(0, 20)}...`,
+        }).toString(),
+      })
       }}
     >
       <Avatar

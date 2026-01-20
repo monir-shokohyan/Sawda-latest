@@ -4,8 +4,6 @@ import { GeneralPadding } from '@shared/constants'
 import { useSearchParams } from 'react-router-dom'
 import { Responsive } from '@shared/hooks/responsive'
 import { GradientContainer } from '@shared/ui/containers'
-import { RightSection } from './rightSection'
-import { LeftSection } from './leftSection'
 
 function Ui() {
   const { isMobile } = Responsive()
@@ -28,8 +26,8 @@ function Ui() {
           py={isMobile ? '40px' : GeneralPadding}
           wrap="wrap"
         >
-          <LeftSection />
-          <RightSection />
+
+          
         </Flex>
       </Stack>
     </GradientContainer>
