@@ -41,3 +41,6 @@
     background-color: rgba(0, 0, 0, 0.6) !important;
   }
 }
+.mantine-Select-option:hover {
+  background-color: #d3d3d34b !important;
+}

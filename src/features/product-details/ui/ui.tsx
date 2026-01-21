@@ -17,15 +17,15 @@ function Ui() {
       <Stack
         w="100%"
         gap={0}
-        p={isMobile ? 'sm' : GeneralPadding}
+        px={isMobile ? 'sm' : GeneralPadding}
+        py={isMobile ? 'sm' : 'xl'}
       >
         <BreadcrumbsNav
           items={[{ title: 'Home', href: '/' }, { title: name }]}
         />
         <Flex
           gap="2%"
-          p={isMobile ? '0px' : GeneralPadding}
-          py={isMobile ? '40px' : GeneralPadding}
+          p={isMobile ? '0px' : 'xl'}
           wrap="wrap"
         >
           {/* left section */}

@@ -4,15 +4,20 @@ import {
   Button,
   ButtonProps,
   createPolymorphicComponent,
+  Group,
+  GroupProps,
   InputProps,
   Menu,
   MenuItemProps,
   Select,
   SelectProps,
+  Tabs,
+  TabsProps,
   Text,
   TextInput,
   TextProps,
 } from '@mantine/core'
+import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 
 export const VerticalBorder = styled.div`
@@ -138,4 +143,19 @@ export const SimpleText = styled(Text)<
   TextProps & { fontSize: number; children: React.ReactNode } & StyledTextProps
 >`
   ${textStyles}
+`
+export const STabs = styled(Tabs)<TabsProps>`
+  .mantine-Tabs-tab:hover {
+    background-color: var(--mantine-color-textPrimary-light-hover);
+  }
+`
+export const HoveredText = styled(Text)<
+  TextProps & {
+    onClick: (e: any) => void
+    children: ReactNode
+  }
+>`
+  &:hover {
+    opacity: 0.8;
+  }
 `

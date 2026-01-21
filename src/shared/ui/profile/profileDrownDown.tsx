@@ -3,12 +3,13 @@ import {
   MdOutlineKeyboardArrowDown,
   MdOutlinePersonOutline,
 } from 'react-icons/md'
-import { ProfileConstant } from './constant'
 import { HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
+import { useProfileDropDown } from './hook'
 
 const ProfileDrownDown = () => {
   const { isMobile } = Responsive()
+  const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
 
   return (
     <Menu
@@ -42,6 +43,11 @@ const ProfileDrownDown = () => {
               key={option.label}
               c="textPrimary"
               leftSection={option.icon}
+              onClick={() => {
+                if (option.handleClick) {
+                  option.handleClick()
+                }
+              }}
             >
               <Text size="sm">{option.label}</Text>
             </HoveredMenuItem>

@@ -1,17 +1,16 @@
 import { Flex } from '@mantine/core'
 import { Content } from './content'
 import { Navbar } from './navbar'
-import { useLocation } from 'react-router-dom'
 import { Footer } from './footer'
+import { Tooltip } from 'react-tooltip'
 
 export const AppLayout = () => {
-  const { pathname } = useLocation()
-
   return (
     <Flex direction="column">
       <Navbar />
       <Content />
       <Footer />
+      <Tooltip id="global-tooltip" />
     </Flex>
   )
 }

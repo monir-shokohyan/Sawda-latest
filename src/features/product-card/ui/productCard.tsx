@@ -17,6 +17,7 @@ import {
 import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
+import { Tooltip } from 'react-tooltip'
 
 const ProductCard: React.FC<UseModalProps> = ({
   product,
@@ -32,7 +33,12 @@ const ProductCard: React.FC<UseModalProps> = ({
     particles,
   } = useModals({ product, handleToggleLike })
   return (
-    <CardWrapper>
+    <CardWrapper
+      data-tooltip-id="global-tooltip"
+      data-tooltip-content="Click card for details • Double-click to quick like"
+      data-tooltip-place="top"
+      data-tooltip-delay-show={800}
+    >
       <MantineCard
         shadow="sm"
         padding="0"

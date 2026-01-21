@@ -1,8 +1,4 @@
-import {
-  Container,
-  Stack,
-  Tabs,
-} from '@mantine/core'
+import { Container, Stack, Tabs } from '@mantine/core'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
 import { GeneralPadding } from '@shared/constants'
 import { useSearchParams } from 'react-router-dom'
@@ -12,6 +8,7 @@ import { ProfileHeader } from './profileHeader'
 import { useState } from 'react'
 import { Listing } from './Listing'
 import { Reviews } from './Reviews'
+import { STabs } from '@shared/styles'
 
 function Ui() {
   const { isMobile } = Responsive()
@@ -24,7 +21,8 @@ function Ui() {
       <Stack
         w="100%"
         gap={0}
-        p={isMobile ? 'sm' : GeneralPadding}
+        px={isMobile ? 'sm' : GeneralPadding}
+        py={isMobile ? 'sm' : 'xl'}
       >
         <BreadcrumbsNav
           items={[{ title: 'Home', href: '/' }, { title: name }]}
@@ -36,7 +34,7 @@ function Ui() {
           w="100%"
           px="2.5%"
         >
-          <Tabs
+          <STabs
             value={tab}
             onChange={(value) => setTab(value as string)}
             mt={100}
@@ -53,8 +51,7 @@ function Ui() {
             <Tabs.Panel value="Reviews">
               <Reviews />
             </Tabs.Panel>
-
-          </Tabs>
+          </STabs>
         </Container>
       </Stack>
     </GradientContainer>

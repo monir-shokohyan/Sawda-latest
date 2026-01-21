@@ -1,15 +1,8 @@
 import { Avatar, Flex, Group, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { ProductProps } from '@shared/types/profile'
 import { NavLink, useNavigate } from 'react-router-dom'
-
-interface ProfileProps {
-  product: ProductProps
-  showDetails?: boolean
-  showTime?: boolean
-  size?: 'xl' | 'md' | 'sm' | 'lg'
-  allowPadding?: boolean
-}
+import { ProfileProps } from '../types'
+import { HoveredText } from '@shared/styles'
 
 const ProfileSection = ({
   product,
@@ -26,15 +19,7 @@ const ProfileSection = ({
     <Group
       p={padding}
       pl={allowPadding ? padding : '0px'}
-      onClick={(e) => {
-        e.stopPropagation()
-        navigate({
-          pathname: `/profile/${product.username}`,
-          search: new URLSearchParams({
-            name: `${product.username?.slice(0, 20)}...`,
-          }).toString(),
-        })
-      }}
+      style={{ cursor: 'pointer' }}
     >
       <Avatar
         color="blue"
@@ -43,16 +28,26 @@ const ProfileSection = ({
       >
         {product.username?.charAt(0).toUpperCase()}
       </Avatar>
+
       <Flex
         direction="column"
         gap={isMobile ? '4px' : '0px'}
       >
-        <Text
+        <HoveredText
           fw={600}
           size={isMobile ? '0.7rem' : 'md'}
+          onClick={(e) => {
+            e.stopPropagation()
+            navigate({
+              pathname: `/profile/${product.username}`,
+              search: new URLSearchParams({
+                name: `${product.username?.slice(0, 20)}...`,
+              }).toString(),
+            })
+          }}
         >
           {product.username}
-        </Text>
+        </HoveredText>
 
         {showTime && (
           <Text
