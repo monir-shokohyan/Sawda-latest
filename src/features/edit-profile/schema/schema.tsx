@@ -21,5 +21,4 @@ export const AddressSchema = yup.object({
   city: yup.string().required('City is required'),
   stateProvince: yup.string().required('State/Province is required'),
   postalCode: yup.string().required('Postal code is required'),
-  country: yup.string().required('Country is required'),
 })

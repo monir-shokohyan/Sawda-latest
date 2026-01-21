@@ -33,7 +33,6 @@ export interface BusinessAddress {
   city: string
   stateProvince: string
   postalCode: string
-  country: string
 }
 export interface AddressModalProps {
   opened: boolean

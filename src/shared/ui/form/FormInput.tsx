@@ -28,7 +28,7 @@ const FormInput = <T extends FieldValues>({
   return (
     <Group
       align="flex-end"
-      mb={30}
+      mb={20}
     >
       <Stack
         style={{ flex: 1 }}
@@ -52,6 +52,7 @@ const FormInput = <T extends FieldValues>({
                 {...field}
                 error={!!error}
                 aria-invalid={!!error}
+                radius={3}
               />
 
               {error && (

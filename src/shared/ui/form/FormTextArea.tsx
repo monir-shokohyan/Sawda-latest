@@ -80,6 +80,7 @@ const FormTextarea = <T extends FieldValues>({
                 onChange={(e) => {
                   field.onChange(e)
                 }}
+                radius={3}
               />
 
               <CharCounter>

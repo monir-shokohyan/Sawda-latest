@@ -63,46 +63,16 @@ export const UploadButton = styled.label`
   }
 `
 
-export const ExpandableSection = styled.div`
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 20px;
-`
-
-export const ExpandableHeader = styled.div`
-  padding: 12px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-
-  &:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
-  }
-`
-
-interface ExpandableContentProps {
-  isOpen: boolean
-}
-
-export const ExpandableContent = styled.div<ExpandableContentProps>`
-  padding: 16px;
-  border-top: 1px solid #ddd;
-  display: ${(props) => (props.isOpen ? 'block' : 'none')};
-`
-
 export const AddButton = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
   border: 1px solid #ddd;
+  background-color: transparent;
   border-radius: 4px;
   font-size: 13px;
   cursor: pointer;
-  color: #333;
 
   &:hover {
     background-color: var(--mantine-color-textPrimary-light-hover);
@@ -134,12 +104,3 @@ export const LinkText = styled.span`
     text-decoration: underline;
   }
 `
-
-export const DayTimeRow = styled.div`
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 12px;
-`
-
-//////////////////////////////////////////////business address modal

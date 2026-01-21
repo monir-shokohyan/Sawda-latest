@@ -58,6 +58,7 @@ const FormSelect = <T extends FieldValues>({
                 classNames={{
                   option: 'select-option',
                 }}
+                radius={3}
               />
 
               {error && (

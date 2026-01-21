@@ -1,5 +1,10 @@
 import React from 'react'
-import { Modal, Button as MantineButton, Stack } from '@mantine/core'
+import {
+  Modal,
+  Button as MantineButton,
+  Stack,
+  useMantineTheme,
+} from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { FormInput } from '@shared/ui/form'
@@ -17,6 +22,7 @@ const AddressModal: React.FC<AddressModalProps> = ({
     resolver: yupResolver(AddressSchema),
     defaultValues: initialData || ModalDefaultValue,
   })
+  const theme = useMantineTheme()
 
   React.useEffect(() => {
     if (opened && initialData) {
@@ -36,6 +42,14 @@ const AddressModal: React.FC<AddressModalProps> = ({
       onClose={onClose}
       title="Add Business Address"
       size="md"
+      styles={{
+        header: {
+          background: theme.colors.background[8],
+        },
+        body: {
+          background: theme.colors.background[8],
+        },
+      }}
     >
       <Stack gap={3}>
         <FormInput<BusinessAddress>

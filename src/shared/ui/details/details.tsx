@@ -13,9 +13,9 @@ export const InfoBox = styled.div`
 `
 
 interface DetailsProps {
-  icon: ReactNode;
-  text: string;
-  title: string;
+  icon: ReactNode
+  text: string
+  title: string
 }
 
 const Details = ({ icon, text, title }: DetailsProps) => {
