@@ -10,7 +10,7 @@ const LanguageDropDown = () => {
       width={120}
       withArrow
       transitionProps={{ transition: 'fade-down', duration: 250 }}
-      position="top-start"
+      position="top-end"
     >
       <Menu.Target>
         <Button

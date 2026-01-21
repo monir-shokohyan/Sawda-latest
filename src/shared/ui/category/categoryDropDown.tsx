@@ -24,7 +24,7 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
   return (
     <Menu
       shadow="md"
-      position="bottom-start"
+      position="bottom-end"
       withArrow
     >
       <Menu.Target>{triggerButton}</Menu.Target>

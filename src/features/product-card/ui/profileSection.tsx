@@ -16,8 +16,7 @@ const ProfileSection = ({
   showDetails = false,
   showTime = true,
   size = 'md',
-  allowPadding = true
-  
+  allowPadding = true,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
