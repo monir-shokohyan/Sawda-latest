@@ -67,6 +67,7 @@ const BreadcrumbsNav: React.FC<BreadcrumbsNavProps> = ({
     <nav
       aria-label="breadcrumb"
       className={className}
+      style={{marginBlock: '10px'}}
     >
       <Breadcrumbs separator={separator ?? '→'}>
         {breadcrumbElements}

@@ -105,7 +105,7 @@ const ProfileHeader = () => {
               )}
             </Flex>
 
-            <Group w={isMobile ? "100%" : "auto"}>
+            <Group w={isMobile ? '100%' : 'auto'}>
               {!isMobile && (
                 <>
                   <Stack
@@ -159,7 +159,7 @@ const ProfileHeader = () => {
                 variant="outline"
                 radius={20}
                 size="compact-md"
-                w={isMobile ? "70%" : "auto"}
+                w={isMobile ? '70%' : 'auto'}
               >
                 <ResText
                   fontSize={16}

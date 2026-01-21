@@ -6,7 +6,6 @@ import {
   Select,
   Stack,
   Tabs,
-  Text,
   useMantineTheme,
 } from '@mantine/core'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
@@ -19,8 +18,6 @@ import { useState } from 'react'
 import { ResText } from '@shared/styles'
 import { Listing } from './Listing'
 import { NewestToOldestObj } from '../constant'
-import { MdCheck } from 'react-icons/md'
-import { Categorytype } from '@shared/ui/category/types'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 
 function Ui() {
@@ -38,9 +35,8 @@ function Ui() {
         gap={0}
         p={isMobile ? 'sm' : GeneralPadding}
       >
-        <BreadcrumbsNav
-          items={[{ title: 'Home', href: '/' }, { title: name }]}
-        />
+
+        <BreadcrumbsNav  items={[{ title: 'Home', href: '/' }, { title: name }]} />
         <ProfileHeader />
 
         <Container
