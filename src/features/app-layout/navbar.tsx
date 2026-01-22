@@ -25,6 +25,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
+import { Logo } from '@shared/ui/logo'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
@@ -51,16 +52,7 @@ const Navbar = () => {
           align="center"
           gap={isMobile ? 12 : 24}
         >
-          <Flex
-            align="center"
-            gap={4}
-          >
-            <Image
-              src={'/Rite-eats.png'}
-              h={isMobile ? '24px' : '25px'}
-            />
-          </Flex>
-
+          <Logo />
           {!isMobile && <CategoryDropDown />}
         </Flex>
 
@@ -180,7 +172,7 @@ const Navbar = () => {
         onClose={closeModal}
         fullScreen
         padding={20}
-        title="Profile"
+        title={<Logo />}
         pos="relative"
       >
         <Flex
