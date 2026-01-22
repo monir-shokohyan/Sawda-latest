@@ -9,8 +9,7 @@ import {
   MdOutlineSettings,
 } from 'react-icons/md'
 
-const useProfileDropDown = ({ id }: { id: string }) => {
-  const navigate = useNavigate()
+const useProfileDropDown = ({ id= 'monir' }: { id?: string }) => {
   const { pathname } = useLocation()
 
   const ProfileConstant: Profiletype[] = [

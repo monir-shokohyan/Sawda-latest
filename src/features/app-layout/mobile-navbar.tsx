@@ -1,4 +1,5 @@
 import { ActionIcon, Flex } from '@mantine/core'
+import { Paths } from '@shared/api/paths/paths'
 import { HoveredActionIcon } from '@shared/styles'
 import { Dispatch, SetStateAction } from 'react'
 
@@ -37,8 +38,8 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         variant="subtle"
         c="darkText"
         size="xl"
-        onClick={() => navigate('/')}
-      >
+        onClick={() => navigate(Paths.Main)}
+        >
         <MdHome size={24} />
       </HoveredActionIcon>
 
@@ -46,6 +47,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         variant="subtle"
         c="darkText"
         size="xl"
+        onClick={() => navigate(Paths.Favorite)}
       >
         <MdOutlineFavoriteBorder size={24} />
       </HoveredActionIcon>
@@ -58,7 +60,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
           width: 48,
           height: 48,
         }}
-        onClick={() => setOpenedModal('add')}
+        onClick={() => navigate(`${Paths.MobileModel}add`)}
       >
         <MdAdd size={28} />
       </HoveredActionIcon>
@@ -67,7 +69,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         variant="subtle"
         c="darkText"
         size="xl"
-        onClick={() => setOpenedModal('message')}
+        onClick={() => navigate(`${Paths.MobileModel}message`)}
       >
         <MdOutlineMessage size={24} />
       </HoveredActionIcon>
@@ -76,7 +78,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         variant="subtle"
         c="darkText"
         size="xl"
-        onClick={() => setOpenedModal('profile')}
+        onClick={() => navigate(`${Paths.MobileModel}profile`)}
       >
         <MdPerson size={24} />
       </HoveredActionIcon>

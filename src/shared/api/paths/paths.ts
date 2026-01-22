@@ -4,4 +4,6 @@ export enum Paths {
   Following = '/settings/following/',
   ProductDetails = '/product/',
   ProfileDetails = '/profile/',
+  MobileModel = '/model/',
+  Favorite = '/favorite/',
 }

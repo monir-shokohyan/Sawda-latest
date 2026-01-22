@@ -1,4 +1,5 @@
 import { DashboardPage } from '@pages/dashboard'
+import { MobileModalPage } from '@pages/modal'
 import { ProductDetailPage } from '@pages/product-details'
 import { ProfileDetailPage } from '@pages/profile-details'
 import { SettingsPage } from '@pages/settings'
@@ -36,6 +37,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="profile-detail">
         <ProfileDetailPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'modal',
+    guarded: '',
+    path: '/model/:id',
+    element: (
+      <ErrorSuspense suspenseKey="modal">
+        <MobileModalPage />
       </ErrorSuspense>
     ),
   },
