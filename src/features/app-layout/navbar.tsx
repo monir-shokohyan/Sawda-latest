@@ -221,37 +221,37 @@ const Navbar = () => {
                 />
               </Flex>
               {ProfileConstant.map((option) => {
-                if(option.label.toLocaleLowerCase() !== 'logout') {
-                  return (<HoveredItem
-                    key={option.label}
-                    $isActive={pathname === option.path}
-                    onClick={() => {
-                      if (option.handleClick) {
-                        option.handleClick()
-                      } else if (option.path) {
-                        navigate(option.path)
-                        closeModal()
-                      }
-                    }}
-                  >
-                    <Flex
-                      gap={20}
-                      c="primary"
+                if (option.label.toLocaleLowerCase() !== 'logout') {
+                  return (
+                    <HoveredItem
+                      key={option.label}
+                      $isActive={pathname === option.path}
+                      onClick={() => {
+                        if (option.handleClick) {
+                          option.handleClick()
+                        } else if (option.path) {
+                          navigate(option.path)
+                          closeModal()
+                        }
+                      }}
                     >
-                      {option.icon}
-                      <ResText
-                        fontSize={18}
-                        c="darkText"
-                        fontWeight="500"
+                      <Flex
+                        gap={20}
+                        c="primary"
                       >
-                        {option.label}
-                      </ResText>
-                    </Flex>
-                  </HoveredItem>)
+                        {option.icon}
+                        <ResText
+                          fontSize={18}
+                          c="darkText"
+                          fontWeight="500"
+                        >
+                          {option.label}
+                        </ResText>
+                      </Flex>
+                    </HoveredItem>
+                  )
                 }
-              })
-              }
-                
+              })}
             </Flex>
           </Flex>
         </Flex>
@@ -267,7 +267,11 @@ const Navbar = () => {
           bottom={80}
           left={20}
         />
-        <Button w="90%" pos="absolute" bottom={30}>
+        <Button
+          w="90%"
+          pos="absolute"
+          bottom={30}
+        >
           Sign out
         </Button>
       </Modal>
