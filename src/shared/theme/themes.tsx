@@ -43,7 +43,7 @@ const lightSurface: MantineColorsTuple = colorsTuple('#FFFFFF')
 const darkSurface: MantineColorsTuple = colorsTuple('#121B5B')
 const grayText: MantineColorsTuple = colorsTuple('#686968')
 const grayBg: MantineColorsTuple = colorsTuple('#EBEAE8')
-const darkText: MantineColorsTuple = colorsTuple('#000')
+const darkTextC: MantineColorsTuple = colorsTuple('#000')
 const lightText: MantineColorsTuple = colorsTuple('#FFFFFF')
 
 export const theme = createTheme({
@@ -64,6 +64,7 @@ export const theme = createTheme({
     lightSurface,
     originalBlueHover,
     grayBg,
+    darkTextC,
 
     primary: virtualColor({
       name: 'primary',
@@ -98,8 +99,8 @@ export const theme = createTheme({
       dark: 'grayText',
     }),
     darkText: virtualColor({
-      name: 'titleText',
-      light: 'darkText',
+      name: 'darkText',
+      light: 'grayText',
       dark: 'lightText',
     }),
 
