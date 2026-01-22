@@ -1,10 +1,4 @@
-import {
-  Flex,
-  Modal,
-  Text,
-  useMantineTheme,
-  Button,
-} from '@mantine/core'
+import { Flex, Modal, Text, useMantineTheme, Button } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
