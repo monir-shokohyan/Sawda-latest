@@ -6,10 +6,12 @@ import {
 import { HoveredButton, HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from './hook'
+import { useNavigate } from 'react-router-dom'
 
 const ProfileDrownDown = () => {
   const { isMobile } = Responsive()
   const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
+  const navigate = useNavigate()
 
   return (
     <Menu
@@ -46,7 +48,9 @@ const ProfileDrownDown = () => {
               onClick={() => {
                 if (option.handleClick) {
                   option.handleClick()
+                  return
                 }
+                navigate(option.path as string)
               }}
             >
               <Text size="sm">{option.label}</Text>

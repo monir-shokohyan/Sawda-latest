@@ -17,7 +17,7 @@ const ProfileSection = ({
   showEmail = false,
   direction = 'row',
   hoverUsername = true,
-  isStaticColor = false
+  isStaticColor = false,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -36,8 +36,7 @@ const ProfileSection = ({
         size={isMobile ? mobileSize : size}
         radius="50%"
         src="/profile.png"
-        />
-        
+      />
 
       <Flex
         direction="column"
@@ -56,7 +55,7 @@ const ProfileSection = ({
               }).toString(),
             })
           }}
-          c={isStaticColor ? "white" : "darkText"}
+          c={isStaticColor ? 'white' : 'darkText'}
           $isActive={hoverUsername}
         >
           {product.username}
@@ -65,7 +64,7 @@ const ProfileSection = ({
         {showEmail && (
           <Text
             size={isMobile ? timeSize : 'xs'}
-            c={isStaticColor ? "white" : "dimmed"}
+            c={isStaticColor ? 'white' : 'dimmed'}
           >
             {product.email}
           </Text>
