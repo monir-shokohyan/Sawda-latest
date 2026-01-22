@@ -1,9 +1,9 @@
-import { Button, Menu, Text } from '@mantine/core'
+import { Button, ButtonProps, Menu, MenuTargetProps, Text } from '@mantine/core'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { LanguageContants } from './constant'
 import { HoveredMenuItem } from '@shared/styles'
 
-const LanguageDropDown = () => {
+const LanguageDropDown = (props: ButtonProps) => {
   return (
     <Menu
       shadow="sm"
@@ -12,13 +12,14 @@ const LanguageDropDown = () => {
       transitionProps={{ transition: 'fade-down', duration: 250 }}
       position="top-end"
     >
-      <Menu.Target>
+      <Menu.Target {...props}>
         <Button
           variant="subtle"
           rightSection={<MdOutlineKeyboardArrowDown size={20} />}
           c="darkText"
           size="sm"
           justify="flex-start"
+          {...props}
         >
           English
         </Button>

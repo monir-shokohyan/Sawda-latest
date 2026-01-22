@@ -203,7 +203,7 @@ const Navbar = () => {
                 w="100%"
                 align="center"
                 py={20}
-                style={{ borderBottom: '1px solid lightgray'}}
+                style={{ borderBottom: '1px solid lightgray' }}
               >
                 <ProfileSection
                   product={{
@@ -214,7 +214,6 @@ const Navbar = () => {
                   timeSize="0.9rem"
                   mobileSize="50px"
                 />
-                <LanguageDropDown />
               </Flex>
               {ProfileConstant.map((option) => (
                 <HoveredItem
@@ -253,6 +252,11 @@ const Navbar = () => {
           c="primary"
           iconSize={25}
           right={30}
+        />
+        <LanguageDropDown
+        pos="absolute"
+        bottom={30}
+        left={30}
         />
       </Modal>
 
