@@ -4,6 +4,7 @@ import { Stack, Grid } from '@mantine/core' // assuming you're using Mantine
 import { ResText } from '@shared/styles'
 import { Content, IconWrapper, TitleWrapper } from '../styles'
 import { ProductCard } from '@features/product-card'
+import { TypographySize } from '@shared/typography'
 
 const ProductsMaps = Array.from({ length: 9 }, (_, i) => ({
   id: i,
@@ -28,7 +29,7 @@ export function SimilarAdsSection() {
       pb={10}
     >
       <TitleWrapper onClick={toggleOpen}>
-        <ResText fontSize={26}>Similar advertisements</ResText>
+        <ResText fontSize={TypographySize.Large}>Similar advertisements</ResText>
         <IconWrapper
           $isOpen={isOpen}
           variant="transparent"

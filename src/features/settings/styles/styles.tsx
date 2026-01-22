@@ -16,28 +16,18 @@ export const Container = styled.div`
   min-height: 100vh;
 `
 
-export const Sidebar = styled.div`
-  width: 250px;
-  padding: 20px;
-`
-
-export const SidebarTitle = styled.h3`
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 20px;
-`
 
 export const SidebarItem = styled.div<{ $isActive?: boolean }>`
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: ${({ $isActive }) => ($isActive ? '600' : '400')};
+  font-weight: ${({ $isActive }) => ($isActive ? '500' : '400')};
   background-color: ${({ $isActive }) =>
-    $isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent'};
+    $isActive ? 'var(--mantine-color-primary-light-hover)' : 'transparent'};
 
   &:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
+    background-color: var(--mantine-color-primary-light-hover);
   }
 
   &:active {

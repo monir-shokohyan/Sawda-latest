@@ -13,6 +13,7 @@ import { AccountDetails } from './accountDetails'
 import { PrivateDetails } from './privateDetails'
 import { BusinessDetails } from './businessDetails'
 import { useManageEditProfile } from '../modal'
+import { TypographySize } from '@shared/typography'
 
 const Ui = () => {
   const {
@@ -35,7 +36,7 @@ const Ui = () => {
       >
         <ResText
           c="darkText"
-          fontSize={24}
+          fontSize={TypographySize.Large}
         >
           Edit profile
         </ResText>
@@ -47,7 +48,7 @@ const Ui = () => {
           >
             <ResText
               c="darkText"
-              fontSize={18}
+              fontSize={TypographySize.Normal}
             >
               profile photo
             </ResText>
@@ -66,7 +67,7 @@ const Ui = () => {
               <PhotoInfo>
                 <ResText
                   c="darkText"
-                  fontSize={14}
+                  fontSize={TypographySize.SemiSmall}
                 >
                   Your favorite face picture as an important way for buyers and
                   sellers to learn about each part other.

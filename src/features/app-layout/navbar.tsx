@@ -33,6 +33,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { Logo } from '@shared/ui/logo'
 import { OverlayBg } from '@shared/ui/overlayBg'
+import { TypographySize } from '@shared/typography'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
@@ -236,7 +237,7 @@ const Navbar = () => {
                       >
                         {option.icon}
                         <ResText
-                          fontSize={18}
+                          fontSize={TypographySize.Normal}
                           c="darkText"
                         >
                           {option.label}

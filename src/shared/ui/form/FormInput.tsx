@@ -1,5 +1,6 @@
 import { Button, Group, Stack, Text } from '@mantine/core'
 import { ResText, SInput } from '@shared/styles'
+import { TypographySize } from '@shared/typography'
 import {
   Controller,
   Control,
@@ -36,7 +37,7 @@ const FormInput = <T extends FieldValues>({
       >
         <label>
           <ResText
-            fontSize={14}
+            fontSize={TypographySize.SemiSmall}
             c="darkText"
           >
             {label}

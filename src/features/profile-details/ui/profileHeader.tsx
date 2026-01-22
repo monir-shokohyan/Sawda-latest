@@ -14,6 +14,7 @@ import { HoveredActionIcon, ResText } from '@shared/styles'
 import { FaEllipsisV, FaStar } from 'react-icons/fa'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
+import { TypographySize } from '@shared/typography'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
@@ -67,7 +68,7 @@ const ProfileHeader = () => {
                     >
                       <ResText
                         c="textPrimary"
-                        fontSize={16}
+                        fontSize={TypographySize.Normal}
                       >
                         5.0
                       </ResText>
@@ -75,7 +76,7 @@ const ProfileHeader = () => {
                     </Flex>
                     <ResText
                       c="textPrimary"
-                      fontSize={12}
+                      fontSize={TypographySize.Small}
                     >
                       7 reviews
                     </ResText>
@@ -90,13 +91,13 @@ const ProfileHeader = () => {
                   >
                     <ResText
                       c="textPrimary"
-                      fontSize={16}
+                      fontSize={TypographySize.Normal}
                     >
                       1y 7d
                     </ResText>
                     <ResText
                       c="textPrimary"
-                      fontSize={12}
+                      fontSize={TypographySize.Small}
                     >
                       Joined
                     </ResText>
@@ -119,7 +120,7 @@ const ProfileHeader = () => {
                     >
                       <ResText
                         c="textPrimary"
-                        fontSize={16}
+                        fontSize={TypographySize.Normal}
                       >
                         5.0
                       </ResText>
@@ -127,7 +128,7 @@ const ProfileHeader = () => {
                     </Flex>
                     <ResText
                       c="textPrimary"
-                      fontSize={12}
+                      fontSize={TypographySize.Small}
                     >
                       7 reviews
                     </ResText>
@@ -141,13 +142,13 @@ const ProfileHeader = () => {
                   >
                     <ResText
                       c="textPrimary"
-                      fontSize={16}
+                      fontSize={TypographySize.Normal}
                     >
                       1y 7d
                     </ResText>
                     <ResText
                       c="textPrimary"
-                      fontSize={12}
+                      fontSize={TypographySize.Small}
                     >
                       Joined
                     </ResText>
@@ -162,7 +163,7 @@ const ProfileHeader = () => {
                 w={isMobile ? '70%' : 'auto'}
               >
                 <ResText
-                  fontSize={16}
+                  fontSize={TypographySize.Normal}
                   color="primary"
                 >
                   Follow

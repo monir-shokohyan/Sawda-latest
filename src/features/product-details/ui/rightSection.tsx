@@ -4,6 +4,7 @@ import { OpacityButton, ResText, SButton, SGButton } from '@shared/styles'
 import { ProductProfileSection } from './productProfileSection'
 import { ReplySection } from './replySection'
 import { SimilarAdsSection } from './similarProducts'
+import { TypographySize } from '@shared/typography'
 
 const RightSection = () => {
   const { isMobile } = Responsive()
@@ -20,7 +21,7 @@ const RightSection = () => {
       {!isMobile && (
         <ResText
           c="darkText"
-          fontSize={26}
+          fontSize={TypographySize.Large}
         >
           200,000 AF
         </ResText>

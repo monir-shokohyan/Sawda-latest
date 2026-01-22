@@ -55,7 +55,7 @@ export const UploadButton = styled.label`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
+    background-color: var(--mantine-color-primary-light-hover);
   }
 
   input {
@@ -75,7 +75,7 @@ export const AddButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
+    background-color: var(--mantine-color-primary-light-hover);
   }
 `
 

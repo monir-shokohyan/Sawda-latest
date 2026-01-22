@@ -18,6 +18,7 @@ import {
   TextInput,
   TextProps,
 } from '@mantine/core'
+import { TypographySize } from '@shared/typography'
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 
@@ -44,7 +45,7 @@ export const HoveredItem = styled(Flex)<{
   $isActive?: boolean
   children?: ReactNode
 }>`
-  padding: 15px 10px;
+  padding: 8px 10px;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
@@ -138,7 +139,7 @@ const textStyles = css<StyledTextProps>`
 `
 
 export const ResText = styled(Text)<
-  TextProps & { fontSize: number; children: React.ReactNode } & StyledTextProps
+  TextProps & { fontSize: TypographySize; children: React.ReactNode } & StyledTextProps
 >`
   ${textStyles}
   font-size: ${({ fontSize }) => fontSize}px;
@@ -170,7 +171,7 @@ export const SimpleText = styled(Text)<
 `
 export const STabs = styled(Tabs)<TabsProps>`
   .mantine-Tabs-tab:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
+    background-color: var(--mantine-color-primary-light-hover);
   }
 `
 export const HoveredText = styled(Text)<

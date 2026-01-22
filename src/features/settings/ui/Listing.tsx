@@ -2,6 +2,7 @@ import { ProductScroll } from '@features/product-scroll/ui'
 import { Filter } from '@features/search-filter/ui/filter'
 import { ActionIcon, Group, TextInput } from '@mantine/core'
 import { HoveredActionIcon, ResText } from '@shared/styles'
+import { TypographySize } from '@shared/typography'
 import { FaSearch } from 'react-icons/fa'
 
 const Listing = () => {
@@ -13,7 +14,7 @@ const Listing = () => {
         py={30}
       >
         <ResText
-          fontSize={24}
+          fontSize={TypographySize.Large}
           c="textPrimary"
         >
           Listing

@@ -1,6 +1,7 @@
 import { Avatar, Flex, Group, Rating } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { ResText } from '@shared/styles'
+import { TypographySize } from '@shared/typography'
 
 const ProductProfileSection = () => {
   const { isMobile } = Responsive()
@@ -19,13 +20,13 @@ const ProductProfileSection = () => {
       >
         <ResText
           c="darkText"
-          fontSize={18}
+          fontSize={TypographySize.Normal}
         >
           User name
         </ResText>
 
         <Group>
-          <ResText fontSize={12}>5.00</ResText>
+          <ResText fontSize={TypographySize.Small}>5.00</ResText>
 
           <Rating
             value={3.5}
@@ -34,7 +35,7 @@ const ProductProfileSection = () => {
           />
 
           <ResText
-            fontSize={12}
+            fontSize={TypographySize.Small}
             c="green"
           >
             5 reviews

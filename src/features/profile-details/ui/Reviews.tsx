@@ -3,6 +3,7 @@ import { Flex, Group, Rating, Select, Stack } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { useState } from 'react'
 import { NewestToOldestObj } from '../constant'
+import { TypographySize } from '@shared/typography'
 
 const Reviews = () => {
   const [selectedFilter, setSelectedFilter] = useState('newest')
@@ -15,7 +16,7 @@ const Reviews = () => {
         py={30}
       >
         <ResText
-          fontSize={24}
+          fontSize={TypographySize.Large}
           c="textPrimary"
         >
           Reviews
@@ -44,7 +45,7 @@ const Reviews = () => {
                 allowPadding={false}
               />
               <Rating />
-              <ResText fontSize={14}>
+              <ResText fontSize={TypographySize.SemiSmall}>
                 Good price for the item, though the description could have been
                 clearer. Was really grateful that they were flexible for meeting
                 up Thanks so much!

@@ -3,6 +3,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import { ResText } from '@shared/styles'
 import { FaRegDotCircle } from 'react-icons/fa'
 import { ProductsDetailsProps } from '../types'
+import { TypographySize } from '@shared/typography'
 
 const ProductDetails = ({
   DetailsObject,
@@ -13,7 +14,7 @@ const ProductDetails = ({
     <Stack mt={40}>
       <ResText
         c="darkText"
-        fontSize={26}
+        fontSize={TypographySize.Normal}
       >
         Details
       </ResText>
@@ -31,7 +32,7 @@ const ProductDetails = ({
                 >
                   <ResText
                     fontWeight="400"
-                    fontSize={16}
+                    fontSize={TypographySize.Normal}
                     c="darkText"
                   >
                     {detail.title}
@@ -47,7 +48,7 @@ const ProductDetails = ({
                   gap={4}
                 >
                   <ResText
-                    fontSize={16}
+                    fontSize={TypographySize.Normal}
                     fontWeight="400"
                     c="darkText"
                   >
@@ -74,19 +75,19 @@ const ProductDetails = ({
                 gap={4}
               >
                 <ResText
-                  fontSize={16}
+                  fontSize={TypographySize.Normal}
                   fontWeight="400"
                   c="darkText"
                 >
                   {detail.title}
                 </ResText>
-                <ResText fontSize={16}>{detail.description}</ResText>
+                <ResText fontSize={TypographySize.Normal}>{detail.description}</ResText>
               </Stack>
             )
           })}
         </Flex>
 
-        <ResText fontSize={16}>
+        <ResText fontSize={TypographySize.Normal}>
           True wireless freedom with premium sound. Deep bass, crystal-clear
           highs, and active noise cancellation that actually works. 32-hour
           total battery life (8 hours per charge + case), IPX5 sweat-proof,
@@ -108,7 +109,7 @@ const ProductDetails = ({
           {DetailsList.map((listInfo) => {
             return (
               <List.Item>
-                <ResText fontSize={16}>{listInfo.title}</ResText>
+                <ResText fontSize={TypographySize.Normal}>{listInfo.title}</ResText>
               </List.Item>
             )
           })}

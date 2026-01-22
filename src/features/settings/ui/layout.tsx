@@ -1,7 +1,10 @@
 import { ReactNode } from 'react'
-import { Container, Sidebar, SidebarItem } from '../styles'
+import { Container, SidebarItem } from '../styles'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { MenuItems } from '../constant'
+import { ResText } from '@shared/styles'
+import { TypographySize } from '@shared/typography'
+import { Stack } from '@mantine/core'
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation()
@@ -9,17 +12,19 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <Container>
-      <Sidebar>
+      <Stack w={250} p={20} gap={5}>
         {MenuItems.map((item) => (
           <SidebarItem
             key={item.path}
             $isActive={pathname.startsWith(item.path)}
             onClick={() => navigate(item.path + 'monir')}
           >
-            {item.label}
+            <ResText fontSize={TypographySize.SemiSmall}>
+              {item.label}
+            </ResText>
           </SidebarItem>
         ))}
-      </Sidebar>
+      </Stack>
       {children}
     </Container>
   )

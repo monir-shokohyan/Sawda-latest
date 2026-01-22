@@ -1,4 +1,5 @@
 import { ResText } from '@shared/styles'
+import { TypographySize } from '@shared/typography'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
@@ -6,7 +7,7 @@ export const InfoBox = styled.div`
   display: flex;
   gap: 8px;
   padding: 12px;
-  background-color: var(--mantine-color-textPrimary-light-hover);
+  background-color: var(--mantine-color-primary-light-hover);
   border-radius: 4px;
   margin-bottom: 20px;
   font-size: 12px;
@@ -22,7 +23,7 @@ const Details = ({ icon, text, title }: DetailsProps) => {
   return (
     <>
       <ResText
-        fontSize={18}
+        fontSize={TypographySize.Normal}
         c="darkText"
       >
         {title}

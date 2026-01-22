@@ -6,6 +6,7 @@ import { FormData } from '../types'
 import { AddButton, LinkText } from '../styles'
 import { Stack } from '@mantine/core'
 import { ResText } from '@shared/styles'
+import { TypographySize } from '@shared/typography'
 
 interface FormSetProps {
   control: Control<FormData>
@@ -65,7 +66,7 @@ const BusinessDetails = ({
       >
         <label>
           <ResText
-            fontSize={14}
+            fontSize={TypographySize.SemiSmall}
             c="darkText"
           >
             Business address
@@ -99,7 +100,7 @@ const BusinessDetails = ({
           >
             <FaPlus />
             <ResText
-              fontSize={14}
+              fontSize={TypographySize.SemiSmall}
               c="darkText"
             >
               Add address

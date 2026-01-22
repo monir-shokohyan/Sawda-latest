@@ -6,13 +6,14 @@ import { SimilarAdsSection } from './similarProducts'
 import { Responsive } from '@shared/hooks/responsive'
 import { DetailsList, DetailsObject } from '../constant'
 import { ProductDetails } from './productDetails'
+import { TypographySize } from '@shared/typography'
 
 const LeftSection = () => {
   const { isMobile } = Responsive()
   return (
     <Stack w={isMobile ? '100%' : '60%'}>
       <ResText
-        fontSize={22}
+        fontSize={TypographySize.Large}
         c="darkText"
       >
         2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km
@@ -20,7 +21,7 @@ const LeftSection = () => {
       {isMobile && (
         <ResText
           c="darkText"
-          fontSize={22}
+          fontSize={TypographySize.Large}
         >
           $ 200,000
         </ResText>
