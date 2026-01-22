@@ -180,13 +180,12 @@ const Navbar = () => {
         fullScreen
         padding={20}
         title="Profile"
+        pos="relative"
       >
         <Flex
           direction="column"
-          h="100dvh"
-          pos="relative"
+          h="100%"
         >
-
           {/* Content */}
           <Flex
             flex={1}
@@ -244,11 +243,16 @@ const Navbar = () => {
                   </Flex>
                 </HoveredItem>
               ))}
-
             </Flex>
           </Flex>
-              <DarkMode pos="absolute" bottom={20} />
         </Flex>
+          <DarkMode
+            pos="absolute"
+            bottom={30}
+            c="primary"
+            iconSize={25}
+            right={30}
+          />
       </Modal>
 
       {/* Create post Modal */}

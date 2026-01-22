@@ -1,10 +1,19 @@
-import { ActionIcon, ActionIconProps, useMantineColorScheme } from '@mantine/core'
+import {
+  ActionIcon,
+  ActionIconProps,
+  useMantineColorScheme,
+} from '@mantine/core'
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 
-export const DarkMode = (props:  ActionIconProps ) => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+interface PropsType {
+  iconSize?: number
+}
 
-  const isDark = colorScheme === 'dark';
+
+export const DarkMode = ({iconSize = 20, ...props}: PropsType & ActionIconProps) => {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+
+  const isDark = colorScheme === 'dark'
 
   return (
     <ActionIcon
@@ -17,11 +26,10 @@ export const DarkMode = (props:  ActionIconProps ) => {
       {...props}
     >
       {isDark ? (
-                <MdOutlineLightMode size={20} />
-
-              ) : (
-                <MdOutlineDarkMode size={20} />
+        <MdOutlineLightMode size={iconSize} />
+      ) : (
+        <MdOutlineDarkMode size={iconSize} />
       )}
     </ActionIcon>
-  );
+  )
 }
