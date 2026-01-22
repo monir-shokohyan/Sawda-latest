@@ -1,4 +1,11 @@
-import { Flex, ActionIcon, Image, Modal, Text, useMantineTheme } from '@mantine/core'
+import {
+  Flex,
+  ActionIcon,
+  Image,
+  Modal,
+  Text,
+  useMantineTheme,
+} from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
@@ -176,6 +183,8 @@ const Navbar = () => {
         <Flex
           direction="column"
           h="100vh"
+          style={{border: '1px solid red'}}
+          py={30}
         >
           {/* Header */}
           <Flex
@@ -209,28 +218,35 @@ const Navbar = () => {
             justify="space-between"
             direction="column"
           >
-            <Flex direction="column" w="100%" gap={10}>
-               {ProfileConstant.map((option) => (
-                  <HoveredItem
-                    key={option.label}
-                    $isActive={pathname === option.path}
-                    onClick={() => {
-                      if (option.handleClick) {
-                        option.handleClick()
-                      } else if (option.path) {
-                        navigate(option.path)
-                        closeModal()
-                      }
-                    }}
-                  >
-                    <Flex gap={20}>
+            <Flex
+              direction="column"
+              w="100%"
+              gap={10}
+            >
+              {ProfileConstant.map((option) => (
+                <HoveredItem
+                  key={option.label}
+                  $isActive={pathname === option.path}
+                  onClick={() => {
+                    if (option.handleClick) {
+                      option.handleClick()
+                    } else if (option.path) {
+                      navigate(option.path)
+                      closeModal()
+                    }
+                  }}
+                >
+                  <Flex gap={20}>
                     {option.icon}
                     {option.label}
-                    </Flex>
-                  </HoveredItem>
-                ))}
+                  </Flex>
+                </HoveredItem>
+              ))}
             </Flex>
-            <Flex justify="flex-start" w="100%">
+            <Flex
+              justify="flex-start"
+              w="100%"
+            >
               <LanguageDropDown />
             </Flex>
           </Flex>

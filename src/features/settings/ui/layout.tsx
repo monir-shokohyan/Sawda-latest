@@ -6,8 +6,6 @@ import { MenuItems } from '../constant'
 const Layout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  
-
 
   return (
     <Container>

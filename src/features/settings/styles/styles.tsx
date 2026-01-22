@@ -33,7 +33,8 @@ export const SidebarItem = styled.div<{ $isActive?: boolean }>`
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: ${({ $isActive }) => ($isActive ? '600' : '400')};
-  background-color: ${({ $isActive }) => ($isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent')};
+  background-color: ${({ $isActive }) =>
+    $isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent'};
 
   &:hover {
     background-color: var(--mantine-color-textPrimary-light-hover);

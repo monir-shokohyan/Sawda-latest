@@ -39,9 +39,9 @@ export const HoveredMenuItem = styled(Menu.Item)<
     background-color: #d3d3d34b;
   }
 `
-export const HoveredItem = styled(Flex)<{ 
+export const HoveredItem = styled(Flex)<{
   onClick?: () => void
-  $isActive?: boolean 
+  $isActive?: boolean
   children?: ReactNode
 }>`
   padding: 8px 16px;
@@ -51,11 +51,11 @@ export const HoveredItem = styled(Flex)<{
   transition: all 0.2s ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  background-color: ${({ $isActive }) => 
+  background-color: ${({ $isActive }) =>
     $isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent'};
 
   &:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover)
+    background-color: var(--mantine-color-textPrimary-light-hover);
   }
 
   &:active {

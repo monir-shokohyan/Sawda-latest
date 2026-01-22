@@ -2,7 +2,12 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Profiletype } from './types'
 import { TbNotification, TbUserPlus } from 'react-icons/tb'
 import { Paths } from '@shared/api/paths/paths'
-import { MdNotificationsNone, MdOutlineLogout, MdOutlinePersonOutline, MdOutlineSettings } from 'react-icons/md'
+import {
+  MdNotificationsNone,
+  MdOutlineLogout,
+  MdOutlinePersonOutline,
+  MdOutlineSettings,
+} from 'react-icons/md'
 
 const useProfileDropDown = ({ id }: { id: string }) => {
   const navigate = useNavigate()
