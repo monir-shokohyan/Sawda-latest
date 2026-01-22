@@ -138,6 +138,11 @@ export const theme = createTheme({
         content: {
           backgroundColor: theme.colors.background[8],
         },
+        title:{
+          fontSize: '20px',
+          color: theme.colors.darkText[8],
+          fontWeight: 500
+        }
       }),
     }),
   },

@@ -19,7 +19,7 @@ import {
 } from 'react-icons/md'
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
-import { HoveredItem, HoveredMenuItem, ResText, SButton } from '@shared/styles'
+import { HoveredItem, ResText, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -178,42 +178,18 @@ const Navbar = () => {
         opened={openedModal === 'profile'}
         onClose={closeModal}
         fullScreen
-        padding={0}
-        withCloseButton={false}
+        padding={20}
+        title="Profile"
       >
         <Flex
           direction="column"
           h="100dvh"
+          pos="relative"
         >
-          {/* Header */}
-          <Flex
-            align="center"
-            gap={16}
-            px={16}
-            h={56}
-            style={{ borderBottom: '1px solid #e5e7eb' }}
-          >
-            <ActionIcon
-              variant="subtle"
-              color="textPrimary"
-              size="lg"
-              onClick={closeModal}
-            >
-              <MdArrowBack size={24} />
-            </ActionIcon>
-            <Text
-              size="lg"
-              fw={600}
-              c="darkText"
-            >
-              Profile
-            </Text>
-          </Flex>
 
           {/* Content */}
           <Flex
             flex={1}
-            p={16}
             align="center"
             justify="space-between"
             direction="column"
@@ -255,7 +231,7 @@ const Navbar = () => {
                 >
                   <Flex
                     gap={20}
-                    c="darkText"
+                    c="primary"
                   >
                     {option.icon}
                     <ResText
@@ -268,8 +244,10 @@ const Navbar = () => {
                   </Flex>
                 </HoveredItem>
               ))}
+
             </Flex>
           </Flex>
+              <DarkMode pos="absolute" bottom={20} />
         </Flex>
       </Modal>
 
