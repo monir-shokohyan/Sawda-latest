@@ -207,9 +207,12 @@ const Navbar = () => {
               >
                 <ProfileSection
                   product={{
-                    username: 'User name',
+                    username: 'Monir198323',
                     timestamp: '23day',
+                    email: 'monir.shekoyans1@gmail.com'
                   }}
+                  showEmail
+                  showTime={false}
                   usernameSize="1rem"
                   timeSize="0.9rem"
                   mobileSize="50px"
@@ -254,9 +257,9 @@ const Navbar = () => {
           right={30}
         />
         <LanguageDropDown
-        pos="absolute"
-        bottom={30}
-        left={30}
+          pos="absolute"
+          bottom={30}
+          left={30}
         />
       </Modal>
 

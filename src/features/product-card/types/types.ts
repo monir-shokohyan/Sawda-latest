@@ -13,4 +13,5 @@ export interface ProfileProps {
   mobileSize?: string
   usernameSize?: string
   timeSize?: string
+  showEmail?: boolean
 }

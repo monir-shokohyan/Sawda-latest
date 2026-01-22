@@ -14,6 +14,7 @@ const ProfileSection = ({
   allowPadding = true,
   usernameSize = '0.7rem',
   timeSize = '0.7rem',
+  showEmail = false
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -54,6 +55,14 @@ const ProfileSection = ({
           {product.username}
         </HoveredText>
 
+        {showEmail && (
+          <Text
+            size={isMobile ? timeSize : 'xs'}
+            c="dimmed"
+          >
+            {product.email}
+          </Text>
+        )}
         {showTime && (
           <Text
             size={isMobile ? timeSize : 'xs'}

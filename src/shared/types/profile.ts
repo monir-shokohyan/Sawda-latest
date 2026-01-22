@@ -7,4 +7,6 @@ export interface ProductProps {
   originalPrice?: string
   status?: string
   liked?: boolean
+  email?: string
+
 }
