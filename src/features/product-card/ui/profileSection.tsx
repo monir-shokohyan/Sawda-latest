@@ -16,6 +16,7 @@ const ProfileSection = ({
   timeSize = '0.7rem',
   showEmail = false,
   direction = 'row',
+  hoverUsername = true
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -45,6 +46,7 @@ const ProfileSection = ({
           fw={600}
           size={isMobile ? usernameSize : 'md'}
           onClick={(e) => {
+            if(!hoverUsername) return
             e.stopPropagation()
             navigate({
               pathname: `${Paths.ProfileDetails}${product.username}`,
@@ -54,6 +56,7 @@ const ProfileSection = ({
             })
           }}
           c="darkText"
+          $isActive={hoverUsername}
         >
           {product.username}
         </HoveredText>

@@ -177,9 +177,10 @@ export const HoveredText = styled(Text)<
   TextProps & {
     onClick: (e: any) => void
     children: ReactNode
+    $isActive: boolean
   }
 >`
   &:hover {
-    opacity: 0.8;
+    opacity: ${({$isActive}) => $isActive ? 0.8 : 1};
   }
 `

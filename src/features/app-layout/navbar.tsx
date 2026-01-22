@@ -212,6 +212,7 @@ const Navbar = () => {
                     timestamp: '23day',
                     email: 'monir.shekoyans1@gmail.com',
                   }}
+                  hoverUsername={false}
                   showEmail
                   showTime={false}
                   usernameSize="1.2rem"
