@@ -19,10 +19,11 @@ import {
 } from 'react-icons/md'
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
-import { HoveredItem, HoveredMenuItem, SButton } from '@shared/styles'
+import { HoveredItem, HoveredMenuItem, ResText, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { ProfileSection } from '@features/product-card/ui/profileSection'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
@@ -203,6 +204,7 @@ const Navbar = () => {
             <Text
               size="lg"
               fw={600}
+              c="textPrimary"
             >
               Profile
             </Text>
@@ -221,6 +223,24 @@ const Navbar = () => {
               w="100%"
               gap={10}
             >
+            <Flex
+              justify="space-between"
+              w="100%"
+              align="center"
+              py={20}
+            >
+                 <ProfileSection
+                product={{
+                  username: 'User name',
+                  timestamp: '23day',
+                }}
+                usernameSize='1rem'
+                timeSize='0.9rem'
+                mobileSize='50px'
+              />
+              <LanguageDropDown />
+
+            </Flex>
               {ProfileConstant.map((option) => (
                 <HoveredItem
                   key={option.label}
@@ -234,18 +254,14 @@ const Navbar = () => {
                     }
                   }}
                 >
-                  <Flex gap={20}>
+                  <Flex gap={20} c="textPrimary">
                     {option.icon}
-                    {option.label}
+                    <ResText fontSize={18} c="textPrimary">
+                     {option.label}
+                    </ResText>
                   </Flex>
                 </HoveredItem>
               ))}
-            </Flex>
-            <Flex
-              justify="flex-start"
-              w="100%"
-            >
-              <LanguageDropDown />
             </Flex>
           </Flex>
         </Flex>

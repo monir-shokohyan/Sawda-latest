@@ -10,4 +10,7 @@ export interface ProfileProps {
   showTime?: boolean
   size?: 'xl' | 'md' | 'sm' | 'lg'
   allowPadding?: boolean
+  mobileSize?: string
+  usernameSize?: string
+  timeSize?: string
 }

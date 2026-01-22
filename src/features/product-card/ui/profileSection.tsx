@@ -10,7 +10,10 @@ const ProfileSection = ({
   showDetails = false,
   showTime = true,
   size = 'md',
+  mobileSize= "33px",
   allowPadding = true,
+  usernameSize = "0.7rem",
+  timeSize = "0.7rem"
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -25,7 +28,7 @@ const ProfileSection = ({
       <Avatar
         color="blue"
         radius="xl"
-        size={isMobile ? '33px' : size}
+        size={isMobile ? mobileSize : size}
       >
         {product.username?.charAt(0).toUpperCase()}
       </Avatar>
@@ -36,7 +39,7 @@ const ProfileSection = ({
       >
         <HoveredText
           fw={600}
-          size={isMobile ? '0.7rem' : 'md'}
+          size={isMobile ? usernameSize : 'md'}
           onClick={(e) => {
             e.stopPropagation()
             navigate({
@@ -46,23 +49,24 @@ const ProfileSection = ({
               }).toString(),
             })
           }}
+          c="textPrimary"
         >
           {product.username}
         </HoveredText>
 
         {showTime && (
           <Text
-            size={isMobile ? '0.7rem' : 'xs'}
+            size={isMobile ? timeSize : 'xs'}
             c="dimmed"
-          >
+            >
             {product.timestamp}
           </Text>
         )}
 
         {showDetails && (
           <NavLink
-            to="/"
-            style={{ color: theme.colors.textPrimary[8], fontSize: '0.7rem' }}
+          to="/"
+          style={{ color: theme.colors.textPrimary[8], fontSize: '0.7rem' }}
           >
             Profile details
           </NavLink>

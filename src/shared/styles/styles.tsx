@@ -46,7 +46,7 @@ export const HoveredItem = styled(Flex)<{
 }>`
   padding: 8px 16px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 3px;
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
