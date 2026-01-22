@@ -1,4 +1,4 @@
-import { Avatar, Flex, Group, Text, useMantineTheme } from '@mantine/core'
+import { Avatar, Flex, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
@@ -14,17 +14,20 @@ const ProfileSection = ({
   allowPadding = true,
   usernameSize = '0.7rem',
   timeSize = '0.7rem',
-  showEmail = false
+  showEmail = false,
+  direction = 'row'
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
   const theme = useMantineTheme()
   const padding = isMobile ? '5px' : 'xs'
   return (
-    <Group
+    <Flex
       p={padding}
       pl={allowPadding ? padding : '0px'}
       style={{ cursor: 'pointer' }}
+      direction={direction}
+      gap={15}
     >
       <Avatar
         color="blue"
@@ -81,7 +84,7 @@ const ProfileSection = ({
           </NavLink>
         )}
       </Flex>
-    </Group>
+    </Flex>
   )
 }
 

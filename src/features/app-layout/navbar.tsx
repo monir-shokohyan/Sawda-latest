@@ -5,6 +5,7 @@ import {
   Modal,
   Text,
   useMantineTheme,
+  Button,
 } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
@@ -209,58 +210,66 @@ const Navbar = () => {
                   product={{
                     username: 'Monir198323',
                     timestamp: '23day',
-                    email: 'monir.shekoyans1@gmail.com'
+                    email: 'monir.shekoyans1@gmail.com',
                   }}
                   showEmail
                   showTime={false}
-                  usernameSize="1rem"
+                  usernameSize="1.2rem"
                   timeSize="0.9rem"
-                  mobileSize="50px"
+                  mobileSize="70px"
+                  direction="column"
                 />
               </Flex>
-              {ProfileConstant.map((option) => (
-                <HoveredItem
-                  key={option.label}
-                  $isActive={pathname === option.path}
-                  onClick={() => {
-                    if (option.handleClick) {
-                      option.handleClick()
-                    } else if (option.path) {
-                      navigate(option.path)
-                      closeModal()
-                    }
-                  }}
-                >
-                  <Flex
-                    gap={20}
-                    c="primary"
+              {ProfileConstant.map((option) => {
+                if(option.label.toLocaleLowerCase() !== 'logout') {
+                  return (<HoveredItem
+                    key={option.label}
+                    $isActive={pathname === option.path}
+                    onClick={() => {
+                      if (option.handleClick) {
+                        option.handleClick()
+                      } else if (option.path) {
+                        navigate(option.path)
+                        closeModal()
+                      }
+                    }}
                   >
-                    {option.icon}
-                    <ResText
-                      fontSize={18}
-                      c="darkText"
-                      fontWeight="500"
+                    <Flex
+                      gap={20}
+                      c="primary"
                     >
-                      {option.label}
-                    </ResText>
-                  </Flex>
-                </HoveredItem>
-              ))}
+                      {option.icon}
+                      <ResText
+                        fontSize={18}
+                        c="darkText"
+                        fontWeight="500"
+                      >
+                        {option.label}
+                      </ResText>
+                    </Flex>
+                  </HoveredItem>)
+                }
+              })
+              }
+                
             </Flex>
           </Flex>
         </Flex>
         <DarkMode
           pos="absolute"
-          bottom={30}
+          bottom={80}
           c="primary"
           iconSize={25}
-          right={30}
+          right={20}
         />
         <LanguageDropDown
           pos="absolute"
-          bottom={30}
-          left={30}
+          bottom={80}
+          left={20}
         />
+        <Button w="90%" pos="absolute" bottom={30}>
+          Sign out
+        </Button>
       </Modal>
 
       {/* Create post Modal */}

@@ -1,3 +1,4 @@
+import { FlexProps, GroupProps } from '@mantine/core'
 import { ProductProps } from '@shared/types/profile'
 
 export interface UseModalProps {
@@ -14,4 +15,5 @@ export interface ProfileProps {
   usernameSize?: string
   timeSize?: string
   showEmail?: boolean
+  direction?: FlexProps['direction']
 }
