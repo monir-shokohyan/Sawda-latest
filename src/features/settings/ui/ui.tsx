@@ -14,7 +14,7 @@ function Ui() {
       <Stack
         w="100%"
         gap={0}
-        px={isMobile ? 'sm' : GeneralPadding}
+        px={isMobile ? '0px' : GeneralPadding}
         py={isMobile ? 'sm' : 'xl'}
       >
         <BreadcrumbsNav
