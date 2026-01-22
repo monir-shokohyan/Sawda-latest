@@ -180,11 +180,11 @@ const Navbar = () => {
         fullScreen
         padding={0}
         withCloseButton={false}
-        >
+      >
         <Flex
           direction="column"
           h="100dvh"
-          >
+        >
           {/* Header */}
           <Flex
             align="center"
@@ -192,20 +192,20 @@ const Navbar = () => {
             px={16}
             h={56}
             style={{ borderBottom: '1px solid #e5e7eb' }}
-            >
+          >
             <ActionIcon
               variant="subtle"
               color="textPrimary"
               size="lg"
               onClick={closeModal}
-              >
+            >
               <MdArrowBack size={24} />
             </ActionIcon>
             <Text
               size="lg"
               fw={600}
               c="darkText"
-              >
+            >
               Profile
             </Text>
           </Flex>
@@ -217,18 +217,18 @@ const Navbar = () => {
             align="center"
             justify="space-between"
             direction="column"
-            >
+          >
             <Flex
               direction="column"
               w="100%"
               gap={10}
-              >
+            >
               <Flex
                 justify="space-between"
                 w="100%"
                 align="center"
                 py={20}
-                >
+              >
                 <ProfileSection
                   product={{
                     username: 'User name',
@@ -237,32 +237,32 @@ const Navbar = () => {
                   usernameSize="1rem"
                   timeSize="0.9rem"
                   mobileSize="50px"
-                  />
+                />
                 <LanguageDropDown />
               </Flex>
               {ProfileConstant.map((option) => (
                 <HoveredItem
-                key={option.label}
-                $isActive={pathname === option.path}
-                onClick={() => {
-                  if (option.handleClick) {
-                    option.handleClick()
-                  } else if (option.path) {
-                    navigate(option.path)
-                    closeModal()
-                  }
-                }}
+                  key={option.label}
+                  $isActive={pathname === option.path}
+                  onClick={() => {
+                    if (option.handleClick) {
+                      option.handleClick()
+                    } else if (option.path) {
+                      navigate(option.path)
+                      closeModal()
+                    }
+                  }}
                 >
                   <Flex
                     gap={20}
                     c="darkText"
-                    >
+                  >
                     {option.icon}
                     <ResText
                       fontSize={18}
                       c="darkText"
-                      fontWeight='500'
-                      >
+                      fontWeight="500"
+                    >
                       {option.label}
                     </ResText>
                   </Flex>
