@@ -3,6 +3,7 @@ import {
   ActionIconProps,
   useMantineColorScheme,
 } from '@mantine/core'
+import { HoveredActionIcon } from '@shared/styles'
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 
 interface PropsType {
@@ -18,13 +19,14 @@ export const DarkMode = ({
   const isDark = colorScheme === 'dark'
 
   return (
-    <ActionIcon
+    <HoveredActionIcon
       variant="subtle"
       color="textPrimary"
       size="lg"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       onClick={() => toggleColorScheme()}
+      radius={5}
       {...props}
     >
       {isDark ? (
@@ -32,6 +34,6 @@ export const DarkMode = ({
       ) : (
         <MdOutlineDarkMode size={iconSize} />
       )}
-    </ActionIcon>
+    </HoveredActionIcon>
   )
 }

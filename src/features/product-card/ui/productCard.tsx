@@ -1,5 +1,4 @@
 import {
-  ActionIcon,
   Flex,
   Group,
   Text,
@@ -17,7 +16,7 @@ import {
 import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
-import { Tooltip } from 'react-tooltip'
+import { HoveredActionIcon } from '@shared/styles'
 
 const ProductCard: React.FC<UseModalProps> = ({
   product,
@@ -101,20 +100,20 @@ const ProductCard: React.FC<UseModalProps> = ({
             $isAnimating={isAnimating}
             $liked={product.liked}
           >
-            <ActionIcon
+            <HoveredActionIcon
               variant="subtle"
               color={product.liked ? 'red' : 'gray'}
               onClick={handleLikeClick}
             >
               {product.liked ? <FaHeart size={18} /> : <FaRegHeart size={18} />}
-            </ActionIcon>
+            </HoveredActionIcon>
           </ActionIconWrapper>
-          <ActionIcon
+          <HoveredActionIcon
             variant="subtle"
             color="gray"
           >
             <FaEllipsisV size={16} />
-          </ActionIcon>
+          </HoveredActionIcon>
         </Group>
       </MantineCard>
 

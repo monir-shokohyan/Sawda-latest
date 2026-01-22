@@ -1,14 +1,14 @@
 import { Button, Menu, Stack, Text, ScrollArea } from '@mantine/core'
 import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { CategoryConstants } from './constant'
-import { HoveredMenuItem } from '@shared/styles'
+import { HoveredButton, HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
 const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
   const { isMobile } = Responsive()
 
   const triggerButton = (
-    <Button
+    <HoveredButton
       variant="subtle"
       leftSection={<MdOutlineApps size={20} />}
       rightSection={<MdOutlineKeyboardArrowDown size={20} />}
@@ -18,7 +18,7 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
       justify="flex-start"
     >
       All Categories
-    </Button>
+    </HoveredButton>
   )
 
   return (

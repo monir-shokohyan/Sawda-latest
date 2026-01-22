@@ -6,8 +6,10 @@ import {
   Input,
   Select,
   Modal,
+  Button,
+  ActionIcon
 } from '@mantine/core'
-import type { MantineColorsTuple } from '@mantine/core'
+import type {  MantineColorsTuple } from '@mantine/core'
 
 const darkAccent: MantineColorsTuple = [
   '#FFFFFF',
@@ -115,6 +117,7 @@ export const theme = createTheme({
       styles: (theme) => ({
         dropdown: {
           background: theme.colors.background[7],
+          borderRadius: '5px'
         },
       }),
     }),
@@ -122,6 +125,21 @@ export const theme = createTheme({
       styles: (theme) => ({
         dropdown: {
           background: theme.colors.background[8],
+          borderRadius: '5px',
+        },
+      }),
+    }),
+    Button: Button.extend({
+      styles: () => ({
+        root: {
+          borderRadius: '5px',
+        },
+      }),
+    }),
+    ActionIcon: ActionIcon.extend({
+      styles: () => ({
+        root: {
+          borderRadius: '5px',
         },
       }),
     }),
@@ -129,7 +147,9 @@ export const theme = createTheme({
       styles: (theme) => ({
         input: {
           backgroundColor: theme.colors.background[8],
+          borderRadius: '5px'
         },
+        
         wrapper: {},
       }),
     }),

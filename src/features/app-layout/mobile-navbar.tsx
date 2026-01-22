@@ -1,4 +1,5 @@
 import { ActionIcon, Flex } from '@mantine/core'
+import { HoveredActionIcon } from '@shared/styles'
 import { Dispatch, SetStateAction } from 'react'
 
 import {
@@ -32,28 +33,27 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         zIndex: 100,
       }}
     >
-      <ActionIcon
+      <HoveredActionIcon
         variant="subtle"
         c="darkText"
         size="xl"
         onClick={() => navigate('/')}
       >
         <MdHome size={24} />
-      </ActionIcon>
+      </HoveredActionIcon>
 
-      <ActionIcon
+      <HoveredActionIcon
         variant="subtle"
         c="darkText"
         size="xl"
       >
         <MdOutlineFavoriteBorder size={24} />
-      </ActionIcon>
+      </HoveredActionIcon>
 
-      <ActionIcon
+      <HoveredActionIcon
         variant="filled"
         color="blue"
         size="xl"
-        radius="xl"
         style={{
           width: 48,
           height: 48,
@@ -61,25 +61,25 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         onClick={() => setOpenedModal('add')}
       >
         <MdAdd size={28} />
-      </ActionIcon>
+      </HoveredActionIcon>
 
-      <ActionIcon
+      <HoveredActionIcon
         variant="subtle"
         c="darkText"
         size="xl"
         onClick={() => setOpenedModal('message')}
       >
         <MdOutlineMessage size={24} />
-      </ActionIcon>
+      </HoveredActionIcon>
 
-      <ActionIcon
+      <HoveredActionIcon
         variant="subtle"
         c="darkText"
         size="xl"
         onClick={() => setOpenedModal('profile')}
       >
         <MdPerson size={24} />
-      </ActionIcon>
+      </HoveredActionIcon>
     </Flex>
   )
 }

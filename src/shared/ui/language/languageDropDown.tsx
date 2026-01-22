@@ -20,6 +20,7 @@ const LanguageDropDown = (props: ButtonProps) => {
           size="sm"
           justify="flex-start"
           {...props}
+          radius={5}
         >
           English
         </Button>

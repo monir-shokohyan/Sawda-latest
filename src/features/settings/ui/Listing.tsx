@@ -1,7 +1,7 @@
 import { ProductScroll } from '@features/product-scroll/ui'
 import { Filter } from '@features/search-filter/ui/filter'
 import { ActionIcon, Group, TextInput } from '@mantine/core'
-import { ResText } from '@shared/styles'
+import { HoveredActionIcon, ResText } from '@shared/styles'
 import { FaSearch } from 'react-icons/fa'
 
 const Listing = () => {
@@ -27,9 +27,9 @@ const Listing = () => {
             radius={5}
             size="sm"
             rightSection={
-              <ActionIcon variant="transparent">
+              <HoveredActionIcon variant="transparent">
                 <FaSearch />
-              </ActionIcon>
+              </HoveredActionIcon>
             }
           />
 

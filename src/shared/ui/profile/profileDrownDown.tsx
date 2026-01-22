@@ -1,9 +1,9 @@
-import { Button, Menu, Text } from '@mantine/core'
+import { Menu, Text } from '@mantine/core'
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlinePersonOutline,
 } from 'react-icons/md'
-import { HoveredMenuItem } from '@shared/styles'
+import { HoveredButton, HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from './hook'
 
@@ -20,7 +20,7 @@ const ProfileDrownDown = () => {
       position="top-end"
     >
       <Menu.Target>
-        <Button
+        <HoveredButton
           variant="subtle"
           leftSection={isMobile ? null : <MdOutlinePersonOutline size={20} />}
           rightSection={<MdOutlineKeyboardArrowDown size={20} />}
@@ -34,7 +34,7 @@ const ProfileDrownDown = () => {
           }}
         >
           {isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name'}
-        </Button>
+        </HoveredButton>
       </Menu.Target>
       <Menu.Dropdown>
         {ProfileConstant.map((option) => {

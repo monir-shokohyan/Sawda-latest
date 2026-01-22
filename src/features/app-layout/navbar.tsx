@@ -1,7 +1,5 @@
 import {
   Flex,
-  ActionIcon,
-  Image,
   Modal,
   Text,
   useMantineTheme,
@@ -20,7 +18,7 @@ import {
 } from 'react-icons/md'
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
-import { HoveredItem, ResText, SButton } from '@shared/styles'
+import { HoveredActionIcon, HoveredItem, ResText, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -64,37 +62,37 @@ const Navbar = () => {
           <Flex>
             {!isMobile && (
               <>
-                <ActionIcon
+                <HoveredActionIcon
                   variant="subtle"
                   color="darkText"
                   size="lg"
                 >
                   <MdOutlineFavoriteBorder size={20} />
-                </ActionIcon>
+                </HoveredActionIcon>
 
-                <ActionIcon
+                <HoveredActionIcon
                   variant="subtle"
                   color="darkText"
                   size="lg"
                 >
                   <MdOutlineShoppingCart size={20} />
-                </ActionIcon>
+                </HoveredActionIcon>
 
-                <ActionIcon
+                <HoveredActionIcon
                   variant="subtle"
                   color="darkText"
                   size="lg"
                 >
                   <MdOutlineNotifications size={20} />
-                </ActionIcon>
+                </HoveredActionIcon>
 
-                <ActionIcon
+                <HoveredActionIcon
                   variant="subtle"
                   color="darkText"
                   size="lg"
                 >
                   <MdOutlineMessage size={20} />
-                </ActionIcon>
+                </HoveredActionIcon>
               </>
             )}
 
@@ -138,14 +136,14 @@ const Navbar = () => {
             h={56}
             style={{ borderBottom: '1px solid #e5e7eb' }}
           >
-            <ActionIcon
+            <HoveredActionIcon
               variant="subtle"
               color="textPrimary"
               size="lg"
               onClick={closeModal}
             >
               <MdArrowBack size={24} />
-            </ActionIcon>
+            </HoveredActionIcon>
             <Text
               size="lg"
               fw={600}
@@ -253,6 +251,7 @@ const Navbar = () => {
           c="primary"
           iconSize={25}
           right={20}
+          radius={5}
         />
         <LanguageDropDown
           pos="absolute"
@@ -263,6 +262,7 @@ const Navbar = () => {
           w="90%"
           pos="absolute"
           bottom={30}
+          radius={5}
         >
           Sign out
         </Button>
@@ -288,14 +288,14 @@ const Navbar = () => {
             h={56}
             style={{ borderBottom: '1px solid #e5e7eb' }}
           >
-            <ActionIcon
+            <HoveredActionIcon
               variant="subtle"
               color="darkText"
               size="lg"
               onClick={closeModal}
             >
               <MdArrowBack size={24} />
-            </ActionIcon>
+            </HoveredActionIcon>
             <Text
               size="lg"
               fw={600}

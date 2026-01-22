@@ -19,7 +19,7 @@ import {
 } from 'react-icons/md'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
-import { HoveredSelect, SActionIcon, SButton } from '@shared/styles'
+import { HoveredActionIcon, HoveredSelect, SActionIcon, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
 interface FilterProps {
@@ -88,14 +88,14 @@ const Filter = ({
             <span style={{ marginLeft: '5px' }}>Filter</span>
           </Menu.Label>
 
-          <ActionIcon
+          <HoveredActionIcon
             variant="subtle"
             color="gray"
             onClick={() => setOpened(false)}
             aria-label="Close filter menu"
           >
             <MdClose size={18} />
-          </ActionIcon>
+          </HoveredActionIcon>
         </Group>
 
         <Flex

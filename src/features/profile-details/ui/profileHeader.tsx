@@ -10,7 +10,7 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
-import { ResText } from '@shared/styles'
+import { HoveredActionIcon, ResText } from '@shared/styles'
 import { FaEllipsisV, FaStar } from 'react-icons/fa'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
@@ -169,19 +169,19 @@ const ProfileHeader = () => {
                 </ResText>
               </Button>
 
-              <ActionIcon
+              <HoveredActionIcon
                 variant="outline"
                 radius="50%"
               >
                 <MdOutlineFileUpload size={18} />
-              </ActionIcon>
+              </HoveredActionIcon>
 
-              <ActionIcon
+              <HoveredActionIcon
                 variant="subtle"
                 color="gray"
               >
                 <FaEllipsisV size={16} />
-              </ActionIcon>
+              </HoveredActionIcon>
             </Group>
           </Flex>
         </GradientContainer>

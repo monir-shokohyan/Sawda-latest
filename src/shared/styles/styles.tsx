@@ -36,7 +36,7 @@ export const HoveredMenuItem = styled(Menu.Item)<
   MenuItemProps & { onClick?: () => void }
 >`
   &:hover {
-    background-color: #d3d3d34b;
+    background-color: var(--mantine-color-primary-light-hover);
   }
 `
 export const HoveredItem = styled(Flex)<{
@@ -182,5 +182,31 @@ export const HoveredText = styled(Text)<
 >`
   &:hover {
     opacity: ${({ $isActive }) => ($isActive ? 0.8 : 1)};
+  }
+`
+export const HoveredActionIcon = styled(ActionIcon)<
+  ActionIconProps & {
+    onClick?: (e: any) => void
+    children: ReactNode
+    title?: string
+    type?: 'submit'
+  }
+>`
+  &:hover {
+    background: var(--mantine-color-primary-light-hover)
+  }
+`
+
+export const HoveredButton = styled(Button)<
+  ButtonProps & {
+    onClick?: (e: any) => void
+    children: ReactNode
+    title?: string
+    type?: 'submit'
+  }
+>`
+  border-radius: 5px;
+  &:hover {
+    background: var(--mantine-color-primary-light-hover)
   }
 `

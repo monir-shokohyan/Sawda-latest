@@ -8,7 +8,7 @@ import {
   useMantineTheme,
   ActionIcon,
 } from '@mantine/core'
-import { OpacityButton } from '@shared/styles'
+import { HoveredActionIcon, OpacityButton } from '@shared/styles'
 import { FiSend } from 'react-icons/fi'
 
 const schema = yup.object({
@@ -58,7 +58,7 @@ const ReplySection = () => {
           gap={6}
           pos="relative"
         >
-          <ActionIcon
+          <HoveredActionIcon
             type="submit"
             variant="transparent"
             color="blue"
@@ -74,7 +74,7 @@ const ReplySection = () => {
             aria-label="Send message"
           >
             <FiSend size={18} />
-          </ActionIcon>
+          </HoveredActionIcon>
 
           <Textarea
             placeholder="Greetings..."

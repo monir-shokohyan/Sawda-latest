@@ -2,7 +2,6 @@ import { Group, Stack, Text } from '@mantine/core'
 import { Select, SelectProps } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
-import styled from 'styled-components'
 
 interface FormSelectProps<T extends FieldValues> extends Omit<
   SelectProps,
@@ -12,12 +11,6 @@ interface FormSelectProps<T extends FieldValues> extends Omit<
   name: Path<T>
   label: string
 }
-
-const SSelect = styled(Select)<SelectProps>`
-  .select-option:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
-  }
-`
 
 const FormSelect = <T extends FieldValues>({
   control,
@@ -48,7 +41,7 @@ const FormSelect = <T extends FieldValues>({
           control={control}
           render={({ field, fieldState: { error } }) => (
             <>
-              <SSelect
+              <Select
                 {...field}
                 {...selectProps}
                 error={!!error}
