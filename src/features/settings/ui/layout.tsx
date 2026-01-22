@@ -14,21 +14,25 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <Container>
-     {!isMobile && <Stack
-        w={250}
-        p={20}
-        gap={5}
-      >
-        {MenuItems.map((item) => (
-          <SidebarItem
-            key={item.path}
-            $isActive={pathname.startsWith(item.path)}
-            onClick={() => navigate(item.path + 'monir')}
-          >
-            <ResText fontSize={TypographySize.SemiSmall}>{item.label}</ResText>
-          </SidebarItem>
-        ))}
-      </Stack>}
+      {!isMobile && (
+        <Stack
+          w={250}
+          p={20}
+          gap={5}
+        >
+          {MenuItems.map((item) => (
+            <SidebarItem
+              key={item.path}
+              $isActive={pathname.startsWith(item.path)}
+              onClick={() => navigate(item.path + 'monir')}
+            >
+              <ResText fontSize={TypographySize.SemiSmall}>
+                {item.label}
+              </ResText>
+            </SidebarItem>
+          ))}
+        </Stack>
+      )}
       {children}
     </Container>
   )

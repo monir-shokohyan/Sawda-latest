@@ -5,8 +5,6 @@ import {
   ButtonProps,
   createPolymorphicComponent,
   Flex,
-  Group,
-  GroupProps,
   InputProps,
   Menu,
   MenuItemProps,
@@ -47,9 +45,9 @@ export const HoveredItem = styled(Flex)<{
 }>`
   padding: 8px 10px;
   width: 100%;
-  border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
+  border-bottom: 1px solid #80808021;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   background-color: ${({ $isActive }) =>

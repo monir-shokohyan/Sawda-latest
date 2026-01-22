@@ -4,9 +4,6 @@ import {
   Text,
   useMantineTheme,
   Button,
-  BackgroundImage,
-  Overlay,
-  Box,
 } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
@@ -237,7 +234,7 @@ const Navbar = () => {
                       >
                         {option.icon}
                         <ResText
-                          fontSize={TypographySize.Normal}
+                          fontSize={TypographySize.SemiLarge}
                           c="darkText"
                         >
                           {option.label}
@@ -262,6 +259,11 @@ const Navbar = () => {
           pos="absolute"
           bottom={100}
           left={10}
+          styles={{
+            label: {
+              fontWeight: '400',
+            },
+          }}
         />
         <Button
           w="94%"

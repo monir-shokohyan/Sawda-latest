@@ -26,7 +26,7 @@ const Ui = () => {
     setAddressModalOpen,
     businessAddress,
     onSubmit,
-    isMobile
+    isMobile,
   } = useManageEditProfile()
   return (
     <>

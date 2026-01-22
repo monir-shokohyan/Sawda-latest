@@ -16,27 +16,27 @@ const useProfileDropDown = ({ id }: { id: string }) => {
   const ProfileConstant: Profiletype[] = [
     {
       label: 'Profile',
-      icon: <MdOutlinePersonOutline size={18} />,
+      icon: <MdOutlinePersonOutline size={24} />,
       path: `${Paths.ProfileDetails}${id}`,
     },
     {
       label: 'Following',
-      icon: <TbUserPlus size={18} />,
+      icon: <TbUserPlus size={24} />,
       path: `${Paths.Following}${id}`,
     },
     {
       label: 'Notification',
-      icon: <MdNotificationsNone size={18} />,
+      icon: <MdNotificationsNone size={24} />,
       path: `${Paths.Following}${id}`,
     },
     {
       label: 'Settings',
-      icon: <MdOutlineSettings size={18} />,
+      icon: <MdOutlineSettings size={24} />,
       path: `${Paths.EditProfile}${id}`,
     },
     {
       label: 'Logout',
-      icon: <MdOutlineLogout size={18} />,
+      icon: <MdOutlineLogout size={24} />,
       handleClick: () => {
         // Handle logout
       },
