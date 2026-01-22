@@ -1,1 +1,1 @@
-export {Ui as Logo} from './logo'
+export { Ui as Logo } from './logo'

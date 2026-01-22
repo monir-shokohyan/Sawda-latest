@@ -44,18 +44,18 @@ export const HoveredItem = styled(Flex)<{
   $isActive?: boolean
   children?: ReactNode
 }>`
-  padding: 8px 16px 8px 3px;
+  padding: 8px 16px 8px 5px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   background-color: ${({ $isActive }) =>
-    $isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent'};
+    $isActive ? 'var(--mantine-color-primary-light-hover)' : 'transparent'};
 
   &:hover {
-    background-color: var(--mantine-color-textPrimary-light-hover);
+    background-color: var(--mantine-color-primary-light-hover);
   }
 
   &:active {

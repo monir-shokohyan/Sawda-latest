@@ -171,7 +171,6 @@ const Navbar = () => {
         opened={openedModal === 'profile'}
         onClose={closeModal}
         fullScreen
-        padding={20}
         title={<Logo />}
         pos="relative"
       >
