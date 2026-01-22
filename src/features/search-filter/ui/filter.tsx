@@ -19,7 +19,12 @@ import {
 } from 'react-icons/md'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
-import { HoveredActionIcon, HoveredSelect, SActionIcon, SButton } from '@shared/styles'
+import {
+  HoveredActionIcon,
+  HoveredSelect,
+  SActionIcon,
+  SButton,
+} from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
 interface FilterProps {

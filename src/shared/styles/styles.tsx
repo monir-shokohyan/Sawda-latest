@@ -193,7 +193,7 @@ export const HoveredActionIcon = styled(ActionIcon)<
   }
 >`
   &:hover {
-    background: var(--mantine-color-primary-light-hover)
+    background: var(--mantine-color-primary-light-hover);
   }
 `
 
@@ -207,6 +207,6 @@ export const HoveredButton = styled(Button)<
 >`
   border-radius: 5px;
   &:hover {
-    background: var(--mantine-color-primary-light-hover)
+    background: var(--mantine-color-primary-light-hover);
   }
 `

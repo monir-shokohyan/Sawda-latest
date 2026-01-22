@@ -1,9 +1,4 @@
-import {
-  Flex,
-  Group,
-  Text,
-  Card as MantineCard,
-} from '@mantine/core'
+import { Flex, Group, Text, Card as MantineCard } from '@mantine/core'
 import { FaEllipsisV, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { ProfileSection } from './profileSection'
 import {

@@ -1,10 +1,4 @@
-import {
-  Flex,
-  Modal,
-  Text,
-  useMantineTheme,
-  Button,
-} from '@mantine/core'
+import { Flex, Modal, Text, useMantineTheme, Button } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
@@ -18,7 +12,12 @@ import {
 } from 'react-icons/md'
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
-import { HoveredActionIcon, HoveredItem, ResText, SButton } from '@shared/styles'
+import {
+  HoveredActionIcon,
+  HoveredItem,
+  ResText,
+  SButton,
+} from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useLocation, useNavigate } from 'react-router-dom'
