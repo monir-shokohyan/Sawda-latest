@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
 import { defaultValues } from '../constant'
+import { Responsive } from '@shared/hooks/responsive'
 
 const useManageEditProfile = () => {
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
@@ -15,6 +16,8 @@ const useManageEditProfile = () => {
     resolver: yupResolver(schema),
     defaultValues,
   })
+
+  const { isMobile } = Responsive()
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const file = e.target.files?.[0]
@@ -53,6 +56,7 @@ const useManageEditProfile = () => {
     businessAddress,
     onSubmit,
     setAddressModalOpen,
+    isMobile,
   }
 }
 

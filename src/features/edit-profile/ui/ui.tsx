@@ -26,11 +26,13 @@ const Ui = () => {
     setAddressModalOpen,
     businessAddress,
     onSubmit,
+    isMobile
   } = useManageEditProfile()
   return (
     <>
       <Flex
-        p={40}
+        py={isMobile ? 20 : 40}
+        px={isMobile ? 10 : 40}
         direction="column"
         bg="background.8"
       >

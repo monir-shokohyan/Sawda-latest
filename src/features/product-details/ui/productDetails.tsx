@@ -81,7 +81,9 @@ const ProductDetails = ({
                 >
                   {detail.title}
                 </ResText>
-                <ResText fontSize={TypographySize.Normal}>{detail.description}</ResText>
+                <ResText fontSize={TypographySize.Normal}>
+                  {detail.description}
+                </ResText>
               </Stack>
             )
           })}
@@ -109,7 +111,9 @@ const ProductDetails = ({
           {DetailsList.map((listInfo) => {
             return (
               <List.Item>
-                <ResText fontSize={TypographySize.Normal}>{listInfo.title}</ResText>
+                <ResText fontSize={TypographySize.Normal}>
+                  {listInfo.title}
+                </ResText>
               </List.Item>
             )
           })}

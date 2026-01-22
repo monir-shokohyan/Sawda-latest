@@ -16,7 +16,6 @@ export const Container = styled.div`
   min-height: 100vh;
 `
 
-
 export const SidebarItem = styled.div<{ $isActive?: boolean }>`
   padding: 8px 16px;
   border-radius: 5px;

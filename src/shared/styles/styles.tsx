@@ -139,7 +139,10 @@ const textStyles = css<StyledTextProps>`
 `
 
 export const ResText = styled(Text)<
-  TextProps & { fontSize: TypographySize; children: React.ReactNode } & StyledTextProps
+  TextProps & {
+    fontSize: TypographySize
+    children: React.ReactNode
+  } & StyledTextProps
 >`
   ${textStyles}
   font-size: ${({ fontSize }) => fontSize}px;

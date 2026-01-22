@@ -29,7 +29,9 @@ export function SimilarAdsSection() {
       pb={10}
     >
       <TitleWrapper onClick={toggleOpen}>
-        <ResText fontSize={TypographySize.Large}>Similar advertisements</ResText>
+        <ResText fontSize={TypographySize.Large}>
+          Similar advertisements
+        </ResText>
         <IconWrapper
           $isOpen={isOpen}
           variant="transparent"

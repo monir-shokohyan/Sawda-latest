@@ -8,6 +8,4 @@ export enum TypographySize {
   Small = 12,
 }
 
-
 export const { Text, Title, Paragraph } = Typography
-
