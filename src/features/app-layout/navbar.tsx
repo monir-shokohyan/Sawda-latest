@@ -203,6 +203,7 @@ const Navbar = () => {
                 w="100%"
                 align="center"
                 py={20}
+                style={{ borderBottom: '1px solid lightgray'}}
               >
                 <ProfileSection
                   product={{
