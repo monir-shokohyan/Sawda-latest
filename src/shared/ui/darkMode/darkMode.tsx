@@ -9,8 +9,10 @@ interface PropsType {
   iconSize?: number
 }
 
-
-export const DarkMode = ({iconSize = 20, ...props}: PropsType & ActionIconProps) => {
+export const DarkMode = ({
+  iconSize = 20,
+  ...props
+}: PropsType & ActionIconProps) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
 
   const isDark = colorScheme === 'dark'

@@ -246,13 +246,13 @@ const Navbar = () => {
             </Flex>
           </Flex>
         </Flex>
-          <DarkMode
-            pos="absolute"
-            bottom={30}
-            c="primary"
-            iconSize={25}
-            right={30}
-          />
+        <DarkMode
+          pos="absolute"
+          bottom={30}
+          c="primary"
+          iconSize={25}
+          right={30}
+        />
       </Modal>
 
       {/* Create post Modal */}

@@ -135,6 +135,9 @@ export const theme = createTheme({
     }),
     Modal: Modal.extend({
       styles: (theme) => ({
+        header:{
+          backgroundColor: theme.colors.background[7],
+        },
         content: {
           backgroundColor: theme.colors.background[8],
         },
