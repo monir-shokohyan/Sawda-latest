@@ -1,5 +1,4 @@
-import { Flex, ActionIcon, Button, Image, Modal, Text } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
+import { Flex, ActionIcon, Image, Modal, Text, useMantineTheme } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
@@ -9,15 +8,14 @@ import {
   MdOutlineMessage,
   MdOutlineNotifications,
   MdOutlineShoppingCart,
-  MdHome,
-  MdAdd,
-  MdPerson,
   MdArrowBack,
 } from 'react-icons/md'
 import { useState } from 'react'
 import { MobileDownbar } from './mobile-navbar'
-import { SButton } from '@shared/styles'
+import { HoveredItem, HoveredMenuItem, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
+import { useProfileDropDown } from '@shared/ui/profile/hook'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
@@ -26,6 +24,10 @@ const Navbar = () => {
 
   const { isMobile, isTablet } = Responsive()
   const closeModal = () => setOpenedModal(null)
+  const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const theme = useMantineTheme()
 
   return (
     <>
@@ -204,9 +206,33 @@ const Navbar = () => {
             flex={1}
             p={16}
             align="center"
-            justify="center"
+            justify="space-between"
+            direction="column"
           >
-            <Text c="dimmed">Profile content goes here</Text>
+            <Flex direction="column" w="100%" gap={10}>
+               {ProfileConstant.map((option) => (
+                  <HoveredItem
+                    key={option.label}
+                    $isActive={pathname === option.path}
+                    onClick={() => {
+                      if (option.handleClick) {
+                        option.handleClick()
+                      } else if (option.path) {
+                        navigate(option.path)
+                        closeModal()
+                      }
+                    }}
+                  >
+                    <Flex gap={20}>
+                    {option.icon}
+                    {option.label}
+                    </Flex>
+                  </HoveredItem>
+                ))}
+            </Flex>
+            <Flex justify="flex-start" w="100%">
+              <LanguageDropDown />
+            </Flex>
           </Flex>
         </Flex>
       </Modal>

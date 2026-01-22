@@ -1,3 +1,7 @@
 export enum Paths {
-  Todo = 'todos',
+  Main ="/",
+  EditProfile = "/settings/edit-profile/",
+  Following = "/settings/following/",
+  ProductDetails = "/product/",
+  ProfileDetails = "/profile/",
 }

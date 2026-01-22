@@ -42,7 +42,7 @@ export const mainRoute: RouteType[] = [
   {
     key: 'settings',
     guarded: '',
-    path: '/settings/:id',
+    path: '/settings/edit-profile/:id',
     element: (
       <ErrorSuspense suspenseKey="settings">
         <SettingsPage />

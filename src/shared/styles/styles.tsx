@@ -4,6 +4,7 @@ import {
   Button,
   ButtonProps,
   createPolymorphicComponent,
+  Flex,
   Group,
   GroupProps,
   InputProps,
@@ -36,6 +37,29 @@ export const HoveredMenuItem = styled(Menu.Item)<
 >`
   &:hover {
     background-color: #d3d3d34b;
+  }
+`
+export const HoveredItem = styled(Flex)<{ 
+  onClick?: () => void
+  $isActive?: boolean 
+  children?: ReactNode
+}>`
+  padding: 8px 16px;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: ${({ $isActive }) => 
+    $isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent'};
+
+  &:hover {
+    background-color: var(--mantine-color-textPrimary-light-hover)
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 `
 export const HoveredSelect = styled(Select)<SelectProps>`

@@ -5,6 +5,7 @@ import {
   Menu,
   Input,
   Select,
+  Modal,
 } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
@@ -129,6 +130,13 @@ export const theme = createTheme({
           backgroundColor: theme.colors.background[8],
         },
         wrapper: {},
+      }),
+    }),
+    Modal: Modal.extend({
+      styles: (theme) => ({
+        content: {
+          backgroundColor: theme.colors.background[8],
+        },
       }),
     }),
   },

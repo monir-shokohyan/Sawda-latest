@@ -3,6 +3,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
 import { HoveredText } from '@shared/styles'
+import { Paths } from '@shared/api/paths/paths'
 
 const ProfileSection = ({
   product,
@@ -39,7 +40,7 @@ const ProfileSection = ({
           onClick={(e) => {
             e.stopPropagation()
             navigate({
-              pathname: `/profile/${product.username}`,
+              pathname: `${Paths.ProfileDetails}${product.username}`,
               search: new URLSearchParams({
                 name: `${product.username?.slice(0, 20)}...`,
               }).toString(),

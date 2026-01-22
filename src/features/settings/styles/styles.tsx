@@ -27,8 +27,19 @@ export const SidebarTitle = styled.h3`
   margin-bottom: 20px;
 `
 
-export const SidebarItem = styled.div`
-  padding: 10px 0;
+export const SidebarItem = styled.div<{ $isActive?: boolean }>`
+  padding: 8px 16px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  transition: all 0.2s ease;
+  font-weight: ${({ $isActive }) => ($isActive ? '600' : '400')};
+  background-color: ${({ $isActive }) => ($isActive ? 'var(--mantine-color-textPrimary-light-hover)' : 'transparent')};
+
+  &:hover {
+    background-color: var(--mantine-color-textPrimary-light-hover);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 `

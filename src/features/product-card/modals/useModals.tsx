@@ -2,6 +2,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UseModalProps } from '../types'
+import { Paths } from '@shared/api/paths/paths'
 
 const useModals = ({ product, handleToggleLike }: UseModalProps) => {
   const { isMobile } = Responsive()
@@ -18,7 +19,7 @@ const useModals = ({ product, handleToggleLike }: UseModalProps) => {
     }
     clickTimeout = setTimeout(() => {
       navigate({
-        pathname: `/product/${product.id}`,
+        pathname: `${Paths.ProductDetails}${product.id}`,
         search: new URLSearchParams({
           name: `${product.title?.slice(0, 20)}...`,
         }).toString(),

@@ -24,18 +24,30 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
       radius="md"
       style={{ maxWidth: 600, margin: 'auto', marginTop: '10vh' }}
     >
-      <Stack align="center" gap="xl">
+      <Stack
+        align="center"
+        gap="xl"
+      >
         <div style={{ textAlign: 'center' }}>
-          <Title order={2} c="red.7">
+          <Title
+            order={2}
+            c="red.7"
+          >
             Something went wrong
           </Title>
-          <Text c="dimmed" mt="sm">
+          <Text
+            c="dimmed"
+            mt="sm"
+          >
             Unfortunately, an error occurred. Please try again later.
           </Text>
         </div>
 
         <Group gap="md">
-          <Tooltip label="Try again (resets boundary)" position="bottom">
+          <Tooltip
+            label="Try again (resets boundary)"
+            position="bottom"
+          >
             <SButton
               leftSection={<TbRefresh size={18} />}
               onClick={resetErrorBoundary}
@@ -45,7 +57,10 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
             </SButton>
           </Tooltip>
 
-          <Tooltip label="Return to homepage" position="bottom">
+          <Tooltip
+            label="Return to homepage"
+            position="bottom"
+          >
             <SButton
               leftSection={<TbHome size={18} />}
               onClick={() => navigate('/')}
@@ -72,11 +87,18 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
             style={{ maxWidth: '100%' }}
           >
             <Text fw={500}>{errorMessage}</Text>
-            {process.env.NODE_ENV !== 'production' && error instanceof Error && (
-              <Text mt="xs" size="sm" c="dimmed" component="pre" style={{ whiteSpace: 'pre-wrap' }}>
-                {error.stack}
-              </Text>
-            )}
+            {process.env.NODE_ENV !== 'production' &&
+              error instanceof Error && (
+                <Text
+                  mt="xs"
+                  size="sm"
+                  c="dimmed"
+                  component="pre"
+                  style={{ whiteSpace: 'pre-wrap' }}
+                >
+                  {error.stack}
+                </Text>
+              )}
           </Alert>
         )}
       </Stack>

@@ -4,4 +4,5 @@ export interface Profiletype {
   label: string
   icon: ReactElement
   handleClick?: () => void
+  path?: string
 }

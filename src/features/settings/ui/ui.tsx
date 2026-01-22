@@ -8,6 +8,7 @@ import { Layout } from './layout'
 
 function Ui() {
   const { isMobile } = Responsive()
+  
 
   return (
     <GradientContainer>
