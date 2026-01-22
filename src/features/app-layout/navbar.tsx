@@ -134,7 +134,7 @@ const Navbar = () => {
       >
         <Flex
           direction="column"
-          h="100vh"
+          h="100dvh"
         >
           {/* Header */}
           <Flex
@@ -182,7 +182,7 @@ const Navbar = () => {
       >
         <Flex
           direction="column"
-          h="100vh"
+          h="100dvh"
         >
           {/* Header */}
           <Flex
