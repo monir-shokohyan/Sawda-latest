@@ -28,14 +28,13 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         bottom: 0,
         left: 0,
         right: 0,
-        borderTop: '1px solid #e5e7eb',
-        backgroundColor: 'var(--mantine-color-body)',
+        backgroundColor: 'var(--mantine-color-background-8)',
         zIndex: 100,
       }}
     >
       <ActionIcon
         variant="subtle"
-        color="gray"
+        c="darkText"
         size="xl"
         onClick={() => navigate('/')}
       >
@@ -44,7 +43,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
 
       <ActionIcon
         variant="subtle"
-        color="gray"
+        c="darkText"
         size="xl"
       >
         <MdOutlineFavoriteBorder size={24} />
@@ -66,7 +65,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
 
       <ActionIcon
         variant="subtle"
-        color="gray"
+        c="darkText"
         size="xl"
         onClick={() => setOpenedModal('message')}
       >
@@ -75,7 +74,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
 
       <ActionIcon
         variant="subtle"
-        color="gray"
+        c="darkText"
         size="xl"
         onClick={() => setOpenedModal('profile')}
       >

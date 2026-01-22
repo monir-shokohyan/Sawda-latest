@@ -16,7 +16,7 @@ const LanguageDropDown = () => {
         <Button
           variant="subtle"
           rightSection={<MdOutlineKeyboardArrowDown size={20} />}
-          color="textPrimary"
+          c="darkText"
           size="sm"
           justify="flex-start"
         >
@@ -28,7 +28,7 @@ const LanguageDropDown = () => {
           return (
             <HoveredMenuItem
               key={option.label}
-              c="textPrimary"
+              c="darkText"
               leftSection={option.icon}
               className="menuHover"
             >
