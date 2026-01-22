@@ -243,7 +243,6 @@ const Navbar = () => {
                         <ResText
                           fontSize={18}
                           c="darkText"
-                          fontWeight="500"
                         >
                           {option.label}
                         </ResText>
