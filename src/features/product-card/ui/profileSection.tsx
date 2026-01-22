@@ -16,7 +16,7 @@ const ProfileSection = ({
   timeSize = '0.7rem',
   showEmail = false,
   direction = 'row',
-  hoverUsername = true
+  hoverUsername = true,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -32,8 +32,8 @@ const ProfileSection = ({
     >
       <Avatar
         color="blue"
-        radius="xl"
         size={isMobile ? mobileSize : size}
+        radius="50%"
       >
         {product.username?.charAt(0).toUpperCase()}
       </Avatar>
@@ -46,7 +46,7 @@ const ProfileSection = ({
           fw={600}
           size={isMobile ? usernameSize : 'md'}
           onClick={(e) => {
-            if(!hoverUsername) return
+            if (!hoverUsername) return
             e.stopPropagation()
             navigate({
               pathname: `${Paths.ProfileDetails}${product.username}`,

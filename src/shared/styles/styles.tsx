@@ -44,7 +44,7 @@ export const HoveredItem = styled(Flex)<{
   $isActive?: boolean
   children?: ReactNode
 }>`
-  padding: 8px 16px 8px 0px;
+  padding: 8px 16px 8px 3px;
   width: 100%;
   border-radius: 3px;
   cursor: pointer;
@@ -181,6 +181,6 @@ export const HoveredText = styled(Text)<
   }
 >`
   &:hover {
-    opacity: ${({$isActive}) => $isActive ? 0.8 : 1};
+    opacity: ${({ $isActive }) => ($isActive ? 0.8 : 1)};
   }
 `

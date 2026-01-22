@@ -217,7 +217,7 @@ const Navbar = () => {
                   showTime={false}
                   usernameSize="1.2rem"
                   timeSize="0.9rem"
-                  mobileSize="70px"
+                  mobileSize="90px"
                   direction="column"
                 />
               </Flex>
@@ -239,6 +239,7 @@ const Navbar = () => {
                       <Flex
                         gap={20}
                         c="primary"
+                        align="center"
                       >
                         {option.icon}
                         <ResText
