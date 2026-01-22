@@ -258,14 +258,14 @@ const Navbar = () => {
         </Flex>
         <DarkMode
           pos="absolute"
-          bottom={80}
+          bottom={100}
           c="primary"
           iconSize={25}
           right={20}
         />
         <LanguageDropDown
           pos="absolute"
-          bottom={80}
+          bottom={100}
           left={20}
         />
         <Button
