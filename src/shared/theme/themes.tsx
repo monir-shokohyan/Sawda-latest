@@ -161,6 +161,9 @@ export const theme = createTheme({
         content: {
           backgroundColor: theme.colors.background[9],
         },
+        body: {
+          padding: '0px',
+        },
         title: {
           fontSize: '20px',
           color: theme.colors.darkText[8],

@@ -1,4 +1,13 @@
-import { Flex, Modal, Text, useMantineTheme, Button } from '@mantine/core'
+import {
+  Flex,
+  Modal,
+  Text,
+  useMantineTheme,
+  Button,
+  BackgroundImage,
+  Overlay,
+  Box,
+} from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
@@ -23,6 +32,7 @@ import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { Logo } from '@shared/ui/logo'
+import { OverlayBg } from '@shared/ui/overlayBg'
 
 const Navbar = () => {
   const [openedModal, setOpenedModal] = useState<
@@ -187,13 +197,7 @@ const Navbar = () => {
               w="100%"
               gap={10}
             >
-              <Flex
-                justify="space-between"
-                w="100%"
-                align="center"
-                py={20}
-                style={{ borderBottom: '1px solid lightgray' }}
-              >
+              <OverlayBg>
                 <ProfileSection
                   product={{
                     username: 'Monir198323',
@@ -207,8 +211,9 @@ const Navbar = () => {
                   timeSize="0.9rem"
                   mobileSize="90px"
                   direction="column"
+                  isStaticColor
                 />
-              </Flex>
+              </OverlayBg>
               {ProfileConstant.map((option) => {
                 if (option.label.toLocaleLowerCase() !== 'logout') {
                   return (
@@ -249,18 +254,19 @@ const Navbar = () => {
           bottom={100}
           c="primary"
           iconSize={25}
-          right={20}
+          right={10}
           radius={5}
         />
         <LanguageDropDown
           pos="absolute"
           bottom={100}
-          left={20}
+          left={10}
         />
         <Button
-          w="90%"
+          w="94%"
           pos="absolute"
           bottom={30}
+          left={10}
           radius={5}
         >
           Sign out

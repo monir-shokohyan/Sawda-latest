@@ -17,4 +17,5 @@ export interface ProfileProps {
   showEmail?: boolean
   direction?: FlexProps['direction']
   hoverUsername?: boolean
+  isStaticColor?: boolean
 }

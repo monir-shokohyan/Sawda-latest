@@ -44,7 +44,7 @@ export const HoveredItem = styled(Flex)<{
   $isActive?: boolean
   children?: ReactNode
 }>`
-  padding: 8px 16px 8px 5px;
+  padding: 15px 10px;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
