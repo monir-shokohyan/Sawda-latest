@@ -1,26 +1,18 @@
-import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import {
+  LazyLoadImage,
+  LazyLoadImageProps,
+} from 'react-lazy-load-image-component'
 
 interface Props extends LazyLoadImageProps {
-  src: string;
-  alt: string;
-  className?: string;
-  style?: React.CSSProperties;
+  src: string
+  alt: string
+  className?: string
+  style?: React.CSSProperties
 }
 
 const LazyImage = ({ src, alt, className = '', style, ...props }: Props) => {
   return (
-    <div
-      style={{
-        position: 'relative',
-        overflow: 'hidden',
-        borderRadius: 'inherit',
-        width: '100%',
-        height: '100%',
-        ...style,
-      }}
-      className={className}
-    >
+  
       <LazyLoadImage
         alt={alt}
         effect="blur"
@@ -31,14 +23,14 @@ const LazyImage = ({ src, alt, className = '', style, ...props }: Props) => {
           width: '100%',
           height: '100%',
           display: 'block',
+          overflow: 'hidden',
         }}
         wrapperProps={{
-          style: { width: '100%', height: '100%' },
+          style: { width: '100%', height: '100%', overflow: 'hidden' },
         }}
         {...props}
       />
-    </div>
-  );
-};
+  )
+}
 
-export { LazyImage };
+export { LazyImage }
