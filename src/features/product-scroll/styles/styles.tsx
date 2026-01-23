@@ -18,4 +18,3 @@ export const CategoryCard = styled(Card)<{ $isMobile: boolean } & CardProps>`
     transform: translateY(-4px);
   }
 `
-

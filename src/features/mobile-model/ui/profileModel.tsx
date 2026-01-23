@@ -79,7 +79,7 @@ const ProfileModel = () => {
         bottom={80}
         c="primary"
         iconSize={25}
-        right={10}
+        right={20}
         radius={5}
       />
       <LanguageDropDown
