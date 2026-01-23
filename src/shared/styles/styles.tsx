@@ -8,6 +8,7 @@ import {
   InputProps,
   Menu,
   MenuItemProps,
+  PasswordInput,
   Select,
   SelectProps,
   Tabs,
@@ -71,6 +72,11 @@ export const HoveredSelect = styled(Select)<SelectProps>`
   }
 `
 export const SInput = styled(TextInput)<InputProps>`
+  input:focus {
+    border-color: var(--mantine-color-blue-6);
+  }
+`
+export const SInputPassword = styled(PasswordInput)<InputProps>`
   input:focus {
     border-color: var(--mantine-color-blue-6);
   }
@@ -211,5 +217,21 @@ export const HoveredButton = styled(Button)<
   border-radius: 5px;
   &:hover {
     background: var(--mantine-color-primary-light-hover);
+  }
+`
+
+export const SaveButton = styled.button`
+  padding: 10px 24px;
+  background-color: #4263eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  float: right;
+
+  &:hover {
+    background-color: #3651d4;
   }
 `

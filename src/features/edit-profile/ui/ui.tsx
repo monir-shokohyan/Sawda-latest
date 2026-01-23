@@ -1,4 +1,4 @@
-import { Stack, Flex } from '@mantine/core'
+import { Stack } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { AddressModal } from './businessAddressModal'
 import {
@@ -6,7 +6,6 @@ import {
   PhotoInfo,
   ProfilePhoto,
   ProfilePhotoSection,
-  SaveButton,
   UploadButton,
 } from '../styles'
 import { AccountDetails } from './accountDetails'
@@ -14,6 +13,7 @@ import { PrivateDetails } from './privateDetails'
 import { BusinessDetails } from './businessDetails'
 import { useManageEditProfile } from '../modal'
 import { TypographySize } from '@shared/typography'
+import { SettingsListConentWrapper } from '@shared/ui/setting-list-content-wrapper'
 
 const Ui = () => {
   const {
@@ -26,25 +26,11 @@ const Ui = () => {
     setAddressModalOpen,
     businessAddress,
     onSubmit,
-    isMobile,
   } = useManageEditProfile()
   return (
     <>
-      <Flex
-        py={isMobile ? 20 : 40}
-        px={isMobile ? 10 : 40}
-        direction="column"
-        bg="background.8"
-      >
-        <ResText
-          c="darkText"
-          fontSize={TypographySize.Large}
-        >
-          Edit profile
-        </ResText>
-
-        <div>
-          <Stack
+      <SettingsListConentWrapper allowButton title='Edit profile' buttonTitle='save' handleSubmit={handleSubmit(onSubmit)}>
+        <Stack
             gap={3}
             mb={30}
           >
@@ -105,15 +91,7 @@ const Ui = () => {
               setAddressModalOpen={setAddressModalOpen}
             />
           </Stack>
-
-          <SaveButton
-            type="button"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Save
-          </SaveButton>
-        </div>
-      </Flex>
+      </SettingsListConentWrapper>
 
       <AddressModal
         opened={addressModalOpen}

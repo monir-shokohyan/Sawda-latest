@@ -8,6 +8,7 @@ import { ForgotPasswordPage } from '@shared/authentication/forgetPassword'
 import { RegisterPage } from '@shared/authentication/registerPage'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
+import { ChangePasswordPage } from '@pages/change-password'
 
 export const mainRoute: RouteType[] = [
   {
@@ -57,6 +58,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="edit-profile">
         <EditProfilePage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'change-password',
+    guarded: '',
+    path: '/settings/change-password/:id',
+    element: (
+      <ErrorSuspense suspenseKey="change-password">
+        <ChangePasswordPage />
       </ErrorSuspense>
     ),
   },

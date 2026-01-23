@@ -79,6 +79,22 @@ export const AddButton = styled.button`
   }
 `
 
+export const SaveButton = styled.button`
+  padding: 10px 24px;
+  background-color: #4263eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  float: right;
+
+  &:hover {
+    background-color: #3651d4;
+  }
+`
+
 export const LinkText = styled.span`
   color: #4263eb;
   cursor: pointer;
