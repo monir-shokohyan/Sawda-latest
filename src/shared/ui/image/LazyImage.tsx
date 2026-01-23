@@ -1,27 +1,55 @@
+import { useState } from 'react';
 import {
   LazyLoadImage,
   LazyLoadImageProps,
-} from 'react-lazy-load-image-component'
+} from 'react-lazy-load-image-component';
 
 interface Props extends LazyLoadImageProps {
-  src: string
-  alt: string
+  src: string;
+  alt: string;
+  fallbackSrc?: string;
 }
 
-const LazyImage = ({ src, alt, ...props }: Props) => (
-  <LazyLoadImage
-    alt={alt}
-    effect="blur"
-    style={{ objectFit: 'cover', overflow: 'hidden'}}
-    src={src}
-    placeholderSrc="/cover.png"
-    wrapperProps={{
-        style: {
-            overflow: 'hidden'
-        }
-    }}
-    {...props}
-  />
-)
+const LazyImage = ({
+  src,
+  alt,
+  fallbackSrc = '/cover.png',
+  ...props
+}: Props) => {
+  const [imgSrc, setImgSrc] = useState(src);
+  const [hasError, setHasError] = useState(false);
 
-export { LazyImage }
+  const handleError = () => {
+    if (!hasError) {
+      setImgSrc(fallbackSrc);
+      setHasError(true);
+    }
+  };
+
+  return (
+    <div style={{width: '100%', height: '100%', overflow: 'hidden'}}>
+        <LazyLoadImage
+          alt={alt}
+          effect="blur"
+          src={imgSrc}
+          placeholderSrc={fallbackSrc}
+          onError={handleError}
+          style={{
+            objectFit: 'cover',
+          }}
+          wrapperProps={{
+            style: {
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden',
+              borderRadius: 'inherit',
+              transitionDelay: '100s',
+            },
+          }}
+          {...props}
+        />
+    </div>
+  );
+};
+
+export { LazyImage };
