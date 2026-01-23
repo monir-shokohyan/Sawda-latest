@@ -27,7 +27,11 @@ const ProfileModel = () => {
       transitionProps={{ transition: 'fade', duration: 200 }}
     >
       {/* Content */}
-      <ScrollArea h="74dvh" scrollbars="y" scrollbarSize={4}>
+      <ScrollArea
+        h="74dvh"
+        scrollbars="y"
+        scrollbarSize={4}
+      >
         <Flex
           direction="column"
           w="100%"

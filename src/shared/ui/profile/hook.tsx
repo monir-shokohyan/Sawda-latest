@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Profiletype } from './types'
 import { TbUserPlus } from 'react-icons/tb'
 import { Paths } from '@shared/api/paths/paths'
@@ -16,6 +16,7 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
   const { pathname } = useLocation()
   const { isMobile } = Responsive()
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const ProfileConstant: Profiletype[] = [
     {
@@ -37,7 +38,11 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
       label: 'Settings',
       icon: <MdOutlineSettings size={isMobile ? 24 : 20} />,
       handleClick: () => {
-        dispatch(toggleCollapseSettingDropDown())
+        if(isMobile){
+          dispatch(toggleCollapseSettingDropDown())
+          return
+        }
+        navigate(`${Paths.EditProfile}${id}`)
       },
     },
     {
