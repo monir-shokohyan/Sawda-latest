@@ -1,19 +1,4 @@
 import { Paths } from '@shared/api/paths/paths'
-import { FaClock } from 'react-icons/fa'
-import { TbClockOff } from 'react-icons/tb'
-
-const NewestToOldestObj = [
-  {
-    label: 'Newest',
-    icon: FaClock,
-    value: 'newest',
-  },
-  {
-    label: 'Oldest',
-    icon: TbClockOff,
-    value: 'oldest',
-  },
-]
 
 const MenuItems = [
   { label: 'Edit profile', path: Paths.EditProfile },
@@ -23,4 +8,4 @@ const MenuItems = [
   { label: 'Theme', path: '/settings/theme' },
 ]
 
-export { NewestToOldestObj, MenuItems }
+export { MenuItems }

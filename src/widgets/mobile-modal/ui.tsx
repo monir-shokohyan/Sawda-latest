@@ -1,4 +1,4 @@
-import { MobileModel } from '@features/mobile-model'
+import { MobileModel } from '@features/mobile-model/ui'
 import { Flex } from '@mantine/core'
 
 const Ui = () => {

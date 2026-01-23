@@ -2,7 +2,7 @@ import { DashboardPage } from '@pages/dashboard'
 import { MobileModalPage } from '@pages/modal'
 import { ProductDetailPage } from '@pages/product-details'
 import { ProfileDetailPage } from '@pages/profile-details'
-import { SettingsPage } from '@pages/settings'
+import { EditProfilePage } from '@pages/edit-profile'
 import { LoginPage } from '@shared/authentication'
 import { ForgotPasswordPage } from '@shared/authentication/forgetPassword'
 import { RegisterPage } from '@shared/authentication/registerPage'
@@ -51,12 +51,12 @@ export const mainRoute: RouteType[] = [
     ),
   },
   {
-    key: 'settings',
+    key: 'edit-profile',
     guarded: '',
     path: '/settings/edit-profile/:id',
     element: (
-      <ErrorSuspense suspenseKey="settings">
-        <SettingsPage />
+      <ErrorSuspense suspenseKey="edit-profile">
+        <EditProfilePage />
       </ErrorSuspense>
     ),
   },

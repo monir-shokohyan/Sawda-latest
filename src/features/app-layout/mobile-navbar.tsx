@@ -1,7 +1,6 @@
-import { ActionIcon, Flex } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
 import { HoveredActionIcon } from '@shared/styles'
-import { Dispatch, SetStateAction } from 'react'
 
 import {
   MdAdd,
@@ -12,13 +11,7 @@ import {
 } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
-type ModalType = 'add' | 'message' | 'profile' | null
-
-interface MobileDownbarProps {
-  setOpenedModal: Dispatch<SetStateAction<ModalType>>
-}
-
-const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
+const MobileDownbar = () => {
   const navigate = useNavigate()
   return (
     <Flex
@@ -39,7 +32,7 @@ const MobileDownbar = ({ setOpenedModal }: MobileDownbarProps) => {
         c="darkText"
         size="xl"
         onClick={() => navigate(Paths.Main)}
-        >
+      >
         <MdHome size={24} />
       </HoveredActionIcon>
 
