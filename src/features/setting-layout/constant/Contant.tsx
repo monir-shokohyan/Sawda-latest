@@ -5,7 +5,7 @@ const MenuItems = [
   { label: 'Change password', path: Paths.ChangePassword },
   { label: 'Notification', path: Paths.Notification },
   { label: 'Data and privacy', path: Paths.Privacy },
-  { label: 'Theme', path: '/settings/theme' },
+  { label: 'Theme', path: Paths.Theme },
 ]
 
 export { MenuItems }

@@ -11,6 +11,7 @@ import { ErrorSuspense } from '@shared/ui/error-suspense'
 import { ChangePasswordPage } from '@pages/change-password'
 import { NotificationPage } from '@pages/notification'
 import { PrivacyPage } from '@pages/privacy'
+import { ThemePage } from '@pages/theme'
 
 export const mainRoute: RouteType[] = [
   {
@@ -90,6 +91,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="privacy">
         <PrivacyPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'theme',
+    guarded: '',
+    path: '/settings/theme/:id',
+    element: (
+      <ErrorSuspense suspenseKey="theme">
+        <ThemePage />
       </ErrorSuspense>
     ),
   },
