@@ -119,7 +119,6 @@ export const theme = createTheme({
           background: theme.colors.background[7],
           borderRadius: '5px',
         },
-        
       }),
     }),
     Select: Select.extend({

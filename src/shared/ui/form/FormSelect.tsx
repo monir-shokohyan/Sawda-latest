@@ -53,7 +53,9 @@ const FormSelect = <T extends FieldValues>({
                   option: 'select-option',
                 }}
                 radius={3}
-            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
+                comboboxProps={{
+                  transitionProps: { transition: 'fade-down', duration: 400 },
+                }}
               />
 
               {error && (

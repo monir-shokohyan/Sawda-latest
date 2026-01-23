@@ -28,7 +28,9 @@ const Reviews = () => {
           value={selectedFilter}
           onChange={(value) => setSelectedFilter(value as string)}
           checkIconPosition="left"
-          comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
+          comboboxProps={{
+            transitionProps: { transition: 'fade-down', duration: 400 },
+          }}
         />
       </Group>
       {Array.from({ length: 10 }).map(() => {

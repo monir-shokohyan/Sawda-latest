@@ -116,6 +116,9 @@ const Filter = ({
             searchable
             clearable
             nothingFoundMessage="No category found"
+            comboboxProps={{
+              transitionProps: { transition: 'fade-down', duration: 400 },
+            }}
             renderOption={({ option, checked }) => (
               <Group
                 gap="sm"
@@ -140,7 +143,9 @@ const Filter = ({
             searchable
             clearable
             value={selectedProvince}
-            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
+            comboboxProps={{
+              transitionProps: { transition: 'fade-down', duration: 400 },
+            }}
             onChange={handleProvinceChange}
             renderOption={({ option, checked }) => (
               <Group
@@ -175,7 +180,9 @@ const Filter = ({
             clearable
             value={selectedDistrict}
             onChange={setSelectedDistrict}
-            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
+            comboboxProps={{
+              transitionProps: { transition: 'fade-down', duration: 400 },
+            }}
             disabled={!selectedProvince}
             nothingFoundMessage={
               selectedProvince
@@ -205,7 +212,9 @@ const Filter = ({
             value={selectedCurrency}
             onChange={(value) => setSelectedCurrency(value || 'AFN')}
             clearable={false}
-            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
+            comboboxProps={{
+              transitionProps: { transition: 'fade-down', duration: 400 },
+            }}
             leftSection={currencyIcon}
             w={isMobile ? '100%' : '50%'}
             renderOption={({ option, checked }) => (
