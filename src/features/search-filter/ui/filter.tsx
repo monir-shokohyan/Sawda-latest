@@ -72,6 +72,7 @@ const Filter = ({
       onChange={setOpened}
       closeOnItemClick={false}
       closeOnClickOutside={false}
+      transitionProps={{ transition: 'fade-down', duration: 250 }}
     >
       <Menu.Target>
         <SActionIcon size={iconSize}>
@@ -139,6 +140,7 @@ const Filter = ({
             searchable
             clearable
             value={selectedProvince}
+            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
             onChange={handleProvinceChange}
             renderOption={({ option, checked }) => (
               <Group
@@ -173,6 +175,7 @@ const Filter = ({
             clearable
             value={selectedDistrict}
             onChange={setSelectedDistrict}
+            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
             disabled={!selectedProvince}
             nothingFoundMessage={
               selectedProvince
@@ -202,6 +205,7 @@ const Filter = ({
             value={selectedCurrency}
             onChange={(value) => setSelectedCurrency(value || 'AFN')}
             clearable={false}
+            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
             leftSection={currencyIcon}
             w={isMobile ? '100%' : '50%'}
             renderOption={({ option, checked }) => (

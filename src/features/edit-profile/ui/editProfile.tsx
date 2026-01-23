@@ -596,6 +596,7 @@ const ProfileEditForm: React.FC = () => {
                     placeholder="Select country"
                     searchable
                     onChange={handleCountryChange}
+                    comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
                   />
                 )}
               />
@@ -613,6 +614,7 @@ const ProfileEditForm: React.FC = () => {
                     placeholder="Select city"
                     searchable
                     disabled={!selectedCountry}
+                    comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
                   />
                 )}
               />
@@ -694,6 +696,7 @@ const ProfileEditForm: React.FC = () => {
                       { value: 'Female', label: 'Female' },
                       { value: 'Others', label: 'Others' },
                     ]}
+                    comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
                   />
                 )}
               />
@@ -786,6 +789,7 @@ const ProfileEditForm: React.FC = () => {
                           updateOperatingHourDay(index, value)
                         }
                         style={{ width: '150px' }}
+                        comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
                       />
                       <input
                         type="time"
@@ -798,7 +802,7 @@ const ProfileEditForm: React.FC = () => {
                           border: '1px solid #ddd',
                           borderRadius: '4px',
                         }}
-                      />
+                        />
                       <span>to</span>
                       <input
                         type="time"
@@ -889,6 +893,7 @@ const ProfileEditForm: React.FC = () => {
             data={countries}
             placeholder="Select country"
             searchable
+            comboboxProps={{ transitionProps: { transition: 'fade-down', duration: 400 } }}
           />
         </FormField>
         <div

@@ -34,6 +34,7 @@ export const SText = styled(Text)<TextProps & { children: string }>`
 export const HoveredMenuItem = styled(Menu.Item)<
   MenuItemProps & { onClick?: () => void }
 >`
+  border-radius: 0px;
   &:hover {
     background-color: var(--mantine-color-primary-light-hover);
   }

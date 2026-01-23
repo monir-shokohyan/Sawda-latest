@@ -44,3 +44,6 @@
 .mantine-Select-option:hover {
   background-color: #366fb415 !important;
 }
+.mantine-Select-option {
+  border-radius: 0px !important;
+}

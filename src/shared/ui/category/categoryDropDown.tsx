@@ -26,6 +26,7 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
       shadow="md"
       position="bottom-end"
       withArrow
+      transitionProps={{ transition: 'fade-down', duration: 250 }}
     >
       <Menu.Target>{triggerButton}</Menu.Target>
 
