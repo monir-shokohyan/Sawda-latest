@@ -5,4 +5,3 @@ export interface FormData {
   newPassword: string
   confirmPassword: string
 }
-

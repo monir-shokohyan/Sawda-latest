@@ -1,1 +1,1 @@
-export {Ui as ChangePassword} from './ui'
+export { Ui as ChangePassword } from './ui'

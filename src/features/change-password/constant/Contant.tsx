@@ -4,6 +4,4 @@ const defaultValues = {
   confirmPassword: '',
 }
 
-export {
-  defaultValues,
-}
+export { defaultValues }

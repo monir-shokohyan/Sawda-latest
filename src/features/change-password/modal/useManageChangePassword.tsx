@@ -6,7 +6,6 @@ import { defaultValues } from '../constant'
 import { Responsive } from '@shared/hooks/responsive'
 
 const useManageChangePassword = () => {
-
   const { control, handleSubmit } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues,
@@ -14,7 +13,6 @@ const useManageChangePassword = () => {
 
   const { isMobile } = Responsive()
 
- 
   const onSubmit = (data: FormData): void => {
     console.log('Complete Form Data:', {
       ...data,

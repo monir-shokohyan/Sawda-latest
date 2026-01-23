@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export const schema = yup.object({
   currentPassword: yup
@@ -15,4 +15,4 @@ export const schema = yup.object({
     .string()
     .required('Please confirm your new password')
     .oneOf([yup.ref('newPassword')], 'Passwords must match'),
-});
+})

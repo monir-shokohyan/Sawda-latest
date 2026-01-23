@@ -4,34 +4,34 @@ import { SettingsListConentWrapper } from '@shared/ui/setting-list-content-wrapp
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 
 const Ui = () => {
-  const {
-    handleSubmit,
-    control,
-    onSubmit,
-  } = useManageChangePassword()
+  const { handleSubmit, control, onSubmit } = useManageChangePassword()
   return (
     <>
-      <SettingsListConentWrapper allowButton title='Change password' buttonTitle='Save changes' handleSubmit={handleSubmit(onSubmit)}>
+      <SettingsListConentWrapper
+        allowButton
+        title="Change password"
+        buttonTitle="Save changes"
+        handleSubmit={handleSubmit(onSubmit)}
+      >
         <Stack
-            gap={3}
-            mb={30}
+          gap={3}
+          mb={30}
         >
-             <FormPasswordInput
-                label="Current password"
-                control={control}
-                name="currentPassword"
-              />
-             <FormPasswordInput
-                label="New password"
-                control={control}
-                name="newPassword"
-              />
-             <FormPasswordInput
-                label="Confirm password"
-                control={control}
-                name="confirmPassword"
-              />
-   
+          <FormPasswordInput
+            label="Current password"
+            control={control}
+            name="currentPassword"
+          />
+          <FormPasswordInput
+            label="New password"
+            control={control}
+            name="newPassword"
+          />
+          <FormPasswordInput
+            label="Confirm password"
+            control={control}
+            name="confirmPassword"
+          />
         </Stack>
       </SettingsListConentWrapper>
     </>
