@@ -67,6 +67,8 @@ const ProfileModel = () => {
           <Collapse
             in={settingDropDown}
             pl={20}
+            transitionDuration={200}
+            transitionTimingFunction="linear"
           >
             <SettingList />
           </Collapse>
