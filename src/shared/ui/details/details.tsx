@@ -14,12 +14,13 @@ export const InfoBox = styled.div`
 `
 
 interface DetailsProps {
-  icon: ReactNode
-  text: string
+  icon?: ReactNode
+  text?: string
   title: string
+  allowBox?: boolean
 }
 
-const Details = ({ icon, text, title }: DetailsProps) => {
+const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
   return (
     <>
       <ResText
@@ -28,10 +29,10 @@ const Details = ({ icon, text, title }: DetailsProps) => {
       >
         {title}
       </ResText>
-      <InfoBox>
+      {allowBox && <InfoBox>
         {icon}
         <span>{text}</span>
-      </InfoBox>
+      </InfoBox>}
     </>
   )
 }

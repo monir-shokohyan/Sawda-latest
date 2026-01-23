@@ -9,6 +9,8 @@ import { RegisterPage } from '@shared/authentication/registerPage'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 import { ChangePasswordPage } from '@pages/change-password'
+import { NotificationPage } from '@pages/notification'
+import { PrivacyPage } from '@pages/privacy'
 
 export const mainRoute: RouteType[] = [
   {
@@ -68,6 +70,26 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="change-password">
         <ChangePasswordPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'notification',
+    guarded: '',
+    path: '/settings/notification/:id',
+    element: (
+      <ErrorSuspense suspenseKey="notification">
+        <NotificationPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'privacy',
+    guarded: '',
+    path: '/settings/privacy/:id',
+    element: (
+      <ErrorSuspense suspenseKey="privacy">
+        <PrivacyPage />
       </ErrorSuspense>
     ),
   },

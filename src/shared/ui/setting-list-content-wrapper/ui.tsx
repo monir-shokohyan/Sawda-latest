@@ -5,7 +5,7 @@ import { TypographySize } from '@shared/typography'
 import { ReactNode } from 'react'
 
 interface Props {
-  handleSubmit: () => void
+  handleSubmit?: () => void
   title: string
   buttonTitle: string
   children: ReactNode
@@ -37,12 +37,12 @@ const Ui = ({
         {title}
       </ResText>
 
-      <div>
+      <div style={{marginTop: '20px'}}>
         {children}
         {allowButton && (
           <SaveButton
             type="button"
-            onClick={() => handleSubmit()}
+            onClick={() => handleSubmit?.()}
           >
             {buttonTitle}
           </SaveButton>
