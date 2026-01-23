@@ -27,7 +27,12 @@ const SettingList = () => {
             $isActive={pathname.startsWith(item.path)}
             onClick={() => navigate(item.path + 'monir')}
           >
-            <ResText c="darkText"  fontSize={FontSize}>{item.label}</ResText>
+            <ResText
+              c="darkText"
+              fontSize={FontSize}
+            >
+              {item.label}
+            </ResText>
           </SidebarItem>
         ))}
       </Stack>

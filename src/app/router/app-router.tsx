@@ -6,7 +6,6 @@ import { routes } from '../config/routes'
 import { Layout } from './layout'
 import { Authenticated } from '@refinedev/core'
 import { protectRoutes } from '@app/config/routes/secured-routes'
-import { Loader } from '@shared/ui/loader/Loader'
 
 export const AppRouter = () => {
   return (

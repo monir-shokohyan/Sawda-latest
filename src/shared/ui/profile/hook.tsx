@@ -38,7 +38,7 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
       label: 'Settings',
       icon: <MdOutlineSettings size={isMobile ? 24 : 20} />,
       handleClick: () => {
-        if(isMobile){
+        if (isMobile) {
           dispatch(toggleCollapseSettingDropDown())
           return
         }
