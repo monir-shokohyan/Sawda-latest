@@ -29,8 +29,8 @@ const Ui = () => {
                 footerText={textFooter}
                 handleClick={() => handleClick()}
                 alt={alt}
-                imageHeight={ isMobile ? 155 : 200}
-                size={ isMobile ? 200 : 250 }
+                imageHeight={isMobile ? 155 : 200}
+                size={isMobile ? 200 : 250}
                 styles={{
                   root: {
                     border: active

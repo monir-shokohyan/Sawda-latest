@@ -4,10 +4,12 @@ import { ReactNode } from 'react'
 const LoaderContainer = ({ children }: { children: ReactNode }) => {
   return (
     <Flex
-      w="100vw"
-      h="100vh"
+      w="100%"
+      h="100dvh"
       justify="center"
       align="center"
+      bg="background.9"
+      style={{ overflowX: 'hidden' }}
     >
       {children}
     </Flex>

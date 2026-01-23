@@ -1,10 +1,10 @@
+import { Loader as MantineLoader } from '@mantine/core'
 import { LoaderContainer } from './container'
-import { LoadingSkeleton } from './LoadingSkeleton'
 
 const Loader = () => {
   return (
     <LoaderContainer>
-      <LoadingSkeleton />
+      <MantineLoader color="primary" />
     </LoaderContainer>
   )
 }
