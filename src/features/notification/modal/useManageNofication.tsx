@@ -13,13 +13,12 @@ const useManageNotification = () => {
     mode: 'onChange',
   })
 
-  const values = watch();
+  const values = watch()
 
   useEffect(() => {
-    console.log('Auto-saving notification preferences:', values);
-  }, [values]);
+    console.log('Auto-saving notification preferences:', values)
+  }, [values])
   const { isMobile } = Responsive()
-
 
   return {
     control,

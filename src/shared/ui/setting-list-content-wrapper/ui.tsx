@@ -37,7 +37,7 @@ const Ui = ({
         {title}
       </ResText>
 
-      <div style={{marginTop: '20px'}}>
+      <div style={{ marginTop: '20px' }}>
         {children}
         {allowButton && (
           <SaveButton

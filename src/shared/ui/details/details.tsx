@@ -29,10 +29,12 @@ const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
       >
         {title}
       </ResText>
-      {allowBox && <InfoBox>
-        {icon}
-        <span>{text}</span>
-      </InfoBox>}
+      {allowBox && (
+        <InfoBox>
+          {icon}
+          <span>{text}</span>
+        </InfoBox>
+      )}
     </>
   )
 }
