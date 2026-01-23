@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const SidebarItem = styled.div<{ $isActive?: boolean }>`
   padding: 8px 16px;
   border-radius: 5px;

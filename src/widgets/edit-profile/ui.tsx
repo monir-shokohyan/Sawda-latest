@@ -8,8 +8,8 @@ const Ui = () => {
       w="100%"
       h="100%"
     >
-      <SettingLayout title='edit-profile'>
-       <EditProfile />
+      <SettingLayout title="edit-profile">
+        <EditProfile />
       </SettingLayout>
     </Flex>
   )

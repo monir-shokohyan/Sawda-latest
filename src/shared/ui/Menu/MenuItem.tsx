@@ -1,8 +1,12 @@
-import { Flex } from '@mantine/core'
+import { Flex, useMantineTheme } from '@mantine/core'
 import { HoveredItem, ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { ReactElement } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { ExpandArrow } from '../expandArrow'
+import { useAppSelector } from '@shared/hooks/redux-hooks'
+import { SettingDropDownSelector } from '@features/mobile-model/reducers'
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
 export interface Profiletype {
   label: string
@@ -17,6 +21,9 @@ interface Props {
 const MenuItem = ({ option }: Props) => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const settingDropDown = useAppSelector(SettingDropDownSelector)
+  const { colors } = useMantineTheme()
+  
   return (
     <HoveredItem
       $isActive={pathname === option.path}
@@ -28,6 +35,7 @@ const MenuItem = ({ option }: Props) => {
         }
       }}
     >
+      <Flex justify="space-between" w="100%">
       <Flex
         gap={20}
         c="primary"
@@ -40,6 +48,9 @@ const MenuItem = ({ option }: Props) => {
         >
           {option.label}
         </ResText>
+      </Flex>
+      {option.label.toLocaleLowerCase() === 'settings' && <ExpandArrow color={colors.primary[8]} isOpen={settingDropDown} />}
+      {option.label.toLocaleLowerCase() !== 'settings' && <MdOutlineKeyboardArrowRight color={colors.primary[8]}  size={20} />}
       </Flex>
     </HoveredItem>
   )

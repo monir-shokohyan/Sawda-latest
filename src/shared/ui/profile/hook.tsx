@@ -9,10 +9,15 @@ import {
   MdOutlineSettings,
 } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
+import { useAppDispatch } from '@shared/hooks/redux-hooks'
+import { toggleCollapseSettingDropDown } from '@features/mobile-model/reducers/slice'
 
 const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
   const { pathname } = useLocation()
   const { isMobile } = Responsive()
+  const dispatch = useAppDispatch()
+
+  
 
   const ProfileConstant: Profiletype[] = [
     {
@@ -33,7 +38,9 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
     {
       label: 'Settings',
       icon: <MdOutlineSettings size={isMobile ? 24 : 20} />,
-      path: `${Paths.EditProfile}${id}`,
+      handleClick: () => {
+        dispatch(toggleCollapseSettingDropDown())
+      },
     },
     {
       label: 'Logout',
