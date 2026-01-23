@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import { Stack, Grid, Group } from '@mantine/core'
+import { Stack, Grid, Group, Loader } from '@mantine/core'
 import { GradientContainer } from '@shared/ui/containers'
-import { LoaderSpinner } from '../styles'
 import { Product } from '../types'
 import { GeneralPadding } from '@shared/constants'
 import { ProductCard } from '@features/product-card'
@@ -67,7 +66,7 @@ const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
             py="xl"
             bg="background.9"
           >
-            <LoaderSpinner />
+            <Loader color="primary" />
           </Group>
         }
       >

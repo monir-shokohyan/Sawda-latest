@@ -1,4 +1,4 @@
-import { Card, CardProps, rem } from '@mantine/core'
+import { Card, CardProps } from '@mantine/core'
 import styled from 'styled-components'
 
 export const CategoryCard = styled(Card)<{ $isMobile: boolean } & CardProps>`
@@ -19,19 +19,3 @@ export const CategoryCard = styled(Card)<{ $isMobile: boolean } & CardProps>`
   }
 `
 
-export const LoaderSpinner = styled.div`
-  width: ${rem(40)};
-  height: ${rem(40)};
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #4a90e2;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`
