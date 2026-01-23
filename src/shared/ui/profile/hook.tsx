@@ -17,8 +17,6 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
   const { isMobile } = Responsive()
   const dispatch = useAppDispatch()
 
-  
-
   const ProfileConstant: Profiletype[] = [
     {
       label: 'Profile',

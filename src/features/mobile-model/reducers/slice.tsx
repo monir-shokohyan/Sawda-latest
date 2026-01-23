@@ -24,8 +24,11 @@ const settingDropDownSlice = createSlice({
   },
 })
 
-export const { collapseSettingDropDown, unCollapseSettingDropDown, toggleCollapseSettingDropDown } =
-  settingDropDownSlice.actions
+export const {
+  collapseSettingDropDown,
+  unCollapseSettingDropDown,
+  toggleCollapseSettingDropDown,
+} = settingDropDownSlice.actions
 
 export const reducer = settingDropDownSlice.reducer
 export const selector = (state: RootState) => state.settingDropDown.collapsed

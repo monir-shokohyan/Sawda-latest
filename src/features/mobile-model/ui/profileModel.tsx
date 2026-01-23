@@ -17,7 +17,6 @@ const ProfileModel = () => {
   const { ProfileConstant, pathname } = useProfileDropDown({})
   const settingDropDown = useAppSelector(SettingDropDownSelector)
 
-
   return (
     <Modal
       opened={pathname.endsWith('profile')}
@@ -26,50 +25,52 @@ const ProfileModel = () => {
       title={<Logo />}
       pos="relative"
       transitionProps={{ transition: 'fade', duration: 200 }}
-      
     >
-        {/* Content */}
-        <ScrollArea h="70dvh" >
-          <Flex
-            direction="column"
-            w="100%"
-            gap={10}
+      {/* Content */}
+      <ScrollArea h="74dvh" scrollbars="y" scrollbarSize={4}>
+        <Flex
+          direction="column"
+          w="100%"
+          gap={10}
+        >
+          <OverlayBg>
+            <ProfileSection
+              product={{
+                username: 'Monir198323',
+                timestamp: '23day',
+                email: 'monir.shekoyans1@gmail.com',
+              }}
+              hoverUsername={false}
+              showEmail
+              showTime={false}
+              usernameSize="1.2rem"
+              timeSize="0.9rem"
+              mobileSize="90px"
+              direction="column"
+              isStaticColor
+            />
+          </OverlayBg>
+          {ProfileConstant.map((option) => {
+            if (option.label.toLocaleLowerCase() !== 'logout') {
+              return (
+                <MenuItem
+                  option={option}
+                  key={option.label}
+                />
+              )
+            }
+          })}
+          <Collapse
+            in={settingDropDown}
+            pl={20}
           >
-            <OverlayBg>
-              <ProfileSection
-                product={{
-                  username: 'Monir198323',
-                  timestamp: '23day',
-                  email: 'monir.shekoyans1@gmail.com',
-                }}
-                hoverUsername={false}
-                showEmail
-                showTime={false}
-                usernameSize="1.2rem"
-                timeSize="0.9rem"
-                mobileSize="90px"
-                direction="column"
-                isStaticColor
-              />
-            </OverlayBg>
-            {ProfileConstant.map((option) => {
-              if (option.label.toLocaleLowerCase() !== 'logout') {
-                return (
-                  <MenuItem
-                    option={option}
-                    key={option.label}
-                  />
-                )
-              }
-            })}
-            <Collapse in={settingDropDown} pl={20}>
-              <SettingList />
-            </Collapse>
-          </Flex>
-        </ScrollArea>
+            <SettingList />
+          </Collapse>
+        </Flex>
+      </ScrollArea>
       <DarkMode
         pos="absolute"
-        bottom={100}
+        bottom={80}
         c="primary"
         iconSize={25}
         right={10}
@@ -77,7 +78,7 @@ const ProfileModel = () => {
       />
       <LanguageDropDown
         pos="absolute"
-        bottom={100}
+        bottom={80}
         left={10}
         styles={{
           label: {

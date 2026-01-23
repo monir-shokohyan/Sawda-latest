@@ -23,7 +23,7 @@ const MenuItem = ({ option }: Props) => {
   const { pathname } = useLocation()
   const settingDropDown = useAppSelector(SettingDropDownSelector)
   const { colors } = useMantineTheme()
-  
+
   return (
     <HoveredItem
       $isActive={pathname === option.path}
@@ -35,22 +35,35 @@ const MenuItem = ({ option }: Props) => {
         }
       }}
     >
-      <Flex justify="space-between" w="100%">
       <Flex
-        gap={20}
-        c="primary"
-        align="center"
+        justify="space-between"
+        w="100%"
       >
-        {option.icon}
-        <ResText
-          fontSize={TypographySize.SemiLarge}
-          c="darkText"
+        <Flex
+          gap={20}
+          c="primary"
+          align="center"
         >
-          {option.label}
-        </ResText>
-      </Flex>
-      {option.label.toLocaleLowerCase() === 'settings' && <ExpandArrow color={colors.primary[8]} isOpen={settingDropDown} />}
-      {option.label.toLocaleLowerCase() !== 'settings' && <MdOutlineKeyboardArrowRight color={colors.primary[8]}  size={20} />}
+          {option.icon}
+          <ResText
+            fontSize={TypographySize.SemiLarge}
+            c="darkText"
+          >
+            {option.label}
+          </ResText>
+        </Flex>
+        {option.label.toLocaleLowerCase() === 'settings' && (
+          <ExpandArrow
+            color={colors.primary[8]}
+            isOpen={settingDropDown}
+          />
+        )}
+        {option.label.toLocaleLowerCase() !== 'settings' && (
+          <MdOutlineKeyboardArrowRight
+            color={colors.primary[8]}
+            size={20}
+          />
+        )}
       </Flex>
     </HoveredItem>
   )

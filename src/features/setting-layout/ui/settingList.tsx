@@ -10,27 +10,27 @@ const SettingList = () => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const { isMobile } = Responsive()
-  const FontSize = isMobile ? TypographySize.SemiLarge : TypographySize.SemiSmall
+  const FontSize = isMobile
+    ? TypographySize.SemiLarge
+    : TypographySize.SemiSmall
 
   return (
     <>
-        <Stack
-          w={isMobile ? '100%' :250}
-          p={isMobile ? 0: 20}
-          gap={5}
-        >
-          {MenuItems.map((item) => (
-            <SidebarItem
-              key={item.path}
-              $isActive={pathname.startsWith(item.path)}
-              onClick={() => navigate(item.path + 'monir')}
-            >
-              <ResText fontSize={FontSize}>
-                {item.label}
-              </ResText>
-            </SidebarItem>
-          ))}
-        </Stack>
+      <Stack
+        w={isMobile ? '100%' : 250}
+        p={isMobile ? 0 : 20}
+        gap={5}
+      >
+        {MenuItems.map((item) => (
+          <SidebarItem
+            key={item.path}
+            $isActive={pathname.startsWith(item.path)}
+            onClick={() => navigate(item.path + 'monir')}
+          >
+            <ResText fontSize={FontSize}>{item.label}</ResText>
+          </SidebarItem>
+        ))}
+      </Stack>
     </>
   )
 }
