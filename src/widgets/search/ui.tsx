@@ -1,4 +1,4 @@
-import { Favorites } from '@features/favorites'
+import { Search } from '@features/search'
 import { SettingLayout } from '@features/setting-layout'
 import { Flex } from '@mantine/core'
 
@@ -9,10 +9,10 @@ const Ui = () => {
       h="100%"
     >
       <SettingLayout
-        title="filtered-products"
+        title="search"
         isSetting={false}
       >
-        <Favorites />
+        <Search />
       </SettingLayout>
     </Flex>
   )

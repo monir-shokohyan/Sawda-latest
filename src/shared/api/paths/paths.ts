@@ -10,4 +10,5 @@ export enum Paths {
   ProfileDetails = '/profile/',
   MobileModel = '/model/',
   Favorites = '/favorites/',
+  Search = '/search/',
 }

@@ -13,6 +13,7 @@ import { NotificationPage } from '@pages/notification'
 import { PrivacyPage } from '@pages/privacy'
 import { ThemePage } from '@pages/theme'
 import { FavoritesPage } from '@pages/favorites'
+import { SearchPage } from '@pages/search'
 
 export const mainRoute: RouteType[] = [
   {
@@ -22,6 +23,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="dashboard">
         <DashboardPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'search',
+    guarded: '',
+    path: '/search/:id',
+    element: (
+      <ErrorSuspense suspenseKey="search">
+        <SearchPage />
       </ErrorSuspense>
     ),
   },

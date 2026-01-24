@@ -2,13 +2,17 @@ import { CategoryCard } from '../styles'
 import { Image } from '@mantine/core'
 import { CategoryTypeProps } from '../types'
 import { SText } from '@shared/styles'
+import { useNavigate } from 'react-router-dom'
+import { Paths } from '@shared/api/paths/paths'
 
 const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
+  const navigate = useNavigate()
   return (
     <CategoryCard
       shadow="sm"
       bg="background.7"
       $isMobile={isMobile}
+      onClick={() => navigate(`${Paths.Search}monir?category=${category.id}`)}
     >
       <SText
         size={isMobile ? '0.7rem' : 'sm'}

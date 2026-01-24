@@ -113,8 +113,6 @@ const Filter = ({
             label="Select Category"
             placeholder="Choose a category"
             data={CategoryConstants}
-            searchable
-            clearable
             nothingFoundMessage="No category found"
             comboboxProps={{
               transitionProps: { transition: 'fade-down', duration: 400 },
@@ -140,8 +138,6 @@ const Filter = ({
             label="Select Province"
             placeholder="Choose a province"
             data={ProvinceConstants}
-            searchable
-            clearable
             value={selectedProvince}
             comboboxProps={{
               transitionProps: { transition: 'fade-down', duration: 400 },
@@ -176,8 +172,6 @@ const Filter = ({
             label="Select District"
             placeholder="Choose a district"
             data={getDistrictsForProvince()}
-            searchable
-            clearable
             value={selectedDistrict}
             onChange={setSelectedDistrict}
             comboboxProps={{
