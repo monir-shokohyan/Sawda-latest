@@ -43,7 +43,7 @@ const LazyImage = ({
               height: '100%',
               overflow: 'hidden',
               borderRadius: 'inherit',
-              transitionDelay: '100s',
+              transitionDelay: '1s',
             },
           }}
           {...props}
