@@ -3,7 +3,11 @@ import { SActionIcon, SInput, VerticalBorder } from '@shared/styles'
 import { Filter } from '@features/search-filter/ui/filter'
 import { InputContainer } from '../styles'
 
-const Ui = ({ isMobile }: { isMobile: boolean }) => {
+const Ui = ({ isMobile, route = 'dashboard' }: { isMobile: boolean; route?: string }) => {
+  const inputWidth =
+    route === 'favorites'
+      ? { base: '50vw', sm: '50vw', md: '25vw', lg: '40vw' }
+      : { base: '90vw', sm: '90vw', md: '55vw', lg: '70vw' }
   return (
     <InputContainer
       justify="center"
@@ -17,7 +21,7 @@ const Ui = ({ isMobile }: { isMobile: boolean }) => {
         type="text"
         placeholder="Search"
         size="md"
-        w={{ base: '90vw', sm: '90vw', md: '55vw', lg: '70vw' }}
+        w={inputWidth}
         radius={0}
       />
       <SActionIcon
@@ -26,13 +30,17 @@ const Ui = ({ isMobile }: { isMobile: boolean }) => {
       >
         <FiSearch size={isMobile ? 13 : 16} />
       </SActionIcon>
-      <VerticalBorder />
-      <SActionIcon
-        size="input-md"
-        radius="0px"
-      >
-        <FiMic size={isMobile ? 13 : 16} />
-      </SActionIcon>
+      {route !== 'favorites' && (
+        <>
+          <VerticalBorder />
+          <SActionIcon
+            size="input-md"
+            radius="0px"
+          >
+            <FiMic size={isMobile ? 13 : 16} />
+          </SActionIcon>
+        </>
+      )}
     </InputContainer>
   )
 }

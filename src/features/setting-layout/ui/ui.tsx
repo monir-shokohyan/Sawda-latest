@@ -6,7 +6,7 @@ import { GradientContainer } from '@shared/ui/containers'
 import { SettingList } from './settingList'
 import { SettingLayout } from '../types'
 
-function Ui({ children, title }: SettingLayout) {
+function Ui({ children, title, isSetting = true }: SettingLayout) {
   const { isMobile } = Responsive()
 
   return (
@@ -17,15 +17,21 @@ function Ui({ children, title }: SettingLayout) {
         px={isMobile ? '0px' : GeneralPadding}
         py={isMobile ? 'sm' : 'xl'}
       >
-        <BreadcrumbsNav
-          items={[
-            { title: 'Home', href: '/' },
-            { title: 'settings' },
-            { title },
-          ]}
-        />
+        {isSetting && (
+          <BreadcrumbsNav
+            items={[
+              { title: 'Home', href: '/' },
+              { title: 'settings' },
+              { title },
+            ]}
+          />
+        )}
+
+        {!isSetting && (
+          <BreadcrumbsNav items={[{ title: 'Home', href: '/' }, { title }]} />
+        )}
         <Flex>
-          {!isMobile && <SettingList />}
+          {!isMobile && isSetting && <SettingList />}
           {children}
         </Flex>
       </Stack>

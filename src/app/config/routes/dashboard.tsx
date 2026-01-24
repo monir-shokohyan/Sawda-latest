@@ -12,6 +12,7 @@ import { ChangePasswordPage } from '@pages/change-password'
 import { NotificationPage } from '@pages/notification'
 import { PrivacyPage } from '@pages/privacy'
 import { ThemePage } from '@pages/theme'
+import { FavoritesPage } from '@pages/favorites'
 
 export const mainRoute: RouteType[] = [
   {
@@ -21,6 +22,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="dashboard">
         <DashboardPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'favorites',
+    guarded: '',
+    path: '/favorites/:id',
+    element: (
+      <ErrorSuspense suspenseKey="favorites">
+        <FavoritesPage />
       </ErrorSuspense>
     ),
   },

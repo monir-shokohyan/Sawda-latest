@@ -9,5 +9,5 @@ export enum Paths {
   ProductDetails = '/product/',
   ProfileDetails = '/profile/',
   MobileModel = '/model/',
-  Favorite = '/favorite/',
+  Favorites = '/favorites/',
 }

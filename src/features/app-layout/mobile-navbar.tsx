@@ -40,7 +40,7 @@ const MobileDownbar = () => {
         variant="subtle"
         c="darkText"
         size="xl"
-        onClick={() => navigate(Paths.Favorite)}
+        onClick={() => navigate(`${Paths.Favorites}monir`)}
       >
         <MdOutlineFavoriteBorder size={24} />
       </HoveredActionIcon>
