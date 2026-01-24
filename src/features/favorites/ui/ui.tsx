@@ -12,12 +12,14 @@ function Ui() {
     <Stack
       w="100%"
       gap={0}
+      px={isMobile ? '10px' : '0px'}
     >
       <GradientContainer>
         <Group
           w="100%"
           justify="space-between"
           py="xl"
+          wrap="wrap"
         >
           <ResText
             c="darkText"
