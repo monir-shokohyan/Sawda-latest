@@ -9,7 +9,7 @@ export const StyledImageContainer = styled.div`
   justify-content: center;
   position: relative;
   @media (max-width: 800px) {
-    height: 6.5rem;
+    height: 9rem;
   }
 `
 

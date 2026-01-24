@@ -58,7 +58,7 @@ const ProductCard: React.FC<UseModalProps> = ({
           direction="column"
         >
           <Text
-            size={isMobile ? '0.7rem' : 'sm'}
+            size={isMobile ? '0.9rem' : 'sm'}
             fw={500}
             lineClamp={1}
             style={{ flexGrow: 1 }}

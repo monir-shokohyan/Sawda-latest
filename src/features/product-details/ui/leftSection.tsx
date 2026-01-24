@@ -11,7 +11,7 @@ import { TypographySize } from '@shared/typography'
 const LeftSection = () => {
   const { isMobile } = Responsive()
   return (
-    <Stack w={isMobile ? '100%' : '60%'}>
+    <Stack w={isMobile ? '100%' : '72%'}>
       <ResText
         fontSize={TypographySize.Large}
         c="darkText"

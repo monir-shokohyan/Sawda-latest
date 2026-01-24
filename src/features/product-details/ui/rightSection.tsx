@@ -11,7 +11,7 @@ const RightSection = () => {
   const theme = useMantineTheme()
   return (
     <Stack
-      w={isMobile ? '100%' : '38%'}
+      w={isMobile ? '100%' : '25%'}
       pos="sticky"
       top={30}
       right={0}
