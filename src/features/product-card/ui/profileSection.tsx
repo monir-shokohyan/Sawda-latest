@@ -8,6 +8,7 @@ import { Paths } from '@shared/api/paths/paths'
 const ProfileSection = ({
   product,
   showDetails = false,
+  showMessage = false,
   showTime = true,
   size = 'md',
   mobileSize = '33px',
@@ -67,6 +68,16 @@ const ProfileSection = ({
             c={isStaticColor ? 'white' : 'dimmed'}
           >
             {product.email}
+          </Text>
+        )}
+        {showMessage && (
+          <Text
+            size={isMobile ? timeSize : 'xs'}
+            c={isStaticColor ? 'white' : 'dimmed'}
+            lineClamp={1}
+            fw={600}
+          >
+            {product.message}
           </Text>
         )}
         {showTime && (

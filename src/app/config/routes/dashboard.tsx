@@ -14,6 +14,7 @@ import { PrivacyPage } from '@pages/privacy'
 import { ThemePage } from '@pages/theme'
 import { FavoritesPage } from '@pages/favorites'
 import { SearchPage } from '@pages/search'
+import { MessageDetailsPage } from '@pages/message-details'
 
 export const mainRoute: RouteType[] = [
   {
@@ -53,6 +54,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="product-detail">
         <ProductDetailPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'message-detail',
+    guarded: '',
+    path: '/message/:id',
+    element: (
+      <ErrorSuspense suspenseKey="message-detail">
+        <MessageDetailsPage />
       </ErrorSuspense>
     ),
   },

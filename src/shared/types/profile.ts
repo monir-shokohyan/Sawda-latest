@@ -8,4 +8,5 @@ export interface ProductProps {
   status?: string
   liked?: boolean
   email?: string
+  message?: string
 }

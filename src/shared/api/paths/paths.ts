@@ -11,4 +11,5 @@ export enum Paths {
   MobileModel = '/model/',
   Favorites = '/favorites/',
   Search = '/search/',
+  Message = '/message/',
 }

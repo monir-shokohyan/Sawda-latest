@@ -3,6 +3,8 @@ import {
   ActionIconProps,
   Button,
   ButtonProps,
+  Card,
+  CardProps,
   createPolymorphicComponent,
   Flex,
   InputProps,
@@ -237,3 +239,19 @@ export const SaveButton = styled.button`
     background-color: #3651d4;
   }
 `
+export interface InteractiveCardProps extends CardProps {
+  variant?: 'default' | 'active';
+}
+
+export const InteractiveCard = styled(Card)<InteractiveCardProps>`
+  transition: all 0.16s ease;
+
+  &[data-variant='active'],
+  &[data-variant='active']:hover {
+    border-color: var(--mantine-color-primary-8);
+  }
+
+  &:not([data-variant='active']):hover {
+    border-color: var(--mantine-color-primary-8);
+  }
+`;
