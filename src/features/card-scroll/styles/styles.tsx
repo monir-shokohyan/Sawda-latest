@@ -1,7 +1,9 @@
 import { Card, CardProps } from '@mantine/core'
 import styled from 'styled-components'
 
-export const CategoryCard = styled(Card)<{ $isMobile: boolean, onClick?: () => void } & CardProps>`
+export const CategoryCard = styled(Card)<
+  { $isMobile: boolean; onClick?: () => void } & CardProps
+>`
   border-radius: ${({ $isMobile }) => ($isMobile ? '8px' : '16px')};
   padding: 10px;
   width: ${({ $isMobile }) => ($isMobile ? '100px' : '160px')};

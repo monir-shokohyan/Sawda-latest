@@ -111,7 +111,9 @@ export const OpacityButton = createPolymorphicComponent<'button', ButtonProps>(
   _OpacityButton,
 )
 
-export const SActionIcon = styled(ActionIcon)<ActionIconProps>`
+export const SActionIcon = styled(ActionIcon)<
+  ActionIconProps & { onClick?: () => void; ref?: any }
+>`
   &:hover {
     background-color: var(--mantine-color-blue-9);
   }

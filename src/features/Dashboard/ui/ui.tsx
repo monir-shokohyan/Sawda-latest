@@ -1,12 +1,12 @@
 import { SearchFilter } from '@features/search-filter/ui'
 import { Flex, Group, Stack } from '@mantine/core'
-import { Filter } from '../../search-filter/ui/filter'
 import { CardCarousal } from '@features/card-scroll/ui'
 import { GradientContainer } from '@shared/ui/containers'
 import Ads from '@shared/ads/ads'
 import { ProductScroll } from '@features/product-scroll/ui'
 import { GeneralPadding } from '@shared/constants'
 import { Responsive } from '@shared/hooks/responsive'
+import { MenuFilter } from '@features/search-filter/ui/MenuFilter'
 
 function Ui() {
   const { isMobile } = Responsive()
@@ -25,7 +25,7 @@ function Ui() {
           top={0}
           style={{ zIndex: 10 }}
         >
-          {!isMobile && <Filter />}
+          {!isMobile && <MenuFilter />}
           <SearchFilter isMobile={isMobile} />
         </Group>
 

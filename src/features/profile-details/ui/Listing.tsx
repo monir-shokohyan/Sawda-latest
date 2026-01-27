@@ -1,11 +1,17 @@
 import { ProductScroll } from '@features/product-scroll/ui'
-import { Filter } from '@features/search-filter/ui/filter'
+import { FilterButton } from '@features/search-filter/ui/filterButton'
+import { MenuFilter } from '@features/search-filter/ui/MenuFilter'
 import { Group, TextInput } from '@mantine/core'
+import { Paths } from '@shared/api/paths/paths'
+import { Responsive } from '@shared/hooks/responsive'
 import { HoveredActionIcon, ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { FaSearch } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const Listing = () => {
+  const isMobile  = Responsive()
+  const navigate = useNavigate()
   return (
     <>
       <Group
@@ -34,10 +40,13 @@ const Listing = () => {
             }
           />
 
-          <Filter
+         {!isMobile && <MenuFilter
             iconSize="lg"
             arrowPosition="bottom-end"
-          />
+          />}
+          {
+            isMobile && <FilterButton iconSize="lg" handleClick={() => navigate(`${Paths.MobileModel}/filters`)} />
+          }
         </Group>
       </Group>
       <ProductScroll allowPadding={false} />

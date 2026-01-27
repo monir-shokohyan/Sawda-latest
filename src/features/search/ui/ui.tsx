@@ -26,31 +26,31 @@ function Ui() {
           py="xl"
           wrap="wrap"
         >
-           <HoveredSelect
-                      placeholder="Choose a category"
-                      data={CategoryConstants}
-                      nothingFoundMessage="No category found"
-                      comboboxProps={{
-                        transitionProps: { transition: 'fade-down', duration: 400 },
-                      }}
-                      defaultValue={category || '1'}
-                      renderOption={({ option, checked }) => (
-                        <Group
-                          gap="sm"
-                          c="textPrimary"
-                        >
-                          {checked && <MdCheck />}
-                          {(option as Categorytype).icon}
-                          <Text
-                            c="textPrimary"
-                            size="sm"
-                          >
-                            {option.label}
-                          </Text>
-                        </Group>
-                      )}
-                      w={isMobile ? '100%' : '30%'}
-                    />
+          <HoveredSelect
+            placeholder="Choose a category"
+            data={CategoryConstants}
+            nothingFoundMessage="No category found"
+            comboboxProps={{
+              transitionProps: { transition: 'fade-down', duration: 400 },
+            }}
+            defaultValue={category || '1'}
+            renderOption={({ option, checked }) => (
+              <Group
+                gap="sm"
+                c="textPrimary"
+              >
+                {checked && <MdCheck />}
+                {(option as Categorytype).icon}
+                <Text
+                  c="textPrimary"
+                  size="sm"
+                >
+                  {option.label}
+                </Text>
+              </Group>
+            )}
+            w={isMobile ? '100%' : '30%'}
+          />
           <SearchFilter
             isMobile={isMobile}
             route="favorites"

@@ -1,7 +1,7 @@
 import { CategoryType } from '../types'
 
 export const categories: CategoryType[] = [
-  { id: 1, name: 'Auto', image: '/category/car.png',  },
+  { id: 1, name: 'Auto', image: '/category/car.png' },
   { id: 2, name: 'Real estate', image: '/category/home.png' },
   { id: 3, name: 'Job', image: '/category/bag.png' },
   {

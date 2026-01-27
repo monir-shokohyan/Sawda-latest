@@ -1,4 +1,5 @@
 import { CreateModel } from './createModel'
+import { FilterModal } from './filterModal'
 import { ProfileModel } from './profileModel'
 
 function Ui() {
@@ -6,6 +7,7 @@ function Ui() {
     <>
       <ProfileModel />
       <CreateModel />
+      <FilterModal />
     </>
   )
 }

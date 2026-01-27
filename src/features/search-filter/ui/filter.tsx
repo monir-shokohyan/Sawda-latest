@@ -1,43 +1,15 @@
-import {
-  ActionIcon,
-  Flex,
-  Group,
-  Menu,
-  MenuProps,
-  NumberInput,
-  Select,
-  Text,
-} from '@mantine/core'
+import { Flex, Group, NumberInput, Select, Text } from '@mantine/core'
 import { CategoryConstants } from '@shared/ui/category/constant'
 import { Categorytype } from '@shared/ui/category/types'
 import { useState } from 'react'
-import {
-  MdAttachMoney,
-  MdCheck,
-  MdClose,
-  MdOutlineManageSearch,
-} from 'react-icons/md'
+import { MdAttachMoney, MdCheck } from 'react-icons/md'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal, TbCurrencyAfghani } from 'react-icons/tb'
-import {
-  HoveredActionIcon,
-  HoveredSelect,
-  SActionIcon,
-  SButton,
-} from '@shared/styles'
+import { HoveredSelect, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 
-interface FilterProps {
-  iconSize?: 'xl' | 'md' | 'lg' | 'sm'
-  arrowPosition?: MenuProps['position']
-}
-
-const Filter = ({
-  iconSize = 'xl',
-  arrowPosition = 'bottom-start',
-}: FilterProps) => {
+const Filter = () => {
   const { isMobile } = Responsive()
-  const [opened, setOpened] = useState(false)
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null)
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null)
   const [selectedCurrency, setSelectedCurrency] = useState<string>('AFN')
@@ -63,210 +35,167 @@ const Filter = ({
   const currencySymbol = selectedCurrency === 'AFN' ? '؋' : '$'
 
   return (
-    <Menu
-      shadow="md"
-      width={isMobile ? '90%' : '81vw'}
-      position={arrowPosition}
-      withArrow
-      opened={opened}
-      onChange={setOpened}
-      closeOnItemClick={false}
-      closeOnClickOutside={false}
-      transitionProps={{ transition: 'fade-down', duration: 250 }}
-    >
-      <Menu.Target>
-        <SActionIcon size={iconSize}>
-          <MdOutlineManageSearch size={isMobile ? 18 : 20} />
-        </SActionIcon>
-      </Menu.Target>
-
-      <Menu.Dropdown
+    <>
+      <Flex
+        gap={isMobile ? 5 : 20}
         px={10}
-        py={20}
+        wrap={isMobile ? 'wrap' : 'nowrap'}
       >
-        <Group
-          justify="space-between"
-          align="center"
-          mb="md"
-        >
-          <Menu.Label>
-            <MdOutlineManageSearch size={13} />
-            <span style={{ marginLeft: '5px' }}>Filter</span>
-          </Menu.Label>
-
-          <HoveredActionIcon
-            variant="subtle"
-            color="gray"
-            onClick={() => setOpened(false)}
-            aria-label="Close filter menu"
-          >
-            <MdClose size={18} />
-          </HoveredActionIcon>
-        </Group>
-
-        <Flex
-          gap={isMobile ? 5 : 20}
-          px={10}
-          wrap={isMobile ? 'wrap' : 'nowrap'}
-        >
-          <HoveredSelect
-            label="Select Category"
-            placeholder="Choose a category"
-            data={CategoryConstants}
-            nothingFoundMessage="No category found"
-            comboboxProps={{
-              transitionProps: { transition: 'fade-down', duration: 400 },
-            }}
-            renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
+        <HoveredSelect
+          label="Select Category"
+          placeholder="Choose a category"
+          data={CategoryConstants}
+          nothingFoundMessage="No category found"
+          comboboxProps={{
+            transitionProps: { transition: 'fade-down', duration: 400 },
+          }}
+          renderOption={({ option, checked }) => (
+            <Group
+              gap="sm"
+              c="textPrimary"
+            >
+              {checked && <MdCheck />}
+              {(option as Categorytype).icon}
+              <Text
                 c="textPrimary"
+                size="sm"
               >
-                {checked && <MdCheck />}
-                {(option as Categorytype).icon}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
-                  {option.label}
-                </Text>
-              </Group>
-            )}
-            w={isMobile ? '100%' : '50%'}
-          />
-          <Select
-            label="Select Province"
-            placeholder="Choose a province"
-            data={ProvinceConstants}
-            value={selectedProvince}
-            comboboxProps={{
-              transitionProps: { transition: 'fade-down', duration: 400 },
-            }}
-            onChange={handleProvinceChange}
-            renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
+                {option.label}
+              </Text>
+            </Group>
+          )}
+          w={isMobile ? '100%' : '50%'}
+        />
+        <Select
+          label="Select Province"
+          placeholder="Choose a province"
+          data={ProvinceConstants}
+          value={selectedProvince}
+          comboboxProps={{
+            transitionProps: { transition: 'fade-down', duration: 400 },
+          }}
+          onChange={handleProvinceChange}
+          renderOption={({ option, checked }) => (
+            <Group
+              gap="sm"
+              c="textPrimary"
+            >
+              {checked && <MdCheck />}
+              {(option as Categorytype).icon}
+              <Text
                 c="textPrimary"
+                size="sm"
               >
-                {checked && <MdCheck />}
-                {(option as Categorytype).icon}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
-                  {option.label}
-                </Text>
-              </Group>
-            )}
-            w={isMobile ? '100%' : '50%'}
-          />
-        </Flex>
+                {option.label}
+              </Text>
+            </Group>
+          )}
+          w={isMobile ? '100%' : '50%'}
+        />
+      </Flex>
 
-        <Flex
-          gap={isMobile ? 5 : 20}
-          px={10}
-          mt={isMobile ? 30 : 10}
-          wrap={isMobile ? 'wrap' : 'nowrap'}
-        >
-          <Select
-            label="Select District"
-            placeholder="Choose a district"
-            data={getDistrictsForProvince()}
-            value={selectedDistrict}
-            onChange={setSelectedDistrict}
-            comboboxProps={{
-              transitionProps: { transition: 'fade-down', duration: 400 },
-            }}
-            disabled={!selectedProvince}
-            nothingFoundMessage={
-              selectedProvince
-                ? 'No districts found'
-                : 'Select a province first'
-            }
-            w={isMobile ? '100%' : '50%'}
-            renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
+      <Flex
+        gap={isMobile ? 5 : 20}
+        px={10}
+        mt={isMobile ? 30 : 10}
+        wrap={isMobile ? 'wrap' : 'nowrap'}
+      >
+        <Select
+          label="Select District"
+          placeholder="Choose a district"
+          data={getDistrictsForProvince()}
+          value={selectedDistrict}
+          onChange={setSelectedDistrict}
+          comboboxProps={{
+            transitionProps: { transition: 'fade-down', duration: 400 },
+          }}
+          disabled={!selectedProvince}
+          nothingFoundMessage={
+            selectedProvince ? 'No districts found' : 'Select a province first'
+          }
+          w={isMobile ? '100%' : '50%'}
+          renderOption={({ option, checked }) => (
+            <Group
+              gap="sm"
+              c="textPrimary"
+            >
+              {checked && <MdCheck />}
+              <Text
                 c="textPrimary"
+                size="sm"
               >
-                {checked && <MdCheck />}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
-                  {option.label}
-                </Text>
-              </Group>
-            )}
-          />
-          <Select
-            label="Currency"
-            placeholder="Select currency"
-            data={CurrencyConstants}
-            value={selectedCurrency}
-            onChange={(value) => setSelectedCurrency(value || 'AFN')}
-            clearable={false}
-            comboboxProps={{
-              transitionProps: { transition: 'fade-down', duration: 400 },
-            }}
-            leftSection={currencyIcon}
-            w={isMobile ? '100%' : '50%'}
-            renderOption={({ option, checked }) => (
-              <Group
-                gap="sm"
+                {option.label}
+              </Text>
+            </Group>
+          )}
+        />
+        <Select
+          label="Currency"
+          placeholder="Select currency"
+          data={CurrencyConstants}
+          value={selectedCurrency}
+          onChange={(value) => setSelectedCurrency(value || 'AFN')}
+          clearable={false}
+          comboboxProps={{
+            transitionProps: { transition: 'fade-down', duration: 400 },
+          }}
+          leftSection={currencyIcon}
+          w={isMobile ? '100%' : '50%'}
+          renderOption={({ option, checked }) => (
+            <Group
+              gap="sm"
+              c="textPrimary"
+            >
+              {checked && <MdCheck />}
+              <Text
                 c="textPrimary"
+                size="sm"
               >
-                {checked && <MdCheck />}
-                <Text
-                  c="textPrimary"
-                  size="sm"
-                >
-                  {option.label}
-                </Text>
-              </Group>
-            )}
-          />
-        </Flex>
+                {option.label}
+              </Text>
+            </Group>
+          )}
+        />
+      </Flex>
 
-        <Flex
-          gap={isMobile ? 5 : 20}
-          px={10}
-          mt={isMobile ? 30 : 10}
-          wrap={isMobile ? 'wrap' : 'nowrap'}
-        >
-          <NumberInput
-            label={`Price From (${currencySymbol})`}
-            placeholder="From"
-            w={isMobile ? '100%' : '50%'}
-            decimalScale={2}
-            min={0}
-            rightSection={currencyIcon}
-            rightSectionWidth={40}
-          />
-          <NumberInput
-            label={`Price To (${currencySymbol})`}
-            placeholder="To"
-            w={isMobile ? '100%' : '50%'}
-            decimalScale={2}
-            min={0}
-            rightSection={currencyIcon}
-            rightSectionWidth={40}
-          />
-        </Flex>
+      <Flex
+        gap={isMobile ? 5 : 20}
+        px={10}
+        mt={isMobile ? 30 : 10}
+        wrap={isMobile ? 'wrap' : 'nowrap'}
+      >
+        <NumberInput
+          label={`Price From (${currencySymbol})`}
+          placeholder="From"
+          w={isMobile ? '100%' : '50%'}
+          decimalScale={2}
+          min={0}
+          rightSection={currencyIcon}
+          rightSectionWidth={40}
+        />
+        <NumberInput
+          label={`Price To (${currencySymbol})`}
+          placeholder="To"
+          w={isMobile ? '100%' : '50%'}
+          decimalScale={2}
+          min={0}
+          rightSection={currencyIcon}
+          rightSectionWidth={40}
+        />
+      </Flex>
 
-        <Flex
-          px={10}
-          mt={30}
+      <Flex
+        px={10}
+        mt={30}
+      >
+        <SButton
+          leftSection={<TbAdjustmentsHorizontal />}
+          fullWidth
         >
-          <SButton
-            leftSection={<TbAdjustmentsHorizontal />}
-            fullWidth
-          >
-            Filter ads
-          </SButton>
-        </Flex>
-      </Menu.Dropdown>
-    </Menu>
+          Filter ads
+        </SButton>
+      </Flex>
+    </>
   )
 }
 
