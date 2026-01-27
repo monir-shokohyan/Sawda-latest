@@ -28,13 +28,19 @@ const Ui = ({
       navigate(`${Paths.Favorites}filters`)
     }
   }
-  const isDashboard = route === 'dashboard';
+  const isDashboard = route === 'dashboard'
   return (
     <InputContainer
       justify="center"
       align="center"
       bg="primary"
-      pl={isMobile && isDashboard? '5px' : !isMobile && isDashboard ?  '20px' : '0px'}
+      pl={
+        isMobile && isDashboard
+          ? '5px'
+          : !isMobile && isDashboard
+            ? '20px'
+            : '0px'
+      }
     >
       {isMobile && (
         <FilterButton
