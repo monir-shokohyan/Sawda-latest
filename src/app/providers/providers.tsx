@@ -21,9 +21,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
         >
           <Notifications />
           <AdminRefineProvider>
-            <LenisProvider>
-              {children}
-            </LenisProvider>
+            <LenisProvider>{children}</LenisProvider>
           </AdminRefineProvider>
         </MantineProvider>
       </Provider>

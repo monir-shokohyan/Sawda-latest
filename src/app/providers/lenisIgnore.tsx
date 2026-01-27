@@ -1,6 +1,6 @@
 import { useLenis } from 'lenis/react'
 
-const LenisIgnoreDropdowns =({ children }: { children: React.ReactNode } ) =>  {
+const LenisIgnoreDropdowns = ({ children }: { children: React.ReactNode }) => {
   const lenis = useLenis()
 
   const handleWheel = (e: any) => {
@@ -15,7 +15,10 @@ const LenisIgnoreDropdowns =({ children }: { children: React.ReactNode } ) =>  {
   }
 
   return (
-    <div onWheelCapture={handleWheel} onTouchMoveCapture={handleWheel}>
+    <div
+      onWheelCapture={handleWheel}
+      onTouchMoveCapture={handleWheel}
+    >
       {children}
     </div>
   )

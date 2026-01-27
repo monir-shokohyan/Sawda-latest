@@ -1,31 +1,34 @@
 import { Menu, Text } from '@mantine/core'
 import {
-  MdOutlineKeyboardArrowDown,
   MdOutlinePersonOutline,
 } from 'react-icons/md'
 import { HoveredButton, HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from './hook'
 import { useNavigate } from 'react-router-dom'
+import { ExpandArrow } from '../expandArrow'
+import { useDisclosure } from '@mantine/hooks'
+import { MenuWrapper } from '../Menu/MenuWrapper'
 
 const ProfileDrownDown = () => {
   const { isMobile } = Responsive()
   const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
   const navigate = useNavigate()
+  const [opened, { toggle }] = useDisclosure(false)
+  
 
   return (
-    <Menu
-      shadow="sm"
-      width={200}
-      withArrow
-      transitionProps={{ transition: 'fade-down', duration: 250 }}
+ 
+     <MenuWrapper
+      toggle={toggle}
       position="top-end"
+      width={200}
     >
       <Menu.Target>
         <HoveredButton
           variant="subtle"
           leftSection={isMobile ? null : <MdOutlinePersonOutline size={20} />}
-          rightSection={<MdOutlineKeyboardArrowDown size={20} />}
+          rightSection={<ExpandArrow size={20} isOpen={opened} />}
           color="textPrimary"
           size="sm"
           p={0}
@@ -58,7 +61,7 @@ const ProfileDrownDown = () => {
           )
         })}
       </Menu.Dropdown>
-    </Menu>
+    </MenuWrapper>
   )
 }
 

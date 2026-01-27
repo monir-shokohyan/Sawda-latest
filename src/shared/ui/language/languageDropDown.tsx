@@ -1,21 +1,23 @@
-import { Button, ButtonProps, Menu, MenuTargetProps, Text } from '@mantine/core'
-import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { Button, ButtonProps, Menu, Text } from '@mantine/core'
 import { LanguageContants } from './constant'
 import { HoveredMenuItem } from '@shared/styles'
+import { ExpandArrow } from '../expandArrow'
+import { useDisclosure } from '@mantine/hooks'
+import { MenuWrapper } from '../Menu/MenuWrapper'
 
 const LanguageDropDown = (props: ButtonProps) => {
+  const [opened, { toggle }] = useDisclosure(false)
+  
   return (
-    <Menu
-      shadow="sm"
-      width={120}
-      withArrow
-      transitionProps={{ transition: 'fade-down', duration: 250 }}
+    <MenuWrapper
+      toggle={toggle}
       position="top-end"
+      width={120}
     >
       <Menu.Target {...props}>
         <Button
           variant="subtle"
-          rightSection={<MdOutlineKeyboardArrowDown size={20} />}
+          rightSection={<ExpandArrow size={20} isOpen={opened} />}
           c="darkText"
           size="sm"
           justify="flex-start"
@@ -39,7 +41,7 @@ const LanguageDropDown = (props: ButtonProps) => {
           )
         })}
       </Menu.Dropdown>
-    </Menu>
+    </MenuWrapper>
   )
 }
 
