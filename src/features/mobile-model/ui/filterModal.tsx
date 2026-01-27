@@ -23,7 +23,7 @@ const FilterModal = () => {
     >
       {/* Content */}
       <ScrollArea
-        h="74dvh"
+        h="84dvh"
         scrollbars="y"
         scrollbarSize={4}
       >

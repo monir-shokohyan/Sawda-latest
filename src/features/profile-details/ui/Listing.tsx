@@ -10,7 +10,7 @@ import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 const Listing = () => {
-  const isMobile  = Responsive()
+  const isMobile = Responsive()
   const navigate = useNavigate()
   return (
     <>
@@ -40,13 +40,18 @@ const Listing = () => {
             }
           />
 
-         {!isMobile && <MenuFilter
-            iconSize="lg"
-            arrowPosition="bottom-end"
-          />}
-          {
-            isMobile && <FilterButton iconSize="lg" handleClick={() => navigate(`${Paths.MobileModel}/filters`)} />
-          }
+          {!isMobile && (
+            <MenuFilter
+              iconSize="lg"
+              arrowPosition="bottom-end"
+            />
+          )}
+          {isMobile && (
+            <FilterButton
+              iconSize="lg"
+              handleClick={() => navigate(`${Paths.MobileModel}/filters`)}
+            />
+          )}
         </Group>
       </Group>
       <ProductScroll allowPadding={false} />
