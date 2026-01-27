@@ -7,7 +7,7 @@ import { MenuWrapper } from '../Menu/MenuWrapper'
 
 const LanguageDropDown = (props: ButtonProps) => {
   const [opened, { toggle }] = useDisclosure(false)
-  
+
   return (
     <MenuWrapper
       toggle={toggle}
@@ -17,7 +17,12 @@ const LanguageDropDown = (props: ButtonProps) => {
       <Menu.Target {...props}>
         <Button
           variant="subtle"
-          rightSection={<ExpandArrow size={20} isOpen={opened} />}
+          rightSection={
+            <ExpandArrow
+              size={20}
+              isOpen={opened}
+            />
+          }
           c="darkText"
           size="sm"
           justify="flex-start"

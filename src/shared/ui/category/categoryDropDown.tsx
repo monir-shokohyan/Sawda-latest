@@ -24,7 +24,12 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
     <HoveredButton
       variant="subtle"
       leftSection={<MdOutlineApps size={20} />}
-      rightSection={<ExpandArrow size={20} isOpen={opened} />}
+      rightSection={
+        <ExpandArrow
+          size={20}
+          isOpen={opened}
+        />
+      }
       color="textPrimary"
       size="sm"
       fullWidth={isMobile}
@@ -44,33 +49,32 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
       onOpen={toggle}
       onClose={toggle}
     >
-       <MenuWrapper
-      toggle={toggle}
-      position="bottom-end"
-    >
-      <Menu.Target>{triggerButton}</Menu.Target>
+      <MenuWrapper
+        toggle={toggle}
+        position="bottom-end"
+      >
+        <Menu.Target>{triggerButton}</Menu.Target>
 
-      <Menu.Dropdown>
-        <ScrollArea type="auto">
-          <Stack
-            gap={0}
-            bg="background.7"
-          >
-            {CategoryConstants.map((option) => (
-              <HoveredMenuItem
-                key={option.id}
-                c="textPrimary"
-                leftSection={option.icon}
-                onClick={() => selectCategory(option.id)}
-              >
-                <Text size="sm">{option.label}</Text>
-              </HoveredMenuItem>
-            ))}
-          </Stack>
-        </ScrollArea>
-      </Menu.Dropdown>
-    </MenuWrapper>
-
+        <Menu.Dropdown>
+          <ScrollArea type="auto">
+            <Stack
+              gap={0}
+              bg="background.7"
+            >
+              {CategoryConstants.map((option) => (
+                <HoveredMenuItem
+                  key={option.id}
+                  c="textPrimary"
+                  leftSection={option.icon}
+                  onClick={() => selectCategory(option.id)}
+                >
+                  <Text size="sm">{option.label}</Text>
+                </HoveredMenuItem>
+              ))}
+            </Stack>
+          </ScrollArea>
+        </Menu.Dropdown>
+      </MenuWrapper>
     </Menu>
   )
 }

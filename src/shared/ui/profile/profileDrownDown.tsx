@@ -1,7 +1,5 @@
 import { Menu, Text } from '@mantine/core'
-import {
-  MdOutlinePersonOutline,
-} from 'react-icons/md'
+import { MdOutlinePersonOutline } from 'react-icons/md'
 import { HoveredButton, HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from './hook'
@@ -15,11 +13,9 @@ const ProfileDrownDown = () => {
   const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
   const navigate = useNavigate()
   const [opened, { toggle }] = useDisclosure(false)
-  
 
   return (
- 
-     <MenuWrapper
+    <MenuWrapper
       toggle={toggle}
       position="top-end"
       width={200}
@@ -28,7 +24,12 @@ const ProfileDrownDown = () => {
         <HoveredButton
           variant="subtle"
           leftSection={isMobile ? null : <MdOutlinePersonOutline size={20} />}
-          rightSection={<ExpandArrow size={20} isOpen={opened} />}
+          rightSection={
+            <ExpandArrow
+              size={20}
+              isOpen={opened}
+            />
+          }
           color="textPrimary"
           size="sm"
           p={0}

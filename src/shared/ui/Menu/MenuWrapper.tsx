@@ -8,21 +8,26 @@ interface Props {
   width?: number | string
 }
 
-const MenuWrapper = ({children, toggle, position = 'top-end', width}: Props) => {
+const MenuWrapper = ({
+  children,
+  toggle,
+  position = 'top-end',
+  width,
+}: Props) => {
   return (
-     <Menu
-         shadow="sm"
-         width={width}
-         withArrow
-         transitionProps={{ transition: 'fade-down', duration: 250 }}
-         position={position}
-         trigger="hover"
-         onOpen={toggle}
-         onClose={toggle}
-       >
-        {children}
-        </Menu>
+    <Menu
+      shadow="sm"
+      width={width}
+      withArrow
+      transitionProps={{ transition: 'fade-down', duration: 250 }}
+      position={position}
+      trigger="hover"
+      onOpen={toggle}
+      onClose={toggle}
+    >
+      {children}
+    </Menu>
   )
 }
 
-export  { MenuWrapper }
+export { MenuWrapper }
