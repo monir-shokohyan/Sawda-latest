@@ -1,10 +1,10 @@
 import { FiSearch, FiMic } from 'react-icons/fi'
 import { SActionIcon, SInput, VerticalBorder } from '@shared/styles'
 import { InputContainer } from '../styles'
-import { MenuFilter } from './MenuFilter'
 import { FilterButton } from './filterButton'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '@shared/api/paths/paths'
+import { MenuFilter } from './MenuFilter'
 
 const Ui = ({
   isMobile,
@@ -22,14 +22,19 @@ const Ui = ({
   const handleClick = () => {
     if (isMobile) {
       navigate(`${Paths.MobileModel}filters`)
+      return
+    }
+    if (route === 'favorites') {
+      navigate(`${Paths.Favorites}filters`)
     }
   }
+  const isDashboard = route === 'dashboard';
   return (
     <InputContainer
       justify="center"
       align="center"
       bg="primary"
-      pl={isMobile ? '5px' : '20px'}
+      pl={isMobile && isDashboard? '5px' : !isMobile && isDashboard ?  '20px' : '0px'}
     >
       {isMobile && (
         <FilterButton
@@ -37,6 +42,7 @@ const Ui = ({
           handleClick={handleClick}
         />
       )}
+      {!isMobile && !isDashboard && <MenuFilter arrowPosition="bottom" />}
       <SInput
         type="text"
         placeholder="Search"

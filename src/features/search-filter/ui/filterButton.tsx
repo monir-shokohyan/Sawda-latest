@@ -18,6 +18,7 @@ const FilterButton = forwardRef<HTMLButtonElement, Props>(
         size={iconSize}
         {...others}
         onClick={handleClick}
+        radius="50%"
       >
         <MdOutlineManageSearch size={isMobile ? 18 : 20} />
       </SActionIcon>
