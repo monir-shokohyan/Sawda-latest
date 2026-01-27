@@ -21,11 +21,11 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
         mb="md"
         lineClamp={2}
       >
-        {category.name}
+        {category.label}
       </SText>
       <Image
         src={category.image}
-        alt={category.name}
+        alt={category.label}
         h={isMobile ? '45px' : '80px'}
         w={isMobile ? '45px' : '80px'}
         fit="contain"

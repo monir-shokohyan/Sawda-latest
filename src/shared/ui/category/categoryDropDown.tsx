@@ -1,10 +1,19 @@
-import { Button, Menu, Stack, Text, ScrollArea } from '@mantine/core'
+import { Menu, Stack, Text, ScrollArea } from '@mantine/core'
 import { MdOutlineApps, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { CategoryConstants } from './constant'
 import { HoveredButton, HoveredMenuItem } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
+import { Paths } from '@shared/api/paths/paths'
+import { useNavigate } from 'react-router-dom'
 
 const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
+  const navigate = useNavigate()
+
+  const selectCategory = (id: number) => {
+    navigate(`${Paths.Search}monir?category=${id}`)
+    closeDrawer?.()
+  }
+
   const { isMobile } = Responsive()
 
   const triggerButton = (
@@ -41,10 +50,10 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
           >
             {CategoryConstants.map((option) => (
               <HoveredMenuItem
-                key={option.label}
+                key={option.id}
                 c="textPrimary"
                 leftSection={option.icon}
-                onClick={() => closeDrawer?.()}
+                onClick={() => selectCategory(option.id)}
               >
                 <Text size="sm">{option.label}</Text>
               </HoveredMenuItem>

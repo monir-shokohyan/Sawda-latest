@@ -1,11 +1,7 @@
-export interface CategoryType {
-  id: number
-  name: string
-  image: string
-}
+import { Categorytype } from '@shared/ui/category/types'
 
 export interface CategoryTypeProps {
-  category: CategoryType
+  category: Categorytype
   isMobile: boolean
 }
 

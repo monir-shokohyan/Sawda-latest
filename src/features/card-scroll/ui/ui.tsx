@@ -1,11 +1,11 @@
 import { Flex, ScrollArea } from '@mantine/core'
 import { UiProps } from '../types'
-import { categories } from '../constant'
 import { CardCategory } from './card'
+import { CategoryConstants } from '@shared/ui/category/constant'
 
 const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
-  const filteredCategories = categories.filter((category) => {
-    return category.id >= minNum && category.id <= maxNum
+  const filteredCategories = CategoryConstants.filter((category) => {
+    return category!.id >= minNum && category.id <= maxNum
   })
 
   return (
