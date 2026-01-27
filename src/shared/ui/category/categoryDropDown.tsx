@@ -41,7 +41,6 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
 
       <Menu.Dropdown>
         <ScrollArea
-          h={520}
           type="auto"
         >
           <Stack

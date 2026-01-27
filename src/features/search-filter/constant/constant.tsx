@@ -11,7 +11,7 @@ export const CurrencyConstants = [
 export const ProvinceConstants: (Categorytype & {
   districts: { value: string; label: string }[]
 })[] = [
-  { 
+  {
     id: 1,
     label: 'Badakhshan',
     icon: ProvinceIcon,
@@ -158,7 +158,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'shib_koh', label: 'Shib Koh' },
     ],
   },
-  {    id: 8,
+  {
+    id: 8,
     label: 'Faryab',
     icon: ProvinceIcon,
     value: 'faryab',
@@ -179,7 +180,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'shirin_tagab', label: 'Shirin Tagab' },
     ],
   },
-  {    id: 9,
+  {
+    id: 9,
     label: 'Ghazni',
     icon: ProvinceIcon,
     value: 'ghazni',
@@ -205,7 +207,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'zana_khan', label: 'Zana Khan' },
     ],
   },
-  {    id: 10,
+  {
+    id: 10,
     label: 'Ghor',
     icon: ProvinceIcon,
     value: 'ghor',
@@ -223,7 +226,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'tulak', label: 'Tulak' },
     ],
   },
-  {    id: 11,
+  {
+    id: 11,
     label: 'Helmand',
     icon: ProvinceIcon,
     value: 'helmand',
@@ -245,7 +249,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 12,
+    id: 12,
 
     label: 'Herat',
     icon: ProvinceIcon,
@@ -270,7 +274,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 13,
+    id: 13,
 
     label: 'Jowzjan',
     icon: ProvinceIcon,
@@ -290,7 +294,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 14,
+    id: 14,
 
     label: 'Kabul',
     icon: ProvinceIcon,
@@ -314,7 +318,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 15,
+    id: 15,
 
     label: 'Kandahar',
     icon: ProvinceIcon,
@@ -341,7 +345,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 16,
+    id: 16,
 
     label: 'Kapisa',
     icon: ProvinceIcon,
@@ -357,7 +361,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 17,
+    id: 17,
 
     label: 'Khost',
     icon: ProvinceIcon,
@@ -379,7 +383,7 @@ export const ProvinceConstants: (Categorytype & {
     ],
   },
   {
-        id: 18,
+    id: 18,
 
     label: 'Kunar',
     icon: ProvinceIcon,
@@ -403,7 +407,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'wata_pur', label: 'Wata Pur' },
     ],
   },
-  {    id: 19,
+  {
+    id: 19,
     label: 'Kunduz',
     icon: ProvinceIcon,
     value: 'kunduz',
@@ -417,7 +422,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'qalay_i_zal', label: 'Qalay-I-Zal' },
     ],
   },
-  {    id: 20,
+  {
+    id: 20,
     label: 'Laghman',
     icon: ProvinceIcon,
     value: 'laghman',
@@ -474,7 +480,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'surkh_rod', label: 'Surkh Rod' },
     ],
   },
-  {   id: 23,
+  {
+    id: 23,
     label: 'Nimroz',
     icon: ProvinceIcon,
     value: 'nimroz',
@@ -486,7 +493,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'zaranj', label: 'Zaranj' },
     ],
   },
-  {   id: 24,
+  {
+    id: 24,
     label: 'Nuristan',
     icon: ProvinceIcon,
     value: 'nuristan',
@@ -501,7 +509,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'waygal', label: 'Waygal' },
     ],
   },
-  {   id: 25,
+  {
+    id: 25,
     label: 'Paktika',
     icon: ProvinceIcon,
     value: 'paktika',
@@ -527,7 +536,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'zerok', label: 'Zerok' },
     ],
   },
-  {   id: 26,
+  {
+    id: 26,
     label: 'Paktia',
     icon: ProvinceIcon,
     value: 'paktia',
@@ -549,7 +559,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'zurmat', label: 'Zurmat' },
     ],
   },
-  {  id: 27,
+  {
+    id: 27,
     label: 'Panjshir',
     icon: ProvinceIcon,
     value: 'panjshir',
@@ -564,7 +575,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'shotul', label: 'Shotul' },
     ],
   },
-  {  id: 28,
+  {
+    id: 28,
     label: 'Parwan',
     icon: ProvinceIcon,
     value: 'parwan',
@@ -581,7 +593,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'surkhi_parsa', label: 'Surkhi Parsa' },
     ],
   },
-  { id: 29,
+  {
+    id: 29,
     label: 'Samangan',
     icon: ProvinceIcon,
     value: 'samangan',
@@ -595,7 +608,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'ruyi_du_ab', label: 'Ruyi Du Ab' },
     ],
   },
-  { id: 30,
+  {
+    id: 30,
     label: 'Sar-e Pol',
     icon: ProvinceIcon,
     value: 'sar-e-pol',
@@ -609,7 +623,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'sozma_qala', label: 'Sozma Qala' },
     ],
   },
-  {  id: 31,
+  {
+    id: 31,
     label: 'Takhar',
     icon: ProvinceIcon,
     value: 'takhar',
@@ -633,7 +648,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'yangi_qala', label: 'Yangi Qala' },
     ],
   },
-  { id: 32,
+  {
+    id: 32,
     label: 'Uruzgan',
     icon: ProvinceIcon,
     value: 'uruzgan',
@@ -646,7 +662,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'tarinkot', label: 'Tarinkot' },
     ],
   },
-  {  id: 33,
+  {
+    id: 33,
     label: 'Wardak',
     icon: ProvinceIcon,
     value: 'wardak',
@@ -662,7 +679,8 @@ export const ProvinceConstants: (Categorytype & {
       { value: 'saydabad', label: 'Saydabad' },
     ],
   },
-  {   id: 34,
+  {
+    id: 34,
     label: 'Zabul',
     icon: ProvinceIcon,
     value: 'zabul',
