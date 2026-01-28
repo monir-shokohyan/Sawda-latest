@@ -240,7 +240,7 @@ export const SaveButton = styled.button`
   }
 `
 export interface InteractiveCardProps extends CardProps {
-  variant?: 'default' | 'active';
+  variant?: 'default' | 'active'
 }
 
 export const InteractiveCard = styled(Card)<InteractiveCardProps>`
@@ -254,4 +254,4 @@ export const InteractiveCard = styled(Card)<InteractiveCardProps>`
   &:not([data-variant='active']):hover {
     border-color: var(--mantine-color-primary-8);
   }
-`;
+`

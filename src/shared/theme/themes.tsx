@@ -8,6 +8,7 @@ import {
   Modal,
   Button,
   ActionIcon,
+  Tabs,
 } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
@@ -47,6 +48,7 @@ const grayText: MantineColorsTuple = colorsTuple('#686968')
 const grayBg: MantineColorsTuple = colorsTuple('#EBEAE8')
 const darkTextC: MantineColorsTuple = colorsTuple('#000')
 const lightText: MantineColorsTuple = colorsTuple('#FFFFFF')
+const demLightText: MantineColorsTuple = colorsTuple('#C9C9C9')
 
 export const theme = createTheme({
   fontFamily: 'Inter, sans-serif',
@@ -67,6 +69,7 @@ export const theme = createTheme({
     originalBlueHover,
     grayBg,
     darkTextC,
+    demLightText,
 
     primary: virtualColor({
       name: 'primary',
@@ -78,7 +81,6 @@ export const theme = createTheme({
       light: 'originalBlue',
       dark: 'orginalBlue',
     }),
-
     background: virtualColor({
       name: 'background',
       light: 'lightAccent',
@@ -94,7 +96,6 @@ export const theme = createTheme({
       light: 'grayText',
       dark: 'lightText',
     }),
-
     textSecondary: virtualColor({
       name: 'textSecondary',
       light: 'grayText',
@@ -105,7 +106,11 @@ export const theme = createTheme({
       light: 'grayText',
       dark: 'lightText',
     }),
-
+    demText: virtualColor({
+      name: 'demText',
+      light: 'grayText',
+      dark: 'demLightText',
+    }),
     navbarBg: virtualColor({
       name: 'navbarBg',
       light: 'lightBg',

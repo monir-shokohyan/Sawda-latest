@@ -26,3 +26,25 @@ export interface ChatMessage {
 }
 
 export type MessageFilter = 'all' | 'unread' | 'read'
+
+export interface LeftButtonGroupProps {
+  handleMarkAsRead: () => void
+  handleMarkAsUnread: () => void
+  handleDeleteSelected: () => void
+  handleDeselectAll: () => void
+}
+
+export interface LeftMenuProps {
+  setSelectionMode: (mode: boolean) => void
+  handleSelectAll: () => void
+  handleDeselectAll: () => void
+  selectedCount: number
+  handleMarkAsRead: () => void
+  handleMarkAsUnread: () => void
+  handleDeleteSelected: () => void
+}
+
+export interface LeftSectionProps {
+  onMessageSelect: (message: Message) => void
+  activeMessageId?: number
+}

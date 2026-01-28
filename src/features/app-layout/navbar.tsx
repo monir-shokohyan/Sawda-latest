@@ -50,7 +50,7 @@ const Navbar = () => {
                   color="darkText"
                   size="lg"
                   onClick={() => navigate(`${Paths.Favorites}monir`)}
-                  >
+                >
                   <MdOutlineFavoriteBorder size={20} />
                 </HoveredActionIcon>
 
@@ -58,7 +58,7 @@ const Navbar = () => {
                   variant="subtle"
                   color="darkText"
                   size="lg"
-                  >
+                >
                   <MdOutlineShoppingCart size={20} />
                 </HoveredActionIcon>
 
@@ -66,7 +66,7 @@ const Navbar = () => {
                   variant="subtle"
                   color="darkText"
                   size="lg"
-                  >
+                >
                   <MdOutlineNotifications size={20} />
                 </HoveredActionIcon>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
                   color="darkText"
                   size="lg"
                   onClick={() => navigate(`${Paths.Message}monir`)}
-                  >
+                >
                   <MdOutlineMessage size={20} />
                 </HoveredActionIcon>
               </>
