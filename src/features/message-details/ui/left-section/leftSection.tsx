@@ -164,11 +164,12 @@ const LeftSection = ({
         <div
           id="messageScrollContainer"
           style={{
-            flex: 1, overflow: 'auto',
+            flex: 1,
+            overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
-            scrollBehavior: 'smooth'
-            }}
+            scrollBehavior: 'smooth',
+          }}
         >
           <InfiniteScroll
             dataLength={filteredMessages.length}

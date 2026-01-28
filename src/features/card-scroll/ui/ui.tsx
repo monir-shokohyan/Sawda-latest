@@ -15,6 +15,7 @@ const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
           type="never"
           scrollbarSize={0}
           offsetScrollbars
+          scrollbars="x"
         >
           <Flex
             gap="sm"
