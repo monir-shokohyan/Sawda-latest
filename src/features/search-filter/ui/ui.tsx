@@ -31,7 +31,7 @@ const Ui = ({
   const isDashboard = route === 'dashboard'
   return (
     <InputContainer
-      h={isMobile ? 38: 45}
+      h={isMobile ? 38 : 45}
       justify="center"
       align="center"
       bg="primary"
@@ -58,8 +58,8 @@ const Ui = ({
         h="100%"
         styles={{
           input: {
-            height: isMobile ? '38px' : '45px'
-          }
+            height: isMobile ? '38px' : '45px',
+          },
         }}
       />
       <SActionIcon
