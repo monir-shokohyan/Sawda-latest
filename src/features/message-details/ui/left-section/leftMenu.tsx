@@ -1,4 +1,4 @@
-import { ActionIcon, Menu } from '@mantine/core'
+import { ActionIcon, Menu, Text } from '@mantine/core'
 import {
   MdDelete,
   MdDeselect,
@@ -8,6 +8,7 @@ import {
   MdSelectAll,
 } from 'react-icons/md'
 import { LeftMenuProps } from '../../types'
+import { HoveredMenuItem } from '@shared/styles'
 
 const LeftMenu = ({
   setSelectionMode,
@@ -42,37 +43,52 @@ const LeftMenu = ({
         >
           Select All
         </Menu.Item>
-        <Menu.Item
+        <HoveredMenuItem
+          c="darkText"
+          leftSection={<MdSelectAll size={16} />}
+          onClick={() => {
+            setSelectionMode(true)
+            handleSelectAll()
+          }}
+          disabled={false}
+        >
+          <Text size="sm">Select All</Text>
+        </HoveredMenuItem>
+        <HoveredMenuItem
+          c="darkText"
           leftSection={<MdDeselect size={16} />}
           onClick={handleDeselectAll}
           disabled={selectedCount === 0}
         >
-          Deselect All
-        </Menu.Item>
+          <Text size="sm">Deselect All</Text>
+        </HoveredMenuItem>
+
         <Menu.Divider />
-        <Menu.Item
+        <HoveredMenuItem
+          c="darkText"
           leftSection={<MdMarkEmailRead size={16} />}
           onClick={handleMarkAsRead}
           disabled={selectedCount === 0}
         >
-          Mark as Read
-        </Menu.Item>
-        <Menu.Item
+          <Text size="sm">Mark as Read</Text>
+        </HoveredMenuItem>
+        <HoveredMenuItem
+          c="darkText"
           leftSection={<MdMarkEmailUnread size={16} />}
           onClick={handleMarkAsUnread}
           disabled={selectedCount === 0}
         >
-          Mark as Unread
-        </Menu.Item>
+          <Text size="sm">Mark as Unread</Text>
+        </HoveredMenuItem>
         <Menu.Divider />
-        <Menu.Item
+        <HoveredMenuItem
           leftSection={<MdDelete size={16} />}
           onClick={handleDeleteSelected}
           disabled={selectedCount === 0}
           color="red"
         >
-          Delete Selected ({selectedCount})
-        </Menu.Item>
+          <Text size="sm">Delete Selected ({selectedCount})</Text>
+        </HoveredMenuItem>
       </Menu.Dropdown>
     </Menu>
   )

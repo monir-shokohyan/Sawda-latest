@@ -1,4 +1,4 @@
-import { Paper, PaperProps } from '@mantine/core'
+import { Flex, FlexProps, Paper, PaperProps } from '@mantine/core'
 import styled from 'styled-components'
 import { Message } from '../types'
 
@@ -17,7 +17,6 @@ export const StickyPaper = styled(Paper)<
   padding: 16px;
 `
 
-export interface RightSectionProps {
-  selectedMessage?: Message
-  onBack?: () => void
-}
+export const ChatContainer = styled(Flex)<FlexProps>`
+  overflow-y: auto;
+`

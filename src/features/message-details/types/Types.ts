@@ -48,3 +48,30 @@ export interface LeftSectionProps {
   onMessageSelect: (message: Message) => void
   activeMessageId?: number
 }
+
+export interface RightFooterProps {
+  inputValue: string
+  setInputValue: (value: string) => void
+  handleSendMessage: () => void
+  handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void
+}
+
+export interface RightHeaderProps {
+  selectedMessage: {
+    username: string
+    avatar?: string
+  }
+  onBack?: () => void
+}
+
+export interface RightSectionProps {
+  selectedMessage?: Message
+  onBack?: () => void
+}
+
+export interface BodyProps {
+  messages: any[]
+  fetchMoreData: () => void
+  hasMore: boolean
+  selectedMessage: any
+}

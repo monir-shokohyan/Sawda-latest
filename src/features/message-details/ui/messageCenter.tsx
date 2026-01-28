@@ -3,7 +3,7 @@ import { Group } from '@mantine/core'
 import styled from 'styled-components'
 import { Responsive } from '@shared/hooks/responsive'
 import { LeftSection } from './left-section'
-import { RightSection } from './rightSection'
+import { RightSection } from './right-section/rightSection'
 import { Message } from '../types'
 
 const Container = styled.div<{ $isMobile: boolean }>`
