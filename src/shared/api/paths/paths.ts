@@ -12,4 +12,6 @@ export enum Paths {
   Favorites = '/favorites/',
   Search = '/search/',
   Message = '/message/',
+  MessageHistory = '/model/message-history',
+  MessageList = '/model/message-list',
 }

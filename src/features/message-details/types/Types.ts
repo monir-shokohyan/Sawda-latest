@@ -2,9 +2,9 @@ export interface Message {
   id: number
   username: string
   avatar?: string
-  message: string
-  timestamp: string
-  isRead: boolean
+  message?: string
+  timestamp?: string
+  isRead?: boolean
   isSelected?: boolean
 }
 
@@ -46,7 +46,7 @@ export interface LeftMenuProps {
 
 export interface LeftSectionProps {
   onMessageSelect: (message: Message) => void
-  activeMessageId?: number
+  activeMessageId?: number | null
 }
 
 export interface RightFooterProps {

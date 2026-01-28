@@ -1,29 +1,17 @@
-import { useState } from 'react'
 import { Group } from '@mantine/core'
-import { Responsive } from '@shared/hooks/responsive'
 import { LeftSection } from './left-section'
 import { RightSection } from './right-section/rightSection'
-import { Message } from '../types'
 import { Container } from '../styles'
-
-
+import { useManageMessageCenter } from '../modal'
 
 const MessageCenter = () => {
-  const { isMobile } = Responsive()
-  const [selectedMessage, setSelectedMessage] = useState<Message | undefined>()
-  const [showChat, setShowChat] = useState(false)
-
-  const handleMessageSelect = (message: Message) => {
-    setSelectedMessage(message)
-    if (isMobile) {
-      setShowChat(true)
-    }
-  }
-
-  const handleBack = () => {
-    setShowChat(false)
-  }
-
+  const {
+    isMobile,
+    selectedMessage,
+    showChat,
+    handleMessageSelect,
+    handleBack,
+  } = useManageMessageCenter()
   // Mobile view: show either list or chat
   if (isMobile) {
     return (

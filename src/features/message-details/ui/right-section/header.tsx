@@ -1,7 +1,7 @@
 import { StickyPaper } from '@features/message-details/styles'
 import { RightHeaderProps } from '@features/message-details/types'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
-import { ActionIcon, Avatar, Group, Stack, Text } from '@mantine/core'
+import { ActionIcon, Group } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { MdArrowBack, MdMoreVert } from 'react-icons/md'
 
@@ -20,8 +20,11 @@ const Header = ({ selectedMessage, onBack }: RightHeaderProps) => {
             </ActionIcon>
           )}
 
-
-          <ProfileSection product={selectedMessage} showTime={false} showActiveNow />
+          <ProfileSection
+            product={selectedMessage}
+            showTime={false}
+            showActiveNow
+          />
         </Group>
 
         <ActionIcon

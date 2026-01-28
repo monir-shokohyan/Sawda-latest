@@ -10,6 +10,7 @@ import {
 } from '@mantine/core'
 import styled from 'styled-components'
 import { Message } from '../types'
+import { ReactNode } from 'react'
 
 interface MessageCardProps {
   message: Message
@@ -42,7 +43,7 @@ const StyledCard = styled(Card)<
   }
 `
 
-const MessagePreview = styled(Text)<TextProps & { children: string }>`
+const MessagePreview = styled(Text)<TextProps & { children: ReactNode }>`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

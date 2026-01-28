@@ -1,11 +1,11 @@
 import { Tabs, TabsProps } from '@mantine/core'
-import { MessageFilter } from '../../types'
+import { Message, MessageFilter } from '../../types'
 import styled from 'styled-components'
 
 interface LeftTabProps {
   filter: MessageFilter
   handleChange: (value: string | null) => void
-  messages: { isRead: boolean }[]
+  messages?: Message[]
   unreadCount: number
 }
 const HovTabs = styled(Tabs)<TabsProps>`
@@ -26,9 +26,11 @@ const LeftTab = ({
       onChange={handleChange}
     >
       <Tabs.List grow>
-        <Tabs.Tab value="all">All ({messages.length})</Tabs.Tab>
+        <Tabs.Tab value="all">All ({messages?.length})</Tabs.Tab>
         <Tabs.Tab value="unread">Unread ({unreadCount})</Tabs.Tab>
-        <Tabs.Tab value="read">Read ({messages.length - unreadCount})</Tabs.Tab>
+        <Tabs.Tab value="read">
+          Read ({messages?.length ? messages.length - unreadCount : 0})
+        </Tabs.Tab>
       </Tabs.List>
     </HovTabs>
   )

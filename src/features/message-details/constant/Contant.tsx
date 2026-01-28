@@ -38,7 +38,7 @@ export const generateMessages = (start: number, count: number): Message[] => {
       username: randomUsername,
       message: randomMessage,
       timestamp: `${hoursAgo} hours ago`,
-      isRead: Math.random() > 0.4, // 60% read, 40% unread
+      isRead: Math.random() > 0.4,
       isSelected: false,
     }
   })
@@ -71,7 +71,7 @@ export const generateChatHistory = (username: string): ChatMessage[] => {
     const hoursAgo = messageCount - i
 
     messages.push({
-      id: i,
+      id: i + 1,
       content: chatMessages[i % chatMessages.length],
       timestamp: `${hoursAgo} hours ago`,
       senderId: isOwn ? 'me' : username,

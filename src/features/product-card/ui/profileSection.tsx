@@ -20,7 +20,6 @@ const ProfileSection = ({
   direction = 'row',
   hoverUsername = true,
   isStaticColor = false,
-
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()

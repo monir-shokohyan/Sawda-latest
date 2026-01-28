@@ -62,7 +62,7 @@ const MobileDownbar = () => {
         variant="subtle"
         c="darkText"
         size="xl"
-        onClick={() => navigate(`${Paths.MobileModel}message`)}
+        onClick={() => navigate(`${Paths.MobileModel}message-list`)}
       >
         <MdOutlineMessage size={24} />
       </HoveredActionIcon>

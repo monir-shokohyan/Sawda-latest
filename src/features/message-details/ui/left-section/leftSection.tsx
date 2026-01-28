@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
 import { Stack, Group, Loader, Text, Badge, ScrollArea } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { InteractiveCard } from '@shared/styles'
@@ -10,6 +9,7 @@ import { LeftTab } from './leftTab'
 import { LeftMenu } from './leftMenu'
 import { LeftButtonGroup } from './leftButtonGroup'
 import { StickyPaper } from '../../styles'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const LeftSection = ({
   onMessageSelect,
@@ -91,6 +91,8 @@ const LeftSection = ({
       )
     }
   }
+  console.log('filtered message :', filteredMessages)
+  console.log('has more :', hasMore)
 
   return (
     <Stack
@@ -159,10 +161,14 @@ const LeftSection = ({
             unreadCount={unreadCount}
           />
         </StickyPaper>
-        <ScrollArea
-          h="74dvh"
-          scrollbars="y"
-          scrollbarSize={4}
+        <div
+          id="messageScrollContainer"
+          style={{
+            flex: 1, overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'thin',
+            scrollBehavior: 'smooth'
+            }}
         >
           <InfiniteScroll
             dataLength={filteredMessages.length}
@@ -198,7 +204,7 @@ const LeftSection = ({
               ))}
             </Stack>
           </InfiniteScroll>
-        </ScrollArea>
+        </div>
       </InteractiveCard>
     </Stack>
   )

@@ -1,4 +1,4 @@
-import { Group, Loader, ScrollArea, Stack } from '@mantine/core'
+import { Group, Loader, Stack } from '@mantine/core'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { ChatBubble } from '../chatBubble'
 import { ChatContainer } from '@features/message-details/styles'
@@ -15,10 +15,9 @@ const Body = ({
       direction="column-reverse"
       bg="background.8"
     >
-      <ScrollArea
-        h="74dvh"
-        scrollbars="y"
-        scrollbarSize={4}
+      <div
+        id="messageScrollContainer"
+        style={{ flex: 1, overflow: 'auto', scrollbarWidth: 'thin' }}
       >
         <InfiniteScroll
           dataLength={messages.length}
@@ -46,7 +45,7 @@ const Body = ({
             ))}
           </Stack>
         </InfiniteScroll>
-      </ScrollArea>
+      </div>
     </ChatContainer>
   )
 }
