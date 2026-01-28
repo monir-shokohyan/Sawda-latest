@@ -1,17 +1,12 @@
 import { useState } from 'react'
 import { Group } from '@mantine/core'
-import styled from 'styled-components'
 import { Responsive } from '@shared/hooks/responsive'
 import { LeftSection } from './left-section'
 import { RightSection } from './right-section/rightSection'
 import { Message } from '../types'
+import { Container } from '../styles'
 
-const Container = styled.div<{ $isMobile: boolean }>`
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: ${({ $isMobile }) => ($isMobile ? '16px' : '24px')};
-`
+
 
 const MessageCenter = () => {
   const { isMobile } = Responsive()

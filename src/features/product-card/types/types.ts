@@ -9,6 +9,7 @@ export interface ProfileProps {
   product: ProductProps
   showDetails?: boolean
   showMessage?: boolean
+  showActiveNow?: boolean
   showTime?: boolean
   size?: 'xl' | 'md' | 'sm' | 'lg'
   allowPadding?: boolean

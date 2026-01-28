@@ -20,3 +20,9 @@ export const StickyPaper = styled(Paper)<
 export const ChatContainer = styled(Flex)<FlexProps>`
   overflow-y: auto;
 `
+export const Container = styled.div<{ $isMobile: boolean }>`
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: ${({ $isMobile }) => ($isMobile ? '16px' : '24px')};
+`

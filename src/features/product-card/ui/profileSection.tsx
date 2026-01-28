@@ -1,4 +1,4 @@
-import { Avatar, Flex, Text, useMantineTheme } from '@mantine/core'
+import { Avatar, Flex, Stack, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
@@ -9,6 +9,7 @@ const ProfileSection = ({
   product,
   showDetails = false,
   showMessage = false,
+  showActiveNow = false,
   showTime = true,
   size = 'md',
   mobileSize = '33px',
@@ -19,6 +20,7 @@ const ProfileSection = ({
   direction = 'row',
   hoverUsername = true,
   isStaticColor = false,
+
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -70,6 +72,15 @@ const ProfileSection = ({
             {product.email}
           </Text>
         )}
+        {showActiveNow && (
+          <Text
+            size={isMobile ? timeSize : 'xs'}
+            c={isStaticColor ? 'white' : 'dimmed'}
+          >
+            Active now
+          </Text>
+        )}
+
         {showMessage && (
           <Text
             size={isMobile ? timeSize : 'xs'}
