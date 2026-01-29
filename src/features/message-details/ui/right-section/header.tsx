@@ -24,6 +24,7 @@ const Header = ({ selectedMessage, onBack }: RightHeaderProps) => {
             product={selectedMessage}
             showTime={false}
             showActiveNow
+            usernameSize='1rem'
           />
         </Group>
 

@@ -1,4 +1,11 @@
-import { Card, CardProps, Flex, FlexProps, Paper, PaperProps } from '@mantine/core'
+import {
+  Card,
+  CardProps,
+  Flex,
+  FlexProps,
+  Paper,
+  PaperProps,
+} from '@mantine/core'
 import styled from 'styled-components'
 import { Message } from '../types'
 

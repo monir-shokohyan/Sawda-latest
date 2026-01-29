@@ -71,6 +71,7 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
     <Stack
       w={isMobile ? '100%' : '72%'}
       gap={0}
+      style={{border: '1px solid green'}}
     >
       <Card
         withBorder
@@ -78,9 +79,10 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
         p={0}
         bg="background.7"
         style={{
-          height: isMobile ? 'calc(100vh - 140px)' : 'calc(100vh - 60px)',
+          height: isMobile ? 'calc(100vh - 60px)' : 'calc(100vh - 60px)',
           display: 'flex',
           flexDirection: 'column',
+          border: '1px solid red'
         }}
       >
         {/* Header */}

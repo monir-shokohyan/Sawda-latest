@@ -1,7 +1,4 @@
-import {
-  Group,
-  Checkbox,
-} from '@mantine/core'
+import { Group, Checkbox } from '@mantine/core'
 import { MessageCardProps } from '../types'
 import { useLongPress } from '@mantine/hooks'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
@@ -56,7 +53,12 @@ const MessageCard = ({
             onClick={(e) => e.stopPropagation()}
           />
         )}
-          <ProfileSection product={message} isMessage showTime={false} usernameSize='1rem'/>
+        <ProfileSection
+          product={message}
+          isMessage
+          showTime={false}
+          usernameSize="1rem"
+        />
       </Group>
     </StyledCard>
   )

@@ -20,7 +20,7 @@ const ProfileSection = ({
   direction = 'row',
   hoverUsername = true,
   isStaticColor = false,
-  isMessage = false
+  isMessage = false,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -34,7 +34,6 @@ const ProfileSection = ({
       direction={direction}
       gap={15}
     >
-
       <Avatar
         color="blue"
         size={isMobile ? mobileSize : size}
@@ -46,32 +45,38 @@ const ProfileSection = ({
         gap={isMobile ? '8px' : '0px'}
         style={{ width: '100%' }}
       >
-
-        <Flex justify="space-between" align="center" gap={20}  w="100%" >
-        <HoveredText
-          fw={600}
-          size={isMobile ? usernameSize : 'sm'}
-          onClick={(e) => {
-            if (!hoverUsername) return
-            e.stopPropagation()
-            navigate({
-              pathname: `${Paths.ProfileDetails}${product.username}`,
-              search: new URLSearchParams({
-                name: `${product.username?.slice(0, 20)}...`,
-              }).toString(),
-            })
-          }}
-          c={isStaticColor ? 'white' : 'darkText'}
-          $isActive={hoverUsername}
+        <Flex
+          justify="space-between"
+          align="center"
+          gap={20}
+          w="100%"
         >
-          {product.username}
-        </HoveredText>
-        {isMessage &&  <Text
-            size={isMobile ? timeSize : 'xs'}
-            c="dimmed"
+          <HoveredText
+            fw={600}
+            size={isMobile ? usernameSize : 'sm'}
+            onClick={(e) => {
+              if (!hoverUsername) return
+              e.stopPropagation()
+              navigate({
+                pathname: `${Paths.ProfileDetails}${product.username}`,
+                search: new URLSearchParams({
+                  name: `${product.username?.slice(0, 20)}...`,
+                }).toString(),
+              })
+            }}
+            c={isStaticColor ? 'white' : 'darkText'}
+            $isActive={hoverUsername}
           >
-            {product.timestamp}
-          </Text>}
+            {product.username}
+          </HoveredText>
+          {isMessage && (
+            <Text
+              size={isMobile ? timeSize : 'xs'}
+              c="dimmed"
+            >
+              {product.timestamp}
+            </Text>
+          )}
         </Flex>
         {showEmail && (
           <Text
