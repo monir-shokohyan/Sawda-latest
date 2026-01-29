@@ -42,24 +42,27 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
   }
 
   const handleSendMessage = (attachedFiles?: AttachedFile[]) => {
-    if ((inputValue.trim() || (attachedFiles && attachedFiles.length > 0)) && selectedMessage) {
+    if (
+      (inputValue.trim() || (attachedFiles && attachedFiles.length > 0)) &&
+      selectedMessage
+    ) {
       const newMessage: ChatMessage = {
         id: messages.length,
         content: inputValue,
         timestamp: 'Just now',
         senderId: 'me',
         isOwn: true,
-        attachments: attachedFiles?.map(a => ({
+        attachments: attachedFiles?.map((a) => ({
           name: a.file.name,
           type: a.type,
           size: a.file.size,
-          url: a.preview || URL.createObjectURL(a.file)
-        }))
+          url: a.preview || URL.createObjectURL(a.file),
+        })),
       }
 
-      setMessages((prev) => [newMessage, ...prev])
+      setMessages((prev) => [...prev, newMessage])
       setInputValue('')
-      
+
       // Upload files to server if there are any
       if (attachedFiles && attachedFiles.length > 0) {
         uploadFilesToServer(attachedFiles, newMessage.id)
@@ -67,13 +70,16 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
     }
   }
 
-  const uploadFilesToServer = async (files: AttachedFile[], messageId: number) => {
+  const uploadFilesToServer = async (
+    files: AttachedFile[],
+    messageId: number,
+  ) => {
     const formData = new FormData()
-    
+
     files.forEach((attachedFile, index) => {
       formData.append(`file_${index}`, attachedFile.file)
     })
-    
+
     // Add message metadata
     formData.append('messageId', messageId.toString())
     formData.append('recipientId', selectedMessage?.username || '')
@@ -88,32 +94,31 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
       //     // 'Authorization': `Bearer ${token}`
       //   }
       // })
-      
+
       // if (!response.ok) {
       //   throw new Error('Upload failed')
       // }
-      
+
       // const data = await response.json()
-      
+
       console.log('Files ready to upload:', {
         messageId,
-        files: files.map(f => ({
+        files: files.map((f) => ({
           name: f.file.name,
           size: f.file.size,
-          type: f.type
-        }))
+          type: f.type,
+        })),
       })
-      
+
       // You can update the message with the server response URLs here
-      // setMessages(prev => prev.map(msg => 
-      //   msg.id === messageId 
+      // setMessages(prev => prev.map(msg =>
+      //   msg.id === messageId
       //     ? { ...msg, attachments: data.attachments }
       //     : msg
       // ))
-      
     } catch (error) {
       console.error('Upload failed:', error)
-      
+
       // Handle upload error - you might want to show a notification
       // notifications.show({
       //   title: 'Upload Failed',

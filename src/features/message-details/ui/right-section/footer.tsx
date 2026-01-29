@@ -1,26 +1,19 @@
 import { StickyPaper } from '@features/message-details/styles'
 import { RightFooterProps, AttachedFile } from '@features/message-details/types'
-import { 
-  ActionIcon, 
-  Group, 
-  TextInput, 
-  FileButton, 
+import {
+  ActionIcon,
+  Group,
+  TextInput,
+  FileButton,
   Tooltip,
   Text,
   Progress,
   Modal,
   Stack,
   Button,
-  Box
+  Box,
 } from '@mantine/core'
-import { 
-  MdSend, 
-  MdAttachFile, 
-  MdAudiotrack, 
-  MdDescription,
-  MdMic,
-  MdStop
-} from 'react-icons/md'
+import { MdSend, MdImage, MdMic, MdStop, MdClose } from 'react-icons/md'
 import { useState, useRef, useEffect } from 'react'
 import { notifications } from '@mantine/notifications'
 import imageCompression from 'browser-image-compression'
@@ -38,11 +31,10 @@ const Footer = ({
   const [isRecording, setIsRecording] = useState(false)
   const [recordingTime, setRecordingTime] = useState(0)
   const [showRecordModal, setShowRecordModal] = useState(false)
-  
+
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioChunksRef = useRef<Blob[]>([])
   const recordingIntervalRef = useRef<NodeJS.Timeout | null>(null)
-
 
   useEffect(() => {
     return () => {
@@ -60,15 +52,6 @@ const Footer = ({
   const getFileType = (file: File): AttachedFile['type'] => {
     if (file.type.startsWith('image/')) return 'image'
     if (file.type.startsWith('audio/')) return 'audio'
-    if (
-      file.type.includes('pdf') ||
-      file.type.includes('document') ||
-      file.type.includes('text') ||
-      file.type.includes('sheet') ||
-      file.type.includes('presentation')
-    ) {
-      return 'document'
-    }
     return 'other'
   }
 
@@ -79,19 +62,18 @@ const Footer = ({
         maxWidthOrHeight: 1920,
         useWebWorker: true,
       }
-      
+
       const compressedFile = await imageCompression(file, options)
-      
+
       const originalSize = (file.size / 1024 / 1024).toFixed(2)
       const compressedSize = (compressedFile.size / 1024 / 1024).toFixed(2)
-      
-      
+
       notifications.show({
         title: 'Image Compressed',
         message: `Reduced from ${originalSize}MB to ${compressedSize}MB`,
         color: 'green',
       })
-      
+
       return compressedFile
     } catch (error) {
       notifications.show({
@@ -116,9 +98,8 @@ const Footer = ({
   }
 
   const handleFileSelect = async (files: File | File[] | null) => {
-  
-    const fileArray = Array.isArray(files) ? files : [files]
-    
+    const fileArray = Array.isArray(files) ? files : files ? [files] : []
+
     // Check file limit
     if (attachedFiles.length + fileArray.length > MAX_FILES) {
       notifications.show({
@@ -130,11 +111,8 @@ const Footer = ({
     }
 
     const validFiles: File[] = []
-    
+
     for (const file of fileArray) {
-   
-      
-      // Compress images before adding
       if (file?.type.startsWith('image/')) {
         try {
           const compressed = await compressImage(file)
@@ -142,19 +120,13 @@ const Footer = ({
         } catch (error) {
           validFiles.push(file)
         }
-      } else {
-        if(file){
-          validFiles.push(file)
-        }
       }
     }
 
-
-
     const currentLength = attachedFiles.length
-    
+
     const newAttachedFiles: AttachedFile[] = validFiles.map((file) => {
-      const fileType = getFileType(file)      
+      const fileType = getFileType(file)
       const attached: AttachedFile = {
         file,
         type: fileType,
@@ -169,7 +141,6 @@ const Footer = ({
       return attached
     })
 
-    
     setAttachedFiles((prev) => {
       const updated = [...prev, ...newAttachedFiles]
       return updated
@@ -180,7 +151,6 @@ const Footer = ({
       const actualIndex = currentLength + index
       simulateUpload(actualIndex)
     })
-    
   }
 
   const simulateUpload = (fileIndex: number) => {
@@ -190,7 +160,10 @@ const Footer = ({
       setAttachedFiles((prev) => {
         const updated = [...prev]
         if (updated[fileIndex]) {
-          updated[fileIndex] = { ...updated[fileIndex], uploadProgress: progress }
+          updated[fileIndex] = {
+            ...updated[fileIndex],
+            uploadProgress: progress,
+          }
         }
         return updated
       })
@@ -224,7 +197,7 @@ const Footer = ({
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      
+
       const mediaRecorder = new MediaRecorder(stream)
       mediaRecorderRef.current = mediaRecorder
       audioChunksRef.current = []
@@ -236,10 +209,16 @@ const Footer = ({
       }
 
       mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' })
-        const audioFile = new File([audioBlob], `recording-${Date.now()}.webm`, {
+        const audioBlob = new Blob(audioChunksRef.current, {
           type: 'audio/webm',
         })
+        const audioFile = new File(
+          [audioBlob],
+          `recording-${Date.now()}.webm`,
+          {
+            type: 'audio/webm',
+          },
+        )
 
         if (validateFile(audioFile)) {
           const attached: AttachedFile = {
@@ -247,7 +226,7 @@ const Footer = ({
             type: 'audio',
             uploadProgress: 0,
           }
-          
+
           setAttachedFiles((prev) => {
             const currentLength = prev.length
             setTimeout(() => simulateUpload(currentLength), 0)
@@ -266,7 +245,6 @@ const Footer = ({
       recordingIntervalRef.current = setInterval(() => {
         setRecordingTime((prev) => prev + 1)
       }, 1000)
-
     } catch (error) {
       notifications.show({
         title: 'Microphone Access Denied',
@@ -281,7 +259,7 @@ const Footer = ({
       mediaRecorderRef.current.stop()
       setIsRecording(false)
       setShowRecordModal(false)
-      
+
       if (recordingIntervalRef.current) {
         clearInterval(recordingIntervalRef.current)
       }
@@ -294,13 +272,15 @@ const Footer = ({
       setIsRecording(false)
       setShowRecordModal(false)
       audioChunksRef.current = []
-      
+
       if (recordingIntervalRef.current) {
         clearInterval(recordingIntervalRef.current)
       }
 
       if (mediaRecorderRef.current.stream) {
-        mediaRecorderRef.current.stream.getTracks().forEach((track) => track.stop())
+        mediaRecorderRef.current.stream
+          .getTracks()
+          .forEach((track) => track.stop())
       }
     }
   }
@@ -312,20 +292,22 @@ const Footer = ({
   }
 
   const handleSend = () => {
-    if ((inputValue.trim() || attachedFiles.length > 0)) {
+    if (inputValue.trim() || attachedFiles.length > 0) {
       handleSendMessage(attachedFiles)
-      
+
       attachedFiles.forEach((attached) => {
         if (attached.preview) {
           URL.revokeObjectURL(attached.preview)
         }
       })
-      
+
       setAttachedFiles([])
     }
   }
 
-  const handleKeyPressWithFiles = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPressWithFiles = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       handleSend()
@@ -335,16 +317,18 @@ const Footer = ({
   return (
     <>
       <StickyPaper type="footer">
-        {/* Debug info */}
-        <Text size="xs" c="dimmed" mb="xs">
-          Attached files: {attachedFiles.length}/{MAX_FILES}
-        </Text>
-
         {/* File Previews */}
         {attachedFiles.length > 0 && (
-          <Group gap="xs" mb="xs" wrap="wrap">
+          <Group
+            gap="xs"
+            mb="xs"
+            wrap="wrap"
+          >
             {attachedFiles.map((attached, index) => (
-              <div key={`${attached.file.name}-${index}`} style={{ position: 'relative', width: 80 }}>
+              <div
+                key={`${attached.file.name}-${index}`}
+                style={{ position: 'relative', width: 80 }}
+              >
                 <Tooltip label={attached.file.name}>
                   <div>
                     {attached.type === 'image' && attached.preview ? (
@@ -364,7 +348,7 @@ const Footer = ({
                           width: 80,
                           height: 80,
                           borderRadius: 8,
-                          backgroundColor: 'var(--mantine-color-gray-2)',
+                          backgroundColor: 'var(--mantine-color-primary-1)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -372,29 +356,35 @@ const Footer = ({
                           gap: 4,
                         }}
                       >
-                        {attached.type === 'audio' && <MdAudiotrack size={24} />}
-                        {attached.type === 'document' && <MdDescription size={24} />}
-                        {attached.type === 'other' && <MdAttachFile size={24} />}
-                        <Text size="xs" ta="center" px={4} lineClamp={1}>
-                          {attached.file.name}
+                        <MdMic
+                          size={32}
+                          color="var(--mantine-color-primary-6)"
+                        />
+                        <Text
+                          size="xs"
+                          c="primary"
+                          fw={500}
+                        >
+                          Audio
                         </Text>
                       </div>
                     )}
-                    
+
                     {/* Upload Progress */}
-                    {attached.uploadProgress !== undefined && attached.uploadProgress < 100 && (
-                      <Progress
-                        value={attached.uploadProgress}
-                        size="xs"
-                        radius="xl"
-                        style={{
-                          position: 'absolute',
-                          bottom: 5,
-                          left: 5,
-                          right: 25,
-                        }}
-                      />
-                    )}
+                    {attached.uploadProgress !== undefined &&
+                      attached.uploadProgress < 100 && (
+                        <Progress
+                          value={attached.uploadProgress}
+                          size="xs"
+                          radius="xl"
+                          style={{
+                            position: 'absolute',
+                            bottom: 5,
+                            left: 5,
+                            right: 25,
+                          }}
+                        />
+                      )}
 
                     <ActionIcon
                       size="xs"
@@ -408,12 +398,17 @@ const Footer = ({
                       }}
                       onClick={() => handleRemoveFile(index)}
                     >
-                      ×
+                      <MdClose size={14} />
                     </ActionIcon>
                   </div>
                 </Tooltip>
 
-                <Text size="xs" ta="center" mt={4} c="dimmed">
+                <Text
+                  size="xs"
+                  ta="center"
+                  mt={4}
+                  c="dimmed"
+                >
                   {(attached.file.size / 1024).toFixed(0)} KB
                 </Text>
               </div>
@@ -421,53 +416,62 @@ const Footer = ({
           </Group>
         )}
 
-        <Group gap="xs" wrap="nowrap">
-          {/* Voice Recording Button */}
-          <Tooltip label="Record voice message">
-            <ActionIcon
-              size="lg"
-              radius="xl"
-              variant="subtle"
-              color={isRecording ? 'red' : 'gray'}
-              onClick={isRecording ? stopRecording : startRecording}
-              disabled={attachedFiles.length >= MAX_FILES}
-            >
-              {isRecording ? <MdStop size={20} /> : <MdMic size={20} />}
-            </ActionIcon>
-          </Tooltip>
-
-          {/* Attachment Buttons - Direct approach */}
+        <Group
+          gap="xs"
+          wrap="nowrap"
+        >
+          {/* Image Upload Button */}
           <Box style={{ position: 'relative' }}>
             <FileButton
               onChange={handleFileSelect}
-              accept="image/*,audio/*,.pdf,.doc,.docx,.txt,.xls,.xlsx,.ppt,.pptx"
+              accept="image/*"
               multiple
             >
               {(props) => (
-                <Tooltip label={`Attach files (${attachedFiles.length}/${MAX_FILES})`}>
+                <Tooltip label="Attach images">
                   <ActionIcon
                     size="lg"
                     radius="xl"
                     variant="subtle"
-                    color="gray"
+                    color="primary"
                     disabled={attachedFiles.length >= MAX_FILES}
                     {...props}
                   >
-                    <MdAttachFile size={20} />
+                    <MdImage size={22} />
                   </ActionIcon>
                 </Tooltip>
               )}
             </FileButton>
           </Box>
 
+          {/* Voice Recording Button */}
+          <Tooltip label="Record voice message">
+            <ActionIcon
+              size="lg"
+              radius="xl"
+              variant="subtle"
+              color={isRecording ? 'red' : 'primary'}
+              onClick={isRecording ? stopRecording : startRecording}
+              disabled={attachedFiles.length >= MAX_FILES}
+            >
+              {isRecording ? <MdStop size={22} /> : <MdMic size={22} />}
+            </ActionIcon>
+          </Tooltip>
+
           <TextInput
-            placeholder="Type a message..."
+            placeholder="Aa"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPressWithFiles}
             style={{ flex: 1 }}
             radius="xl"
             size="md"
+            styles={{
+              input: {
+                border: 'none',
+                backgroundColor: 'var(--mantine-color-gray-1)',
+              },
+            }}
           />
 
           <ActionIcon
@@ -489,8 +493,13 @@ const Footer = ({
         onClose={cancelRecording}
         title="Recording Voice Message"
         centered
+        size="sm"
       >
-        <Stack align="center" gap="lg">
+        <Stack
+          align="center"
+          gap="lg"
+          py="md"
+        >
           <div
             style={{
               width: 100,
@@ -503,10 +512,16 @@ const Footer = ({
               animation: 'pulse 1.5s ease-in-out infinite',
             }}
           >
-            <MdMic size={50} color="var(--mantine-color-red-6)" />
+            <MdMic
+              size={50}
+              color="var(--mantine-color-red-6)"
+            />
           </div>
 
-          <Text size="xl" fw={700}>
+          <Text
+            size="xl"
+            fw={700}
+          >
             {formatTime(recordingTime)}
           </Text>
 
@@ -515,12 +530,13 @@ const Footer = ({
               variant="outline"
               color="gray"
               onClick={cancelRecording}
+              leftSection={<MdClose size={18} />}
             >
               Cancel
             </Button>
             <Button
               color="red"
-              leftSection={<MdStop size={20} />}
+              leftSection={<MdStop size={18} />}
               onClick={stopRecording}
             >
               Stop & Send
