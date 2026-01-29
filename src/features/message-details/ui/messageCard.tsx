@@ -11,6 +11,7 @@ import {
 import styled from 'styled-components'
 import { Message } from '../types'
 import { ReactNode } from 'react'
+import { useLongPress } from '@mantine/hooks'
 
 interface MessageCardProps {
   message: Message
@@ -18,6 +19,7 @@ interface MessageCardProps {
   onSelect: (id: number) => void
   onClick: (id: number) => void
   selectionMode: boolean
+  setSelectionMode: (value: boolean) => void
 }
 
 const StyledCard = styled(Card)<
@@ -58,6 +60,7 @@ const MessageCard = ({
   onSelect,
   onClick,
   selectionMode,
+  setSelectionMode,
 }: MessageCardProps) => {
   const handleClick = (e: React.MouseEvent) => {
     if (selectionMode) {
@@ -67,6 +70,17 @@ const MessageCard = ({
       onClick(message.id)
     }
   }
+  const longPressEvents = useLongPress(
+    () => {
+      if (!selectionMode) {
+        setSelectionMode(true);
+        onSelect(message.id);
+      }
+    },
+    {
+      threshold: 1000,
+    }
+  );
 
   return (
     <StyledCard
@@ -75,7 +89,9 @@ const MessageCard = ({
       p="md"
       radius="sm"
       withBorder
-      onClick={handleClick}
+      onClick={handleClick}    
+      {...(selectionMode ? {} : longPressEvents)}
+
     >
       <Group
         wrap="nowrap"

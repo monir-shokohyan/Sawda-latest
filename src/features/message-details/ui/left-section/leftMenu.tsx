@@ -34,15 +34,6 @@ const LeftMenu = ({
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Item
-          leftSection={<MdSelectAll size={16} />}
-          onClick={() => {
-            setSelectionMode(true)
-            handleSelectAll()
-          }}
-        >
-          Select All
-        </Menu.Item>
         <HoveredMenuItem
           c="darkText"
           leftSection={<MdSelectAll size={16} />}

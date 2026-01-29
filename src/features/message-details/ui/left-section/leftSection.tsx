@@ -91,9 +91,7 @@ const LeftSection = ({
       )
     }
   }
-  console.log('filtered message :', filteredMessages)
-  console.log('has more :', hasMore)
-
+  
   return (
     <Stack
       w={isMobile ? '100%' : '25%'}
@@ -201,6 +199,7 @@ const LeftSection = ({
                   onSelect={handleToggleSelect}
                   onClick={handleMessageClick}
                   selectionMode={selectionMode}
+                  setSelectionMode={setSelectionMode}
                 />
               ))}
             </Stack>
