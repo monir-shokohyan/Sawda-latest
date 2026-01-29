@@ -91,7 +91,7 @@ const LeftSection = ({
       )
     }
   }
-  
+
   return (
     <Stack
       w={isMobile ? '100%' : '25%'}

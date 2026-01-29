@@ -23,6 +23,9 @@ const LeftMenu = ({
     <Menu
       shadow="md"
       width={200}
+      transitionProps={{ transition: 'fade-down', duration: 250 }}
+      position="bottom"
+      withArrow
     >
       <Menu.Target>
         <ActionIcon

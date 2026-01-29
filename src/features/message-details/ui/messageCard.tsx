@@ -73,14 +73,14 @@ const MessageCard = ({
   const longPressEvents = useLongPress(
     () => {
       if (!selectionMode) {
-        setSelectionMode(true);
-        onSelect(message.id);
+        setSelectionMode(true)
+        onSelect(message.id)
       }
     },
     {
       threshold: 1000,
-    }
-  );
+    },
+  )
 
   return (
     <StyledCard
@@ -89,9 +89,8 @@ const MessageCard = ({
       p="md"
       radius="sm"
       withBorder
-      onClick={handleClick}    
+      onClick={handleClick}
       {...(selectionMode ? {} : longPressEvents)}
-
     >
       <Group
         wrap="nowrap"
