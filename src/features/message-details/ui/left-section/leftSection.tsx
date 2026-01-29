@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Stack, Group, Loader, Text, Badge, ScrollArea, Card } from '@mantine/core'
+import {
+  Stack,
+  Group,
+  Loader,
+  Text,
+  Badge,
+  ScrollArea,
+  Card,
+} from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { InteractiveCard } from '@shared/styles'
 import { MessageCard } from '../messageCard'
@@ -98,7 +106,7 @@ const LeftSection = ({
       style={{
         position: isMobile ? 'relative' : 'sticky',
         top: isMobile ? 0 : 30,
-        height: isMobile ? 'auto' : 'calc(100vh - 60px)',
+        height: isMobile ? '90vh' : 'calc(100vh - 60px)',
       }}
       gap={0}
     >
