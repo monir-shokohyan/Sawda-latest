@@ -23,6 +23,12 @@ export interface ChatMessage {
   timestamp: string
   senderId: string
   isOwn: boolean
+  attachments?: {
+    name: string
+    type: 'image' | 'audio' | 'document' | 'other'
+    size: number
+    url: string
+  }[]
 }
 
 export type MessageFilter = 'all' | 'unread' | 'read'
@@ -49,10 +55,17 @@ export interface LeftSectionProps {
   activeMessageId?: number | null
 }
 
+export interface AttachedFile {
+  file: File
+  type: 'image' | 'audio' | 'document' | 'other'
+  preview?: string
+  uploadProgress?: number
+}
+
 export interface RightFooterProps {
   inputValue: string
   setInputValue: (value: string) => void
-  handleSendMessage: () => void
+  handleSendMessage: (files?: AttachedFile[]) => void
   handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 

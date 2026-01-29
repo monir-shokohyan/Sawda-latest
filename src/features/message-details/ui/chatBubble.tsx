@@ -28,7 +28,7 @@ const MessageBubble = styled(Paper)<
 `
 
 const ChatBubble = ({ message, username }: ChatBubbleProps) => {
-  const { isOwn , timestamp, content} = message
+  const { isOwn, timestamp, content } = message
   return (
     <BubbleWrapper
       $isOwn={isOwn}
@@ -46,14 +46,18 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
         </Avatar>
       )}
 
-      <Stack gap={4} w="100%" align={isOwn ? 'flex-end' : 'flex-start'}>
+      <Stack
+        gap={4}
+        w="100%"
+        align={isOwn ? 'flex-end' : 'flex-start'}
+      >
         <MessageBubble
           $isOwn={isOwn}
           shadow="sm"
         >
           <Text
             size="sm"
-            style={{textWrap: 'wrap'}}
+            style={{ textWrap: 'wrap' }}
           >
             {content}
           </Text>

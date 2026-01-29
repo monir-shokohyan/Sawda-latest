@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Card, Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { InteractiveCard } from '@shared/styles'
-import { ChatMessage, RightSectionProps } from '../../types'
+import { ChatMessage, RightSectionProps, AttachedFile } from '../../types'
 import { generateChatHistory } from '../../constant'
 import { EmptyInbox } from '../emptyInbox'
 import { Body } from './body'
@@ -41,22 +41,89 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
     }, 1000)
   }
 
-  const handleSendMessage = () => {
-    if (inputValue.trim() && selectedMessage) {
+  const handleSendMessage = (attachedFiles?: AttachedFile[]) => {
+    if ((inputValue.trim() || (attachedFiles && attachedFiles.length > 0)) && selectedMessage) {
       const newMessage: ChatMessage = {
         id: messages.length,
         content: inputValue,
         timestamp: 'Just now',
         senderId: 'me',
         isOwn: true,
+        attachments: attachedFiles?.map(a => ({
+          name: a.file.name,
+          type: a.type,
+          size: a.file.size,
+          url: a.preview || URL.createObjectURL(a.file)
+        }))
       }
 
       setMessages((prev) => [newMessage, ...prev])
       setInputValue('')
+      
+      // Upload files to server if there are any
+      if (attachedFiles && attachedFiles.length > 0) {
+        uploadFilesToServer(attachedFiles, newMessage.id)
+      }
     }
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const uploadFilesToServer = async (files: AttachedFile[], messageId: number) => {
+    const formData = new FormData()
+    
+    files.forEach((attachedFile, index) => {
+      formData.append(`file_${index}`, attachedFile.file)
+    })
+    
+    // Add message metadata
+    formData.append('messageId', messageId.toString())
+    formData.append('recipientId', selectedMessage?.username || '')
+
+    try {
+      // Example API call - replace with your actual endpoint
+      // const response = await fetch('/api/messages/upload', {
+      //   method: 'POST',
+      //   body: formData,
+      //   headers: {
+      //     // Add authentication headers if needed
+      //     // 'Authorization': `Bearer ${token}`
+      //   }
+      // })
+      
+      // if (!response.ok) {
+      //   throw new Error('Upload failed')
+      // }
+      
+      // const data = await response.json()
+      
+      console.log('Files ready to upload:', {
+        messageId,
+        files: files.map(f => ({
+          name: f.file.name,
+          size: f.file.size,
+          type: f.type
+        }))
+      })
+      
+      // You can update the message with the server response URLs here
+      // setMessages(prev => prev.map(msg => 
+      //   msg.id === messageId 
+      //     ? { ...msg, attachments: data.attachments }
+      //     : msg
+      // ))
+      
+    } catch (error) {
+      console.error('Upload failed:', error)
+      
+      // Handle upload error - you might want to show a notification
+      // notifications.show({
+      //   title: 'Upload Failed',
+      //   message: 'Failed to upload files. Please try again.',
+      //   color: 'red',
+      // })
+    }
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       handleSendMessage()
