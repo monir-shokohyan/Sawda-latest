@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Stack } from '@mantine/core'
+import { Card, Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { InteractiveCard } from '@shared/styles'
 import { ChatMessage, RightSectionProps } from '../../types'
@@ -72,7 +72,7 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
       w={isMobile ? '100%' : '72%'}
       gap={0}
     >
-      <InteractiveCard
+      <Card
         withBorder
         radius="sm"
         p={0}
@@ -104,7 +104,7 @@ const RightSection = ({ selectedMessage, onBack }: RightSectionProps) => {
           handleSendMessage={handleSendMessage}
           handleKeyPress={handleKeyPress}
         />
-      </InteractiveCard>
+      </Card>
     </Stack>
   )
 }

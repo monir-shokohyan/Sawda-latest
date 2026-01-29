@@ -1,4 +1,4 @@
-import { Avatar, Stack, Text } from '@mantine/core'
+import { Avatar, Card, Stack, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { InteractiveCard } from '@shared/styles'
 import { MdSend } from 'react-icons/md'
@@ -12,7 +12,7 @@ const EmptyInbox = () => {
   const { isMobile } = Responsive()
   return (
     <Stack w={isMobile ? '100%' : '72%'}>
-      <InteractiveCard
+      <Card
         withBorder
         radius="sm"
         p={0}
@@ -51,7 +51,7 @@ const EmptyInbox = () => {
             start chatting.
           </Text>
         </EmptyState>
-      </InteractiveCard>
+      </Card>
     </Stack>
   )
 }
