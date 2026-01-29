@@ -1,12 +1,5 @@
 import { useState } from 'react'
-import {
-  Stack,
-  Group,
-  Loader,
-  Text,
-  Badge,
-  Card,
-} from '@mantine/core'
+import { Stack, Group, Loader, Text, Badge, Card } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { MessageCard } from '../messageCard'
 import { LeftSectionProps, Message, MessageFilter } from '../../types'

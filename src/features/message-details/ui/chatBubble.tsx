@@ -16,7 +16,7 @@ const BubbleWrapper = styled(Group)<{ $isOwn: boolean }>`
 const MessageBubble = styled(Paper)<
   PaperProps & { $isOwn: boolean; children: ReactNode }
 >`
-  max-width: 70%;
+  max-width: 80%;
   padding: 12px 16px;
   background: ${({ $isOwn }) =>
     $isOwn ? 'var(--mantine-color-primary-6)' : 'var(--mantine-color-gray-1)'};
@@ -28,14 +28,15 @@ const MessageBubble = styled(Paper)<
 `
 
 const ChatBubble = ({ message, username }: ChatBubbleProps) => {
+  const { isOwn , timestamp, content} = message
   return (
     <BubbleWrapper
-      $isOwn={message.isOwn}
+      $isOwn={isOwn}
       wrap="nowrap"
       align="flex-end"
       gap="xs"
     >
-      {!message.isOwn && (
+      {!isOwn && (
         <Avatar
           size="sm"
           radius="xl"
@@ -45,30 +46,30 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
         </Avatar>
       )}
 
-      <Stack gap={4}>
+      <Stack gap={4} w="100%" align={isOwn ? 'flex-end' : 'flex-start'}>
         <MessageBubble
-          $isOwn={message.isOwn}
+          $isOwn={isOwn}
           shadow="sm"
         >
           <Text
             size="sm"
-            style={{ whiteSpace: 'pre-wrap' }}
+            style={{textWrap: 'wrap'}}
           >
-            {message.content}
+            {content}
           </Text>
         </MessageBubble>
 
         <Text
           size="xs"
           c="dimmed"
-          ta={message.isOwn ? 'right' : 'left'}
+          ta={isOwn ? 'right' : 'left'}
           px="xs"
         >
-          {message.timestamp}
+          {timestamp}
         </Text>
       </Stack>
 
-      {message.isOwn && (
+      {isOwn && (
         <Avatar
           size="sm"
           radius="xl"
