@@ -20,4 +20,5 @@ export interface ProfileProps {
   direction?: FlexProps['direction']
   hoverUsername?: boolean
   isStaticColor?: boolean
+  isMessage?: boolean
 }

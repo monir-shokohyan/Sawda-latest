@@ -9,4 +9,5 @@ export interface ProductProps {
   liked?: boolean
   email?: string
   message?: string
+  isRead?: boolean
 }

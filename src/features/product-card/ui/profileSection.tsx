@@ -20,6 +20,7 @@ const ProfileSection = ({
   direction = 'row',
   hoverUsername = true,
   isStaticColor = false,
+  isMessage = false
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -29,10 +30,11 @@ const ProfileSection = ({
     <Flex
       p={padding}
       pl={allowPadding ? padding : '0px'}
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: 'pointer', flex: 1 }}
       direction={direction}
       gap={15}
     >
+
       <Avatar
         color="blue"
         size={isMobile ? mobileSize : size}
@@ -40,13 +42,15 @@ const ProfileSection = ({
         src="/profile.png"
       />
 
-      <Flex
-        direction="column"
-        gap={isMobile ? '4px' : '0px'}
+      <Stack
+        gap={isMobile ? '8px' : '0px'}
+        style={{ width: '100%' }}
       >
+
+        <Flex justify="space-between" align="center" gap={20}  w="100%" >
         <HoveredText
           fw={600}
-          size={isMobile ? usernameSize : 'md'}
+          size={isMobile ? usernameSize : 'sm'}
           onClick={(e) => {
             if (!hoverUsername) return
             e.stopPropagation()
@@ -62,7 +66,13 @@ const ProfileSection = ({
         >
           {product.username}
         </HoveredText>
-
+        {isMessage &&  <Text
+            size={isMobile ? timeSize : 'xs'}
+            c="dimmed"
+          >
+            {product.timestamp}
+          </Text>}
+        </Flex>
         {showEmail && (
           <Text
             size={isMobile ? timeSize : 'xs'}
@@ -90,6 +100,16 @@ const ProfileSection = ({
             {product.message}
           </Text>
         )}
+        {isMessage && (
+          <Text
+            size={isMobile ? timeSize : 'xs'}
+            lineClamp={1}
+            c={product.isRead ? 'dimmed' : 'darkText'}
+            fw={product.isRead ? 400 : 500}
+          >
+            {product.message}
+          </Text>
+        )}
         {showTime && (
           <Text
             size={isMobile ? timeSize : 'xs'}
@@ -107,7 +127,7 @@ const ProfileSection = ({
             Profile details
           </NavLink>
         )}
-      </Flex>
+      </Stack>
     </Flex>
   )
 }

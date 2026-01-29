@@ -1,4 +1,4 @@
-import { Flex, FlexProps, Paper, PaperProps } from '@mantine/core'
+import { Card, CardProps, Flex, FlexProps, Paper, PaperProps } from '@mantine/core'
 import styled from 'styled-components'
 import { Message } from '../types'
 
@@ -25,4 +25,26 @@ export const Container = styled.div<{ $isMobile: boolean }>`
   max-width: 1400px;
   margin: 0 auto;
   padding: ${({ $isMobile }) => ($isMobile ? '16px' : '24px')};
+`
+export const StyledCard = styled(Card)<
+  CardProps & {
+    $isActive?: boolean
+    $isRead?: boolean
+    onClick: (e: React.MouseEvent) => void
+  }
+>`
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: ${({ $isActive }) =>
+    $isActive ? 'var(--mantine-color-primary-light-hover)' : 'transparent'};
+  border-left: ${({ $isActive }) =>
+    $isActive
+      ? '3px solid var(--mantine-color-primary-light-hover)'
+      : '3px solid transparent'};
+  opacity: ${({ $isRead }) => ($isRead ? 0.7 : 1)};
+
+  &:hover {
+    background: var(--mantine-color-primary-light-hover);
+    transform: translateX(2px);
+  }
 `

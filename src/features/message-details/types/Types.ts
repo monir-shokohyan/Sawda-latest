@@ -75,3 +75,12 @@ export interface BodyProps {
   hasMore: boolean
   selectedMessage: any
 }
+
+export interface MessageCardProps {
+  message: Message
+  isActive?: boolean
+  onSelect: (id: number) => void
+  onClick: (id: number) => void
+  selectionMode: boolean
+  setSelectionMode: (value: boolean) => void
+}
