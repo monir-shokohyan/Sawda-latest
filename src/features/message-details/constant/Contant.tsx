@@ -26,23 +26,21 @@ const sampleUsernames = [
   'AnnaSmith',
 ]
 
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
 export const generateMessages = (start: number, count: number): Message[] => {
   return Array.from({ length: count }, (_, i) => {
-    const id = start + i
-    const randomUsername = sampleUsernames[id % sampleUsernames.length]
-    const randomMessage = sampleMessages[id % sampleMessages.length]
-    const hoursAgo = Math.floor(Math.random() * 72) + 1
-
+    const id = start + i;
     return {
       id,
-      username: randomUsername,
-      message: randomMessage,
-      timestamp: `${hoursAgo} hours ago`,
+      username: sampleUsernames[id % sampleUsernames.length],
+      message: sampleMessages[id % sampleMessages.length],
+      timestamp: months[Math.floor(Math.random() * 12)],
       isRead: Math.random() > 0.4,
       isSelected: false,
-    }
-  })
-}
+    };
+  });
+};
 
 export const generateChatHistory = (username: string): ChatMessage[] => {
   const messageCount = Math.floor(Math.random() * 15) + 5

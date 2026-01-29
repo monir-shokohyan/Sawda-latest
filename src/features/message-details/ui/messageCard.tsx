@@ -44,13 +44,14 @@ const MessageCard = ({
     >
       <Group
         wrap="nowrap"
-        align="flex-start"
+        align="center"
       >
         {selectionMode && (
           <Checkbox
             checked={message.isSelected}
             onChange={() => onSelect(message.id)}
             onClick={(e) => e.stopPropagation()}
+            radius={3}
           />
         )}
         <ProfileSection

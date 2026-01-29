@@ -5,11 +5,9 @@ import {
   Loader,
   Text,
   Badge,
-  ScrollArea,
   Card,
 } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { InteractiveCard } from '@shared/styles'
 import { MessageCard } from '../messageCard'
 import { LeftSectionProps, Message, MessageFilter } from '../../types'
 import { generateMessages } from '../../constant'
@@ -133,7 +131,7 @@ const LeftSection = ({
                 <Badge
                   color="primary"
                   size="sm"
-                  circle
+                  // circle
                 >
                   {unreadCount}
                 </Badge>
