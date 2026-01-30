@@ -49,10 +49,10 @@ export interface AttachedFile {
 }
 
 export interface RightFooterProps {
-  inputValue: string
-  setInputValue: (value: string) => void
-  handleSendMessage: (files?: AttachedFile[]) => void
-  handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  inputValue?: string
+  setInputValue?: (value: string) => void
+  handleSendMessage?: (files?: AttachedFile[]) => void
+  handleKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
 export interface RightHeaderProps {
@@ -104,4 +104,12 @@ export interface ChatMessage {
     size?: number
     url: string
   }[]
+}
+
+//////// record modal
+export interface RecordModalProps {
+  showRecordModal: boolean
+  cancelRecording: () => void
+  recordingTime: string
+  stopRecording: () => void
 }
