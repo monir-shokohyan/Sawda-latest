@@ -469,7 +469,7 @@ const Footer = ({
             styles={{
               input: {
                 border: 'none',
-                backgroundColor: 'var(--mantine-color-gray-1)',
+                backgroundColor: 'var(--mantine-color-background-9)',
               },
             }}
           />
