@@ -1,7 +1,8 @@
-import { Flex, ScrollArea } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { UiProps } from '../types'
 import { CardCategory } from './card'
 import { CategoryConstants } from '@shared/ui/category/constant'
+import { Carousel } from '@mantine/carousel'
 
 const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
   const filteredCategories = CategoryConstants.filter((category) => {
@@ -11,26 +12,29 @@ const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
   return (
     <>
       {isMobile ? (
-        <ScrollArea
-          type="never"
-          scrollbarSize={0}
-          offsetScrollbars
-          scrollbars="x"
+        <Carousel
+          withIndicators={false}
+          withControls={false}
+          slideSize="25%"
+          slideGap="sm"
+          draggable
+          py={6}
+          styles={{
+            container: { alignItems: 'stretch' },
+          }}
         >
-          <Flex
-            gap="sm"
-            py="sm"
-            pr="sm"
-          >
-            {filteredCategories.map((category) => (
+          {filteredCategories.map((category) => (
+            <Carousel.Slide 
+              key={category.id}
+              style={{ height: 'auto' }}
+            >
               <CardCategory
-                key={category.id}
                 category={category}
                 isMobile={isMobile}
               />
-            ))}
-          </Flex>
-        </ScrollArea>
+            </Carousel.Slide>
+          ))}
+        </Carousel>
       ) : (
         <Flex
           gap="sm"

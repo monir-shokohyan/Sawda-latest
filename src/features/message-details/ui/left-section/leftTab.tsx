@@ -13,11 +13,11 @@ const HovTabs = styled(Tabs)<TabsProps>`
   .mantine-Tabs-tab:hover {
     background-color: var(--mantine-color-primary-light-hover);
   }
-  
+
   .mantine-Tabs-tab {
     transition: all 0.2s ease-in-out;
   }
-  
+
   .mantine-Tabs-list {
     position: relative;
   }

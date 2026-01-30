@@ -36,11 +36,11 @@ const slideInFromLeft = keyframes`
 
 const AnimatedStack = styled(Stack)<{ direction: 'left' | 'right' | null }>`
   animation: ${(props) =>
-    props.direction === 'left'
-      ? slideInFromRight
-      : props.direction === 'right'
-      ? slideInFromLeft
-      : 'none'}
+      props.direction === 'left'
+        ? slideInFromRight
+        : props.direction === 'right'
+          ? slideInFromLeft
+          : 'none'}
     0.3s ease-out;
 `
 
@@ -53,7 +53,9 @@ const LeftSection = ({
   const [hasMore, setHasMore] = useState(true)
   const [filter, setFilter] = useState<MessageFilter>('all')
   const [selectionMode, setSelectionMode] = useState(false)
-  const [animationDirection, setAnimationDirection] = useState<'left' | 'right' | null>(null)
+  const [animationDirection, setAnimationDirection] = useState<
+    'left' | 'right' | null
+  >(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const tabs: MessageFilter[] = ['all', 'unread', 'read']

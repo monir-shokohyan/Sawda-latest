@@ -7,11 +7,7 @@ interface SwipeInput {
 }
 
 export const useSwipe = (input: SwipeInput) => {
-  const {
-    onSwipeLeft,
-    onSwipeRight,
-    minSwipeDistance = 50,
-  } = input
+  const { onSwipeLeft, onSwipeRight, minSwipeDistance = 50 } = input
 
   const touchStart = useRef<number | null>(null)
   const touchEnd = useRef<number | null>(null)
