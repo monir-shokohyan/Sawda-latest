@@ -175,6 +175,7 @@ const LeftSection = ({
             scrollableTarget="messageScrollContainer"
             size="sm"
             bg="background.8"
+            endMessage=""
           >
             <Stack
               gap={0}
