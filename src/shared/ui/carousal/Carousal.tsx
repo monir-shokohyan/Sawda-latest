@@ -13,10 +13,10 @@ interface ImageData {
 }
 
 interface Props {
-  data?: ImageData[];
-  slideGap?: boolean;
-  fullImage?: boolean;
-  allowBg?: boolean  
+  data?: ImageData[]
+  slideGap?: boolean
+  fullImage?: boolean
+  allowBg?: boolean
 }
 const images: ImageData[] = [
   {
@@ -74,7 +74,7 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
         <Carousel
           withIndicators
           height={isMobile ? 300 : 500}
-          slideGap={slideGap ? "sm" : '0px'}
+          slideGap={slideGap ? 'sm' : '0px'}
           controlsOffset="xl"
           controlSize={50}
           getEmblaApi={setEmbla}

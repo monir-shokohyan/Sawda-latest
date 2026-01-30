@@ -17,21 +17,6 @@ export interface MessageThread {
   }
 }
 
-export interface ChatMessage {
-  id: number
-  content: string
-  timestamp: string
-  senderId: string
-  isOwn: boolean
-  attachments?: {
-    id?: number
-    name?: string
-    type?: 'image' | 'audio' | 'document' | 'other'
-    size?: number
-    url: string
-  }[]
-}
-
 export type MessageFilter = 'all' | 'unread' | 'read'
 
 export interface LeftButtonGroupProps {
@@ -97,4 +82,26 @@ export interface MessageCardProps {
   onClick: (id: number) => void
   selectionMode: boolean
   setSelectionMode: (value: boolean) => void
+}
+
+//// chat section
+
+export interface ChatBubbleProps {
+  message: ChatMessage
+  username: string
+}
+
+export interface ChatMessage {
+  id: number
+  content: string
+  timestamp: string
+  senderId: string
+  isOwn: boolean
+  attachments?: {
+    id?: number
+    name?: string
+    type?: 'image' | 'audio' | 'document' | 'other'
+    size?: number
+    url: string
+  }[]
 }

@@ -3,6 +3,7 @@ import {
   CardProps,
   Flex,
   FlexProps,
+  Group,
   Paper,
   PaperProps,
 } from '@mantine/core'
@@ -54,4 +55,27 @@ export const StyledCard = styled(Card)<
     background: var(--mantine-color-primary-light-hover);
     transform: translateX(2px);
   }
+`
+export const BubbleWrapper = styled(Group)<{ $isOwn: boolean }>`
+  justify-content: ${({ $isOwn }) => ($isOwn ? 'flex-end' : 'flex-start')};
+  width: 100%;
+  padding: 2px 0;
+`
+
+export const MessageBubble = styled.div<{
+  $isOwn: boolean
+  $isImages: boolean
+}>`
+  min-width: 120px;
+  max-width: ${({ $isImages }) => ($isImages ? '75%' : 'auto')};
+  padding: ${({ $isImages }) => ($isImages ? '5px' : '14px 10px')};
+  background: ${({ $isOwn }) =>
+    $isOwn
+      ? 'var(--mantine-color-primary-8)'
+      : 'var(--mantine-color-backgroundInput-9)'};
+  color: ${({ $isOwn }) => ($isOwn ? 'white' : '#050505')};
+  border-radius: ${({ $isImages }) => ($isImages ? '5px' : '18px')};
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  position: relative;
 `
