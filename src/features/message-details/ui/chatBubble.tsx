@@ -45,8 +45,7 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
 
   const images = attachments?.filter((a) => a.type === 'image') || []
   const audios = attachments?.filter((a) => a.type === 'audio') || []
-    const [opened, { open, close }] = useDisclosure(false);
-
+  const [opened, { open, close }] = useDisclosure(false)
 
   return (
     <BubbleWrapper
@@ -160,10 +159,14 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
           </Text>
         </Avatar>
       )}
-  
-      <Modal opened={opened} onClose={close} centered withCloseButton={false}>
 
-       <ImageCarousel data={images}/>
+      <Modal
+        opened={opened}
+        onClose={close}
+        centered
+        withCloseButton={false}
+      >
+        <ImageCarousel data={images} />
       </Modal>
     </BubbleWrapper>
   )

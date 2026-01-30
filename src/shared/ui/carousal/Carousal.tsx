@@ -6,41 +6,39 @@ import type { EmblaCarouselType } from 'embla-carousel'
 import { Responsive } from '@shared/hooks/responsive'
 
 interface ImageData {
-    id?: number
-    name?: string
-    type?: 'image' | 'audio' | 'document' | 'other'
-    url: string
+  id?: number
+  name?: string
+  type?: 'image' | 'audio' | 'document' | 'other'
+  url: string
 }
- const images: ImageData[] = [
-    {
-      id: 1,
-      url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
-    },
-    {
-      id: 2,
-      url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=600&fit=crop',
-    },
-    {
-      id: 3,
-      url: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=1200&h=600&fit=crop',
-    },
-    {
-      id: 4,
-      url: 'https://images.unsplash.com/photo-1514539079130-25950c84af65?w=1200&h=600&fit=crop',
-    },
-    {
-      id: 5,
-      url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=600&fit=crop',
-    },
-    {
-      id: 6,
-      url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=600&fit=crop',
-    },
-  ]
+const images: ImageData[] = [
+  {
+    id: 1,
+    url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
+  },
+  {
+    id: 2,
+    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=600&fit=crop',
+  },
+  {
+    id: 3,
+    url: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=1200&h=600&fit=crop',
+  },
+  {
+    id: 4,
+    url: 'https://images.unsplash.com/photo-1514539079130-25950c84af65?w=1200&h=600&fit=crop',
+  },
+  {
+    id: 5,
+    url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=600&fit=crop',
+  },
+  {
+    id: 6,
+    url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=600&fit=crop',
+  },
+]
 
-
-
-const ImageCarousel = ({data}:{data?: ImageData[]}) => {
+const ImageCarousel = ({ data }: { data?: ImageData[] }) => {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(true)
@@ -57,8 +55,6 @@ const ImageCarousel = ({data}:{data?: ImageData[]}) => {
     embla.on('select', onSelect)
     embla.on('reInit', onSelect)
   }, [embla, onSelect])
-
- 
 
   const handleThumbnailClick = (index: number) => {
     embla?.scrollTo(index)
