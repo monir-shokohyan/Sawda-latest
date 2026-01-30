@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Stack, Group, Loader, Text, Badge, Card } from '@mantine/core'
+import { Stack, Group, Text, Badge, Card } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { MessageCard } from '../messageCard'
 import { LeftSectionProps, Message, MessageFilter } from '../../types'
@@ -8,7 +8,7 @@ import { LeftTab } from './leftTab'
 import { LeftMenu } from './leftMenu'
 import { LeftButtonGroup } from './leftButtonGroup'
 import { StickyPaper } from '../../styles'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
 
 const LeftSection = ({
   onMessageSelect,
@@ -168,22 +168,13 @@ const LeftSection = ({
             scrollBehavior: 'smooth',
           }}
         >
-          <InfiniteScroll
+          <InfiniteScrollWrapper
             dataLength={filteredMessages.length}
             next={fetchMoreData}
             hasMore={hasMore}
-            loader={
-              <Group
-                justify="center"
-                py="md"
-              >
-                <Loader
-                  size="sm"
-                  color="primary"
-                />
-              </Group>
-            }
             scrollableTarget="messageScrollContainer"
+            size="sm"
+            bg="background.8"
           >
             <Stack
               gap={0}
@@ -202,7 +193,7 @@ const LeftSection = ({
                 />
               ))}
             </Stack>
-          </InfiniteScroll>
+          </InfiniteScrollWrapper>
         </div>
       </Card>
     </Stack>

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { Stack, Grid, Group, Loader } from '@mantine/core'
+import { Stack, Grid } from '@mantine/core'
 import { GradientContainer } from '@shared/ui/containers'
 import { Product } from '../types'
 import { GeneralPadding } from '@shared/constants'
 import { ProductCard } from '@features/product-card'
+import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
 
 const generateProducts = (start: number, count: number): Product[] => {
   return Array.from({ length: count }, (_, i) => ({
@@ -56,19 +56,10 @@ const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
       w="100%"
       justify="center"
     >
-      <InfiniteScroll
+      <InfiniteScrollWrapper
         dataLength={products.length}
         next={fetchMoreData}
         hasMore={hasMore}
-        loader={
-          <Group
-            justify="center"
-            py="xl"
-            bg="background.9"
-          >
-            <Loader color="primary" />
-          </Group>
-        }
       >
         {productChunks.map((chunk, chunkIndex) => {
           return (
@@ -94,7 +85,7 @@ const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
             </GradientContainer>
           )
         })}
-      </InfiniteScroll>
+      </InfiniteScrollWrapper>
     </Stack>
   )
 }

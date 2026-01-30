@@ -1,8 +1,8 @@
-import { Group, Loader, Stack } from '@mantine/core'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import { Stack } from '@mantine/core'
 import { ChatBubble } from '../chatBubble'
 import { ChatContainer } from '@features/message-details/styles'
 import { BodyProps } from '@features/message-details/types'
+import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
 
 const Body = ({
   messages,
@@ -19,21 +19,11 @@ const Body = ({
         id="messageScrollContainer"
         style={{ flex: 1, overflow: 'auto', scrollbarWidth: 'thin' }}
       >
-        <InfiniteScroll
+        <InfiniteScrollWrapper
           dataLength={messages.length}
           next={fetchMoreData}
           hasMore={hasMore}
-          loader={
-            <Group
-              justify="center"
-              py="md"
-            >
-              <Loader
-                size="sm"
-                color="primary"
-              />
-            </Group>
-          }
+          scrollableTarget="messageScrollContainer"
         >
           <Stack gap="md">
             {messages.map((message) => (
@@ -44,7 +34,7 @@ const Body = ({
               />
             ))}
           </Stack>
-        </InfiniteScroll>
+        </InfiniteScrollWrapper>
       </div>
     </ChatContainer>
   )
