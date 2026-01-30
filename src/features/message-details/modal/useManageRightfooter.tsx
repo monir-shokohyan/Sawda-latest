@@ -248,30 +248,30 @@ const useManageRightfooter = ({
     }
   }
 
-const cancelRecording = () => {
-  if (mediaRecorderRef.current && isRecording) {
-    mediaRecorderRef.current.onstop = null
-    
-    mediaRecorderRef.current.stop()
-    setIsRecording(false)
-    setShowRecordModal(false)
-    
-    audioChunksRef.current = []
+  const cancelRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.onstop = null
 
-    if (recordingIntervalRef.current) {
-      clearInterval(recordingIntervalRef.current)
-    }
+      mediaRecorderRef.current.stop()
+      setIsRecording(false)
+      setShowRecordModal(false)
 
-    if (mediaRecorderRef.current.stream) {
-      mediaRecorderRef.current.stream
-        .getTracks()
-        .forEach((track) => track.stop())
+      audioChunksRef.current = []
+
+      if (recordingIntervalRef.current) {
+        clearInterval(recordingIntervalRef.current)
+      }
+
+      if (mediaRecorderRef.current.stream) {
+        mediaRecorderRef.current.stream
+          .getTracks()
+          .forEach((track) => track.stop())
+      }
+
+      setRecordingTime(0)
     }
-    
-    setRecordingTime(0)
   }
-}
-console.log(attachedFiles);
+  console.log(attachedFiles)
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)

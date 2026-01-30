@@ -19,24 +19,48 @@ const AudioPlayerComponent = ({
   const [duration, setDuration] = useState(0)
   const audioRef = useRef<HTMLAudioElement>(null)
 
-  useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
+useEffect(() => {
+  const audio = audioRef.current
+  if (!audio) return
 
-    const updateTime = () => setCurrentTime(audio.currentTime)
-    const updateDuration = () => setDuration(audio.duration)
-    const handleEnded = () => setIsPlaying(false)
-
-    audio.addEventListener('timeupdate', updateTime)
-    audio.addEventListener('loadedmetadata', updateDuration)
-    audio.addEventListener('ended', handleEnded)
-
-    return () => {
-      audio.removeEventListener('timeupdate', updateTime)
-      audio.removeEventListener('loadedmetadata', updateDuration)
-      audio.removeEventListener('ended', handleEnded)
+  // ────────────────────────────────────────
+  // Add this block
+  const tryLoadMetadata = async () => {
+    try {
+      audio.load()           // sometimes helps
+      await audio.play()     // mobile browsers usually only load metadata after play starts
+      audio.pause()          // immediately stop (user doesn't hear anything)
+      audio.currentTime = 0  // reset position
+    } catch (err) {
+      // Most common error: "play() failed because the user didn't interact..."
+      // → that's fine, we just wanted to trigger metadata
+      console.log("Auto-play prevention – expected on mobile", err)
     }
-  }, [])
+  }
+
+  // Try once on mount
+  tryLoadMetadata()
+
+  // ────────────────────────────────────────
+
+  const updateTime     = () => setCurrentTime(audio.currentTime)
+  const updateDuration = () => setDuration(audio.duration)
+  const handleEnded    = () => setIsPlaying(false)
+
+  audio.addEventListener('timeupdate', updateTime)
+  audio.addEventListener('loadedmetadata', updateDuration)
+  audio.addEventListener('ended', handleEnded)
+
+  // Also listen to 'canplay' — sometimes duration arrives here instead
+  audio.addEventListener('canplay', updateDuration)
+
+  return () => {
+    audio.removeEventListener('timeupdate', updateTime)
+    audio.removeEventListener('loadedmetadata', updateDuration)
+    audio.removeEventListener('canplay', updateDuration)
+    audio.removeEventListener('ended', handleEnded)
+  }
+}, [])
 
   const togglePlayPause = () => {
     const audio = audioRef.current
@@ -60,12 +84,14 @@ const AudioPlayerComponent = ({
     audio.currentTime = percentage * audio.duration
   }
 
-  const formatTime = (time: number) => {
-    if (isNaN(time)) return '0:00'
-    const minutes = Math.floor(time / 60)
-    const seconds = Math.floor(time % 60)
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`
-  }
+const formatTime = (time: number) => {
+  if (isNaN(time) || time === Infinity) return '--:--'
+  if (time === 0) return '0:00'
+  
+  const minutes = Math.floor(time / 60)
+  const seconds = Math.floor(time % 60)
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`
+}
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0
 

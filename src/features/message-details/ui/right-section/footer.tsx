@@ -54,10 +54,9 @@ const Footer = ({
                 h={90}
                 align="center"
                 gap={5}
-
               >
                 <Tooltip label={attached.file.name}>
-                  <div >
+                  <div>
                     {attached.type === 'image' && attached.preview ? (
                       <Image
                         src={attached.preview}
