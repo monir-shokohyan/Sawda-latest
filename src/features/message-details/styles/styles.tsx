@@ -6,8 +6,9 @@ import {
   Group,
   Paper,
   PaperProps,
+  Stack,
 } from '@mantine/core'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Message } from '../types'
 
 export const StickyPaper = styled(Paper)<
@@ -79,4 +80,38 @@ export const MessageBubble = styled.div<{
   word-wrap: break-word;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   position: relative;
+`
+
+export const slideInFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+export const slideInFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+export const AnimatedStack = styled(Stack)<{
+  direction: 'left' | 'right' | null
+}>`
+  animation: ${(props) =>
+      props.direction === 'left'
+        ? slideInFromRight
+        : props.direction === 'right'
+          ? slideInFromLeft
+          : 'none'}
+    0.3s ease-out;
 `
