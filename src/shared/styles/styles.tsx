@@ -256,7 +256,7 @@ export const InteractiveCard = styled(Card)<InteractiveCardProps>`
   }
 `
 
-////audio players 
+////audio players
 
 export const AudioBubble = styled.div<{ $isOwn: boolean }>`
   display: flex;
@@ -266,7 +266,6 @@ export const AudioBubble = styled.div<{ $isOwn: boolean }>`
   border-radius: 16px;
   min-width: 240px;
   max-width: 300px;
-
 `
 
 export const PlayButton = styled.button<{ $isOwn: boolean }>`

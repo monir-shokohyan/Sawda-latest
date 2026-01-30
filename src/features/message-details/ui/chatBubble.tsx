@@ -1,7 +1,18 @@
-import { Group, Stack, Text, Avatar, Image, Grid, AspectRatio } from '@mantine/core'
+import {
+  Group,
+  Stack,
+  Text,
+  Avatar,
+  Image,
+  Grid,
+  AspectRatio,
+  Modal,
+} from '@mantine/core'
 import styled from 'styled-components'
 import { ChatMessage } from '../types'
 import { AudioPlayerComponent } from '@shared/players'
+import { useDisclosure } from '@mantine/hooks'
+import { ImageCarousel } from '@shared/ui/carousal'
 
 interface ChatBubbleProps {
   message: ChatMessage
@@ -14,12 +25,14 @@ const BubbleWrapper = styled(Group)<{ $isOwn: boolean }>`
   padding: 2px 0;
 `
 
-const MessageBubble = styled.div<{ $isOwn: boolean, $isImages: boolean }>`
+const MessageBubble = styled.div<{ $isOwn: boolean; $isImages: boolean }>`
   min-width: 120px;
   max-width: ${({ $isImages }) => ($isImages ? '50%' : 'auto')};
   padding: ${({ $isImages }) => ($isImages ? '5px' : '14px 10px')};
   background: ${({ $isOwn }) =>
-    $isOwn ? 'var(--mantine-color-primary-8)' : 'var(--mantine-color-backgroundInput-9)'};
+    $isOwn
+      ? 'var(--mantine-color-primary-8)'
+      : 'var(--mantine-color-backgroundInput-9)'};
   color: ${({ $isOwn }) => ($isOwn ? 'white' : '#050505')};
   border-radius: ${({ $isImages }) => ($isImages ? '5px' : '18px')};
   word-wrap: break-word;
@@ -32,6 +45,8 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
 
   const images = attachments?.filter((a) => a.type === 'image') || []
   const audios = attachments?.filter((a) => a.type === 'audio') || []
+    const [opened, { open, close }] = useDisclosure(false);
+
 
   return (
     <BubbleWrapper
@@ -56,38 +71,42 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
         style={{ maxWidth: '70%' }}
         align={isOwn ? 'flex-end' : 'flex-start'}
       >
-        <MessageBubble $isOwn={isOwn} $isImages={images.length > 0}>
+        <MessageBubble
+          $isOwn={isOwn}
+          $isImages={images.length > 0}
+        >
           <Stack gap={8}>
             {/* Image Messages */}
             {images.length > 0 && (
-         <Grid 
-            gutter="5px" 
-            justify="center"
-            grow
-          >
-            {images.map((attachment, index) => (
-              <Grid.Col 
-                key={index} 
-                span={{ base: 12, xs: 6 }}
+              <Grid
+                gutter="5px"
+                justify="center"
+                grow
               >
-                <AspectRatio ratio={3/4} >
-                  <Image
-                    src={attachment.url || "/cover.png"}
-                    alt={attachment.name || 'Attachment image'}
-                    loading="lazy"
-                    radius="md"
-                    fit="cover"
-                    fallbackSrc="/cover.png"
-                    style={{ 
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </AspectRatio>
-              </Grid.Col>
-            ))}
-          </Grid>
+                {images.map((attachment, index) => (
+                  <Grid.Col
+                    key={index}
+                    span={{ base: 12, xs: 6 }}
+                  >
+                    <AspectRatio ratio={3 / 4}>
+                      <Image
+                        src={attachment.url || '/cover.png'}
+                        alt={attachment.name || 'Attachment image'}
+                        loading="lazy"
+                        radius="md"
+                        fit="cover"
+                        fallbackSrc="/cover.png"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                        onClick={() => open()}
+                      />
+                    </AspectRatio>
+                  </Grid.Col>
+                ))}
+              </Grid>
             )}
 
             {/* Audio Messages */}
@@ -114,7 +133,11 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
           </Stack>
         </MessageBubble>
 
-        <Text size="xs" c="dimmed" px={4}>
+        <Text
+          size="xs"
+          c="dimmed"
+          px={4}
+        >
           {timestamp}
         </Text>
       </Stack>
@@ -128,11 +151,20 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
             flexShrink: 0,
           }}
         >
-          <Text size="xs" c="white" fw={600}>
+          <Text
+            size="xs"
+            c="white"
+            fw={600}
+          >
             Me
           </Text>
         </Avatar>
       )}
+  
+      <Modal opened={opened} onClose={close} centered withCloseButton={false}>
+
+       <ImageCarousel data={images}/>
+      </Modal>
     </BubbleWrapper>
   )
 }

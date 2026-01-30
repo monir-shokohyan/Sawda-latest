@@ -6,29 +6,12 @@ import type { EmblaCarouselType } from 'embla-carousel'
 import { Responsive } from '@shared/hooks/responsive'
 
 interface ImageData {
-  id: number
-  url: string
+    id?: number
+    name?: string
+    type?: 'image' | 'audio' | 'document' | 'other'
+    url: string
 }
-
-const ImageCarousel: React.FC = () => {
-  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null)
-  const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(true)
-
-  const onSelect = React.useCallback(() => {
-    if (!embla) return
-    setCanScrollPrev(embla.canScrollPrev())
-    setCanScrollNext(embla.canScrollNext())
-  }, [embla])
-
-  React.useEffect(() => {
-    if (!embla) return
-    onSelect()
-    embla.on('select', onSelect)
-    embla.on('reInit', onSelect)
-  }, [embla, onSelect])
-
-  const images: ImageData[] = [
+ const images: ImageData[] = [
     {
       id: 1,
       url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
@@ -54,6 +37,28 @@ const ImageCarousel: React.FC = () => {
       url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=600&fit=crop',
     },
   ]
+
+
+
+const ImageCarousel = ({data}:{data?: ImageData[]}) => {
+  const [embla, setEmbla] = useState<EmblaCarouselType | null>(null)
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(true)
+
+  const onSelect = React.useCallback(() => {
+    if (!embla) return
+    setCanScrollPrev(embla.canScrollPrev())
+    setCanScrollNext(embla.canScrollNext())
+  }, [embla])
+
+  React.useEffect(() => {
+    if (!embla) return
+    onSelect()
+    embla.on('select', onSelect)
+    embla.on('reInit', onSelect)
+  }, [embla, onSelect])
+
+ 
 
   const handleThumbnailClick = (index: number) => {
     embla?.scrollTo(index)
@@ -104,10 +109,10 @@ const ImageCarousel: React.FC = () => {
           }}
           slideSize={isMobile ? '95%' : '97%'}
         >
-          {images.map((image) => (
+          {data?.map((image) => (
             <Carousel.Slide key={image.id}>
               <img
-                src={image.url}
+                src="/cover.png"
                 alt="image of product"
                 style={{
                   width: '100%',
@@ -127,7 +132,7 @@ const ImageCarousel: React.FC = () => {
             slideSize="16.666%"
             slideGap="md"
           >
-            {images.map((image, index) => (
+            {data?.map((image, index) => (
               <Carousel.Slide key={`thumb-${image.id}`}>
                 <Paper
                   shadow="md"
@@ -160,7 +165,7 @@ const ImageCarousel: React.FC = () => {
                     }}
                   >
                     <img
-                      src={image.url}
+                      src="/cover.png"
                       alt="images of products"
                       style={{
                         position: 'absolute',

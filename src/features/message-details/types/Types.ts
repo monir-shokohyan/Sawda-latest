@@ -24,9 +24,10 @@ export interface ChatMessage {
   senderId: string
   isOwn: boolean
   attachments?: {
-    name: string
-    type: 'image' | 'audio' | 'document' | 'other'
-    size: number
+    id?: number
+    name?: string
+    type?: 'image' | 'audio' | 'document' | 'other'
+    size?: number
     url: string
   }[]
 }
