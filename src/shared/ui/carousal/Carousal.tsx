@@ -11,6 +11,13 @@ interface ImageData {
   type?: 'image' | 'audio' | 'document' | 'other'
   url: string
 }
+
+interface Props {
+  data?: ImageData[];
+  slideGap?: boolean;
+  fullImage?: boolean;
+  allowBg?: boolean  
+}
 const images: ImageData[] = [
   {
     id: 1,
@@ -38,7 +45,7 @@ const images: ImageData[] = [
   },
 ]
 
-const ImageCarousel = ({ data }: { data?: ImageData[] }) => {
+const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(true)
@@ -67,7 +74,7 @@ const ImageCarousel = ({ data }: { data?: ImageData[] }) => {
         <Carousel
           withIndicators
           height={isMobile ? 300 : 500}
-          slideGap="sm"
+          slideGap={slideGap ? "sm" : '0px'}
           controlsOffset="xl"
           controlSize={50}
           getEmblaApi={setEmbla}
@@ -113,7 +120,7 @@ const ImageCarousel = ({ data }: { data?: ImageData[] }) => {
                 style={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover',
+                  objectFit: fullImage ? 'contain' : 'cover',
                   display: 'block',
                 }}
               />

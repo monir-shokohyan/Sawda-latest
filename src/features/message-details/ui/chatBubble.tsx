@@ -27,7 +27,7 @@ const BubbleWrapper = styled(Group)<{ $isOwn: boolean }>`
 
 const MessageBubble = styled.div<{ $isOwn: boolean; $isImages: boolean }>`
   min-width: 120px;
-  max-width: ${({ $isImages }) => ($isImages ? '50%' : 'auto')};
+  max-width: ${({ $isImages }) => ($isImages ? '75%' : 'auto')};
   padding: ${({ $isImages }) => ($isImages ? '5px' : '14px 10px')};
   background: ${({ $isOwn }) =>
     $isOwn
@@ -60,9 +60,8 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
           radius="xl"
           color="primary"
           style={{ flexShrink: 0 }}
-        >
-          {username.charAt(0).toUpperCase()}
-        </Avatar>
+          src="/profile.png"
+        />
       )}
 
       <Stack
@@ -85,7 +84,7 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
                 {images.map((attachment, index) => (
                   <Grid.Col
                     key={index}
-                    span={{ base: 12, xs: 6 }}
+                    span={{ base: 6, xs: 6 }}
                   >
                     <AspectRatio ratio={3 / 4}>
                       <Image
@@ -149,16 +148,9 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
             background: 'linear-gradient(135deg, #0084ff 0%, #0073e6 100%)',
             flexShrink: 0,
           }}
-        >
-          <Text
-            size="xs"
-            c="white"
-            fw={600}
-          >
-            Me
-          </Text>
-        </Avatar>
-      )}
+          src="/profile.png"
+        />
+          )}
 
       <Modal
         opened={opened}
@@ -166,7 +158,7 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
         centered
         withCloseButton={false}
       >
-        <ImageCarousel data={images} />
+        <ImageCarousel data={images} slideGap={false} fullImage allowBg={false}/>
       </Modal>
     </BubbleWrapper>
   )
