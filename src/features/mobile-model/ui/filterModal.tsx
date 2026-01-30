@@ -1,4 +1,4 @@
-import { Group, Modal, ScrollArea, Text } from '@mantine/core'
+import { Flex, Group, Modal, ScrollArea, Text } from '@mantine/core'
 import { Logo } from '@shared/ui/logo'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate } from 'react-router-dom'
@@ -23,10 +23,11 @@ const FilterModal = () => {
     >
       {/* Content */}
       <ScrollArea
-        h="84dvh"
+        h="100dvh"
         scrollbars="y"
         scrollbarSize={4}
       >
+
         <Group
           justify="flex-start"
           align="center"
@@ -34,6 +35,7 @@ const FilterModal = () => {
           c="darkText"
           px={10}
           gap={5}
+          py={5}
         >
           <MdOutlineManageSearch size={19} />
           <Text
