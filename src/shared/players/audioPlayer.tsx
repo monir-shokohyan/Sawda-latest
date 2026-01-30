@@ -35,7 +35,6 @@ const AudioPlayerComponent = ({
     }
     tryLoadMetadata()
 
-
     const updateTime = () => setCurrentTime(audio.currentTime)
     const updateDuration = () => setDuration(audio.duration)
     const handleEnded = () => setIsPlaying(false)

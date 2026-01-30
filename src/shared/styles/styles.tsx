@@ -266,6 +266,7 @@ export const AudioBubble = styled.div<{ $isOwn: boolean }>`
   border-radius: 16px;
   min-width: 240px;
   max-width: 300px;
+  /* background-color: red; */
 `
 
 export const PlayButton = styled.button<{ $isOwn: boolean }>`

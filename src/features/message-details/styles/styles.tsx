@@ -64,17 +64,17 @@ export const BubbleWrapper = styled(Group)<{ $isOwn: boolean }>`
 
 export const MessageBubble = styled.div<{
   $isOwn: boolean
-  $isImages: boolean
+  $isText: boolean
 }>`
   min-width: 120px;
-  max-width: ${({ $isImages }) => ($isImages ? '75%' : 'auto')};
-  padding: ${({ $isImages }) => ($isImages ? '5px' : '14px 10px')};
+  max-width: ${({ $isText }) => ($isText ? 'auto' : '100%')};
+  padding: ${({ $isText }) => ($isText ? '14px 10px' : '5px')};
   background: ${({ $isOwn }) =>
     $isOwn
       ? 'var(--mantine-color-primary-8)'
-      : 'var(--mantine-color-backgroundInput-9)'};
-  color: ${({ $isOwn }) => ($isOwn ? 'white' : '#050505')};
-  border-radius: ${({ $isImages }) => ($isImages ? '5px' : '18px')};
+      : 'var(--mantine-color-background-9)'};
+  color: ${({ $isOwn }) => ($isOwn ? 'white' : 'var(--mantine-color-darkText-8)')};
+  border-radius: ${({ $isText }) => ($isText ? '18px' : '5px')};
   word-wrap: break-word;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   position: relative;

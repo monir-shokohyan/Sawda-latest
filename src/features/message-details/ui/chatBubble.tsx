@@ -40,7 +40,7 @@ const ChatBubble = ({ message }: ChatBubbleProps) => {
       >
         <MessageBubble
           $isOwn={isOwn}
-          $isImages={images.length > 0}
+          $isText={!!content}
         >
           <Stack gap={8}>
             {/* Image Messages */}
