@@ -255,3 +255,101 @@ export const InteractiveCard = styled(Card)<InteractiveCardProps>`
     border-color: var(--mantine-color-primary-8);
   }
 `
+
+////audio players 
+
+export const AudioBubble = styled.div<{ $isOwn: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  min-width: 240px;
+  max-width: 300px;
+
+`
+
+export const PlayButton = styled.button<{ $isOwn: boolean }>`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: ${({ $isOwn }) =>
+    $isOwn ? 'white' : 'var(--mantine-color-primary-6)'};
+  color: ${({ $isOwn }) =>
+    $isOwn ? 'var(--mantine-color-primary-6)' : 'white'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+`
+
+export const AudioContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+`
+
+export const ProgressBarContainer = styled.div<{ $isOwn: boolean }>`
+  width: 100%;
+  height: 4px;
+  background: ${({ $isOwn }) =>
+    $isOwn ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.1)'};
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+`
+
+export const ProgressBar = styled.div<{ $isOwn: boolean }>`
+  height: 100%;
+  background: ${({ $isOwn }) =>
+    $isOwn ? 'white' : 'var(--mantine-color-primary-6)'};
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: ${({ $isOwn }) =>
+      $isOwn ? 'white' : 'var(--mantine-color-primary-6)'};
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  ${ProgressBarContainer}:hover &::after {
+    opacity: 1;
+  }
+`
+
+export const TimeDisplay = styled.div<{ $isOwn: boolean }>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: ${({ $isOwn }) =>
+    $isOwn ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.5)'};
+  font-weight: 500;
+`

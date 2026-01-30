@@ -1,7 +1,7 @@
-import { Group, Stack, Text, Avatar, Box, Image, Grid } from '@mantine/core'
+import { Group, Stack, Text, Avatar, Image, Grid, AspectRatio } from '@mantine/core'
 import styled from 'styled-components'
 import { ChatMessage } from '../types'
-import { MdVolumeUp } from 'react-icons/md'
+import { AudioPlayerComponent } from '@shared/players'
 
 interface ChatBubbleProps {
   message: ChatMessage
@@ -14,73 +14,17 @@ const BubbleWrapper = styled(Group)<{ $isOwn: boolean }>`
   padding: 2px 0;
 `
 
-const MessageBubble = styled.div<{ $isOwn: boolean }>`
-  max-width: 65%;
-  padding: ${({ $isOwn }) => ($isOwn ? '10px 14px' : '10px 14px')};
+const MessageBubble = styled.div<{ $isOwn: boolean, $isImages: boolean }>`
+  min-width: 120px;
+  max-width: ${({ $isImages }) => ($isImages ? '50%' : 'auto')};
+  padding: ${({ $isImages }) => ($isImages ? '5px' : '14px 10px')};
   background: ${({ $isOwn }) =>
-    $isOwn ? 'linear-gradient(135deg, #0084ff 0%, #0073e6 100%)' : '#f0f0f0'};
+    $isOwn ? 'var(--mantine-color-primary-8)' : 'var(--mantine-color-backgroundInput-9)'};
   color: ${({ $isOwn }) => ($isOwn ? 'white' : '#050505')};
-  border-radius: 18px;
+  border-radius: ${({ $isImages }) => ($isImages ? '5px' : '18px')};
   word-wrap: break-word;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   position: relative;
-`
-
-const AudioBubble = styled.div<{ $isOwn: boolean }>`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: ${({ $isOwn }) =>
-    $isOwn ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.05)'};
-  border-radius: 20px;
-  min-width: 200px;
-`
-
-const WaveformContainer = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  height: 24px;
-`
-
-const WaveBar = styled.div<{ height: number; $isOwn: boolean }>`
-  width: 3px;
-  height: ${({ height }) => height}%;
-  background: ${({ $isOwn }) =>
-    $isOwn ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.4)'};
-  border-radius: 2px;
-  transition: all 0.3s ease;
-`
-
-const AudioPlayer = styled.audio`
-  display: none;
-`
-
-const PlayButton = styled.button<{ $isOwn: boolean }>`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: ${({ $isOwn }) =>
-    $isOwn ? 'white' : 'var(--mantine-color-primary-6)'};
-  color: ${({ $isOwn }) =>
-    $isOwn ? 'var(--mantine-color-primary-6)' : 'white'};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  flex-shrink: 0;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
 `
 
 const ChatBubble = ({ message, username }: ChatBubbleProps) => {
@@ -88,14 +32,6 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
 
   const images = attachments?.filter((a) => a.type === 'image') || []
   const audios = attachments?.filter((a) => a.type === 'audio') || []
-
-  const waveformHeights = [40, 70, 50, 90, 60, 80, 45, 75, 55, 85, 50, 70]
-
-  const handlePlayAudio = (audioUrl: string) => {
-    const audio = new Audio(audioUrl)
-    audio.play()
-  }
-  console.log(images)
 
   return (
     <BubbleWrapper
@@ -120,62 +56,47 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
         style={{ maxWidth: '70%' }}
         align={isOwn ? 'flex-end' : 'flex-start'}
       >
-        <MessageBubble $isOwn={isOwn}>
+        <MessageBubble $isOwn={isOwn} $isImages={images.length > 0}>
           <Stack gap={8}>
-            {/* Images */}
-            <Grid
-              gutter="xs" // ← nice spacing between images
-              justify="center" // optional: centers if odd number of images
-            >
-              {images.map((attachment, index) => (
-                <Grid.Col
-                  key={index}
-                  span={{ base: 12, xs: 6 }}
-                >
+            {/* Image Messages */}
+            {images.length > 0 && (
+         <Grid 
+            gutter="5px" 
+            justify="center"
+            grow
+          >
+            {images.map((attachment, index) => (
+              <Grid.Col 
+                key={index} 
+                span={{ base: 12, xs: 6 }}
+              >
+                <AspectRatio ratio={3/4} >
                   <Image
-                    src="/cover.png" // ← use real url, not "/cover.png"
-                    alt={attachment.name || 'Image'}
+                    src={attachment.url || "/cover.png"}
+                    alt={attachment.name || 'Attachment image'}
                     loading="lazy"
-                    radius="md" // ← looks better in chat
+                    radius="md"
                     fit="cover"
-                    h={180} // or 200 – your choice
-                    w="100%" // ← let it fill column width
-                    style={{ display: 'block' }}
+                    fallbackSrc="/cover.png"
+                    style={{ 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
                   />
-                </Grid.Col>
-              ))}
-            </Grid>
+                </AspectRatio>
+              </Grid.Col>
+            ))}
+          </Grid>
+            )}
 
             {/* Audio Messages */}
             {audios.map((attachment, index) => (
-              <AudioBubble
+              <AudioPlayerComponent
                 key={index}
-                $isOwn={isOwn}
-              >
-                <PlayButton
-                  $isOwn={isOwn}
-                  onClick={() => handlePlayAudio(attachment.url)}
-                >
-                  <MdVolumeUp size={18} />
-                </PlayButton>
-
-                <WaveformContainer>
-                  {waveformHeights.map((height, i) => (
-                    <WaveBar
-                      key={i}
-                      height={height}
-                      $isOwn={isOwn}
-                    />
-                  ))}
-                </WaveformContainer>
-
-                <AudioPlayer controls>
-                  <source
-                    src={attachment.url}
-                    type="audio/webm"
-                  />
-                </AudioPlayer>
-              </AudioBubble>
+                audioUrl={attachment.url}
+                isOwn={isOwn}
+              />
             ))}
 
             {/* Text content */}
@@ -193,11 +114,7 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
           </Stack>
         </MessageBubble>
 
-        <Text
-          size="xs"
-          c="dimmed"
-          px={4}
-        >
+        <Text size="xs" c="dimmed" px={4}>
           {timestamp}
         </Text>
       </Stack>
@@ -211,11 +128,7 @@ const ChatBubble = ({ message, username }: ChatBubbleProps) => {
             flexShrink: 0,
           }}
         >
-          <Text
-            size="xs"
-            c="white"
-            fw={600}
-          >
+          <Text size="xs" c="white" fw={600}>
             Me
           </Text>
         </Avatar>
