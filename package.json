@@ -46,7 +46,6 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.6",
     "react-tooltip": "^5.30.0",
-    "react-voice-visualizer": "^2.0.8",
     "styled-components": "^6.1.19",
     "yup": "^1.7.1"
   },
