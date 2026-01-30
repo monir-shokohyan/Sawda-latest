@@ -108,7 +108,7 @@ const ProfileSection = ({
         {isMessage && (
           <Text
             size={isMobile ? timeSize : 'xs'}
-            lineClamp={1}
+            lineClamp={2}
             c={product.isRead ? 'dimmed' : 'darkText'}
             fw={product.isRead ? 400 : 500}
           >

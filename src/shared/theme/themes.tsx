@@ -8,7 +8,8 @@ import {
   Modal,
   Button,
   ActionIcon,
-  Tabs,
+  Drawer,
+  Paper,
 } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
@@ -131,6 +132,20 @@ export const theme = createTheme({
         dropdown: {
           background: theme.colors.background[8],
           borderRadius: '5px',
+        },
+      }),
+    }),
+    Drawer: Drawer.extend({
+      styles: (theme) => ({
+        content: {
+          background: theme.colors.background[8],
+        },
+        body: {
+          padding: '0px',
+          background: theme.colors.background[7],
+        },
+        header: {
+          background: theme.colors.background[7],
         },
       }),
     }),

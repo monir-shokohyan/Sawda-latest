@@ -5,6 +5,7 @@ export enum Paths {
   ChangePassword = '/settings/change-password/',
   Theme = '/settings/theme/',
   Notification = '/settings/notification/',
+  NotificationStatus = '/notification/',
   Privacy = '/settings/privacy/',
   ProductDetails = '/product/',
   ProfileDetails = '/profile/',

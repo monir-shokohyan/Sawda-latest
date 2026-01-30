@@ -1,4 +1,4 @@
-import { Flex } from '@mantine/core'
+import { Drawer, Flex, useMantineTheme } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
@@ -7,7 +7,6 @@ import {
   MdOutlineFavoriteBorder,
   MdOutlineMessage,
   MdOutlineNotifications,
-  MdOutlineShoppingCart,
 } from 'react-icons/md'
 import { MobileDownbar } from './mobile-navbar'
 import { HoveredActionIcon, SButton } from '@shared/styles'
@@ -15,10 +14,14 @@ import { Responsive } from '@shared/hooks/responsive'
 import { Logo } from '@shared/ui/logo'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '@shared/api/paths/paths'
+import { useDisclosure } from '@mantine/hooks'
+import { NotificationStatus } from '@features/notification-status'
 
 const Navbar = () => {
   const { isMobile, isTablet } = Responsive()
   const navigate = useNavigate()
+  const [opened, { open, close }] = useDisclosure()
+  const theme = useMantineTheme()
 
   return (
     <>
@@ -58,14 +61,7 @@ const Navbar = () => {
                   variant="subtle"
                   color="darkText"
                   size="lg"
-                >
-                  <MdOutlineShoppingCart size={20} />
-                </HoveredActionIcon>
-
-                <HoveredActionIcon
-                  variant="subtle"
-                  color="darkText"
-                  size="lg"
+                  onClick={() => open()}
                 >
                   <MdOutlineNotifications size={20} />
                 </HoveredActionIcon>
@@ -100,6 +96,21 @@ const Navbar = () => {
       </Flex>
 
       {isMobile && <MobileDownbar />}
+      {!isMobile && (
+        <Drawer
+          opened={opened}
+          onClose={close}
+          transitionProps={{
+            transition: 'fade-right',
+            duration: 150,
+            timingFunction: 'linear',
+          }}
+          position="right"
+          title="Notification"
+        >
+          <NotificationStatus onNotificationSelect={() => alert('wokring')} />
+        </Drawer>
+      )}
     </>
   )
 }
