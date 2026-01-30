@@ -9,7 +9,40 @@ import { LeftMenu } from './leftMenu'
 import { LeftButtonGroup } from './leftButtonGroup'
 import { StickyPaper } from '../../styles'
 import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
+import styled, { keyframes } from 'styled-components'
 import { useSwipe } from '@shared/hooks/useSwipe'
+
+const slideInFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+const slideInFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+const AnimatedStack = styled(Stack)<{ direction: 'left' | 'right' | null }>`
+  animation: ${(props) =>
+    props.direction === 'left'
+      ? slideInFromRight
+      : props.direction === 'right'
+      ? slideInFromLeft
+      : 'none'}
+    0.3s ease-out;
+`
 
 const LeftSection = ({
   onMessageSelect,
@@ -20,6 +53,7 @@ const LeftSection = ({
   const [hasMore, setHasMore] = useState(true)
   const [filter, setFilter] = useState<MessageFilter>('all')
   const [selectionMode, setSelectionMode] = useState(false)
+  const [animationDirection, setAnimationDirection] = useState<'left' | 'right' | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const tabs: MessageFilter[] = ['all', 'unread', 'read']
@@ -27,6 +61,7 @@ const LeftSection = ({
   const handleSwipeLeft = () => {
     const currentIndex = tabs.indexOf(filter)
     if (currentIndex < tabs.length - 1) {
+      setAnimationDirection('left')
       setFilter(tabs[currentIndex + 1])
     }
   }
@@ -34,6 +69,7 @@ const LeftSection = ({
   const handleSwipeRight = () => {
     const currentIndex = tabs.indexOf(filter)
     if (currentIndex > 0) {
+      setAnimationDirection('right')
       setFilter(tabs[currentIndex - 1])
     }
   }
@@ -58,6 +94,16 @@ const LeftSection = ({
       scrollContainer.removeEventListener('touchend', onTouchEnd)
     }
   }, [onTouchStart, onTouchMove, onTouchEnd])
+
+  // Reset animation direction after animation completes
+  useEffect(() => {
+    if (animationDirection) {
+      const timer = setTimeout(() => {
+        setAnimationDirection(null)
+      }, 300) // Match animation duration
+      return () => clearTimeout(timer)
+    }
+  }, [animationDirection, filter])
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -216,10 +262,11 @@ const LeftSection = ({
             bg="background.8"
             endMessage=""
           >
-            <Stack
+            <AnimatedStack
               gap={0}
               p="xs"
               bg="background.8"
+              direction={animationDirection}
             >
               {filteredMessages.map((message) => (
                 <MessageCard
@@ -232,7 +279,7 @@ const LeftSection = ({
                   setSelectionMode={setSelectionMode}
                 />
               ))}
-            </Stack>
+            </AnimatedStack>
           </InfiniteScrollWrapper>
         </div>
       </Card>
