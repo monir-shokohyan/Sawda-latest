@@ -22,9 +22,10 @@ const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
           styles={{
             container: { alignItems: 'stretch' },
           }}
+          emblaOptions={{ dragFree: true, align: 'start'}}
         >
           {filteredCategories.map((category) => (
-            <Carousel.Slide 
+            <Carousel.Slide
               key={category.id}
               style={{ height: 'auto' }}
             >
