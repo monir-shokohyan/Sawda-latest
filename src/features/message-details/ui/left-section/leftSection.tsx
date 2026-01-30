@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Stack, Group, Text, Badge, Card } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { MessageCard } from '../messageCard'
@@ -9,6 +9,7 @@ import { LeftMenu } from './leftMenu'
 import { LeftButtonGroup } from './leftButtonGroup'
 import { StickyPaper } from '../../styles'
 import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
+import { useSwipe } from '@shared/hooks/useSwipe'
 
 const LeftSection = ({
   onMessageSelect,
@@ -19,6 +20,44 @@ const LeftSection = ({
   const [hasMore, setHasMore] = useState(true)
   const [filter, setFilter] = useState<MessageFilter>('all')
   const [selectionMode, setSelectionMode] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  const tabs: MessageFilter[] = ['all', 'unread', 'read']
+
+  const handleSwipeLeft = () => {
+    const currentIndex = tabs.indexOf(filter)
+    if (currentIndex < tabs.length - 1) {
+      setFilter(tabs[currentIndex + 1])
+    }
+  }
+
+  const handleSwipeRight = () => {
+    const currentIndex = tabs.indexOf(filter)
+    if (currentIndex > 0) {
+      setFilter(tabs[currentIndex - 1])
+    }
+  }
+
+  const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe({
+    onSwipeLeft: handleSwipeLeft,
+    onSwipeRight: handleSwipeRight,
+    minSwipeDistance: 50,
+  })
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current
+    if (!scrollContainer) return
+
+    scrollContainer.addEventListener('touchstart', onTouchStart)
+    scrollContainer.addEventListener('touchmove', onTouchMove)
+    scrollContainer.addEventListener('touchend', onTouchEnd)
+
+    return () => {
+      scrollContainer.removeEventListener('touchstart', onTouchStart)
+      scrollContainer.removeEventListener('touchmove', onTouchMove)
+      scrollContainer.removeEventListener('touchend', onTouchEnd)
+    }
+  }, [onTouchStart, onTouchMove, onTouchEnd])
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -124,7 +163,6 @@ const LeftSection = ({
                 <Badge
                   color="primary"
                   size="sm"
-                  // circle
                 >
                   {unreadCount}
                 </Badge>
@@ -159,6 +197,7 @@ const LeftSection = ({
           />
         </StickyPaper>
         <div
+          ref={scrollContainerRef}
           id="messageScrollContainer"
           style={{
             flex: 1,

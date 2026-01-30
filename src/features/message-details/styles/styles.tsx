@@ -73,7 +73,8 @@ export const MessageBubble = styled.div<{
     $isOwn
       ? 'var(--mantine-color-primary-8)'
       : 'var(--mantine-color-background-9)'};
-  color: ${({ $isOwn }) => ($isOwn ? 'white' : 'var(--mantine-color-darkText-8)')};
+  color: ${({ $isOwn }) =>
+    $isOwn ? 'white' : 'var(--mantine-color-darkText-8)'};
   border-radius: ${({ $isText }) => ($isText ? '18px' : '5px')};
   word-wrap: break-word;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
