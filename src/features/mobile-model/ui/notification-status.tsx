@@ -23,7 +23,7 @@ const NotificationStatusModel = () => {
       fullScreen
       title={<Logo />}
       transitionProps={{ transition: 'fade', duration: 200 }}
-        removeScrollProps={{ 
+      removeScrollProps={{
         allowPinchZoom: true,
       }}
     >
