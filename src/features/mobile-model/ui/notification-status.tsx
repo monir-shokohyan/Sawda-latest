@@ -17,26 +17,18 @@ const NotificationStatusModel = () => {
   }
 
   return (
-   <Modal
-  opened={pathname.endsWith('notification')}
-  onClose={() => navigate(-1 || '/')}
-  fullScreen
-  title={<Logo />}
-  transitionProps={{ transition: 'fade', duration: 200 }}
-  yOffset="0"
-  xOffset={0}
-  styles={{
-    body: { 
-      padding: 0,
-      overflow: 'hidden'
-    },
-    content: {
-      height: '100dvh'
-    }
-  }}
->
-  <NotificationStatus onNotificationSelect={handleNotificationSelect} />
-</Modal>
+    <Modal
+      opened={pathname.endsWith('notification')}
+      onClose={() => navigate(-1 || '/')}
+      fullScreen
+      title={<Logo />}
+      transitionProps={{ transition: 'fade', duration: 200 }}
+        removeScrollProps={{ 
+        allowPinchZoom: true,
+      }}
+    >
+      <NotificationStatus onNotificationSelect={handleNotificationSelect} />
+    </Modal>
   )
 }
 
