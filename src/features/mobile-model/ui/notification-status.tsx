@@ -10,11 +10,11 @@ const NotificationStatusModel = () => {
   const navigate = useNavigate()
   const { pathname } = useProfileDropDown({})
 
-  const handleMessageSelect = (message: Message) => {
+  const handleNotificationSelect = (message: Message) => {
     navigate(
       `${Paths.MobileModel}message-history?id=${message.id}&username=${message.username}`,
     )
-  }  
+  }
 
   return (
     <Modal
@@ -25,7 +25,7 @@ const NotificationStatusModel = () => {
       pos="relative"
       transitionProps={{ transition: 'fade', duration: 200 }}
     >
-      <NotificationStatus onNotificationSelect={handleMessageSelect}/>
+      <NotificationStatus onNotificationSelect={handleNotificationSelect} />
     </Modal>
   )
 }

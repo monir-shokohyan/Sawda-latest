@@ -1,5 +1,5 @@
 import { Group, Indicator } from '@mantine/core'
-import { NotificationCardProps } from '../types'
+import { FollowingCardProps } from '../types'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { StyledCard } from '../styles'
 
@@ -7,7 +7,7 @@ const NotificationCard = ({
   message,
   isActive,
   onClick,
-}: NotificationCardProps) => {
+}: FollowingCardProps) => {
   const handleClick = (e: React.MouseEvent) => {
     onClick(message.id)
   }

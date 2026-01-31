@@ -16,12 +16,15 @@ import { useNavigate } from 'react-router-dom'
 import { Paths } from '@shared/api/paths/paths'
 import { useDisclosure } from '@mantine/hooks'
 import { NotificationStatus } from '@features/notification-status'
+import { TbUserPlus } from 'react-icons/tb'
+import { Following } from '@features/followings'
 
 const Navbar = () => {
   const { isMobile, isTablet } = Responsive()
   const navigate = useNavigate()
   const [opened, { open, close }] = useDisclosure()
-  const theme = useMantineTheme()
+  const [openedFollowing, { open: openFollowing, close: closeFollowing }] =
+    useDisclosure()
 
   return (
     <>
@@ -55,6 +58,15 @@ const Navbar = () => {
                   onClick={() => navigate(`${Paths.Favorites}monir`)}
                 >
                   <MdOutlineFavoriteBorder size={20} />
+                </HoveredActionIcon>
+
+                <HoveredActionIcon
+                  variant="subtle"
+                  color="darkText"
+                  size="lg"
+                  onClick={() => openFollowing()}
+                >
+                  <TbUserPlus size={20} />
                 </HoveredActionIcon>
 
                 <HoveredActionIcon
@@ -109,6 +121,21 @@ const Navbar = () => {
           title="Notification"
         >
           <NotificationStatus onNotificationSelect={() => alert('wokring')} />
+        </Drawer>
+      )}
+      {!isMobile && (
+        <Drawer
+          opened={openedFollowing}
+          onClose={closeFollowing}
+          transitionProps={{
+            transition: 'fade-right',
+            duration: 150,
+            timingFunction: 'linear',
+          }}
+          position="right"
+          title="Following"
+        >
+          <Following onFollowingSelect={() => alert('wokring')} />
         </Drawer>
       )}
     </>
