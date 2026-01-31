@@ -17,20 +17,26 @@ const NotificationStatusModel = () => {
   }
 
   return (
-    <Modal
-      opened={pathname.endsWith('notification')}
-      onClose={() => navigate(-1 || '/')}
-      fullScreen
-      title={<Logo />}
-      pos="relative"
-      transitionProps={{ transition: 'fade', duration: 200 }}
-        styles={{
-    body: { padding: 0, height: '100%' },
-    content: { display: 'flex', flexDirection: 'column' }
+   <Modal
+  opened={pathname.endsWith('notification')}
+  onClose={() => navigate(-1 || '/')}
+  fullScreen
+  title={<Logo />}
+  transitionProps={{ transition: 'fade', duration: 200 }}
+  yOffset="0"
+  xOffset={0}
+  styles={{
+    body: { 
+      padding: 0,
+      overflow: 'hidden'
+    },
+    content: {
+      height: '100dvh'
+    }
   }}
-    >
-      <NotificationStatus onNotificationSelect={handleNotificationSelect} />
-    </Modal>
+>
+  <NotificationStatus onNotificationSelect={handleNotificationSelect} />
+</Modal>
   )
 }
 
