@@ -100,7 +100,11 @@ const ProductCard: React.FC<UseModalProps> = ({
               color={profile?.liked ? 'red' : 'gray'}
               onClick={handleLikeClick}
             >
-              {profile?.liked ? <FaHeart size={18} /> : <FaRegHeart size={18} />}
+              {profile?.liked ? (
+                <FaHeart size={18} />
+              ) : (
+                <FaRegHeart size={18} />
+              )}
             </HoveredActionIcon>
           </ActionIconWrapper>
           <HoveredActionIcon
