@@ -27,7 +27,7 @@ const ProfileSection = ({
   const navigate = useNavigate()
   const theme = useMantineTheme()
   const padding = isMobile ? '5px' : 'xs'
-  
+
   return (
     <Flex
       p={padding}

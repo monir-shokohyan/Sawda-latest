@@ -19,7 +19,7 @@ const useManageFollowingSection = ({
   >(null)
   const FollowingContainerRef = useRef<HTMLDivElement>(null)
 
-  const tabs: FollowingFilter[] = ['Follower', 'Following']
+  const tabs: FollowingFilter[] = ['Following', 'Follower']
 
   const handleSwipeLeft = () => {
     const currentIndex = tabs.indexOf(filter)

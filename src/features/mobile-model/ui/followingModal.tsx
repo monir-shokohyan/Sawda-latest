@@ -25,7 +25,7 @@ const FollowingModel = () => {
       pos="relative"
       transitionProps={{ transition: 'fade', duration: 200 }}
     >
-      <Following onFollowingSelect={handleFollowingSelect}/>
+      <Following onFollowingSelect={handleFollowingSelect} />
     </Modal>
   )
 }
