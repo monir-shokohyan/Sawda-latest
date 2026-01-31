@@ -15,4 +15,5 @@ export enum Paths {
   MessageHistory = '/model/message-history',
   MessageList = '/model/message-list',
   NotificationStatus = '/model/notification',
+  FollowingStatus = '/model/following',
 }

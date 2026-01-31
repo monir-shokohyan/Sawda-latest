@@ -8,6 +8,7 @@ const FollowingTab = ({
   notification,
   followingCount,
 }: FollowingTabProps) => {
+  const followersCount = notification!.length - followingCount;
   return (
     <HovTabs
       value={filter}
@@ -15,9 +16,9 @@ const FollowingTab = ({
     >
       <Tabs.List grow>
         <Tabs.Tab value="Following">
-          Following ({notification?.length})
+          Following ({followingCount})
         </Tabs.Tab>
-        <Tabs.Tab value="Follower">Follower ({followingCount})</Tabs.Tab>
+        <Tabs.Tab value="Follower">Follower ({followersCount})</Tabs.Tab>
       </Tabs.List>
     </HovTabs>
   )

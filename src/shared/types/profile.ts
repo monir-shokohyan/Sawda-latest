@@ -10,4 +10,5 @@ export interface ProductProps {
   email?: string
   message?: string
   isRead?: boolean
+  isFollowing?: boolean
 }

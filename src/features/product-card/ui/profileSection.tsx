@@ -2,7 +2,7 @@ import { Avatar, Flex, Stack, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
-import { HoveredText } from '@shared/styles'
+import { HoveredText, SButton } from '@shared/styles'
 import { Paths } from '@shared/api/paths/paths'
 
 const ProfileSection = ({
@@ -21,11 +21,13 @@ const ProfileSection = ({
   hoverUsername = true,
   isStaticColor = false,
   isMessage = false,
+  isFollowing = false,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
   const theme = useMantineTheme()
   const padding = isMobile ? '5px' : 'xs'
+  
   return (
     <Flex
       p={padding}
@@ -76,6 +78,18 @@ const ProfileSection = ({
             >
               {product.timestamp}
             </Text>
+          )}
+          {isFollowing && (
+            <SButton
+              variant="subtle"
+              color="lightText"
+              size="sm"
+              p={0}
+              px={10}
+              bg="originalBlue"
+            >
+              {product.isFollowing ? 'Unfollow' : 'Follow back'}
+            </SButton>
           )}
         </Flex>
         {showEmail && (

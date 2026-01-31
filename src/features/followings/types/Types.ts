@@ -6,7 +6,7 @@ export interface Following {
   timestamp?: string
   isRead?: boolean
   isSelected?: boolean
-  isFollower?: boolean
+  isFollowing?: boolean
 }
 
 export type FollowingFilter = 'Follower' | 'Following'

@@ -21,4 +21,5 @@ export interface ProfileProps {
   hoverUsername?: boolean
   isStaticColor?: boolean
   isMessage?: boolean
+  isFollowing?: boolean
 }

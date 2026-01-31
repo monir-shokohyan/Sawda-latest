@@ -57,9 +57,7 @@ export const generateFollowing = (
       username: sampleUsernames[id % sampleUsernames.length],
       message: sampleFollowActivities[id % sampleFollowActivities.length],
       timestamp: months[Math.floor(Math.random() * months.length)],
-      isRead: Math.random() > 0.4,
-      isFollower: Math.random() > 0.8,
-      isSelected: false,
+      isFollowing: Math.random() > 0.8,
     }
   })
 }

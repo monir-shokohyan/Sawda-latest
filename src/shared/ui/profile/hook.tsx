@@ -27,7 +27,7 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
     {
       label: 'Following',
       icon: <TbUserPlus size={isMobile ? 24 : 20} />,
-      path: `${Paths.Following}${id}`,
+      path: `${Paths.FollowingStatus}?id=${id}`,
     },
     {
       label: 'Notification',

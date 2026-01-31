@@ -64,8 +64,8 @@ const useManageFollowingSection = ({
   }, [animationDirection, filter])
 
   const filteredFollowings = Followings.filter((msg) => {
-    if (filter === 'Following') return !msg.isFollower
-    if (filter === 'Follower') return msg.isFollower
+    if (filter === 'Follower') return !msg.isFollowing
+    if (filter === 'Following') return msg.isFollowing
     return true
   })
 
@@ -99,7 +99,7 @@ const useManageFollowingSection = ({
     return () => clearTimeout(timer)
   }, [filter, filteredFollowings.length, reachedEnd])
 
-  const followingCount = Followings.filter((m) => !m.isFollower).length
+  const followingCount = Followings.filter((m) => m.isFollowing).length
 
   const handleFollowingClick = (id: number) => {
     const message = Followings.find((m) => m.id === id)
