@@ -24,6 +24,10 @@ const NotificationStatusModel = () => {
       title={<Logo />}
       pos="relative"
       transitionProps={{ transition: 'fade', duration: 200 }}
+        styles={{
+    body: { padding: 0, height: '100%' },
+    content: { display: 'flex', flexDirection: 'column' }
+  }}
     >
       <NotificationStatus onNotificationSelect={handleNotificationSelect} />
     </Modal>
