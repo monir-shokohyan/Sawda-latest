@@ -32,7 +32,7 @@ const useProfileDropDown = ({ id = 'monir' }: { id?: string }) => {
     {
       label: 'Notification',
       icon: <MdNotificationsNone size={isMobile ? 24 : 20} />,
-      path: `${Paths.NotificationStatus}${id}`,
+      path: `${Paths.NotificationStatus}?id=${id}`,
     },
     {
       label: 'Settings',

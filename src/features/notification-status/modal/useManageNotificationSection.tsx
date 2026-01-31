@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from "react"
-import { Notification, NotificationFilter, NotificationSectionProps } from "../types"
-import { Responsive } from "@shared/hooks/responsive"
-import { generateNotification } from "../constant"
-import { useSwipe } from "@shared/hooks/useSwipe"
+import { useEffect, useRef, useState } from 'react'
+import {
+  Notification,
+  NotificationFilter,
+  NotificationSectionProps,
+} from '../types'
+import { Responsive } from '@shared/hooks/responsive'
+import { generateNotification } from '../constant'
+import { useSwipe } from '@shared/hooks/useSwipe'
 
 const useManageNotificationSection = ({
   onNotificationSelect,
@@ -14,8 +18,8 @@ const useManageNotificationSection = ({
   const [totalFetched, setTotalFetched] = useState(15)
   const [reachedEnd, setReachedEnd] = useState(false) // master flag: no more data exists at all
   const [filter, setFilter] = useState<NotificationFilter>('All')
-  const [animationDirection, setAnimationDirection] = useState
-   < 'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState<
+    'left' | 'right' | null
   >(null)
   const notificationContainerRef = useRef<HTMLDivElement>(null)
 
@@ -98,7 +102,6 @@ const useManageNotificationSection = ({
 
     return () => clearTimeout(timer)
   }, [filter, filterednotifications.length, reachedEnd])
-
 
   const followingCount = notifications.filter((m) => !m.isSupport).length
 

@@ -5,7 +5,6 @@ export enum Paths {
   ChangePassword = '/settings/change-password/',
   Theme = '/settings/theme/',
   Notification = '/settings/notification/',
-  NotificationStatus = '/notification/',
   Privacy = '/settings/privacy/',
   ProductDetails = '/product/',
   ProfileDetails = '/profile/',
@@ -15,4 +14,5 @@ export enum Paths {
   Message = '/message/',
   MessageHistory = '/model/message-history',
   MessageList = '/model/message-list',
+  NotificationStatus = '/model/notification',
 }

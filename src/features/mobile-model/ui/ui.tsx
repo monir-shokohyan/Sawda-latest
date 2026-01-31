@@ -3,6 +3,7 @@ import { FilterModal } from './filterModal'
 import { MessageHistoryModel } from './messageHistoryModal'
 import { MessageListModel } from './messageListModal'
 import { ProfileModel } from './profileModel'
+import { NotificationStatusModel } from './notification-status'
 
 function Ui() {
   return (
@@ -12,6 +13,7 @@ function Ui() {
       <FilterModal />
       <MessageListModel />
       <MessageHistoryModel />
+      <NotificationStatusModel />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { Group } from '@mantine/core'
+import { Group, Indicator } from '@mantine/core'
 import { NotificationCardProps } from '../types'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { StyledCard } from '../styles'
@@ -13,6 +13,7 @@ const NotificationCard = ({
   }
 
   return (
+    
     <StyledCard
       $isActive={isActive}
       $isRead={message.isRead}
@@ -20,6 +21,7 @@ const NotificationCard = ({
       radius="0px"
       onClick={handleClick}
     >
+    <Indicator inline processing disabled={message.isRead} color="red" size={6}>
       <Group
         wrap="nowrap"
         align="center"
@@ -31,6 +33,7 @@ const NotificationCard = ({
           usernameSize="1rem"
         />
       </Group>
+    </Indicator>
     </StyledCard>
   )
 }
