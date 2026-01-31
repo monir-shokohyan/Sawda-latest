@@ -1,12 +1,8 @@
-import { Responsive } from '@shared/hooks/responsive'
-import { useEffect, useRef, useState } from 'react'
-import {
-  NotificationSectionProps,
-  Notification,
-  NotificationFilter,
-} from '../types'
-import { generateNotification } from '../constant'
-import { useSwipe } from '@shared/hooks/useSwipe'
+import { useEffect, useRef, useState } from "react"
+import { Notification, NotificationFilter, NotificationSectionProps } from "../types"
+import { Responsive } from "@shared/hooks/responsive"
+import { generateNotification } from "../constant"
+import { useSwipe } from "@shared/hooks/useSwipe"
 
 const useManageNotificationSection = ({
   onNotificationSelect,
@@ -15,10 +11,11 @@ const useManageNotificationSection = ({
   const [notifications, setNotifications] = useState<Notification[]>(
     generateNotification(0, 15),
   )
-  const [hasMore, setHasMore] = useState(true)
+  const [totalFetched, setTotalFetched] = useState(15)
+  const [reachedEnd, setReachedEnd] = useState(false) // master flag: no more data exists at all
   const [filter, setFilter] = useState<NotificationFilter>('All')
-  const [animationDirection, setAnimationDirection] = useState<
-    'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState
+   < 'left' | 'right' | null
   >(null)
   const notificationContainerRef = useRef<HTMLDivElement>(null)
 
@@ -49,11 +46,9 @@ const useManageNotificationSection = ({
   useEffect(() => {
     const scrollContainer = notificationContainerRef.current
     if (!scrollContainer) return
-
     scrollContainer.addEventListener('touchstart', onTouchStart)
     scrollContainer.addEventListener('touchmove', onTouchMove)
     scrollContainer.addEventListener('touchend', onTouchEnd)
-
     return () => {
       scrollContainer.removeEventListener('touchstart', onTouchStart)
       scrollContainer.removeEventListener('touchmove', onTouchMove)
@@ -63,29 +58,47 @@ const useManageNotificationSection = ({
 
   useEffect(() => {
     if (animationDirection) {
-      const timer = setTimeout(() => {
-        setAnimationDirection(null)
-      }, 300)
+      const timer = setTimeout(() => setAnimationDirection(null), 300)
       return () => clearTimeout(timer)
     }
   }, [animationDirection, filter])
-
-  const fetchMoreData = () => {
-    setTimeout(() => {
-      const newNotifications = generateNotification(notifications.length, 15)
-      setNotifications((prev) => [...prev, ...newNotifications])
-
-      if (notifications.length + newNotifications.length >= 60) {
-        setHasMore(false)
-      }
-    }, 1000)
-  }
 
   const filterednotifications = notifications.filter((msg) => {
     if (filter === 'Following') return !msg.isSupport
     if (filter === 'Support') return msg.isSupport
     return true
   })
+
+  const hasMore = !reachedEnd
+
+  const fetchMoreData = () => {
+    setTimeout(() => {
+      const newNotifications = generateNotification(totalFetched, 15)
+      setNotifications((prev) => [...prev, ...newNotifications])
+      const newTotal = totalFetched + newNotifications.length
+      setTotalFetched(newTotal)
+
+      if (newTotal >= 60) {
+        setReachedEnd(true)
+      }
+    }, 1000)
+  }
+
+  useEffect(() => {
+    if (reachedEnd) return
+
+    const container = notificationContainerRef.current
+    if (!container) return
+    const timer = setTimeout(() => {
+      const { scrollHeight, clientHeight } = container
+      if (scrollHeight <= clientHeight) {
+        fetchMoreData()
+      }
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [filter, filterednotifications.length, reachedEnd])
+
 
   const followingCount = notifications.filter((m) => !m.isSupport).length
 

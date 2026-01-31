@@ -7,15 +7,19 @@ import { useSwipe } from '@shared/hooks/useSwipe'
 const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
   const { isMobile } = Responsive()
   const [messages, setMessages] = useState<Message[]>(generateMessages(0, 15))
-  const [hasMore, setHasMore] = useState(true)
+  const [totalFetched, setTotalFetched] = useState(15)
+  const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<MessageFilter>('all')
   const [selectionMode, setSelectionMode] = useState(false)
-  const [animationDirection, setAnimationDirection] = useState<
-    'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState
+   < 'left' | 'right' | null
   >(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const fetchMoreDataRef = useRef<(() => void) | null>(null)
 
   const tabs: MessageFilter[] = ['all', 'unread', 'read']
+
+  const hasMore = !reachedEnd
 
   const handleSwipeLeft = () => {
     const currentIndex = tabs.indexOf(filter)
@@ -65,20 +69,43 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
 
   const fetchMoreData = () => {
     setTimeout(() => {
-      const newMessages = generateMessages(messages.length, 15)
+      const newMessages = generateMessages(totalFetched, 15)
       setMessages((prev) => [...prev, ...newMessages])
+      const newTotal = totalFetched + newMessages.length
+      setTotalFetched(newTotal)
 
-      if (messages.length + newMessages.length >= 60) {
-        setHasMore(false)
+      if (newTotal >= 60) {
+        setReachedEnd(true)
       }
     }, 1000)
   }
+
+  useEffect(() => {
+    fetchMoreDataRef.current = fetchMoreData
+  })
 
   const filteredMessages = messages.filter((msg) => {
     if (filter === 'unread') return !msg.isRead
     if (filter === 'read') return msg.isRead
     return true
   })
+
+  useEffect(() => {
+    if (reachedEnd) return
+
+    const container = scrollContainerRef.current
+    if (!container) return
+
+    const timer = setTimeout(() => {
+      const { scrollHeight, clientHeight } = container
+      if (scrollHeight <= clientHeight) {
+        fetchMoreDataRef.current?.()
+      }
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [filter, filteredMessages.length, reachedEnd])
+
 
   const unreadCount = messages.filter((m) => !m.isRead).length
   const selectedCount = messages.filter((m) => m.isSelected).length
