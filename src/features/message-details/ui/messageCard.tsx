@@ -55,7 +55,7 @@ const MessageCard = ({
           />
         )}
         <ProfileSection
-          product={message}
+          profile={message}
           isMessage
           showTime={false}
           usernameSize="1rem"

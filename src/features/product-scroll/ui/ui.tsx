@@ -76,7 +76,7 @@ const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
                     span={{ base: 6, sm: 6, md: 4, lg: 3 }}
                   >
                     <ProductCard
-                      product={product}
+                      profile={product}
                       handleToggleLike={toggleLike}
                     />
                   </Grid.Col>

@@ -41,7 +41,7 @@ const Reviews = () => {
           >
             <Stack>
               <ProfileSection
-                product={{
+                profile={{
                   username: 'monir198321',
                   timestamp: '12d 13m',
                 }}

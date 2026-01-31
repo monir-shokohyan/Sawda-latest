@@ -21,7 +21,7 @@ const Header = ({ selectedMessage, onBack }: RightHeaderProps) => {
           )}
 
           <ProfileSection
-            product={selectedMessage}
+            profile={selectedMessage}
             showTime={false}
             showActiveNow
             usernameSize="1rem"

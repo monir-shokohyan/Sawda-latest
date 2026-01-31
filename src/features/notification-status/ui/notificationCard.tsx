@@ -32,7 +32,7 @@ const NotificationCard = ({
           align="center"
         >
           <ProfileSection
-            product={message}
+            profile={message}
             isMessage
             showTime={false}
             usernameSize="1rem"

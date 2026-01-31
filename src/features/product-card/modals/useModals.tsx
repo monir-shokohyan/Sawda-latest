@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { UseModalProps } from '../types'
 import { Paths } from '@shared/api/paths/paths'
 
-const useModals = ({ product, handleToggleLike }: UseModalProps) => {
+const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
   const [isAnimating, setIsAnimating] = useState<boolean>(false)
@@ -19,9 +19,9 @@ const useModals = ({ product, handleToggleLike }: UseModalProps) => {
     }
     clickTimeout = setTimeout(() => {
       navigate({
-        pathname: `${Paths.ProductDetails}${product.id}`,
+        pathname: `${Paths.ProductDetails}${profile?.id}`,
         search: new URLSearchParams({
-          name: `${product.title?.slice(0, 20)}...`,
+          name: `${profile?.title?.slice(0, 20)}...`,
         }).toString(),
       })
       clickTimeout = null
@@ -31,26 +31,26 @@ const useModals = ({ product, handleToggleLike }: UseModalProps) => {
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation()
 
-    if (!product.liked) {
+    if (!profile?.liked) {
       setShowOverlay(true)
       setTimeout(() => setShowOverlay(false), 800)
     }
 
     setIsAnimating(true)
-    handleToggleLike(product.id as number)
+    handleToggleLike(profile?.id as number)
     setTimeout(() => setIsAnimating(false), 600)
   }
 
   const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
 
-    if (!product.liked) {
+    if (!profile?.liked) {
       setShowOverlay(true)
       setTimeout(() => setShowOverlay(false), 800)
     }
 
     setIsAnimating(true)
-    handleToggleLike(product.id as number)
+    handleToggleLike(profile?.id as number)
     setTimeout(() => setIsAnimating(false), 600)
   }
 

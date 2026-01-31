@@ -39,7 +39,7 @@ const ProfileModel = () => {
         >
           <OverlayBg>
             <ProfileSection
-              product={{
+              profile={{
                 username: 'Monir198323',
                 timestamp: '23day',
                 email: 'monir.shekoyans1@gmail.com',

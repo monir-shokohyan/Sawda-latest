@@ -14,7 +14,7 @@ import { ImageContainer } from './ImageContainer'
 import { HoveredActionIcon } from '@shared/styles'
 
 const ProductCard: React.FC<UseModalProps> = ({
-  product,
+  profile,
   handleToggleLike,
 }) => {
   const {
@@ -25,7 +25,7 @@ const ProductCard: React.FC<UseModalProps> = ({
     handleLikeClick,
     showOverlay,
     particles,
-  } = useModals({ product, handleToggleLike })
+  } = useModals({ profile, handleToggleLike })
   return (
     <CardWrapper
       data-tooltip-id="global-tooltip"
@@ -48,7 +48,7 @@ const ProductCard: React.FC<UseModalProps> = ({
         onDoubleClick={handleDoubleClick}
         bg="background.7"
       >
-        <ProfileSection product={product} />
+        <ProfileSection profile={profile} />
 
         <ImageContainer />
 
@@ -63,7 +63,7 @@ const ProductCard: React.FC<UseModalProps> = ({
             lineClamp={1}
             style={{ flexGrow: 1 }}
           >
-            {product.title}
+            {profile?.title}
           </Text>
           <Group
             gap="xs"
@@ -73,14 +73,14 @@ const ProductCard: React.FC<UseModalProps> = ({
               size={isMobile ? '0.8rem' : 'xl'}
               fw={700}
             >
-              {product.price}
+              {profile?.price}
             </Text>
             <Text
               size={isMobile ? '0.7rem' : 'md'}
               c="dimmed"
               td="line-through"
             >
-              {product.originalPrice}
+              {profile?.originalPrice}
             </Text>
           </Group>
         </Flex>
@@ -93,14 +93,14 @@ const ProductCard: React.FC<UseModalProps> = ({
         >
           <ActionIconWrapper
             $isAnimating={isAnimating}
-            $liked={product.liked}
+            $liked={profile?.liked}
           >
             <HoveredActionIcon
               variant="subtle"
-              color={product.liked ? 'red' : 'gray'}
+              color={profile?.liked ? 'red' : 'gray'}
               onClick={handleLikeClick}
             >
-              {product.liked ? <FaHeart size={18} /> : <FaRegHeart size={18} />}
+              {profile?.liked ? <FaHeart size={18} /> : <FaRegHeart size={18} />}
             </HoveredActionIcon>
           </ActionIconWrapper>
           <HoveredActionIcon

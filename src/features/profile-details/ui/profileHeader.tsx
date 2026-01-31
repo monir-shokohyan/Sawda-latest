@@ -1,7 +1,6 @@
 import { SCenter } from '../styles'
 import { GradientContainer } from '@shared/ui/containers'
 import {
-  ActionIcon,
   BackgroundImage,
   Button,
   Flex,
@@ -15,6 +14,7 @@ import { FaEllipsisV, FaStar } from 'react-icons/fa'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
 import { TypographySize } from '@shared/typography'
+import { ProfileConstant } from '../constant'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
@@ -44,10 +44,7 @@ const ProfileHeader = () => {
               w={isMobile ? '100%' : 'auto'}
             >
               <ProfileSection
-                product={{
-                  username: 'User name',
-                  timestamp: '23day',
-                }}
+                profile={ProfileConstant}
                 showDetails
                 showTime={false}
                 size="lg"

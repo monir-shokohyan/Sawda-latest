@@ -1,12 +1,12 @@
 import { FlexProps } from '@mantine/core'
-import { ProductProps } from '@shared/types/profile'
+import { ProfileInfoProps } from '@shared/types/profile'
 
 export interface UseModalProps {
-  product: ProductProps
+  profile: ProfileInfoProps
   handleToggleLike: (id: number) => void
 }
 export interface ProfileProps {
-  product: ProductProps
+  profile: ProfileInfoProps
   showDetails?: boolean
   showMessage?: boolean
   showActiveNow?: boolean
