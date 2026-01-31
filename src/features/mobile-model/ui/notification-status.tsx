@@ -23,9 +23,7 @@ const NotificationStatusModel = () => {
       fullScreen
       title={<Logo />}
       transitionProps={{ transition: 'fade', duration: 200 }}
-      removeScrollProps={{
-        allowPinchZoom: true,
-      }}
+      m={0}
     >
       <NotificationStatus onNotificationSelect={handleNotificationSelect} />
     </Modal>

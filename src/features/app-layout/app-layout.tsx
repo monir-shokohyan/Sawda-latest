@@ -7,7 +7,7 @@ import { ScrollToTop } from '@shared/ui/scroll-top'
 
 export const AppLayout = () => {
   return (
-    <Flex direction="column">
+    <Flex direction="column" w="100dvw" h="dvh">
       <ScrollToTop />
       <Navbar />
       <Content />
