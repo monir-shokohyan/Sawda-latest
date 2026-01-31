@@ -57,7 +57,7 @@ const Ui = ({
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
             scrollBehavior: 'smooth',
-            maxHeight: '88dvh',
+            maxHeight: '85dvh',
           }}
         >
           <InfiniteScrollWrapper

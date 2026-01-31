@@ -23,7 +23,6 @@ const NotificationStatusModel = () => {
       fullScreen
       title={<Logo />}
       transitionProps={{ transition: 'fade', duration: 200 }}
-      m={0}
     >
       <NotificationStatus onNotificationSelect={handleNotificationSelect} />
     </Modal>
