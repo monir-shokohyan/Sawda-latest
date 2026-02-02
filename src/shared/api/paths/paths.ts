@@ -7,6 +7,8 @@ export enum Paths {
   Notification = '/settings/notification/',
   Privacy = '/settings/privacy/',
   ProductDetails = '/product/',
+  AddProduct = '/add-edit-product/add',
+  EditProduct = '/add-edit-product/edit',
   ProfileDetails = '/profile/',
   MobileModel = '/model/',
   Favorites = '/favorites/',

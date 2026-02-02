@@ -112,10 +112,10 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
           }}
           slideSize={isMobile ? '95%' : '97%'}
         >
-          {data?.map((image) => (
+          {images?.map((image) => (
             <Carousel.Slide key={image.id}>
               <img
-                src="/cover.png"
+                src={image.url}
                 alt="image of product"
                 style={{
                   width: '100%',

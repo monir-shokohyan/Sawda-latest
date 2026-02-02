@@ -1,6 +1,11 @@
+body {
+  background-color: var(--mantine-color-background-9) !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 
 ::-webkit-scrollbar-track {
   background: #f0f0f0;

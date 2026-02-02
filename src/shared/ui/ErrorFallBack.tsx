@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { GoAlert } from 'react-icons/go'
 import { useNavigate } from 'react-router-dom'
-import { Tooltip, Text, Stack, Group, Alert, Title, Paper } from '@mantine/core'
+import { Tooltip, Text, Stack, Group, Alert, Title, Paper, Button } from '@mantine/core'
 import { TbHome, TbRefresh } from 'react-icons/tb'
 import { FallbackProps } from 'react-error-boundary'
 import { SButton } from '@shared/styles'
@@ -22,7 +22,9 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
       shadow="sm"
       p="xl"
       radius="md"
-      style={{ maxWidth: 600, margin: 'auto', marginTop: '10vh' }}
+      style={{ maxWidth: '90%', margin: 'auto', marginTop: '10vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      bg="background.9"
+      h="55vh"
     >
       <Stack
         align="center"
@@ -51,7 +53,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
             <SButton
               leftSection={<TbRefresh size={18} />}
               onClick={resetErrorBoundary}
-              color="blue"
+              color="primary"
             >
               Try Again
             </SButton>
@@ -61,22 +63,22 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
             label="Return to homepage"
             position="bottom"
           >
-            <SButton
+            <Button
               leftSection={<TbHome size={18} />}
               onClick={() => navigate('/')}
-              variant="default"
+              variant="outline"
             >
               Home
-            </SButton>
+            </Button>
           </Tooltip>
         </Group>
 
-        <SButton
+        <Button
           variant="subtle"
           onClick={() => setShowDetails(!showDetails)}
         >
           {showDetails ? 'Hide error details' : 'Show error details'}
-        </SButton>
+        </Button>
 
         {showDetails && (
           <Alert

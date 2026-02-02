@@ -100,6 +100,7 @@ const Navbar = () => {
               p={0}
               px={10}
               bg="originalBlue"
+              onClick={() =>navigate(Paths.AddProduct)}
             >
               Place an ad
             </SButton>

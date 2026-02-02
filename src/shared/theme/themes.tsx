@@ -10,6 +10,7 @@ import {
   ActionIcon,
   Drawer,
   Paper,
+  SegmentedControl,
 } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
@@ -127,6 +128,9 @@ export const theme = createTheme({
         },
       }),
     }),
+    body: {
+      
+    },
     Select: Select.extend({
       styles: (theme) => ({
         dropdown: {
@@ -189,6 +193,21 @@ export const theme = createTheme({
           fontSize: '20px',
           color: theme.colors.darkText[8],
           fontWeight: 500,
+        },
+      }),
+    }),
+     SegmentedControl: SegmentedControl.extend({
+      styles: (theme) => ({
+        root: {
+          backgroundColor: theme.colors.background[8],
+          borderRadius: '5px',
+        },
+        indicator: {
+          backgroundColor: theme.colors.primary[6],
+          borderRadius: '5px',
+        },
+        label: {
+          color: theme.colors.darkText[8],
         },
       }),
     }),

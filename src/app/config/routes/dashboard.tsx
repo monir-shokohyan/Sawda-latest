@@ -15,6 +15,7 @@ import { ThemePage } from '@pages/theme'
 import { FavoritesPage } from '@pages/favorites'
 import { SearchPage } from '@pages/search'
 import { MessageDetailsPage } from '@pages/message-details'
+import { AddEditProductPage } from '@pages/add-edit-product'
 
 export const mainRoute: RouteType[] = [
   {
@@ -54,6 +55,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="product-detail">
         <ProductDetailPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'add-edit-product',
+    guarded: '',
+    path: '/add-edit-product/:category',
+    element: (
+      <ErrorSuspense suspenseKey="add-edit-product">
+        <AddEditProductPage />
       </ErrorSuspense>
     ),
   },

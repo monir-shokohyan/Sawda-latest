@@ -205,8 +205,9 @@ export const HoveredActionIcon = styled(ActionIcon)<
     type?: 'submit'
   }
 >`
+  
   &:hover {
-    background: var(--mantine-color-primary-light-hover);
+    background: var(--mantine-color-primary-light-hover) !important;
   }
 `
 
@@ -218,6 +219,8 @@ export const HoveredButton = styled(Button)<
     type?: 'submit'
   }
 >`
+
+
   border-radius: 5px;
   &:hover {
     background: var(--mantine-color-primary-light-hover);
