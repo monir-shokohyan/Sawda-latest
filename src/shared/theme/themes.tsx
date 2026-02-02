@@ -11,6 +11,7 @@ import {
   Drawer,
   Paper,
   SegmentedControl,
+  Chip,
 } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
 
@@ -207,6 +208,13 @@ export const theme = createTheme({
         label: {
           color: theme.colors.darkText[8],
         },
+      }),
+    }),
+    Chip: Chip.extend({
+      styles: (theme) => ({
+       label :{
+          backgroundColor: theme.colors.background[8],
+       }
       }),
     }),
   },

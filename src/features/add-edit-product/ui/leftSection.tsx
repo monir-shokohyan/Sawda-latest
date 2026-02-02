@@ -1,50 +1,110 @@
-import { Flex, Stack, Text } from '@mantine/core'
-import { ResText, SButton } from '@shared/styles'
-import { ImageCarousel } from '@shared/ui/carousal'
-import { MdEditDocument, MdOutlineFavorite } from 'react-icons/md'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { DetailsList, DetailsObject } from '../constant'
-import { ProductDetails } from './productDetails'
-import { TypographySize } from '@shared/typography'
+import { CategoryConstants } from '@shared/ui/category/constant'
+import { FormSelect } from '@shared/ui/form/FormSelect'
+import { useForm } from 'react-hook-form'
+import { schema } from '../schema'
+import { FormChipGroup } from '@shared/ui/form/FormChipGroup'
+import { ConditionConstants, IsFreeConstants } from '../constant'
+import { ProvinceConstants } from '@features/search-filter/constant'
+import { FormPriceInput } from '@shared/ui/form/FormPriceInput'
+import { FormSlider } from '@shared/ui/form/FormSlider'
+import { FormColorPicker } from '@shared/ui/form/FormColorPicker'
+import { FormTextarea } from '@shared/ui/form/FormTextArea'
+import { FormInput } from '@shared/ui/form'
+import { AddProductFormData } from '../types'
+import { SettingsListConentWrapper } from '@shared/ui/setting-list-content-wrapper'
 
 const LeftSection = () => {
   const { isMobile } = Responsive()
+    const {
+      control,
+      handleSubmit,
+      watch,
+      setValue,
+    } = useForm<AddProductFormData>({
+      resolver: yupResolver(schema),
+    })
+      const onSubmit =(data: AddProductFormData) =>{
+      console.log(data);
+
+      }
+
+  
   return (
     <Stack w={isMobile ? '100%' : '62%'}>
-      <ResText
-        fontSize={TypographySize.Large}
-        c="darkText"
-      >
-        2019 Toyota Land Cruiser Prado 2.8 AT 112,000 km
-      </ResText>
-      {isMobile && (
-        <ResText
-          c="darkText"
-          fontSize={TypographySize.Large}
-        >
-          $ 200,000
-        </ResText>
-      )}
+      <SettingsListConentWrapper title='About Product' allowButton buttonTitle='Add Product'         handleSubmit={handleSubmit(onSubmit)}
+>
+          <FormSelect
+            label="Category"
+            name="category"
+            placeholder="Select Category"
+            control={control}
+            data={CategoryConstants}
+            // mb={0}
+            />
+          <FormInput
+            label="Title"
+            name="title"
+            control={control}
+            // mb={0}
+            placeholder='write your title'
+            
+            />
+          <FormTextarea
+            label="About product"
+            name="description"
+            control={control}
+            mb={0}
+            />
+          <FormChipGroup
+            label="Condition"
+            name="condition"
+            multiple={false}
+            control={control}
+            options={ConditionConstants}
+            />
+          <FormSelect
+            label="Province"
+            name="province"
+            placeholder="Select province"
+            control={control}
+            data={ProvinceConstants}
+            />
+            <FormColorPicker
+              label="Pick a color"
+              name="color"
+              control={control}
+              multiple
+              maxColors={4}
+              />
 
-      <Flex gap={10}>
-        <SButton
-          radius={3}
-          leftSection={<MdOutlineFavorite />}
-        >
-          <Text size="sm">Add to favorites</Text>
-        </SButton>
-        <SButton
-          radius={3}
-          leftSection={<MdEditDocument />}
-        >
-          <Text size="sm">Add a note</Text>
-        </SButton>
-      </Flex>
-      <ImageCarousel />
-      <ProductDetails
-        DetailsList={DetailsList}
-        DetailsObject={DetailsObject}
-      />
+            <FormChipGroup
+            label="Price"
+            name="isfree"
+            multiple={false}
+            control={control}
+            options={IsFreeConstants}
+            />
+          {watch('isfree') === "1" && 
+          <>
+          <FormPriceInput
+            label=""
+            name="price"
+            placeholder="Select Price"
+            control={control}
+            />
+          <FormSlider
+            label="Discount"
+            name="discount"
+            control={control}
+            valueSuffix=' %'
+            />
+            </>
+          }
+          </SettingsListConentWrapper>
+      
     </Stack>
   )
 }

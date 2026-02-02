@@ -11,18 +11,20 @@ interface FormSelectProps<T extends FieldValues> extends Omit<
   control: Control<T>
   name: Path<T>
   label: string
+  mb?: number
 }
 
 const FormSelect = <T extends FieldValues>({
   control,
   name,
   label,
+  mb=30,
   ...selectProps
 }: FormSelectProps<T>) => {
   return (
     <Group
       align="flex-end"
-      mb={30}
+      mb={mb}
     >
       <Stack
         style={{ flex: 1 }}

@@ -16,6 +16,9 @@ interface FormInputProps<T extends FieldValues> {
   buttonTitle?: string
   isButton?: boolean
   handleClick?: () => void
+  mb?: number
+  placeholder?: string
+
 }
 
 const FormInput = <T extends FieldValues>({
@@ -25,11 +28,13 @@ const FormInput = <T extends FieldValues>({
   buttonTitle,
   isButton = false,
   handleClick,
+  mb=20,
+  placeholder,
 }: FormInputProps<T>) => {
   return (
     <Group
       align="flex-end"
-      mb={20}
+      mb={mb}
     >
       <Stack
         style={{ flex: 1 }}
@@ -54,6 +59,7 @@ const FormInput = <T extends FieldValues>({
                 error={!!error}
                 aria-invalid={!!error}
                 radius={3}
+                placeholder={placeholder}
               />
 
               {error && (

@@ -19,6 +19,7 @@ interface FormTextareaProps<T extends FieldValues> {
   buttonTitle?: string
   isButton?: boolean
   handleClick?: () => void
+  mb?: number
 }
 
 const CharCounter = styled.div`
@@ -38,6 +39,7 @@ const FormTextarea = <T extends FieldValues>({
   buttonTitle,
   isButton = false,
   handleClick,
+  mb=30,
 }: FormTextareaProps<T>) => {
   const value = useWatch({
     control,
@@ -49,7 +51,7 @@ const FormTextarea = <T extends FieldValues>({
   return (
     <Group
       align="flex-end"
-      mb={30}
+      mb={mb}
     >
       <Stack
         style={{ flex: 1 }}

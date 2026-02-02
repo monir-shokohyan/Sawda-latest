@@ -1,6 +1,7 @@
 import { Center, CenterProps } from '@mantine/core'
 import { FaUser } from 'react-icons/fa'
 import styled from 'styled-components'
+import { ExpandableContentProps } from '../types'
 
 export const SCenter = styled(Center)<CenterProps>`
   border-radius: 5px;
