@@ -1,10 +1,4 @@
-import {
-  Avatar,
-  Flex,
-  Stack,
-  Text,
-  useMantineTheme,
-} from '@mantine/core'
+import { Avatar, Flex, Stack, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'

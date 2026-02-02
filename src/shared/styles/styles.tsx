@@ -356,8 +356,7 @@ export const TimeDisplay = styled.div<{ $isOwn: boolean }>`
   font-weight: 500;
 `
 export const HModal = styled(Modal)<ModalProps>`
-	.mantine-Modal-close:hover {
-    background-color: var(--mantine-color-primary-light-hover)
+  .mantine-Modal-close:hover {
+    background-color: var(--mantine-color-primary-light-hover);
   }
-
 `

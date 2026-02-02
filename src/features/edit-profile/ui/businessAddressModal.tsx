@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Button as MantineButton,
-  Stack,
-  useMantineTheme,
-} from '@mantine/core'
+import { Button as MantineButton, Stack, useMantineTheme } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { FormInput } from '@shared/ui/form'
