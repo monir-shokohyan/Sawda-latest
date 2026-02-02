@@ -22,7 +22,6 @@ const CreateModel = () => {
       title={<Logo />}
       pos="relative"
       transitionProps={{ transition: 'fade', duration: 200 }}
-
     >
       <Flex
         direction="column"

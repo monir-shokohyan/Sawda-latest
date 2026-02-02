@@ -34,9 +34,8 @@ const Ui = ({
     handleDrop,
     handleSaveEdit,
     editingImage,
-    setEditingImage
+    setEditingImage,
   } = useDropDown({ images, setImages })
-
 
   return (
     <>

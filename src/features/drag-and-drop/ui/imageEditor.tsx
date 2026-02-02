@@ -15,9 +15,6 @@ import { Controls, CropContainer, Segmented } from '../styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { ImageEditorProps, Point } from '../types'
 
-
-
-
 export const ImageEditor = ({
   opened,
   onClose,

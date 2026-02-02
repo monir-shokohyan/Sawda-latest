@@ -77,7 +77,6 @@ const ChatBubble = ({ message }: ChatBubbleProps) => {
         centered
         withCloseButton={false}
         transitionProps={{ transition: 'fade', duration: 200 }}
-
       >
         <ImageCarousel
           data={images}
