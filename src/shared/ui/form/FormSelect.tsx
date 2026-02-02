@@ -18,7 +18,7 @@ const FormSelect = <T extends FieldValues>({
   control,
   name,
   label,
-  mb=30,
+  mb = 30,
   ...selectProps
 }: FormSelectProps<T>) => {
   return (

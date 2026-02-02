@@ -1,15 +1,17 @@
-import { Button, Group, Stack, Text, ColorPicker, ColorPickerProps } from '@mantine/core'
+import {
+  Button,
+  Group,
+  Stack,
+  Text,
+  ColorPicker,
+  ColorPickerProps,
+} from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
-import {
-  Controller,
-  Control,
-  FieldValues,
-  Path,
-} from 'react-hook-form'
+import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
-interface FormColorPickerProps<T extends FieldValues> extends Omit
-  <ColorPickerProps,
+interface FormColorPickerProps<T extends FieldValues> extends Omit<
+  ColorPickerProps,
   'value' | 'onChange' | 'error' | 'name'
 > {
   control: Control<T>
@@ -57,16 +59,20 @@ const FormColorPicker = <T extends FieldValues>({
           name={name}
           control={control}
           render={({ field, fieldState: { error } }) => {
-            const selectedColors: string[] = multiple 
-              ? (Array.isArray(field.value) ? field.value : [])
+            const selectedColors: string[] = multiple
+              ? Array.isArray(field.value)
+                ? field.value
+                : []
               : []
-            const currentColor = multiple ? (selectedColors[0] || '#000000') : (field.value || '#000000')
+            const currentColor = multiple
+              ? selectedColors[0] || '#000000'
+              : field.value || '#000000'
 
             const handleColorChange = (color: string) => {
               if (multiple) {
                 if (selectedColors.includes(color)) {
                   // Remove color if already selected
-                  field.onChange(selectedColors.filter(c => c !== color))
+                  field.onChange(selectedColors.filter((c) => c !== color))
                 } else {
                   // Add color if under max limit
                   if (selectedColors.length < maxColors) {
@@ -80,7 +86,9 @@ const FormColorPicker = <T extends FieldValues>({
 
             const removeColor = (colorToRemove: string) => {
               if (multiple) {
-                field.onChange(selectedColors.filter(c => c !== colorToRemove))
+                field.onChange(
+                  selectedColors.filter((c) => c !== colorToRemove),
+                )
               }
             }
 
@@ -94,53 +102,58 @@ const FormColorPicker = <T extends FieldValues>({
                     fullWidth
                   />
 
-                  {multiple && showSelectedColors && selectedColors.length > 0 && (
-                    <Stack gap={5}>
-                      <Text size="xs" c="dimmed">
-                        Selected Colors ({selectedColors.length}/{maxColors})
-                      </Text>
-                      <Group gap={8}>
-                        {selectedColors.map((color, index) => (
-                          <Group
-                            key={index}
-                            gap={5}
-                            style={{
-                              backgroundColor: color,
-                              padding: '4px 8px',
-                              borderRadius: 4,
-                              border: '1px solid #dee2e6',
-                              cursor: 'pointer',
-                            }}
-                            onClick={() => removeColor(color)}
-                          >
-                            <div
+                  {multiple &&
+                    showSelectedColors &&
+                    selectedColors.length > 0 && (
+                      <Stack gap={5}>
+                        <Text
+                          size="xs"
+                          c="dimmed"
+                        >
+                          Selected Colors ({selectedColors.length}/{maxColors})
+                        </Text>
+                        <Group gap={8}>
+                          {selectedColors.map((color, index) => (
+                            <Group
+                              key={index}
+                              gap={5}
                               style={{
-                                width: 20,
-                                height: 20,
                                 backgroundColor: color,
-                                borderRadius: 3,
-                                border: '2px solid white',
+                                padding: '4px 8px',
+                                borderRadius: 4,
+                                border: '1px solid #dee2e6',
+                                cursor: 'pointer',
                               }}
-                            />
-                            <Text
-                              size="xs"
-                              c={getContrastColor(color)}
-                              fw={500}
+                              onClick={() => removeColor(color)}
                             >
-                              {color.toUpperCase()}
-                            </Text>
-                            <Text
-                              size="xs"
-                              c={getContrastColor(color)}
-                              style={{ cursor: 'pointer' }}
-                            >
-                              ✕
-                            </Text>
-                          </Group>
-                        ))}
-                      </Group>
-                    </Stack>
-                  )}
+                              <div
+                                style={{
+                                  width: 20,
+                                  height: 20,
+                                  backgroundColor: color,
+                                  borderRadius: 3,
+                                  border: '2px solid white',
+                                }}
+                              />
+                              <Text
+                                size="xs"
+                                c={getContrastColor(color)}
+                                fw={500}
+                              >
+                                {color.toUpperCase()}
+                              </Text>
+                              <Text
+                                size="xs"
+                                c={getContrastColor(color)}
+                                style={{ cursor: 'pointer' }}
+                              >
+                                ✕
+                              </Text>
+                            </Group>
+                          ))}
+                        </Group>
+                      </Stack>
+                    )}
 
                   {!multiple && showSelectedColors && field.value && (
                     <Group gap={8}>
@@ -153,7 +166,10 @@ const FormColorPicker = <T extends FieldValues>({
                           border: '1px solid #dee2e6',
                         }}
                       />
-                      <Text size="sm" fw={500}>
+                      <Text
+                        size="sm"
+                        fw={500}
+                      >
                         {field.value.toUpperCase()}
                       </Text>
                     </Group>

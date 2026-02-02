@@ -1,12 +1,16 @@
 import { Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { DragAndDrop } from '@features/drag-and-drop'
-import { useState } from 'react'
 import { ImageFile } from '@features/drag-and-drop/types'
 
-const RightSection = ({}) => {
+interface RightSectionProps {
+  images: ImageFile[]
+  setImages: React.Dispatch<React.SetStateAction<ImageFile[]>>
+}
+
+const RightSection = ({ images, setImages }: RightSectionProps) => {
   const { isMobile } = Responsive()
-  const [images, setImages] = useState<ImageFile[]>([])
+  
   return (
     <Stack
       w={isMobile ? '100%' : '35%'}

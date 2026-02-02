@@ -63,7 +63,6 @@ const IsFreeConstants = [
     value: '2',
     label: 'For Free',
   },
-
 ]
 
 export { DetailsObject, DetailsList, ConditionConstants, IsFreeConstants }

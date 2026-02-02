@@ -212,9 +212,9 @@ export const theme = createTheme({
     }),
     Chip: Chip.extend({
       styles: (theme) => ({
-       label :{
+        label: {
           backgroundColor: theme.colors.background[8],
-       }
+        },
       }),
     }),
   },

@@ -1,12 +1,7 @@
 import { Button, Group, Stack, Text, NumberInput, Select } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
-import {
-  Controller,
-  Control,
-  FieldValues,
-  Path,
-} from 'react-hook-form'
+import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 import { useState } from 'react'
 
 type CurrencyType = 'AFN' | 'USD'
@@ -57,15 +52,18 @@ const FormPriceInput = <T extends FieldValues>({
   max,
   placeholder,
   showCurrencySelector = true,
-  mb=20
+  mb = 20,
 }: FormPriceInputProps<T>) => {
-  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyType>(defaultCurrency)
+  const [selectedCurrency, setSelectedCurrency] =
+    useState<CurrencyType>(defaultCurrency)
   const currencyConfig = CURRENCY_CONFIG[selectedCurrency]
 
-  const currencyOptions = Object.entries(CURRENCY_CONFIG).map(([key, config]) => ({
-    value: key,
-    label: key,
-  }))
+  const currencyOptions = Object.entries(CURRENCY_CONFIG).map(
+    ([key, config]) => ({
+      value: key,
+      label: key,
+    }),
+  )
 
   return (
     <Group
@@ -85,7 +83,11 @@ const FormPriceInput = <T extends FieldValues>({
           </ResText>
         </label>
 
-        <Group gap={8} wrap="nowrap" align="stretch">
+        <Group
+          gap={8}
+          wrap="nowrap"
+          align="stretch"
+        >
           {showCurrencySelector ? (
             <Select
               value={selectedCurrency}
@@ -115,7 +117,10 @@ const FormPriceInput = <T extends FieldValues>({
               }}
               justify="center"
             >
-              <Text size="sm" fw={500}>
+              <Text
+                size="sm"
+                fw={500}
+              >
                 {selectedCurrency}
               </Text>
             </Group>
@@ -125,7 +130,10 @@ const FormPriceInput = <T extends FieldValues>({
             name={name}
             control={control}
             render={({ field, fieldState: { error } }) => (
-              <Stack gap={0} style={{ flex: 1 }}>
+              <Stack
+                gap={0}
+                style={{ flex: 1 }}
+              >
                 <NumberInput
                   {...field}
                   error={!!error}

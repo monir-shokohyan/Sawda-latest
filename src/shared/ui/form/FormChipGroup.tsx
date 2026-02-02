@@ -3,9 +3,10 @@ import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
-interface FormChipGroupProps<T extends FieldValues> extends Omit
-  <ChipGroupProps,
-  'value' | 'onChange' | 'name'> {
+interface FormChipGroupProps<T extends FieldValues> extends Omit<
+  ChipGroupProps,
+  'value' | 'onChange' | 'name'
+> {
   control: Control<T>
   name: Path<T>
   label: string
@@ -18,7 +19,7 @@ const FormChipGroup = <T extends FieldValues>({
   name,
   label,
   options,
-  mb=30,
+  mb = 30,
   ...chipGroupProps
 }: FormChipGroupProps<T>) => {
   return (

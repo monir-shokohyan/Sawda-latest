@@ -1,15 +1,10 @@
 import { Button, Group, Stack, Text, Slider, SliderProps } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
-import {
-  Controller,
-  Control,
-  FieldValues,
-  Path,
-} from 'react-hook-form'
+import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
-interface FormSliderProps<T extends FieldValues> extends Omit
-  <SliderProps,
+interface FormSliderProps<T extends FieldValues> extends Omit<
+  SliderProps,
   'value' | 'onChange' | 'error' | 'name'
 > {
   control: Control<T>
@@ -34,7 +29,7 @@ const FormSlider = <T extends FieldValues>({
   showValue = true,
   valuePrefix = '',
   valueSuffix = '',
-  mb=30,
+  mb = 30,
   ...sliderProps
 }: FormSliderProps<T>) => {
   return (
@@ -46,7 +41,10 @@ const FormSlider = <T extends FieldValues>({
         style={{ flex: 1 }}
         gap={3}
       >
-        <Group justify="space-between" mb={5}>
+        <Group
+          justify="space-between"
+          mb={5}
+        >
           <label>
             <ResText
               fontSize={TypographySize.SemiSmall}
@@ -61,8 +59,14 @@ const FormSlider = <T extends FieldValues>({
               name={name}
               control={control}
               render={({ field }) => (
-                <Text size="sm" fw={500} c="dimmed">
-                  {valuePrefix}{field.value ?? 0}{valueSuffix}
+                <Text
+                  size="sm"
+                  fw={500}
+                  c="dimmed"
+                >
+                  {valuePrefix}
+                  {field.value ?? 0}
+                  {valueSuffix}
                 </Text>
               )}
             />

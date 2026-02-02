@@ -1,6 +1,5 @@
-import { schema } from "../schema"
+import { schema } from '../schema'
 import * as yup from 'yup'
-
 
 export interface ProductsDetailsProps {
   DetailsObject: {
@@ -12,4 +11,4 @@ export interface ProductsDetailsProps {
   }[]
 }
 
-export type AddProductFormData = yup.InferType<typeof schema>;
+export type AddProductFormData = yup.InferType<typeof schema>

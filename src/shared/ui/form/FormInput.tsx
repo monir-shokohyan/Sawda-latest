@@ -18,7 +18,6 @@ interface FormInputProps<T extends FieldValues> {
   handleClick?: () => void
   mb?: number
   placeholder?: string
-
 }
 
 const FormInput = <T extends FieldValues>({
@@ -28,7 +27,7 @@ const FormInput = <T extends FieldValues>({
   buttonTitle,
   isButton = false,
   handleClick,
-  mb=20,
+  mb = 20,
   placeholder,
 }: FormInputProps<T>) => {
   return (

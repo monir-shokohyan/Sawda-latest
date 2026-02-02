@@ -8,6 +8,7 @@ export enum Paths {
   Privacy = '/settings/privacy/',
   ProductDetails = '/product/',
   AddProduct = '/add-edit-product/add',
+  AddProductMobile = '/model/add',
   EditProduct = '/add-edit-product/edit',
   ProfileDetails = '/profile/',
   MobileModel = '/model/',

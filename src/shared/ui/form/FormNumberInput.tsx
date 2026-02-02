@@ -1,12 +1,7 @@
 import { Button, Group, Stack, Text, NumberInput } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
-import {
-  Controller,
-  Control,
-  FieldValues,
-  Path,
-} from 'react-hook-form'
+import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormNumberInputProps<T extends FieldValues> {
   control: Control<T>
@@ -41,7 +36,7 @@ const FormNumberInput = <T extends FieldValues>({
   max,
   placeholder,
   hideControls = true,
-  mb=20,
+  mb = 20,
 }: FormNumberInputProps<T>) => {
   return (
     <Group
