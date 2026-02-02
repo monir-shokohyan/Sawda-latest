@@ -28,9 +28,8 @@ const CreateModel = () => {
         direction="column"
         h="100%"
       >
-      <AddEditProduct />
+        <AddEditProduct />
       </Flex>
-  
     </HModal>
   )
 }

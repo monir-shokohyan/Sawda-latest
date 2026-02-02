@@ -228,7 +228,6 @@ export const HoveredButton = styled(Button)<
 
 export const SaveButton = styled.button`
   padding: 10px 24px;
-  background-color: #4263eb;
   color: white;
   border: none;
   border-radius: 4px;
@@ -236,9 +235,10 @@ export const SaveButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   float: right;
+  background-color: var(--mantine-color-blue-8);
 
   &:hover {
-    background-color: #3651d4;
+    background-color: var(--mantine-color-blue-9) !important;
   }
 `
 export interface InteractiveCardProps extends CardProps {

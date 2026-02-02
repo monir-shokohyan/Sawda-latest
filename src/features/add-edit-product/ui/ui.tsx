@@ -18,12 +18,12 @@ function Ui() {
   const [searchParams] = useSearchParams()
   const name = searchParams.get('name') ?? 'Untitled'
   const [images, setImages] = useState<ImageFile[]>([])
-  
+
   const { control, handleSubmit, watch, setValue } =
     useForm<AddProductFormData>({
       resolver: yupResolver(schema),
     })
-    
+
   const onSubmit = (data: AddProductFormData) => {
     console.log(data)
   }
@@ -44,12 +44,14 @@ function Ui() {
           p={isMobile ? '0px' : 'xl'}
           wrap="wrap"
         >
-          
           {/* right section */}
-          <RightSection images={images} setImages={setImages} />
+          <RightSection
+            images={images}
+            setImages={setImages}
+          />
 
           {/* left section */}
-          <LeftSection 
+          <LeftSection
             control={control}
             handleSubmit={handleSubmit}
             watch={watch}

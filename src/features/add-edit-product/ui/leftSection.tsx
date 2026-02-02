@@ -11,7 +11,12 @@ import { FormColorPicker } from '@shared/ui/form/FormColorPicker'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 import { FormInput } from '@shared/ui/form'
 import { SettingsListConentWrapper } from '@shared/ui/setting-list-content-wrapper'
-import { Control, UseFormHandleSubmit, UseFormWatch, UseFormSetValue } from 'react-hook-form'
+import {
+  Control,
+  UseFormHandleSubmit,
+  UseFormWatch,
+  UseFormSetValue,
+} from 'react-hook-form'
 import { AddProductFormData } from '../types'
 
 interface LeftSectionProps {
@@ -22,7 +27,13 @@ interface LeftSectionProps {
   onSubmit: (data: AddProductFormData) => void
 }
 
-const LeftSection = ({ control, handleSubmit, watch, setValue, onSubmit }: LeftSectionProps) => {
+const LeftSection = ({
+  control,
+  handleSubmit,
+  watch,
+  setValue,
+  onSubmit,
+}: LeftSectionProps) => {
   const { isMobile } = Responsive()
 
   return (

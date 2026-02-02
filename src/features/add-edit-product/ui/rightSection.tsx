@@ -10,7 +10,7 @@ interface RightSectionProps {
 
 const RightSection = ({ images, setImages }: RightSectionProps) => {
   const { isMobile } = Responsive()
-  
+
   return (
     <Stack
       w={isMobile ? '100%' : '35%'}
