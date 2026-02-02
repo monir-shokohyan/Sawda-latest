@@ -10,6 +10,8 @@ import {
   InputProps,
   Menu,
   MenuItemProps,
+  Modal,
+  ModalProps,
   PasswordInput,
   Select,
   SelectProps,
@@ -205,7 +207,6 @@ export const HoveredActionIcon = styled(ActionIcon)<
     type?: 'submit'
   }
 >`
-  
   &:hover {
     background: var(--mantine-color-primary-light-hover) !important;
   }
@@ -219,8 +220,6 @@ export const HoveredButton = styled(Button)<
     type?: 'submit'
   }
 >`
-
-
   border-radius: 5px;
   &:hover {
     background: var(--mantine-color-primary-light-hover);
@@ -355,4 +354,10 @@ export const TimeDisplay = styled.div<{ $isOwn: boolean }>`
   color: ${({ $isOwn }) =>
     $isOwn ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.5)'};
   font-weight: 500;
+`
+export const HModal = styled(Modal)<ModalProps>`
+	.mantine-Modal-close:hover {
+    background-color: var(--mantine-color-primary-light-hover)
+  }
+
 `

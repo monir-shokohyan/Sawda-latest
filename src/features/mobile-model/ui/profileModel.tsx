@@ -11,6 +11,7 @@ import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate } from 'react-router-dom'
 import { SettingDropDownSelector } from '../reducers'
 import { useAppSelector } from '@shared/hooks/redux-hooks'
+import { HModal } from '@shared/styles'
 
 const ProfileModel = () => {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const ProfileModel = () => {
   const settingDropDown = useAppSelector(SettingDropDownSelector)
 
   return (
-    <Modal
+    <HModal
       opened={pathname.endsWith('profile')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
@@ -101,7 +102,7 @@ const ProfileModel = () => {
       >
         Sign out
       </Button>
-    </Modal>
+    </HModal>
   )
 }
 

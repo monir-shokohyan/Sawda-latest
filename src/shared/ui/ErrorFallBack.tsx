@@ -1,7 +1,16 @@
 import { useState } from 'react'
 import { GoAlert } from 'react-icons/go'
 import { useNavigate } from 'react-router-dom'
-import { Tooltip, Text, Stack, Group, Alert, Title, Paper, Button } from '@mantine/core'
+import {
+  Tooltip,
+  Text,
+  Stack,
+  Group,
+  Alert,
+  Title,
+  Paper,
+  Button,
+} from '@mantine/core'
 import { TbHome, TbRefresh } from 'react-icons/tb'
 import { FallbackProps } from 'react-error-boundary'
 import { SButton } from '@shared/styles'
@@ -22,7 +31,14 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
       shadow="sm"
       p="xl"
       radius="md"
-      style={{ maxWidth: '90%', margin: 'auto', marginTop: '10vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      style={{
+        maxWidth: '90%',
+        margin: 'auto',
+        marginTop: '10vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
       bg="background.9"
       h="55vh"
     >

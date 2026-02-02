@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import {
-  MantineProvider,
-  Modal,
   Select,
   Textarea,
   Button as MantineButton,
@@ -11,6 +9,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { FaUser, FaInfoCircle, FaPlus } from 'react-icons/fa'
+import { HModal } from '@shared/styles'
 
 // Types
 interface Country {
@@ -885,7 +884,7 @@ const ProfileEditForm: React.FC = () => {
         </div>
       </MainContent>
 
-      <Modal
+      <HModal
         opened={addressModalOpen}
         onClose={() => setAddressModalOpen(false)}
         title="Add Business Address"
@@ -941,7 +940,7 @@ const ProfileEditForm: React.FC = () => {
             Save Address
           </MantineButton>
         </div>
-      </Modal>
+      </HModal>
     </Container>
   )
 }

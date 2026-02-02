@@ -1,7 +1,6 @@
 import {
   Avatar,
   Flex,
-  Modal,
   Stack,
   Text,
   useMantineTheme,
@@ -9,7 +8,7 @@ import {
 import { Responsive } from '@shared/hooks/responsive'
 import { useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
-import { HoveredText, SButton } from '@shared/styles'
+import { HModal, HoveredText, SButton } from '@shared/styles'
 import { Paths } from '@shared/api/paths/paths'
 import { useDisclosure } from '@mantine/hooks'
 import { ProfileInfo } from '@features/profile-info'
@@ -167,7 +166,7 @@ const ProfileSection = ({
         </Stack>
       </Flex>
 
-      <Modal
+      <HModal
         opened={opened}
         onClose={close}
         title={<Logo />}
@@ -176,7 +175,7 @@ const ProfileSection = ({
         centered
       >
         <ProfileInfo Profile={profile} />
-      </Modal>
+      </HModal>
     </>
   )
 }

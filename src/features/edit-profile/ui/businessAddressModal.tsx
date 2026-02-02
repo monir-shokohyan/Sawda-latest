@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Modal,
   Button as MantineButton,
   Stack,
   useMantineTheme,
@@ -11,6 +10,7 @@ import { FormInput } from '@shared/ui/form'
 import { AddressModalProps, BusinessAddress } from '../types'
 import { ModalDefaultValue } from '../constant'
 import { AddressSchema } from '../schema'
+import { HModal } from '@shared/styles'
 
 const AddressModal: React.FC<AddressModalProps> = ({
   opened,
@@ -37,7 +37,7 @@ const AddressModal: React.FC<AddressModalProps> = ({
   }
 
   return (
-    <Modal
+    <HModal
       opened={opened}
       onClose={onClose}
       title="Add Business Address"
@@ -95,7 +95,7 @@ const AddressModal: React.FC<AddressModalProps> = ({
           Save Address
         </MantineButton>
       </div>
-    </Modal>
+    </HModal>
   )
 }
 

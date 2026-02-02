@@ -128,9 +128,7 @@ export const theme = createTheme({
         },
       }),
     }),
-    body: {
-      
-    },
+    body: {},
     Select: Select.extend({
       styles: (theme) => ({
         dropdown: {
@@ -196,7 +194,7 @@ export const theme = createTheme({
         },
       }),
     }),
-     SegmentedControl: SegmentedControl.extend({
+    SegmentedControl: SegmentedControl.extend({
       styles: (theme) => ({
         root: {
           backgroundColor: theme.colors.background[8],

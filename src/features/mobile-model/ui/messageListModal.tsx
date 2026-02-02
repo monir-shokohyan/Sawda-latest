@@ -7,6 +7,7 @@ import { SettingDropDownSelector } from '../reducers'
 import { useAppSelector } from '@shared/hooks/redux-hooks'
 import { LeftSection } from '@features/message-details/ui/left-section'
 import { Message } from '@features/message-details/types'
+import { HModal } from '@shared/styles'
 
 const MessageListModel = () => {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ const MessageListModel = () => {
   const activeMessageId = Number(searchParams.get('id')) || null
 
   return (
-    <Modal
+    <HModal
       opened={pathname.endsWith('message-list')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
@@ -33,7 +34,7 @@ const MessageListModel = () => {
         onMessageSelect={handleMessageSelect}
         activeMessageId={activeMessageId}
       />
-    </Modal>
+    </HModal>
   )
 }
 

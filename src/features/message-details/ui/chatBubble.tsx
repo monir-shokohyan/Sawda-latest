@@ -1,4 +1,4 @@
-import { Stack, Avatar, Modal } from '@mantine/core'
+import { Stack, Avatar } from '@mantine/core'
 import { AudioPlayerComponent } from '@shared/players'
 import { useDisclosure } from '@mantine/hooks'
 import { ImageCarousel } from '@shared/ui/carousal'
@@ -8,6 +8,7 @@ import { ChatMessage } from './chat-components/chatMessage'
 import { TimeMessage } from './chat-components'
 import { AvatarMessage } from './chat-components/avatarMessage'
 import { BubbleWrapper, MessageBubble } from '../styles'
+import { HModal } from '@shared/styles'
 
 const ChatBubble = ({ message }: ChatBubbleProps) => {
   const { isOwn, timestamp, content, attachments } = message
@@ -70,7 +71,7 @@ const ChatBubble = ({ message }: ChatBubbleProps) => {
 
       {isOwn && <AvatarMessage src="/profile.png" />}
 
-      <Modal
+      <HModal
         opened={opened}
         onClose={close}
         centered
@@ -82,7 +83,7 @@ const ChatBubble = ({ message }: ChatBubbleProps) => {
           fullImage
           allowBg={false}
         />
-      </Modal>
+      </HModal>
     </BubbleWrapper>
   )
 }

@@ -1,7 +1,7 @@
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { Button, Flex, Modal } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
-import { HoveredItem, ResText } from '@shared/styles'
+import { HModal, HoveredItem, ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { DarkMode } from '@shared/ui/darkMode'
 import { LanguageDropDown } from '@shared/ui/language'
@@ -15,7 +15,7 @@ const CreateModel = () => {
   const { ProfileConstant, pathname } = useProfileDropDown({})
 
   return (
-    <Modal
+    <HModal
       opened={pathname.endsWith('add')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
@@ -117,7 +117,7 @@ const CreateModel = () => {
       >
         Sign out
       </Button>
-    </Modal>
+    </HModal>
   )
 }
 

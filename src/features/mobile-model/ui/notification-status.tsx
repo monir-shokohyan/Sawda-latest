@@ -5,6 +5,7 @@ import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate } from 'react-router-dom'
 import { Message } from '@features/message-details/types'
 import { NotificationStatus } from '@features/notification-status'
+import { HModal } from '@shared/styles'
 
 const NotificationStatusModel = () => {
   const navigate = useNavigate()
@@ -17,7 +18,7 @@ const NotificationStatusModel = () => {
   }
 
   return (
-    <Modal
+    <HModal
       opened={pathname.endsWith('notification')}
       onClose={() => navigate(-1 || '/')}
       fullScreen
@@ -25,7 +26,7 @@ const NotificationStatusModel = () => {
       transitionProps={{ transition: 'fade', duration: 200 }}
     >
       <NotificationStatus onNotificationSelect={handleNotificationSelect} />
-    </Modal>
+    </HModal>
   )
 }
 

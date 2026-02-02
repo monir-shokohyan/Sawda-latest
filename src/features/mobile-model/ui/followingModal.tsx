@@ -1,10 +1,10 @@
-import { Modal } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
 import { Logo } from '@shared/ui/logo'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate } from 'react-router-dom'
 import { Message } from '@features/message-details/types'
 import { Following } from '@features/followings'
+import { HModal } from '@shared/styles'
 
 const FollowingModel = () => {
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ const FollowingModel = () => {
   }
 
   return (
-    <Modal
+    <HModal
       opened={pathname.endsWith('following')}
       onClose={() => navigate(-1 || '/')}
       fullScreen
@@ -26,7 +26,7 @@ const FollowingModel = () => {
       transitionProps={{ transition: 'fade', duration: 200 }}
     >
       <Following onFollowingSelect={handleFollowingSelect} />
-    </Modal>
+    </HModal>
   )
 }
 

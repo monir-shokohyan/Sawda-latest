@@ -1,5 +1,6 @@
 import { RecordModalProps } from '@features/message-details/types'
 import { Button, Group, Modal, Stack, Text } from '@mantine/core'
+import { HModal } from '@shared/styles'
 import { MdClose, MdMic, MdStop } from 'react-icons/md'
 
 const RecordModal = ({
@@ -10,7 +11,7 @@ const RecordModal = ({
 }: RecordModalProps) => {
   return (
     <>
-      <Modal
+      <HModal
         opened={showRecordModal}
         onClose={cancelRecording}
         centered
@@ -65,7 +66,7 @@ const RecordModal = ({
             </Button>
           </Group>
         </Stack>
-      </Modal>
+      </HModal>
 
       <style>
         {`
