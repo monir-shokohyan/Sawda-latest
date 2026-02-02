@@ -6,39 +6,17 @@ import {
   Group,
   Slider,
   Text,
-  SegmentedControl,
   ScrollArea,
 } from '@mantine/core'
 import Cropper, { Area } from 'react-easy-crop'
-import styled from 'styled-components'
 import { HModal, SButton } from '@shared/styles'
 import { Logo } from '@shared/ui/logo'
-import { Segmented } from '../styles'
+import { Controls, CropContainer, Segmented } from '../styles'
 import { Responsive } from '@shared/hooks/responsive'
+import { ImageEditorProps, Point } from '../types'
 
-const CropContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background-color: var(--mantine-color-background-9) !important;
-`
 
-const Controls = styled.div`
-  padding: 16px;
-`
 
-interface Point {
-  x: number
-  y: number
-}
-
-interface ImageEditorProps {
-  opened: boolean
-  onClose: () => void
-  imageSrc: string
-  onSave: (editedImage: string) => void
-  fileName: string
-}
 
 export const ImageEditor = ({
   opened,
@@ -192,6 +170,7 @@ export const ImageEditor = ({
       size="xl"
       centered
       fullScreen={isMobile ? true : false}
+      transitionProps={{ transition: 'fade', duration: 200 }}
     >
       <ScrollArea
         h="100dvh"

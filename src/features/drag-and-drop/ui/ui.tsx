@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import { useDropDown } from '../modal'
 import { DragAndDropProps } from '../types'
 import {
   Description,
   ImagePreviewItem,
   ImagePreviewWrapper,
-  RemoveButton,
   SDropzone,
   Wrapper,
 } from '../styles'
@@ -31,22 +29,14 @@ const Ui = ({
   const {
     removeImage,
     isCompressing,
-    isMobile,
     openRef,
     theme,
     handleDrop,
-    updateImage,
+    handleSaveEdit,
+    editingImage,
+    setEditingImage
   } = useDropDown({ images, setImages })
-  const [editingImage, setEditingImage] = useState<{
-    id: string
-    src: string
-    name: string
-  } | null>(null)
 
-  const handleSaveEdit = (id: string) => (editedImageSrc: string) => {
-    updateImage(id, editedImageSrc)
-    setEditingImage(null)
-  }
 
   return (
     <>

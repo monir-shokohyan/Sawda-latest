@@ -92,14 +92,25 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
       console.error('Error updating image:', error)
     }
   }
+  const [editingImage, setEditingImage] = useState<{
+    id: string
+    src: string
+    name: string
+  } | null>(null)
 
+  const handleSaveEdit = (id: string) => (editedImageSrc: string) => {
+    updateImage(id, editedImageSrc)
+    setEditingImage(null)
+  }
   return {
+    editingImage,
+    setEditingImage,
+    handleSaveEdit,
     isMobile,
     theme,
     openRef,
     isCompressing,
     handleDrop,
     removeImage,
-    updateImage,
   }
 }

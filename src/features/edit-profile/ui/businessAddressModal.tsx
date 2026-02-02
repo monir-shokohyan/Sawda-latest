@@ -38,6 +38,7 @@ const AddressModal: React.FC<AddressModalProps> = ({
       onClose={onClose}
       title="Add Business Address"
       size="md"
+      transitionProps={{ transition: 'fade', duration: 200 }}
       styles={{
         header: {
           background: theme.colors.background[8],

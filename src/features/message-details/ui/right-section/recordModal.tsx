@@ -17,6 +17,8 @@ const RecordModal = ({
         centered
         size="sm"
         withCloseButton={false}
+        transitionProps={{ transition: 'fade', duration: 200 }}
+
       >
         <Stack
           align="center"

@@ -64,3 +64,13 @@ export const Segmented = styled(SegmentedControl)<SegmentedControlProps>`
     font-weight: 500;
   }
 `
+export const CropContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: var(--mantine-color-background-9) !important;
+`
+
+export const Controls = styled.div`
+  padding: 16px;
+`

@@ -885,6 +885,7 @@ const ProfileEditForm: React.FC = () => {
         onClose={() => setAddressModalOpen(false)}
         title="Add Business Address"
         size="md"
+        transitionProps={{ transition: 'fade', duration: 200 }}
       >
         <FormField>
           <Label>Street Address</Label>
