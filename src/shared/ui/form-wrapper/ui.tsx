@@ -6,12 +6,13 @@ import { ReactNode } from 'react'
 
 interface Props {
   handleSubmit?: () => void
-  title: string
+  title?: string
   buttonTitle: string
   children: ReactNode
   allowButton?: boolean
   buttonLeftSection?: ReactNode
   allowPadding?: boolean
+  buttonFullWidth?: boolean
 }
 
 const Ui = ({
@@ -22,6 +23,7 @@ const Ui = ({
   allowButton = false,
   buttonLeftSection,
   allowPadding = true,
+  buttonFullWidth = false,
 }: Props) => {
   const { isMobile } = Responsive()
   const paddingY = isMobile ? 20 : 40
@@ -52,6 +54,7 @@ const Ui = ({
             type="button"
             onClick={() => handleSubmit?.()}
             leftSection={buttonLeftSection}
+            fullWidth={buttonFullWidth}
           >
             {buttonTitle}
           </SButton>

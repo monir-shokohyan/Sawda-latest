@@ -1,6 +1,7 @@
 import { Button, Group, Stack, Text } from '@mantine/core'
 import { ResText, SInput } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
+import { ReactNode } from 'react'
 import {
   Controller,
   Control,
@@ -18,6 +19,7 @@ interface FormInputProps<T extends FieldValues> {
   handleClick?: () => void
   mb?: number
   placeholder?: string
+  leftSection?: ReactNode
 }
 
 const FormInput = <T extends FieldValues>({
@@ -29,6 +31,7 @@ const FormInput = <T extends FieldValues>({
   handleClick,
   mb = 20,
   placeholder,
+  leftSection,
 }: FormInputProps<T>) => {
   return (
     <Group
@@ -59,6 +62,7 @@ const FormInput = <T extends FieldValues>({
                 aria-invalid={!!error}
                 radius={3}
                 placeholder={placeholder}
+                leftSection={leftSection}
               />
 
               {error && (

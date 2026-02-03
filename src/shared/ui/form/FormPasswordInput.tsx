@@ -2,6 +2,7 @@ import { Button, Group, Stack, Text } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { ResText, SInputPassword } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
+import { ReactNode } from 'react'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormInputProps<T extends FieldValues> {
@@ -11,6 +12,9 @@ interface FormInputProps<T extends FieldValues> {
   buttonTitle?: string
   isButton?: boolean
   handleClick?: () => void
+  leftSection?: ReactNode
+  placeholder?: string
+  mb?: number
 }
 
 const FormPasswordInput = <T extends FieldValues>({
@@ -20,12 +24,15 @@ const FormPasswordInput = <T extends FieldValues>({
   buttonTitle,
   isButton = false,
   handleClick,
+  leftSection,
+  placeholder,
+  mb = 20,
 }: FormInputProps<T>) => {
   const [visible, { toggle }] = useDisclosure(false)
   return (
     <Group
       align="flex-end"
-      mb={20}
+      mb={mb}
     >
       <Stack
         style={{ flex: 1 }}
@@ -53,6 +60,8 @@ const FormPasswordInput = <T extends FieldValues>({
                 defaultValue="secret"
                 visible={visible}
                 onVisibilityChange={toggle}
+                leftSection={leftSection}
+                placeholder={placeholder}
               />
 
               {error && (

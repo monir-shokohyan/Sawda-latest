@@ -99,7 +99,7 @@ export const _SButton = styled(Button)<ButtonProps & { $isSubtle: boolean }>`
   }
   &[data-disabled],
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     pointer-events: auto;
     background-color: transparent !important;
     color: var(--mantine-color-dimmed) !important;
@@ -133,7 +133,8 @@ export const SActionIcon = styled(ActionIcon)<
     children: ReactNode
     title?: string
     type?: 'submit'
-  }>`
+  }
+>`
   &:hover {
     background-color: ${({ $isSubtle }) =>
       $isSubtle
@@ -143,7 +144,7 @@ export const SActionIcon = styled(ActionIcon)<
   }
   &[data-disabled],
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     pointer-events: auto;
     background-color: transparent !important;
     color: var(--mantine-color-dimmed) !important;
@@ -154,8 +155,7 @@ export const SActionIcon = styled(ActionIcon)<
       color: var(--mantine-color-dimmed) !important;
     }
   }
-`;
-
+`
 
 export interface StyledTextProps {
   $font?: 'Roboto' | 'Nunito'
