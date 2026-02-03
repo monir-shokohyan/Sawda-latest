@@ -15,6 +15,7 @@ import {
 import { MdSend, MdImage, MdMic, MdStop, MdClose } from 'react-icons/md'
 import { RecordModal } from './recordModal'
 import { useManageRightfooter } from '@features/message-details/modal'
+import { SActionIcon } from '@shared/styles'
 
 const Footer = ({
   inputValue,
@@ -199,7 +200,7 @@ const Footer = ({
             }}
           />
 
-          <ActionIcon
+          <SActionIcon
             size="lg"
             radius="xl"
             color="primary"
@@ -208,7 +209,7 @@ const Footer = ({
             disabled={!inputValue?.trim() && attachedFiles.length === 0}
           >
             <MdSend size={20} />
-          </ActionIcon>
+          </SActionIcon>
         </Group>
       </StickyPaper>
 

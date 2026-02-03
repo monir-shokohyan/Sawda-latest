@@ -97,6 +97,19 @@ export const _SButton = styled(Button)<ButtonProps & { $isSubtle: boolean }>`
         : 'var(--mantine-color-blue-9)'} !important;
     color: ${({ $isSubtle }) => ($isSubtle ? 'default' : 'white')} !important;
   }
+  &[data-disabled],
+  &:disabled,
+  &[aria-disabled="true"] {
+    pointer-events: auto;
+    background-color: transparent !important;
+    color: var(--mantine-color-dimmed) !important;
+    cursor: not-allowed !important;
+
+    &:hover {
+      background-color: transparent !important;
+      color: var(--mantine-color-dimmed) !important;
+    }
+  }
 `
 export const SButton = createPolymorphicComponent<
   'button',
@@ -120,8 +133,7 @@ export const SActionIcon = styled(ActionIcon)<
     children: ReactNode
     title?: string
     type?: 'submit'
-  }
->`
+  }>`
   &:hover {
     background-color: ${({ $isSubtle }) =>
       $isSubtle
@@ -129,7 +141,22 @@ export const SActionIcon = styled(ActionIcon)<
         : 'var(--mantine-color-blue-9)'} !important;
     color: ${({ $isSubtle }) => ($isSubtle ? 'default' : 'white')} !important;
   }
-`
+  &[data-disabled],
+  &:disabled,
+  &[aria-disabled="true"] {
+    pointer-events: auto;
+    background-color: transparent !important;
+    color: var(--mantine-color-dimmed) !important;
+    cursor: not-allowed !important;
+
+    &:hover {
+      background-color: transparent !important;
+      color: var(--mantine-color-dimmed) !important;
+    }
+  }
+`;
+
+
 export interface StyledTextProps {
   $font?: 'Roboto' | 'Nunito'
   fontWeight?:

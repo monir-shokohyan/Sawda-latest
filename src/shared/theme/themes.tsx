@@ -9,7 +9,6 @@ import {
   Button,
   ActionIcon,
   Drawer,
-  Paper,
   SegmentedControl,
   Chip,
 } from '@mantine/core'
