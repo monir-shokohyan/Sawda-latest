@@ -6,11 +6,11 @@ import { loginType } from '../types'
 import { defaultValues } from '../constant'
 
 const useManageLoginForm = () => {
-   const { isMobile } = Responsive()
+  const { isMobile } = Responsive()
 
   const { control, handleSubmit } = useForm<loginType>({
     resolver: yupResolver(schema),
-    defaultValues
+    defaultValues,
   })
 
   const onSubmit = (data: any) => {
@@ -20,7 +20,7 @@ const useManageLoginForm = () => {
     handleSubmit,
     onSubmit,
     control,
-    isMobile
+    isMobile,
   }
 }
 

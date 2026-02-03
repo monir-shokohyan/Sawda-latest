@@ -1,10 +1,5 @@
 import { Center } from '@mantine/core'
-import {
-  Title,
-  Text,
-  Anchor,
-  Stack,
-} from '@mantine/core'
+import { Title, Text, Anchor, Stack } from '@mantine/core'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 import { Responsive } from '@shared/hooks/responsive'
 import { RegisterForm } from '@entities/register-form'
@@ -12,12 +7,12 @@ import { RegisterForm } from '@entities/register-form'
 export const RegisterPage = () => {
   const { isMobile } = Responsive()
   return (
-     <ContainerWithBreadCrumb title="register">
+    <ContainerWithBreadCrumb title="register">
       <Center>
         <Stack
           gap="lg"
           w={isMobile ? '100%' : '50%'}
-          py="10vh"
+          py="5vh"
         >
           <Stack gap="lg">
             <Title
@@ -36,7 +31,7 @@ export const RegisterPage = () => {
               Sign up to get started
             </Text>
 
-           <RegisterForm />
+            <RegisterForm />
 
             <Text
               ta="center"
@@ -52,9 +47,8 @@ export const RegisterPage = () => {
               </Anchor>
             </Text>
           </Stack>
-          </Stack>
-          </Center>
-          </ContainerWithBreadCrumb>
-
+        </Stack>
+      </Center>
+    </ContainerWithBreadCrumb>
   )
 }

@@ -1,17 +1,10 @@
-import {
-  Title,
-  Text,
-  Anchor,
-  Stack,
-  Center,
-} from '@mantine/core'
+import { Title, Text, Anchor, Stack, Center } from '@mantine/core'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 import { Responsive } from '@shared/hooks/responsive'
 import { LoginForm } from '@entities/login-form'
 
-
 export const LoginPage = () => {
- const { isMobile } = Responsive()
+  const { isMobile } = Responsive()
 
   return (
     <ContainerWithBreadCrumb title="login">
@@ -19,7 +12,7 @@ export const LoginPage = () => {
         <Stack
           gap="lg"
           w={isMobile ? '100%' : '50%'}
-          py="10vh"
+          py="5vh"
         >
           <Title
             order={2}
@@ -36,7 +29,7 @@ export const LoginPage = () => {
           >
             Sign in to your account
           </Text>
-           <LoginForm />
+          <LoginForm />
           <Text
             ta="center"
             size="sm"

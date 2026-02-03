@@ -1,5 +1,5 @@
 export const defaultValues = {
-      email: '',
-      password: '',
-      confirm_password: '',
+  email: '',
+  password: '',
+  confirm_password: '',
 }

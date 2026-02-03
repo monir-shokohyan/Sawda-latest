@@ -1,8 +1,8 @@
-import { Button, Group, Stack, Text } from '@mantine/core'
+import { Button, Group, Stack, Text, Progress } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { ResText, SInputPassword } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
-import { ReactNode } from 'react'
+import { ReactNode, useMemo } from 'react'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormInputProps<T extends FieldValues> {
@@ -15,6 +15,17 @@ interface FormInputProps<T extends FieldValues> {
   leftSection?: ReactNode
   placeholder?: string
   mb?: number
+  showStrength?: boolean
+  maxLength?: number
+}
+
+const calculatePasswordStrength = (password: string, maxLength: number = 8): number => {
+  if (!password) return 0
+  
+  const length = Math.min(password.length, maxLength)
+  const strength = (length / maxLength) * 10
+  
+  return Math.round(strength)
 }
 
 const FormPasswordInput = <T extends FieldValues>({
@@ -27,8 +38,11 @@ const FormPasswordInput = <T extends FieldValues>({
   leftSection,
   placeholder,
   mb = 20,
+  showStrength = false,
+  maxLength = 8,
 }: FormInputProps<T>) => {
   const [visible, { toggle }] = useDisclosure(false)
+  
   return (
     <Group
       align="flex-end"
@@ -50,31 +64,52 @@ const FormPasswordInput = <T extends FieldValues>({
         <Controller
           name={name}
           control={control}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <SInputPassword
-                {...field}
-                error={!!error}
-                aria-invalid={!!error}
-                radius={3}
-                defaultValue="secret"
-                visible={visible}
-                onVisibilityChange={toggle}
-                leftSection={leftSection}
-                placeholder={placeholder}
-              />
+          render={({ field, fieldState: { error } }) => {
+            const strength = useMemo(
+              () => calculatePasswordStrength(field.value || '', maxLength),
+              [field.value, maxLength]
+            )
+            
+            const progressValue = (strength / 10) * 100
 
-              {error && (
-                <Text
-                  c="red"
-                  size="xs"
-                  mt={4}
-                >
-                  {error.message}
-                </Text>
-              )}
-            </>
-          )}
+            return (
+              <>
+                <SInputPassword
+                  {...field}
+                  error={!!error}
+                  aria-invalid={!!error}
+                  radius={3}
+                  visible={visible}
+                  onVisibilityChange={toggle}
+                  leftSection={leftSection}
+                  placeholder={placeholder}
+                  maxLength={maxLength}
+                />
+
+                {showStrength && field.value && (
+                  <Progress
+                    styles={{ section: { transitionDuration: '600ms' } }}
+                    value={progressValue}
+                    color={strength > 9 ? 'teal' : strength > 5 ? 'yellow' : 'red'}
+                    size={4}
+                    mt={4}
+                    aria-label="Password strength indicator"
+                    animated
+                  />
+                )}
+
+                {error && (
+                  <Text
+                    c="red"
+                    size="xs"
+                    mt={4}
+                  >
+                    {error.message}
+                  </Text>
+                )}
+              </>
+            )
+          }}
         />
       </Stack>
 
@@ -93,4 +128,4 @@ const FormPasswordInput = <T extends FieldValues>({
   )
 }
 
-export { FormPasswordInput }
+export  { FormPasswordInput }

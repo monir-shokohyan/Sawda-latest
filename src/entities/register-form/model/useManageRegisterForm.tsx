@@ -6,21 +6,22 @@ import { RegisterType } from '../types'
 import { defaultValues } from '../constant'
 
 const useManageRegisterForm = () => {
-   const { isMobile } = Responsive()
+  const { isMobile } = Responsive()
 
-  const { control, handleSubmit } = useForm<RegisterType>({
+  const { control, handleSubmit, watch } = useForm<RegisterType>({
     resolver: yupResolver(schema),
-    defaultValues
+    defaultValues,
   })
 
   const onSubmit = (data: any) => {
     console.log(data)
   }
+
   return {
     handleSubmit,
     onSubmit,
     control,
-    isMobile
+    isMobile,
   }
 }
 
