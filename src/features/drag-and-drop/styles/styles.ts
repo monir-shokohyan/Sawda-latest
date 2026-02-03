@@ -36,19 +36,12 @@ export const ImagePreviewWrapper = styled.div`
   margin-top: 20px;
 `
 
-export const ImagePreviewItem = styled.div`
+export const ImagePreviewItem = styled.div<{$isDark: boolean}>`
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 1;
-  box-shadow:
-    rgba(0, 0, 0, 0.2) 0px 15px 25px -4px,
-    rgba(0, 0, 0, 0.1) 0px -3px 4px -1px inset,
-    rgba(255, 255, 255, 0.3) 0px -10px 15px -1px,
-    rgba(255, 255, 255, 0.2) 0px 3px 4px -1px inset,
-    rgba(255, 255, 255, 0.1) 0px 0px 5px 1px inset,
-    rgba(255, 255, 255, 0.2) 0px 20px 30px 0px inset;
-
+  box-shadow: ${({$isDark}) => $isDark ? 'none' : '  rgba(0, 0, 0, 0.2) 0px 15px 25px -4px,rgba(0, 0, 0, 0.1) 0px -3px 4px -1px inset,rgba(255, 255, 255, 0.3) 0px -10px 15px -1px,rgba(255, 255, 255, 0.2) 0px 3px 4px -1px inset,rgba(255, 255, 255, 0.1) 0px 0px 5px 1px inset,rgba(255, 255, 255, 0.2) 0px 20px 30px 0px inset;'};
   &:hover {
     .remove-button,
     .edit-button {

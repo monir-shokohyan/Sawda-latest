@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { useMantineTheme } from '@mantine/core'
+import { useMantineColorScheme, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import imageCompression from 'browser-image-compression'
 import { FileWithPath } from '@mantine/dropzone'
@@ -15,6 +15,10 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
   const theme = useMantineTheme()
   const openRef = useRef<() => void>(null)
   const [isCompressing, setIsCompressing] = useState(false)
+    const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  
+    const isDark = colorScheme === 'dark'
+  
 
   const handleDrop = async (files: FileWithPath[]) => {
     setIsCompressing(true)
@@ -112,5 +116,6 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
     isCompressing,
     handleDrop,
     removeImage,
+    isDark
   }
 }

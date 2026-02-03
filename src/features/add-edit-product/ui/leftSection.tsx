@@ -38,9 +38,7 @@ const LeftSection = ({
 
   return (
     <Stack
-      w={isMobile ? '100%' : '62%'}
-      style={{ border: '1px solid green' }}
-    >
+      w={isMobile ? '100%' : '62%'}>
       <SettingsListConentWrapper
         title="About Product"
         allowButton
@@ -59,6 +57,7 @@ const LeftSection = ({
           placeholder="Select Category"
           control={control}
           data={CategoryConstants}
+          
         />
         <FormTextarea
           label="About product"

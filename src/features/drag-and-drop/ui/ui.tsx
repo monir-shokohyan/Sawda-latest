@@ -35,6 +35,7 @@ const Ui = ({
     handleSaveEdit,
     editingImage,
     setEditingImage,
+    isDark,
   } = useDropDown({ images, setImages })
 
   return (
@@ -128,7 +129,7 @@ const Ui = ({
             spacing="sm"
           >
             {images.map((image) => (
-              <ImagePreviewItem key={image.id}>
+              <ImagePreviewItem key={image.id} $isDark={isDark}>
                 <Group
                   pos="absolute"
                   p={5}
