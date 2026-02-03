@@ -37,25 +37,28 @@ const LeftSection = ({
   const { isMobile } = Responsive()
 
   return (
-    <Stack w={isMobile ? '100%' : '62%'} style={{border: "1px solid green"}}>
+    <Stack
+      w={isMobile ? '100%' : '62%'}
+      style={{ border: '1px solid green' }}
+    >
       <SettingsListConentWrapper
         title="About Product"
         allowButton
         buttonTitle="Add Product"
         handleSubmit={handleSubmit(onSubmit)}
       >
+        <FormInput
+          label="Title"
+          name="title"
+          control={control}
+          placeholder="write your title"
+        />
         <FormSelect
           label="Category"
           name="category"
           placeholder="Select Category"
           control={control}
           data={CategoryConstants}
-        />
-        <FormInput
-          label="Title"
-          name="title"
-          control={control}
-          placeholder="write your title"
         />
         <FormTextarea
           label="About product"

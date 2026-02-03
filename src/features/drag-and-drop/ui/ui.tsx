@@ -128,7 +128,7 @@ const Ui = ({
             spacing="sm"
           >
             {images.map((image) => (
-              <ImagePreviewItem key={image.id} >
+              <ImagePreviewItem key={image.id}>
                 <Group
                   pos="absolute"
                   p={5}

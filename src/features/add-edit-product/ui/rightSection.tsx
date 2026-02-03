@@ -19,7 +19,7 @@ const RightSection = ({ images, setImages }: RightSectionProps) => {
       right={0}
       h={isMobile ? 'auto' : '100vh'}
       mb={0}
-      style={{border: '1px solid red'}}
+      style={{ border: '1px solid red' }}
     >
       <DragAndDrop
         images={images}
