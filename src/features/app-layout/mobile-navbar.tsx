@@ -1,6 +1,6 @@
 import { Flex } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
-import { HoveredActionIcon } from '@shared/styles'
+import { SActionIcon } from '@shared/styles'
 
 import {
   MdAdd,
@@ -27,25 +27,27 @@ const MobileDownbar = () => {
         zIndex: 100,
       }}
     >
-      <HoveredActionIcon
+      <SActionIcon
         variant="subtle"
+        $isSubtle
         c="darkText"
         size="xl"
         onClick={() => navigate(Paths.Main)}
       >
         <MdHome size={24} />
-      </HoveredActionIcon>
+      </SActionIcon>
 
-      <HoveredActionIcon
+      <SActionIcon
         variant="subtle"
+        $isSubtle
         c="darkText"
         size="xl"
         onClick={() => navigate(`${Paths.Favorites}monir`)}
       >
         <MdOutlineFavoriteBorder size={24} />
-      </HoveredActionIcon>
+      </SActionIcon>
 
-      <HoveredActionIcon
+      <SActionIcon
         variant="filled"
         color="blue"
         size="xl"
@@ -56,25 +58,27 @@ const MobileDownbar = () => {
         onClick={() => navigate(Paths.AddProductMobile)}
       >
         <MdAdd size={28} />
-      </HoveredActionIcon>
+      </SActionIcon>
 
-      <HoveredActionIcon
+      <SActionIcon
         variant="subtle"
         c="darkText"
         size="xl"
+        $isSubtle
         onClick={() => navigate(`${Paths.MobileModel}message-list`)}
       >
         <MdOutlineMessage size={24} />
-      </HoveredActionIcon>
+      </SActionIcon>
 
-      <HoveredActionIcon
+      <SActionIcon
         variant="subtle"
         c="darkText"
+        $isSubtle
         size="xl"
         onClick={() => navigate(`${Paths.MobileModel}profile`)}
       >
         <MdPerson size={24} />
-      </HoveredActionIcon>
+      </SActionIcon>
     </Flex>
   )
 }

@@ -1,23 +1,25 @@
-import { Button, Group, Stack, Text, NumberInput } from '@mantine/core'
+import {
+  Button,
+  Group,
+  Stack,
+  Text,
+  NumberInput,
+  NumberInputProps,
+} from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
-interface FormNumberInputProps<T extends FieldValues> {
+interface FormNumberInputProps<T extends FieldValues> extends Omit<
+  NumberInputProps,
+  'name' | 'value' | 'onChange' | 'error'
+> {
   control: Control<T>
   name: Path<T>
   label: string
   buttonTitle?: string
   isButton?: boolean
   handleClick?: () => void
-  prefix?: string
-  suffix?: string
-  decimalScale?: number
-  thousandSeparator?: string
-  min?: number
-  max?: number
-  placeholder?: string
-  hideControls?: boolean
   mb?: number
 }
 
@@ -37,15 +39,21 @@ const FormNumberInput = <T extends FieldValues>({
   placeholder,
   hideControls = true,
   mb = 20,
+  rightSection = null,
+  leftSection = null,
+  rightSectionWidth,
+  ...restProps
 }: FormNumberInputProps<T>) => {
   return (
     <Group
       align="flex-end"
       mb={mb}
+      w="100%"
     >
       <Stack
         style={{ flex: 1 }}
         gap={3}
+        w="100%"
       >
         <label>
           <ResText
@@ -77,6 +85,11 @@ const FormNumberInput = <T extends FieldValues>({
                 hideControls={hideControls}
                 value={field.value ?? ''}
                 onChange={(value) => field.onChange(value)}
+                rightSection={rightSection}
+                leftSection={leftSection}
+                rightSectionWidth={rightSectionWidth}
+                w="100%"
+                {...restProps}
               />
 
               {error && (

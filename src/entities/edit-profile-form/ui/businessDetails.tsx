@@ -3,9 +3,9 @@ import { FormInput } from '@shared/ui/form'
 import { FaInfoCircle, FaPlus } from 'react-icons/fa'
 import { Control } from 'react-hook-form'
 import { FormData } from '../types'
-import { AddButton, LinkText } from '../styles'
+import { LinkText } from '../styles'
 import { Stack } from '@mantine/core'
-import { ResText } from '@shared/styles'
+import { ResText, SButton } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 
 interface FormSetProps {
@@ -94,18 +94,14 @@ const BusinessDetails = ({
             </LinkText>
           </div>
         ) : (
-          <AddButton
+          <SButton
             type="button"
             onClick={() => setAddressModalOpen(true)}
+            variant="outline"
+            rightSection={<FaPlus />}
           >
-            <FaPlus />
-            <ResText
-              fontSize={TypographySize.SemiSmall}
-              c="darkText"
-            >
-              Add address
-            </ResText>
-          </AddButton>
+            Add address
+          </SButton>
         )}
       </Stack>
     </>

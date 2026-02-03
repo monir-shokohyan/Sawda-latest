@@ -25,6 +25,8 @@ const FormSelect = <T extends FieldValues>({
     <Group
       align="flex-end"
       mb={mb}
+      style={{ flex: 1 }}
+      miw={300}
     >
       <Stack
         style={{ flex: 1 }}
@@ -61,6 +63,7 @@ const FormSelect = <T extends FieldValues>({
                   middlewares: { flip: true, shift: true },
                   withinPortal: true,
                 }}
+                nothingFoundMessage="Nothing found"
               />
 
               {error && (

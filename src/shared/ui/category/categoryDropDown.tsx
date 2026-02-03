@@ -1,7 +1,7 @@
 import { Menu, Stack, Text, ScrollArea } from '@mantine/core'
 import { MdOutlineApps } from 'react-icons/md'
 import { CategoryConstants } from './constant'
-import { HoveredButton, HoveredMenuItem } from '@shared/styles'
+import { HoveredMenuItem, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { Paths } from '@shared/api/paths/paths'
 import { useNavigate } from 'react-router-dom'
@@ -21,9 +21,10 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
   const { isMobile } = Responsive()
 
   const triggerButton = (
-    <HoveredButton
+    <SButton
       variant="subtle"
       leftSection={<MdOutlineApps size={20} />}
+      $isSubtle={true}
       rightSection={
         <ExpandArrow
           size={20}
@@ -36,7 +37,7 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
       justify="flex-start"
     >
       All Categories
-    </HoveredButton>
+    </SButton>
   )
 
   return (

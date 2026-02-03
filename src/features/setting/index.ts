@@ -1,5 +1,2 @@
-export * from './setting-change-password'
-export * from './setting-edit-profile'
 export * from './setting-layout'
 export * from './setting-theme'
-export * from './setting-notification'

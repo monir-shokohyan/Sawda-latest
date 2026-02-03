@@ -69,6 +69,8 @@ const FormPriceInput = <T extends FieldValues>({
     <Group
       align="flex-end"
       mb={mb}
+      style={{ flex: 1 }}
+      miw={300}
     >
       <Stack
         style={{ flex: 1 }}

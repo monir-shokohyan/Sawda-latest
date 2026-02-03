@@ -10,8 +10,6 @@ import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 
 function Ui() {
   const { isMobile } = Responsive()
-  const [searchParams] = useSearchParams()
-  const name = searchParams.get('name') ?? 'Untitled'
   const [images, setImages] = useState<ImageFile[]>([])
 
   const onSubmit = (data: AddProductFormData) => {
@@ -19,19 +17,17 @@ function Ui() {
   }
 
   return (
-    <ContainerWithBreadCrumb title={name}>
+    <ContainerWithBreadCrumb title="Add product">
       <Flex
         gap="10px"
         p={isMobile ? '0px' : 'xl'}
         wrap="wrap"
       >
-        {/* right section */}
         <RightSection
           images={images}
           setImages={setImages}
         />
 
-        {/* left section */}
         <LeftSection onSubmit={onSubmit} />
       </Flex>
     </ContainerWithBreadCrumb>

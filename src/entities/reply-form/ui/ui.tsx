@@ -1,5 +1,5 @@
 import { Flex, Stack, Textarea } from '@mantine/core'
-import { HoveredActionIcon, OpacityButton } from '@shared/styles'
+import { SActionIcon, SButton } from '@shared/styles'
 import { FiSend } from 'react-icons/fi'
 
 import { quickReplies } from '../constant'
@@ -23,7 +23,7 @@ const Ui = () => {
           gap={6}
           pos="relative"
         >
-          <HoveredActionIcon
+          <SActionIcon
             type="submit"
             variant="transparent"
             color="blue"
@@ -39,7 +39,7 @@ const Ui = () => {
             aria-label="Send message"
           >
             <FiSend size={18} />
-          </HoveredActionIcon>
+          </SActionIcon>
 
           <Textarea
             placeholder="Greetings..."
@@ -69,14 +69,13 @@ const Ui = () => {
         align="flex-start"
       >
         {quickReplies.map((text) => (
-          <OpacityButton
+          <SButton
             key={text}
-            bg="black"
             onClick={() => setValue('message', text, { shouldValidate: true })}
             size="compact-sm"
           >
             {text}
-          </OpacityButton>
+          </SButton>
         ))}
       </Flex>
     </Stack>

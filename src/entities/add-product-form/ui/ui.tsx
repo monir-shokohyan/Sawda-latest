@@ -9,10 +9,10 @@ import { CategoryConstants } from '@shared/ui/category/constant'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 import { FormChipGroup } from '@shared/ui/form/FormChipGroup'
 import { ConditionConstants, IsFreeConstants } from '../constant'
-import { ProvinceConstants } from '@features/search-filter/constant'
 import { FormColorPicker } from '@shared/ui/form/FormColorPicker'
 import { FormPriceInput } from '@shared/ui/form/FormPriceInput'
 import { FormSlider } from '@shared/ui/form/FormSlider'
+import { ProvinceConstants } from '@entities/filter-form/constant'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
   const { control, handleSubmit, watch } = useForm<AddProductFormData>({

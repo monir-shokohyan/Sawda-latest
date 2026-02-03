@@ -46,39 +46,6 @@ export const PhotoInfo = styled.div`
   flex: 1;
 `
 
-export const UploadButton = styled.label`
-  display: inline-block;
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 13px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--mantine-color-primary-light-hover);
-  }
-
-  input {
-    display: none;
-  }
-`
-
-export const AddButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  background-color: transparent;
-  border-radius: 4px;
-  font-size: 13px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--mantine-color-primary-light-hover);
-  }
-`
-
 export const SaveButton = styled.button`
   padding: 10px 24px;
   background-color: #4263eb;

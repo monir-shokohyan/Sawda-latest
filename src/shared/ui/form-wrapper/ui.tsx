@@ -1,6 +1,6 @@
 import { Flex } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { ResText, SaveButton } from '@shared/styles'
+import { ResText, SButton } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { ReactNode } from 'react'
 
@@ -10,6 +10,8 @@ interface Props {
   buttonTitle: string
   children: ReactNode
   allowButton?: boolean
+  buttonLeftSection?: ReactNode
+  allowPadding?: boolean
 }
 
 const Ui = ({
@@ -18,34 +20,41 @@ const Ui = ({
   buttonTitle,
   children,
   allowButton = false,
+  buttonLeftSection,
+  allowPadding = true,
 }: Props) => {
   const { isMobile } = Responsive()
+  const paddingY = isMobile ? 20 : 40
+  const paddingX = isMobile ? 10 : 40
   return (
     <Flex
-      py={isMobile ? 20 : 40}
-      px={isMobile ? 10 : 40}
+      py={allowPadding ? paddingY : '0px'}
+      px={allowPadding ? paddingX : '10px'}
       direction="column"
       bg="background.8"
       style={{
         flexGrow: '1',
       }}
     >
-      <ResText
-        c="darkText"
-        fontSize={TypographySize.Large}
-      >
-        {title}
-      </ResText>
+      {title && (
+        <ResText
+          c="darkText"
+          fontSize={TypographySize.Large}
+        >
+          {title}
+        </ResText>
+      )}
 
       <div style={{ marginTop: '20px' }}>
         {children}
         {allowButton && (
-          <SaveButton
+          <SButton
             type="button"
             onClick={() => handleSubmit?.()}
+            leftSection={buttonLeftSection}
           >
             {buttonTitle}
-          </SaveButton>
+          </SButton>
         )}
       </div>
     </Flex>

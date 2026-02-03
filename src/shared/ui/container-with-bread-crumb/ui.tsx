@@ -27,7 +27,7 @@ const Ui = (Uiprops: Props) => {
     pyMobile = 'sm',
     pxMobile = 'sm',
   } = Uiprops
-  
+
   const { isMobile } = Responsive()
   return (
     <GradientContainer>

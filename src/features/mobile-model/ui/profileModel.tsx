@@ -1,6 +1,6 @@
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { SettingList } from '@features/setting/setting-layout/ui/settingList'
-import { Button, Collapse, Flex, Modal, ScrollArea } from '@mantine/core'
+import { Button, Collapse, Flex, ScrollArea } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
 import { DarkMode } from '@shared/ui/darkMode'
 import { LanguageDropDown } from '@shared/ui/language'

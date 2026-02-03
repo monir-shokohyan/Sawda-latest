@@ -86,40 +86,48 @@ export const SInputPassword = styled(PasswordInput)<InputProps>`
   }
 `
 
-export const _SButton = styled(Button)<ButtonProps>`
+export const _SButton = styled(Button)<ButtonProps & { $isSubtle: boolean }>`
+  input {
+    display: none;
+  }
   &:hover {
-    background-color: var(--mantine-color-blue-9) !important;
+    background-color: ${({ $isSubtle }) =>
+      $isSubtle
+        ? 'var(--mantine-color-primary-light-hover)'
+        : 'var(--mantine-color-blue-9)'} !important;
+    color: ${({ $isSubtle }) => ($isSubtle ? 'default' : 'white')} !important;
   }
 `
+export const SButton = createPolymorphicComponent<
+  'button',
+  ButtonProps & { $isSubtle?: boolean }
+>(_SButton)
 
 export const _SGButton = styled(Button)<ButtonProps>`
   &:hover {
     background-color: var(--mantine-color-green-7) !important;
   }
 `
-
-export const _OpacityButton = styled(Button)<ButtonProps>`
-  &:hover {
-    opacity: 0.8;
-  }
-`
-
-export const SButton = createPolymorphicComponent<'button', ButtonProps>(
-  _SButton,
-)
 export const SGButton = createPolymorphicComponent<'button', ButtonProps>(
   _SGButton,
 )
 
-export const OpacityButton = createPolymorphicComponent<'button', ButtonProps>(
-  _OpacityButton,
-)
-
 export const SActionIcon = styled(ActionIcon)<
-  ActionIconProps & { onClick?: () => void; ref?: any }
+  ActionIconProps & {
+    onClick?: (e: any) => void
+    ref?: any
+    $isSubtle?: boolean
+    children: ReactNode
+    title?: string
+    type?: 'submit'
+  }
 >`
   &:hover {
-    background-color: var(--mantine-color-blue-9);
+    background-color: ${({ $isSubtle }) =>
+      $isSubtle
+        ? 'var(--mantine-color-primary-light-hover)'
+        : 'var(--mantine-color-blue-9)'} !important;
+    color: ${({ $isSubtle }) => ($isSubtle ? 'default' : 'white')} !important;
   }
 `
 export interface StyledTextProps {
@@ -199,48 +207,7 @@ export const HoveredText = styled(Text)<
     opacity: ${({ $isActive }) => ($isActive ? 0.8 : 1)};
   }
 `
-export const HoveredActionIcon = styled(ActionIcon)<
-  ActionIconProps & {
-    onClick?: (e: any) => void
-    children: ReactNode
-    title?: string
-    type?: 'submit'
-  }
->`
-  &:hover {
-    background: var(--mantine-color-primary-light-hover) !important;
-  }
-`
 
-export const HoveredButton = styled(Button)<
-  ButtonProps & {
-    onClick?: (e: any) => void
-    children: ReactNode
-    title?: string
-    type?: 'submit'
-  }
->`
-  border-radius: 5px;
-  &:hover {
-    background: var(--mantine-color-primary-light-hover);
-  }
-`
-
-export const SaveButton = styled.button`
-  padding: 10px 24px;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  float: right;
-  background-color: var(--mantine-color-blue-8);
-
-  &:hover {
-    background-color: var(--mantine-color-blue-9) !important;
-  }
-`
 export interface InteractiveCardProps extends CardProps {
   variant?: 'default' | 'active'
 }

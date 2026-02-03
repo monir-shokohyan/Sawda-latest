@@ -1,4 +1,4 @@
-import { ChangePassword } from '@features/setting/setting-change-password'
+import { ChangePasswordForm } from '@entities/change-password-form'
 import { SettingLayout } from '@features/setting/setting-layout'
 import { Flex } from '@mantine/core'
 
@@ -9,7 +9,7 @@ const Ui = () => {
       h="100%"
     >
       <SettingLayout title="change-password">
-        <ChangePassword />
+        <ChangePasswordForm />
       </SettingLayout>
     </Flex>
   )

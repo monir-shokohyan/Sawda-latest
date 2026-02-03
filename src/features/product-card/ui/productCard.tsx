@@ -11,7 +11,7 @@ import {
 import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
-import { HoveredActionIcon } from '@shared/styles'
+import { SActionIcon } from '@shared/styles'
 
 const ProductCard: React.FC<UseModalProps> = ({
   profile,
@@ -95,8 +95,9 @@ const ProductCard: React.FC<UseModalProps> = ({
             $isAnimating={isAnimating}
             $liked={profile?.liked}
           >
-            <HoveredActionIcon
+            <SActionIcon
               variant="subtle"
+              $isSubtle
               color={profile?.liked ? 'red' : 'gray'}
               onClick={handleLikeClick}
             >
@@ -105,14 +106,15 @@ const ProductCard: React.FC<UseModalProps> = ({
               ) : (
                 <FaRegHeart size={18} />
               )}
-            </HoveredActionIcon>
+            </SActionIcon>
           </ActionIconWrapper>
-          <HoveredActionIcon
+          <SActionIcon
             variant="subtle"
             color="gray"
+            $isSubtle
           >
             <FaEllipsisV size={16} />
-          </HoveredActionIcon>
+          </SActionIcon>
         </Group>
       </MantineCard>
 

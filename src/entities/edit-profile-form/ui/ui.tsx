@@ -1,12 +1,11 @@
 import { Stack } from '@mantine/core'
-import { ResText } from '@shared/styles'
+import { ResText, SButton } from '@shared/styles'
 import { AddressModal } from './businessAddressModal'
 import {
   PhotoIcon,
   PhotoInfo,
   ProfilePhoto,
   ProfilePhotoSection,
-  UploadButton,
 } from '../styles'
 import { AccountDetails } from './accountDetails'
 import { PrivateDetails } from './privateDetails'
@@ -65,14 +64,17 @@ const Ui = () => {
                 Your favorite face picture as an important way for buyers and
                 sellers to learn about each part other.
               </ResText>
-              <UploadButton>
+              <SButton
+                variant="outline"
+                component="label"
+              >
                 Upload a photo
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handlePhotoUpload}
                 />
-              </UploadButton>
+              </SButton>
             </PhotoInfo>
           </ProfilePhotoSection>
 

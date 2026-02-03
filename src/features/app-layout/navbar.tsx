@@ -9,7 +9,7 @@ import {
   MdOutlineNotifications,
 } from 'react-icons/md'
 import { MobileDownbar } from './mobile-navbar'
-import { HoveredActionIcon, SButton } from '@shared/styles'
+import { SActionIcon, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { Logo } from '@shared/ui/logo'
 import { useNavigate } from 'react-router-dom'
@@ -51,41 +51,45 @@ const Navbar = () => {
           <Flex>
             {!isMobile && (
               <>
-                <HoveredActionIcon
+                <SActionIcon
                   variant="subtle"
+                  $isSubtle
                   color="darkText"
                   size="lg"
                   onClick={() => navigate(`${Paths.Favorites}monir`)}
                 >
                   <MdOutlineFavoriteBorder size={20} />
-                </HoveredActionIcon>
+                </SActionIcon>
 
-                <HoveredActionIcon
+                <SActionIcon
                   variant="subtle"
+                  $isSubtle
                   color="darkText"
                   size="lg"
                   onClick={() => openFollowing()}
                 >
                   <TbUserPlus size={20} />
-                </HoveredActionIcon>
+                </SActionIcon>
 
-                <HoveredActionIcon
+                <SActionIcon
                   variant="subtle"
+                  $isSubtle
                   color="darkText"
                   size="lg"
                   onClick={() => open()}
                 >
                   <MdOutlineNotifications size={20} />
-                </HoveredActionIcon>
+                </SActionIcon>
 
-                <HoveredActionIcon
+                <SActionIcon
                   variant="subtle"
+                  $isSubtle
                   color="darkText"
                   size="lg"
                   onClick={() => navigate(`${Paths.Message}monir`)}
                 >
                   <MdOutlineMessage size={20} />
-                </HoveredActionIcon>
+                </SActionIcon>
               </>
             )}
 

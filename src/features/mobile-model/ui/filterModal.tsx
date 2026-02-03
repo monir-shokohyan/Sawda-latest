@@ -2,9 +2,9 @@ import { Group, ScrollArea, Text } from '@mantine/core'
 import { Logo } from '@shared/ui/logo'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate } from 'react-router-dom'
-import { Filter } from '@features/search-filter/ui/filter'
 import { MdOutlineManageSearch } from 'react-icons/md'
 import { HModal } from '@shared/styles'
+import { FilterForm } from '@entities/filter-form'
 
 const FilterModal = () => {
   const navigate = useNavigate()
@@ -45,7 +45,7 @@ const FilterModal = () => {
             Filter
           </Text>
         </Group>
-        <Filter />
+        <FilterForm />
       </ScrollArea>
     </HModal>
   )

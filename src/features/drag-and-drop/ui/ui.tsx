@@ -11,7 +11,7 @@ import { Group, Image, SimpleGrid, Text } from '@mantine/core'
 import { FaDownload } from 'react-icons/fa'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { MdCancel, MdOutlineFileUpload, MdCropRotate } from 'react-icons/md'
-import { HoveredActionIcon, SButton } from '@shared/styles'
+import { SActionIcon, SButton } from '@shared/styles'
 import { MIME_TYPES } from '@mantine/dropzone'
 import { ImageEditor } from './imageEditor'
 
@@ -135,7 +135,7 @@ const Ui = ({
                   w="100%"
                   justify="flex-end"
                 >
-                  <HoveredActionIcon
+                  <SActionIcon
                     onClick={() =>
                       setEditingImage({
                         id: image.id,
@@ -145,24 +145,26 @@ const Ui = ({
                     }
                     aria-label="Edit image"
                     variant="subtle"
+                    $isSubtle
                     c="white"
                     style={{
                       backdropFilter: 'brightness(40%)',
                     }}
                   >
                     <MdCropRotate size={14} />
-                  </HoveredActionIcon>
-                  <HoveredActionIcon
+                  </SActionIcon>
+                  <SActionIcon
                     onClick={() => removeImage(image.id)}
                     aria-label="Remove image"
                     variant="subtle"
+                    $isSubtle
                     c="white"
                     style={{
                       backdropFilter: 'brightness(40%)',
                     }}
                   >
                     <RiDeleteBin5Line size={14} />
-                  </HoveredActionIcon>
+                  </SActionIcon>
                 </Group>
 
                 <Image

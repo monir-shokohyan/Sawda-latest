@@ -1,13 +1,11 @@
 import { Group, Menu, MenuProps } from '@mantine/core'
 
 import { MdClose, MdOutlineManageSearch } from 'react-icons/md'
-import { HoveredActionIcon } from '@shared/styles'
+import { SActionIcon } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
-import { Filter } from './filter'
 import { FilterButton } from './filterButton'
 import { useDisclosure } from '@mantine/hooks'
-import { useNavigate } from 'react-router-dom'
-import { Paths } from '@shared/api/paths/paths'
+import { FilterForm } from '@entities/filter-form'
 
 interface FilterProps {
   iconSize?: 'xl' | 'md' | 'lg' | 'sm'
@@ -20,7 +18,6 @@ const MenuFilter = ({
 }: FilterProps) => {
   const { isMobile } = Responsive()
   const [opened, { toggle, close }] = useDisclosure(false)
-  const navigate = useNavigate()
 
   return (
     <Menu
@@ -55,16 +52,17 @@ const MenuFilter = ({
             <span>Filter</span>
           </Menu.Label>
 
-          <HoveredActionIcon
+          <SActionIcon
             variant="subtle"
+            $isSubtle
             color="gray"
             onClick={() => close()}
             aria-label="Close filter menu"
           >
             <MdClose size={18} />
-          </HoveredActionIcon>
+          </SActionIcon>
         </Group>
-        <Filter />
+        <FilterForm />
       </Menu.Dropdown>
     </Menu>
   )
