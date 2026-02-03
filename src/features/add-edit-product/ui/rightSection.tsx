@@ -14,9 +14,9 @@ const RightSection = ({ images, setImages }: RightSectionProps) => {
   return (
     <Stack
       w={isMobile ? '100%' : '35%'}
-      pos={isMobile ? 'inherit' : 'sticky'}
-      top={30}
-      right={0}
+      pos={isMobile ? 'static' : 'sticky'}
+      top={isMobile ? undefined : 30}
+      right={isMobile ? undefined : 0}
       h={isMobile ? 'auto' : '100vh'}
       mb={0}
       style={{ border: '1px solid red' }}
