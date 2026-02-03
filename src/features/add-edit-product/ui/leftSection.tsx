@@ -37,7 +37,7 @@ const LeftSection = ({
   const { isMobile } = Responsive()
 
   return (
-    <Stack w={isMobile ? '100%' : '62%'}>
+    <Stack w={isMobile ? '100%' : '62%'} style={{border: "1px solid green"}}>
       <SettingsListConentWrapper
         title="About Product"
         allowButton

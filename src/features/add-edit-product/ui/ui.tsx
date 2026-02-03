@@ -40,7 +40,7 @@ function Ui() {
           items={[{ title: 'Home', href: '/' }, { title: name }]}
         />
         <Flex
-          gap="2%"
+          gap="10px"
           p={isMobile ? '0px' : 'xl'}
           wrap="wrap"
         >
