@@ -10,11 +10,7 @@ import {
 import { Group, Image, SimpleGrid, Text } from '@mantine/core'
 import { FaDownload } from 'react-icons/fa'
 import { RiDeleteBin5Line } from 'react-icons/ri'
-import {
-  MdCancel,
-  MdOutlineFileUpload,
-  MdCropRotate,
-} from 'react-icons/md'
+import { MdCancel, MdOutlineFileUpload, MdCropRotate } from 'react-icons/md'
 import { HoveredActionIcon, SButton } from '@shared/styles'
 import { MIME_TYPES } from '@mantine/dropzone'
 import { ImageEditor } from './imageEditor'

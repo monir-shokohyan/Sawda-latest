@@ -3,10 +3,7 @@ import { AddProductSubmitProps } from '@entities/add-product-form/types'
 import { Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 
-
-const LeftSection = ({
-  onSubmit,
-}: AddProductSubmitProps) => {
+const LeftSection = ({ onSubmit }: AddProductSubmitProps) => {
   const { isMobile } = Responsive()
 
   return (

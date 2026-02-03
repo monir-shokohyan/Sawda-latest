@@ -25,5 +25,4 @@ const DetailsList = [
   },
 ]
 
-
 export { DetailsObject, DetailsList }

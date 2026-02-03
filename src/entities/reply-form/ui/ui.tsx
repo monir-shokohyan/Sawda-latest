@@ -1,17 +1,20 @@
-import {
-  Flex,
-  Stack,
-  Textarea,
-} from '@mantine/core'
+import { Flex, Stack, Textarea } from '@mantine/core'
 import { HoveredActionIcon, OpacityButton } from '@shared/styles'
 import { FiSend } from 'react-icons/fi'
 
 import { quickReplies } from '../constant'
 import { useManageReplyForm } from '../model'
 
-
 const Ui = () => {
-const { handleSubmit, onSubmit, isSubmitting, errors, setValue, register, theme} = useManageReplyForm()
+  const {
+    handleSubmit,
+    onSubmit,
+    isSubmitting,
+    errors,
+    setValue,
+    register,
+    theme,
+  } = useManageReplyForm()
 
   return (
     <Stack gap={20}>

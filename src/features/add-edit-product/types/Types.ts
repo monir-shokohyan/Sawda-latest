@@ -7,4 +7,3 @@ export interface ProductsDetailsProps {
     title: string
   }[]
 }
-

@@ -37,4 +37,3 @@ export const IsFreeConstants = [
     label: 'For Free',
   },
 ]
-

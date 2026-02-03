@@ -1,11 +1,9 @@
-import { Flex, Stack } from '@mantine/core'
-import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
-import { GeneralPadding } from '@shared/constants'
+import { Flex } from '@mantine/core'
 import { useSearchParams } from 'react-router-dom'
 import { Responsive } from '@shared/hooks/responsive'
-import { GradientContainer } from '@shared/ui/containers'
 import { RightSection } from './rightSection'
 import { LeftSection } from './leftSection'
+import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 
 function Ui() {
   const { isMobile } = Responsive()
@@ -13,29 +11,16 @@ function Ui() {
   const name = searchParams.get('name') ?? 'Untitled'
 
   return (
-    <GradientContainer>
-      <Stack
-        w="100%"
-        gap={0}
-        px={isMobile ? 'sm' : GeneralPadding}
-        py={isMobile ? 'sm' : 'xl'}
+    <ContainerWithBreadCrumb title={name}>
+      <Flex
+        gap="2%"
+        p={isMobile ? '0px' : 'xl'}
+        wrap="wrap"
       >
-        <BreadcrumbsNav
-          items={[{ title: 'Home', href: '/' }, { title: name }]}
-        />
-        <Flex
-          gap="2%"
-          p={isMobile ? '0px' : 'xl'}
-          wrap="wrap"
-        >
-          {/* left section */}
-          <LeftSection />
-
-          {/* right section */}
-          <RightSection />
-        </Flex>
-      </Stack>
-    </GradientContainer>
+        <LeftSection />
+        <RightSection />
+      </Flex>
+    </ContainerWithBreadCrumb>
   )
 }
 

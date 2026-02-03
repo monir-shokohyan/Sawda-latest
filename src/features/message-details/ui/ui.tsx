@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import { Container, Flex, Stack } from '@mantine/core'
+import { Container, Flex } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { LeftSection } from './left-section'
 import { RightSection } from './right-section'
 import { Message } from '../types'
-import { GradientContainer } from '@shared/ui/containers'
-import { GeneralPadding } from '@shared/constants'
-import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
+import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 
 const Ui = () => {
   const { isMobile } = Responsive()
@@ -48,29 +46,19 @@ const Ui = () => {
   }
 
   return (
-    <GradientContainer>
-      <Stack
-        w="100%"
-        gap={0}
-        px={isMobile ? 'sm' : GeneralPadding}
-        py={isMobile ? 'sm' : 'xl'}
+    <ContainerWithBreadCrumb title="Messages">
+      <Flex
+        gap="2%"
+        p={isMobile ? '0px' : 'xl'}
+        wrap="wrap"
       >
-        <BreadcrumbsNav
-          items={[{ title: 'Home', href: '/' }, { title: 'Messages' }]}
+        <LeftSection
+          onMessageSelect={handleMessageSelect}
+          activeMessageId={selectedMessage?.id}
         />
-        <Flex
-          gap="2%"
-          p={isMobile ? '0px' : 'xl'}
-          wrap="wrap"
-        >
-          <LeftSection
-            onMessageSelect={handleMessageSelect}
-            activeMessageId={selectedMessage?.id}
-          />
-          <RightSection selectedMessage={selectedMessage} />
-        </Flex>
-      </Stack>
-    </GradientContainer>
+        <RightSection selectedMessage={selectedMessage} />
+      </Flex>
+    </ContainerWithBreadCrumb>
   )
 }
 

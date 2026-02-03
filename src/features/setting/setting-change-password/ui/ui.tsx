@@ -1,9 +1,9 @@
-import { ChangePasswordForm } from "@entities/change-password-form"
+import { ChangePasswordForm } from '@entities/change-password-form'
 
 const Ui = () => {
   return (
     <>
-    <ChangePasswordForm />
+      <ChangePasswordForm />
     </>
   )
 }

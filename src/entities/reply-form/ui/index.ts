@@ -1,1 +1,1 @@
-export {Ui as ReplyProductForm} from './ui'
+export { Ui as ReplyProductForm } from './ui'

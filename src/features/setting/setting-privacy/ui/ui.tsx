@@ -27,7 +27,7 @@ const Ui = () => {
             my={30}
             mx={30}
           >
-         <PrivacyForm />
+            <PrivacyForm />
           </Stack>
         </Stack>
       </FormWrapper>
