@@ -57,6 +57,9 @@ const FormSelect = <T extends FieldValues>({
                 radius={3}
                 comboboxProps={{
                   transitionProps: { transition: 'fade-down', duration: 400 },
+                  position: 'bottom-start',
+                  middlewares: { flip: true, shift: true },
+                  withinPortal: true,
                 }}
               />
 
