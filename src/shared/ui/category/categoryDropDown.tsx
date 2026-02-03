@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { ExpandArrow } from '../expandArrow'
 import { useDisclosure } from '@mantine/hooks'
 import { MenuWrapper } from '../Menu/MenuWrapper'
+import { MenuDropDown } from '../menu-dropdown'
 
 const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
   const navigate = useNavigate()
@@ -41,15 +42,8 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
   )
 
   return (
-    <Menu
-      shadow="md"
-      position="bottom-end"
-      withArrow
-      transitionProps={{ transition: 'fade-down', duration: 250 }}
-      trigger="hover"
-      onOpen={toggle}
-      onClose={toggle}
-    >
+    <>
+
       <MenuWrapper
         toggle={toggle}
         position="bottom-end"
@@ -76,7 +70,7 @@ const CategoryDropDown = ({ closeDrawer }: { closeDrawer?: () => void }) => {
           </ScrollArea>
         </Menu.Dropdown>
       </MenuWrapper>
-    </Menu>
+    </>
   )
 }
 

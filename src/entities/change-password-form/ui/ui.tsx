@@ -4,7 +4,8 @@ import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 
 const Ui = () => {
-  const { handleSubmit, control, onSubmit, isMobile } = useManageChangePassword()
+  const { handleSubmit, control, onSubmit, isMobile } =
+    useManageChangePassword()
   return (
     <>
       <FormWrapper

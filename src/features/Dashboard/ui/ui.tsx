@@ -36,7 +36,6 @@ function Ui() {
           direction="column"
           px={GeneralPadding}
           py={GeneralPaddingY}
-
         >
           <CardCarousal
             isMobile={isMobile}

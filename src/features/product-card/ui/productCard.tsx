@@ -1,5 +1,5 @@
 import { Flex, Group, Text, Card as MantineCard } from '@mantine/core'
-import { FaEllipsisV, FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FaFlag, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { ProfileSection } from './profileSection'
 import {
   ActionIconWrapper,
@@ -12,6 +12,7 @@ import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
 import { SActionIcon } from '@shared/styles'
+import { MenuDropDown } from '@shared/ui/menu-dropdown'
 
 const ProductCard: React.FC<UseModalProps> = ({
   profile,
@@ -108,13 +109,18 @@ const ProductCard: React.FC<UseModalProps> = ({
               )}
             </SActionIcon>
           </ActionIconWrapper>
-          <SActionIcon
-            variant="subtle"
-            color="gray"
-            $isSubtle
-          >
-            <FaEllipsisV size={16} />
-          </SActionIcon>
+         
+          <MenuDropDown
+            showExpandArrow={false}
+            options={[
+              {
+                label: 'Report',
+                icon: <FaFlag size={14} />,
+                handleClick: () => alert('Report clicked'),
+                color: 'red',
+              },
+            ]}
+          />
         </Group>
       </MantineCard>
 

@@ -37,7 +37,7 @@ const AddressModal: React.FC<AddressModalProps> = ({
     <HModal
       opened={opened}
       onClose={onClose}
-      title={ <Logo /> }
+      title={<Logo />}
       size="md"
       centered
       transitionProps={{ transition: 'fade', duration: 200 }}
@@ -47,32 +47,31 @@ const AddressModal: React.FC<AddressModalProps> = ({
         },
         body: {
           background: theme.colors.background[8],
-          padding :'15px'
+          padding: '15px',
         },
       }}
     >
-
-      <Stack gap={3} >
+      <Stack gap={3}>
         <FormInput<BusinessAddress>
           control={control}
           name="streetAddress"
           label="Street Address"
           mb={10}
-          />
+        />
 
         <FormInput<BusinessAddress>
           control={control}
           name="city"
           label="City"
           mb={10}
-          />
+        />
 
         <FormInput<BusinessAddress>
           control={control}
           name="stateProvince"
           label="State/Province"
           mb={10}
-          />
+        />
 
         <FormInput<BusinessAddress>
           control={control}

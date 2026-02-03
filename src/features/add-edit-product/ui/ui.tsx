@@ -17,7 +17,7 @@ function Ui() {
   }
 
   return (
-    <ContainerWithBreadCrumb title="Add product" >
+    <ContainerWithBreadCrumb title="Add product">
       <Flex
         gap="10px"
         p={isMobile ? '0px' : 'xl'}
