@@ -2,9 +2,9 @@ import { Stack, Text, useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { OpacityButton, ResText, SButton, SGButton } from '@shared/styles'
 import { ProductProfileSection } from './productProfileSection'
-import { ReplySection } from './replySection'
 import { SimilarAdsSection } from './similarProducts'
 import { TypographySize } from '@shared/typography'
+import { ReplyProductForm } from '@entities/reply-form'
 
 const RightSection = () => {
   const { isMobile } = Responsive()
@@ -65,7 +65,7 @@ const RightSection = () => {
       </OpacityButton>
 
       {/* reply section */}
-      <ReplySection />
+      <ReplyProductForm />
 
       {/* similar ads section */}
       {isMobile && <SimilarAdsSection />}

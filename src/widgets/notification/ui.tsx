@@ -1,5 +1,5 @@
-import { Notification } from '@features/notification'
-import { SettingLayout } from '@features/setting-layout'
+import { Notification } from '@features/setting/setting-notification'
+import { SettingLayout } from '@features/setting/setting-layout'
 import { Flex } from '@mantine/core'
 
 const Ui = () => {

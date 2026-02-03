@@ -6,23 +6,15 @@ import { Responsive } from '@shared/hooks/responsive'
 import { GradientContainer } from '@shared/ui/containers'
 import { RightSection } from './rightSection'
 import { LeftSection } from './leftSection'
-import { AddProductFormData } from '../types'
-import { schema } from '../schema'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { ImageFile } from '@features/drag-and-drop/types'
+import { AddProductFormData } from '@entities/add-product-form/types'
 
 function Ui() {
   const { isMobile } = Responsive()
   const [searchParams] = useSearchParams()
   const name = searchParams.get('name') ?? 'Untitled'
   const [images, setImages] = useState<ImageFile[]>([])
-
-  const { control, handleSubmit, watch, setValue } =
-    useForm<AddProductFormData>({
-      resolver: yupResolver(schema),
-    })
 
   const onSubmit = (data: AddProductFormData) => {
     console.log(data)
@@ -52,10 +44,6 @@ function Ui() {
 
           {/* left section */}
           <LeftSection
-            control={control}
-            handleSubmit={handleSubmit}
-            watch={watch}
-            setValue={setValue}
             onSubmit={onSubmit}
           />
         </Flex>

@@ -13,7 +13,6 @@ import { RiDeleteBin5Line } from 'react-icons/ri'
 import {
   MdCancel,
   MdOutlineFileUpload,
-  MdEdit,
   MdCropRotate,
 } from 'react-icons/md'
 import { HoveredActionIcon, SButton } from '@shared/styles'
@@ -129,7 +128,10 @@ const Ui = ({
             spacing="sm"
           >
             {images.map((image) => (
-              <ImagePreviewItem key={image.id} $isDark={isDark}>
+              <ImagePreviewItem
+                key={image.id}
+                $isDark={isDark}
+              >
                 <Group
                   pos="absolute"
                   p={5}

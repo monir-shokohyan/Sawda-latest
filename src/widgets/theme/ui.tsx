@@ -1,5 +1,5 @@
-import { SettingLayout } from '@features/setting-layout'
-import { Theme } from '@features/theme'
+import { SettingLayout } from '@features/setting/setting-layout'
+import { Theme } from '@features/setting/setting-theme'
 import { Flex } from '@mantine/core'
 
 const Ui = () => {

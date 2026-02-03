@@ -1,5 +1,5 @@
-import { EditProfile } from '@features/edit-profile'
-import { SettingLayout } from '@features/setting-layout'
+import { EditProfile } from '@features/setting/setting-edit-profile'
+import { SettingLayout } from '@features/setting/setting-layout'
 import { Flex } from '@mantine/core'
 
 const Ui = () => {

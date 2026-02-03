@@ -15,10 +15,9 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
   const theme = useMantineTheme()
   const openRef = useRef<() => void>(null)
   const [isCompressing, setIsCompressing] = useState(false)
-    const { colorScheme, toggleColorScheme } = useMantineColorScheme()
-  
-    const isDark = colorScheme === 'dark'
-  
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+
+  const isDark = colorScheme === 'dark'
 
   const handleDrop = async (files: FileWithPath[]) => {
     setIsCompressing(true)
@@ -116,6 +115,6 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
     isCompressing,
     handleDrop,
     removeImage,
-    isDark
+    isDark,
   }
 }

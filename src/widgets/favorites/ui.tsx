@@ -1,5 +1,5 @@
 import { Favorites } from '@features/favorites'
-import { SettingLayout } from '@features/setting-layout'
+import { SettingLayout } from '@features/setting/setting-layout'
 import { Flex } from '@mantine/core'
 
 const Ui = () => {

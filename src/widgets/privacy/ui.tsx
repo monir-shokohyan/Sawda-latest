@@ -1,5 +1,5 @@
-import { Privacy } from '@features/privacy'
-import { SettingLayout } from '@features/setting-layout'
+import { Privacy } from '@features/setting/setting-privacy'
+import { SettingLayout } from '@features/setting/setting-layout'
 import { Flex } from '@mantine/core'
 
 const Ui = () => {
