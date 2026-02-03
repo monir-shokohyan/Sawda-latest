@@ -7,6 +7,7 @@ import { AddressModalProps, BusinessAddress } from '../types'
 import { ModalDefaultValue } from '../constant'
 import { AddressSchema } from '../schema'
 import { HModal } from '@shared/styles'
+import { Logo } from '@shared/ui/logo'
 
 const AddressModal: React.FC<AddressModalProps> = ({
   opened,
@@ -36,8 +37,9 @@ const AddressModal: React.FC<AddressModalProps> = ({
     <HModal
       opened={opened}
       onClose={onClose}
-      title="Add Business Address"
+      title={ <Logo /> }
       size="md"
+      centered
       transitionProps={{ transition: 'fade', duration: 200 }}
       styles={{
         header: {
@@ -45,32 +47,38 @@ const AddressModal: React.FC<AddressModalProps> = ({
         },
         body: {
           background: theme.colors.background[8],
+          padding :'15px'
         },
       }}
     >
-      <Stack gap={3}>
+
+      <Stack gap={3} >
         <FormInput<BusinessAddress>
           control={control}
           name="streetAddress"
           label="Street Address"
-        />
+          mb={10}
+          />
 
         <FormInput<BusinessAddress>
           control={control}
           name="city"
           label="City"
-        />
+          mb={10}
+          />
 
         <FormInput<BusinessAddress>
           control={control}
           name="stateProvince"
           label="State/Province"
-        />
+          mb={10}
+          />
 
         <FormInput<BusinessAddress>
           control={control}
           name="postalCode"
           label="Postal Code"
+          mb={10}
         />
       </Stack>
 

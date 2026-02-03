@@ -1,7 +1,4 @@
-import { useForm } from 'react-hook-form'
-import { AddProductFormData, AddProductSubmitProps } from '../types'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { schema } from '../schema'
+import { AddProductSubmitProps } from '../types'
 import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormInput } from '@shared/ui/form'
 import { FormSelect } from '@shared/ui/form/FormSelect'
@@ -13,11 +10,10 @@ import { FormColorPicker } from '@shared/ui/form/FormColorPicker'
 import { FormPriceInput } from '@shared/ui/form/FormPriceInput'
 import { FormSlider } from '@shared/ui/form/FormSlider'
 import { ProvinceConstants } from '@entities/filter-form/constant'
+import { useManageAddProduct } from '../model'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
-  const { control, handleSubmit, watch } = useForm<AddProductFormData>({
-    resolver: yupResolver(schema),
-  })
+  const { isFree, isMobile, handleSubmit, control } = useManageAddProduct()
 
   return (
     <FormWrapper
@@ -25,6 +21,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
       allowButton
       buttonTitle="Add Product"
       handleSubmit={handleSubmit(onSubmit)}
+      buttonFullWidth={isMobile}
     >
       <FormInput
         label="Title"
@@ -74,7 +71,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         control={control}
         options={IsFreeConstants}
       />
-      {watch('isfree') === '1' && (
+      {isFree && (
         <>
           <FormPriceInput
             label=""

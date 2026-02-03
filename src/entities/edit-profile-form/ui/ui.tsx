@@ -25,6 +25,7 @@ const Ui = () => {
     setAddressModalOpen,
     businessAddress,
     onSubmit,
+    isMobile,
   } = useManageEditProfile()
   return (
     <>
@@ -33,6 +34,7 @@ const Ui = () => {
         title="Edit profile"
         buttonTitle="save"
         handleSubmit={handleSubmit(onSubmit)}
+        buttonFullWidth={isMobile}
       >
         <Stack
           gap={3}

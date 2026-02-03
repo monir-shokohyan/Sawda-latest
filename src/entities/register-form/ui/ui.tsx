@@ -5,10 +5,9 @@ import { FormInput } from '@shared/ui/form'
 import { TbLock, TbMail } from 'react-icons/tb'
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 
-
 const Ui = () => {
   const { handleSubmit, onSubmit, control } = useManageRegisterForm()
-        
+
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
@@ -24,7 +23,7 @@ const Ui = () => {
           placeholder="your@email.com"
           leftSection={<TbMail size={16} />}
           mb={0}
-          />
+        />
         <FormPasswordInput
           name="password"
           control={control}
@@ -33,8 +32,8 @@ const Ui = () => {
           leftSection={<TbLock size={16} />}
           showStrength
           mb={0}
-          />
-        
+        />
+
         <FormPasswordInput
           name="confirm_password"
           control={control}

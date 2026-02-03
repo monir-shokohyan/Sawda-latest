@@ -19,12 +19,15 @@ interface FormInputProps<T extends FieldValues> {
   maxLength?: number
 }
 
-const calculatePasswordStrength = (password: string, maxLength: number = 8): number => {
+const calculatePasswordStrength = (
+  password: string,
+  maxLength: number = 8,
+): number => {
   if (!password) return 0
-  
+
   const length = Math.min(password.length, maxLength)
   const strength = (length / maxLength) * 10
-  
+
   return Math.round(strength)
 }
 
@@ -42,7 +45,7 @@ const FormPasswordInput = <T extends FieldValues>({
   maxLength = 8,
 }: FormInputProps<T>) => {
   const [visible, { toggle }] = useDisclosure(false)
-  
+
   return (
     <Group
       align="flex-end"
@@ -67,9 +70,9 @@ const FormPasswordInput = <T extends FieldValues>({
           render={({ field, fieldState: { error } }) => {
             const strength = useMemo(
               () => calculatePasswordStrength(field.value || '', maxLength),
-              [field.value, maxLength]
+              [field.value, maxLength],
             )
-            
+
             const progressValue = (strength / 10) * 100
 
             return (
@@ -90,7 +93,9 @@ const FormPasswordInput = <T extends FieldValues>({
                   <Progress
                     styles={{ section: { transitionDuration: '600ms' } }}
                     value={progressValue}
-                    color={strength > 9 ? 'teal' : strength > 5 ? 'yellow' : 'red'}
+                    color={
+                      strength > 9 ? 'teal' : strength > 5 ? 'yellow' : 'red'
+                    }
                     size={4}
                     mt={4}
                     aria-label="Password strength indicator"
@@ -128,4 +133,4 @@ const FormPasswordInput = <T extends FieldValues>({
   )
 }
 
-export  { FormPasswordInput }
+export { FormPasswordInput }

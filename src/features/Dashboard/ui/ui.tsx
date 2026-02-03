@@ -4,7 +4,7 @@ import { CardCarousal } from '@features/card-scroll/ui'
 import { GradientContainer } from '@shared/ui/containers'
 import Ads from '@shared/ads/ads'
 import { ProductScroll } from '@features/product-scroll/ui'
-import { GeneralPadding } from '@shared/constants'
+import { GeneralPadding, GeneralPaddingY } from '@shared/constants'
 import { Responsive } from '@shared/hooks/responsive'
 import { MenuFilter } from '@features/search-filter/ui/MenuFilter'
 
@@ -20,7 +20,8 @@ function Ui() {
           gap={isMobile ? 10 : 20}
           w="100%"
           justify="center"
-          p={GeneralPadding}
+          px={GeneralPadding}
+          py={GeneralPaddingY}
           pos="sticky"
           top={0}
           style={{ zIndex: 10 }}
@@ -33,7 +34,9 @@ function Ui() {
           w="100%"
           justify="center"
           direction="column"
-          p={GeneralPadding}
+          px={GeneralPadding}
+          py={GeneralPaddingY}
+
         >
           <CardCarousal
             isMobile={isMobile}

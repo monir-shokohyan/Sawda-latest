@@ -41,6 +41,7 @@ function Ui() {
             }}
             onChange={selectCategory}
             defaultValue={category || '1'}
+            size="md"
             renderOption={({ option, checked }) => (
               <Group
                 gap="sm"

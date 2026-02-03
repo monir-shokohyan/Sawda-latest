@@ -4,7 +4,7 @@ import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 
 const Ui = () => {
-  const { handleSubmit, control, onSubmit } = useManageChangePassword()
+  const { handleSubmit, control, onSubmit, isMobile } = useManageChangePassword()
   return (
     <>
       <FormWrapper
@@ -12,6 +12,7 @@ const Ui = () => {
         title="Change password"
         buttonTitle="Save changes"
         handleSubmit={handleSubmit(onSubmit)}
+        buttonFullWidth={isMobile}
       >
         <Stack
           gap={3}
