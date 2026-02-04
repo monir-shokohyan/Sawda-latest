@@ -65,9 +65,9 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
     delay: i * 0.03,
   }))
 
- const report = () => {
-  alert('report is working')
-};
+  const report = () => {
+    alert('report is working')
+  }
 
   return {
     handleClick,

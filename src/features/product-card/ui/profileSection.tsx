@@ -17,7 +17,8 @@ const ProfileSection = ({
   size = 'md',
   mobileSize = '33px',
   allowPadding = true,
-  usernameSize = '0.7rem',
+  usernameSizeMobile = '0.7rem',
+  usernameSize = 'lg',
   timeSize = '0.7rem',
   showEmail = false,
   direction = 'row',
@@ -60,7 +61,7 @@ const ProfileSection = ({
           >
             <HoveredText
               fw={600}
-              size={isMobile ? usernameSize : 'lg'}
+              size={isMobile ? usernameSizeMobile : usernameSize}
               onClick={(e) => {
                 if (!hoverUsername) return
                 e.stopPropagation()

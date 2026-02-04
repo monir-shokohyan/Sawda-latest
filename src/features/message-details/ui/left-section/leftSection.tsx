@@ -33,6 +33,7 @@ const LeftSection = ({
     filter,
     setFilter,
     messages,
+    bulkEmailActions,
   } = useManageLeftSection({ onMessageSelect })
   return (
     <Stack
@@ -74,13 +75,7 @@ const LeftSection = ({
             </Group>
 
             <LeftMenu
-              setSelectionMode={setSelectionMode}
-              handleSelectAll={handleSelectAll}
-              handleDeselectAll={handleDeselectAll}
-              selectedCount={selectedCount}
-              handleMarkAsRead={handleMarkAsRead}
-              handleMarkAsUnread={handleMarkAsUnread}
-              handleDeleteSelected={handleDeleteSelected}
+              constant={bulkEmailActions}
             />
           </Group>
 

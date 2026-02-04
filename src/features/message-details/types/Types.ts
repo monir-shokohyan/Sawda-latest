@@ -26,15 +26,6 @@ export interface LeftButtonGroupProps {
   handleDeselectAll: () => void
 }
 
-export interface LeftMenuProps {
-  setSelectionMode: (mode: boolean) => void
-  handleSelectAll: () => void
-  handleDeselectAll: () => void
-  selectedCount: number
-  handleMarkAsRead: () => void
-  handleMarkAsUnread: () => void
-  handleDeleteSelected: () => void
-}
 
 export interface LeftSectionProps {
   onMessageSelect: (message: Message) => void

@@ -1,52 +1,30 @@
-import { Button, ButtonProps, Menu, Text } from '@mantine/core'
+import { ButtonProps } from '@mantine/core'
 import { LanguageContants } from './constant'
-import { HoveredMenuItem } from '@shared/styles'
-import { ExpandArrow } from '../expandArrow'
-import { useDisclosure } from '@mantine/hooks'
-import { MenuWrapper } from '../Menu/MenuWrapper'
+import { MenuDropDown } from '../menu-dropdown'
+import { TriggerButton } from '../buttons/triggerButton'
 
 const LanguageDropDown = (props: ButtonProps) => {
-  const [opened, { toggle }] = useDisclosure(false)
-
+  const modifiedLanguage = LanguageContants.map((language) => {
+    return {
+      ...language,
+      handleClick: () => {
+        console.log(language)
+      },
+    }
+  })
   return (
-    <MenuWrapper
-      toggle={toggle}
-      position="top-end"
-      width={120}
-    >
-      <Menu.Target {...props}>
-        <Button
-          variant="subtle"
-          rightSection={
-            <ExpandArrow
-              size={20}
-              isOpen={opened}
-            />
-          }
-          c="darkText"
-          size="sm"
-          justify="flex-start"
-          {...props}
-          radius={5}
-        >
-          English
-        </Button>
-      </Menu.Target>
-      <Menu.Dropdown>
-        {LanguageContants.map((option) => {
-          return (
-            <HoveredMenuItem
-              key={option.label}
-              c="darkText"
-              leftSection={option.icon}
-              className="menuHover"
-            >
-              <Text size="sm">{option.label}</Text>
-            </HoveredMenuItem>
-          )
-        })}
-      </Menu.Dropdown>
-    </MenuWrapper>
+    <>
+      <MenuDropDown
+        options={modifiedLanguage}
+        triggerButton={
+          <TriggerButton
+            content="English"
+            props={props}
+          />
+        }
+        width={120}
+      />
+    </>
   )
 }
 

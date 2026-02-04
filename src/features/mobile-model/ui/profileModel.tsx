@@ -48,7 +48,7 @@ const ProfileModel = () => {
               hoverUsername={false}
               showEmail
               showTime={false}
-              usernameSize="1.2rem"
+              usernameSizeMobile="1.2rem"
               timeSize="0.9rem"
               mobileSize="90px"
               direction="column"

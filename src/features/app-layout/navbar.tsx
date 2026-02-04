@@ -2,7 +2,7 @@ import { Drawer, Flex, useMantineTheme } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
-import { ProfileDrownDown } from '@shared/ui/profile/profileDrownDown'
+import { ProfileDropDown } from '@shared/ui/profile/profileDropDown'
 import {
   MdOutlineFavoriteBorder,
   MdOutlineMessage,
@@ -95,7 +95,16 @@ const Navbar = () => {
 
             <DarkMode />
           </Flex>
-          {!isMobile && <ProfileDrownDown />}
+          {!isMobile && (
+            <ProfileDropDown
+              p={0}
+              styles={{
+                section: {
+                  marginInline: isMobile ? '0px' : '8px',
+                },
+              }}
+            />
+          )}
           {!isMobile && (
             <SButton
               variant="subtle"

@@ -24,7 +24,7 @@ const Header = ({ selectedMessage, onBack }: RightHeaderProps) => {
             profile={selectedMessage}
             showTime={false}
             showActiveNow
-            usernameSize="1rem"
+            usernameSizeMobile="1rem"
           />
         </Group>
 

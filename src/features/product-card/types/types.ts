@@ -14,7 +14,8 @@ export interface ProfileProps {
   size?: 'xl' | 'md' | 'sm' | 'lg'
   allowPadding?: boolean
   mobileSize?: string
-  usernameSize?: string
+  usernameSize?: 'xl' | 'md' | 'sm' | 'lg'
+  usernameSizeMobile?: string
   timeSize?: string
   showEmail?: boolean
   direction?: FlexProps['direction']

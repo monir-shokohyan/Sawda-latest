@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { LeftSectionProps, Message, MessageFilter } from '../types'
 import { generateMessages } from '../constant'
 import { useSwipe } from '@shared/hooks/useSwipe'
+import { MenuOption } from '@shared/ui/menu-dropdown/ui'
+import { MdDelete, MdDeselect, MdMarkEmailRead, MdMarkEmailUnread, MdSelectAll } from 'react-icons/md'
 
 const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
   const { isMobile } = Responsive()
@@ -160,6 +162,44 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
     }
   }
 
+  const bulkEmailActions: MenuOption[] = [
+  {
+    label: 'Select All',
+    icon: <MdSelectAll size={16} />,
+    handleClick: () => {
+      setSelectionMode(true);
+      handleSelectAll();
+    },
+  },
+  {
+    label: 'Deselect All',
+    icon: <MdDeselect size={16} />,
+    handleClick: handleDeselectAll,
+    disabled: selectedCount === 0,
+  },
+
+  {
+    label: 'Mark as Read',
+    icon: <MdMarkEmailRead size={16} />,
+    handleClick: handleMarkAsRead,
+    disabled: selectedCount === 0,
+  },
+  {
+    label: 'Mark as Unread',
+    icon: <MdMarkEmailUnread size={16} />,
+    handleClick: handleMarkAsUnread,
+    disabled: selectedCount === 0,
+  },
+
+  {
+    label: `Delete Selected (${selectedCount})`,
+    icon: <MdDelete size={16} />,
+    handleClick: handleDeleteSelected,
+    disabled: selectedCount === 0,
+    color: 'red',
+  },
+];
+
   return {
     handleDeleteSelected,
     handleDeselectAll,
@@ -183,6 +223,7 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
     messages,
     scrollContainerRef,
     animationDirection,
+    bulkEmailActions,
   }
 }
 

@@ -1,7 +1,7 @@
 import { MdLanguage } from 'react-icons/md'
-import { Languagetype } from './types'
+import { MenuOption } from '../menu-dropdown/ui'
 
-export const LanguageContants: Languagetype[] = [
+export const LanguageContants: MenuOption[] = [
   {
     label: 'English',
     icon: <MdLanguage size={20} />,

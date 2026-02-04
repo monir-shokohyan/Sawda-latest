@@ -27,8 +27,9 @@ const NotificationCard = ({
           profile={message}
           isMessage
           showTime={false}
-          usernameSize="1rem"
+          usernameSizeMobile="1rem"
           isFollowing
+          usernameSize='md'
         />
       </Group>
     </StyledCard>

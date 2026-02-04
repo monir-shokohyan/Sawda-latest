@@ -109,7 +109,7 @@ const ProductCard: React.FC<UseModalProps> = ({
               )}
             </SActionIcon>
           </ActionIconWrapper>
-         
+
           <MenuDropDown
             showExpandArrow={false}
             options={[
