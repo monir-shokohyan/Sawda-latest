@@ -1,7 +1,6 @@
-import { ActionIcon, ButtonProps, Menu, ScrollArea, Text } from '@mantine/core'
+import { ButtonProps, Menu, ScrollArea, Text } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { HoveredMenuItem, SButton } from '@shared/styles'
-import { Responsive } from '@shared/hooks/responsive'
 import { ExpandArrow } from '../expandArrow'
 import { MenuWrapper } from '../Menu/MenuWrapper'
 import { ReactNode } from 'react'
@@ -49,15 +48,12 @@ const Ui = ({
   variant = 'subtle',
   size = 'sm',
   color = 'textPrimary',
-  mobileIconOnly = true,
   leftSection,
   triggerButton = <TriggerButton content={<FaEllipsisV size={16} />} />,
   props,
 }: Props) => {
-  const { isMobile } = Responsive()
   const [opened, { toggle }] = useDisclosure(false)
   const navigate = useNavigate()
-  const showIconOnlyOnMobile = mobileIconOnly && isMobile
 
   return (
     <div onClick={(e) => e.stopPropagation()}>

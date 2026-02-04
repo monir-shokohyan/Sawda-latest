@@ -21,11 +21,7 @@ const CategoryDropDown = (props: ButtonProps) => {
   return (
     <MenuDropDown
       options={modifiedCategory}
-      triggerButton={
-        <TriggerButton
-          content="All Categories"
-        />
-      }
+      triggerButton={<TriggerButton content="All Categories" />}
       leftSection={<MdOutlineApps size={20} />}
       width={290}
       props={props}
