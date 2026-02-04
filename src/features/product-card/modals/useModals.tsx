@@ -68,26 +68,6 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
     delay: i * 0.03,
   }))
 
-
-  const optionConstant: MenuOption[] = [
-    {
-      label: 'Report',
-      icon: <FaFlag size={14} />,
-      handleClick: () => alert('Report clicked'),
-    },
-    {
-      label: 'Edit',
-      icon: <FaRegEdit size={14} />,
-      handleClick: () => alert('Edit clicked'),
-    },
-    {
-      label: 'Delete',
-      icon: <RiDeleteBin5Line size={14} />,
-      handleClick: () => alert('Delete clicked'),
-      color: "red"
-    },
-  ]
-
   return {
     handleClick,
     handleDoubleClick,
@@ -98,7 +78,6 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
     setShowOverlay,
     handleLikeClick,
     particles,
-    optionConstant,
   }
 }
 

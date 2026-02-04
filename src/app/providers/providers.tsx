@@ -7,6 +7,7 @@ import { localStorageColorSchemeManager, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import { theme } from '@shared/theme'
 import { LenisProvider } from './Lenis'
+import { ModalsProvider } from '@mantine/modals'
 
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
@@ -19,10 +20,12 @@ export const Providers = ({ children }: PropsWithChildren) => {
           })}
           theme={theme}
         >
-          <Notifications />
-          <AdminRefineProvider>
-            <LenisProvider>{children}</LenisProvider>
-          </AdminRefineProvider>
+          <ModalsProvider>
+            <Notifications />
+            <AdminRefineProvider>
+              <LenisProvider>{children}</LenisProvider>
+            </AdminRefineProvider>
+          </ModalsProvider>
         </MantineProvider>
       </Provider>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import { Flex, Group, Text, Card as MantineCard } from '@mantine/core'
-import { FaFlag, FaHeart, FaRegEdit, FaRegHeart } from 'react-icons/fa'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { ProfileSection } from './profileSection'
 import {
   ActionIconWrapper,
@@ -12,8 +12,7 @@ import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
 import { SActionIcon } from '@shared/styles'
-import { MenuDropDown } from '@shared/ui/menu-dropdown'
-import { RiDeleteBin5Line } from 'react-icons/ri'
+import { OptionMenu } from '@features/option-menu'
 
 const ProductCard: React.FC<UseModalProps> = ({
   profile,
@@ -27,7 +26,6 @@ const ProductCard: React.FC<UseModalProps> = ({
     handleLikeClick,
     showOverlay,
     particles,
-    optionConstant,
   } = useModals({ profile, handleToggleLike })
   return (
     <CardWrapper
@@ -113,11 +111,9 @@ const ProductCard: React.FC<UseModalProps> = ({
             12
           </ActionIconWrapper>
 
-          <MenuDropDown
-            showExpandArrow={false}
-            options={optionConstant}
-            width={100}
-            position="bottom"
+          <OptionMenu
+            type="product"
+            id={profile?.id as number}
           />
         </Group>
       </MantineCard>

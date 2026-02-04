@@ -29,7 +29,7 @@ const ProfileSection = ({
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
-  const padding = isMobile ? '5px' : 'xs'
+  const padding = isMobile ? '7px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
 
   return (
@@ -50,7 +50,7 @@ const ProfileSection = ({
         />
 
         <Stack
-          gap={isMobile ? '8px' : '0px'}
+          gap={isMobile ? '4px' : '0px'}
           style={{ width: '100%' }}
         >
           <Flex

@@ -2,7 +2,6 @@ import { SCenter } from '../styles'
 import { GradientContainer } from '@shared/ui/containers'
 import {
   BackgroundImage,
-  Button,
   Flex,
   Group,
   Stack,
@@ -10,16 +9,17 @@ import {
 } from '@mantine/core'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { SActionIcon, ResText, SButton } from '@shared/styles'
-import { FaEllipsisV, FaFlag, FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
 import { TypographySize } from '@shared/typography'
 import { ProfileConstant } from '../constant'
-import { MenuDropDown } from '@shared/ui/menu-dropdown'
+import { OptionMenu } from '@features/option-menu'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
   const { isMobile } = Responsive()
+
   return (
     <BackgroundImage
       src="/cover.png"
@@ -170,18 +170,9 @@ const ProfileHeader = () => {
                 <MdOutlineFileUpload size={18} />
               </SActionIcon>
 
-              <MenuDropDown
-                showExpandArrow={false}
-                options={[
-                  {
-                    label: 'Report',
-                    icon: <FaFlag size={14} />,
-                    handleClick: () => alert('Report clicked'),
-                    color: 'red',
-                  },
-                ]}
-                width={100}
-                position="bottom"
+              <OptionMenu
+                type="account"
+                id="monir"
               />
             </Group>
           </Flex>
