@@ -25,7 +25,7 @@ const Body = ({
           hasMore={hasMore}
           scrollableTarget="messageScrollContainer"
           endMessage=""
-          size='sm'
+          size="sm"
         >
           <Stack gap="md">
             {messages.map((message) => (

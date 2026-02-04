@@ -10,11 +10,12 @@ import {
 } from '@mantine/core'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { SActionIcon, ResText, SButton } from '@shared/styles'
-import { FaEllipsisV, FaStar } from 'react-icons/fa'
+import { FaEllipsisV, FaFlag, FaStar } from 'react-icons/fa'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
 import { TypographySize } from '@shared/typography'
 import { ProfileConstant } from '../constant'
+import { MenuDropDown } from '@shared/ui/menu-dropdown'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
@@ -169,13 +170,19 @@ const ProfileHeader = () => {
                 <MdOutlineFileUpload size={18} />
               </SActionIcon>
 
-              <SActionIcon
-                variant="subtle"
-                $isSubtle
-                color="gray"
-              >
-                <FaEllipsisV size={16} />
-              </SActionIcon>
+                  <MenuDropDown
+                    showExpandArrow={false}
+                    options={[
+                      {
+                        label: 'Report',
+                        icon: <FaFlag size={14} />,
+                        handleClick: () => alert('Report clicked'),
+                        color: 'red',
+                      },
+                    ]}
+                    width={100}
+                    position="bottom"
+                  />
             </Group>
           </Flex>
         </GradientContainer>

@@ -60,7 +60,7 @@ const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
         dataLength={products.length}
         next={fetchMoreData}
         hasMore={hasMore}
-        size='sm'
+        size="sm"
       >
         {productChunks.map((chunk, chunkIndex) => {
           return (
