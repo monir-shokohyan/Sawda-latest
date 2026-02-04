@@ -185,7 +185,7 @@ export const theme = createTheme({
           backgroundColor: theme.colors.background[8],
         },
         body: {
-          padding: useMediaQuery('(max-width: 768px)') ? '0px' : "20px",
+          padding: useMediaQuery('(max-width: 768px)') ? '0px' : '20px',
         },
         title: {
           fontSize: '16px',

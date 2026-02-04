@@ -71,21 +71,21 @@ const ChatBubble = ({ message }: ChatBubbleProps) => {
 
       {isOwn && <AvatarMessage src="/profile.png" />}
 
-        <BaseModal
+      <BaseModal
         opened={opened}
         onClose={close}
         centered
         size="xl"
         withCloseButton={true}
         showOverlay={true}
-        >
+      >
         <ImageCarousel
           data={images}
           slideGap={false}
           fullImage
           allowBg={false}
         />
-        </BaseModal>
+      </BaseModal>
     </BubbleWrapper>
   )
 }

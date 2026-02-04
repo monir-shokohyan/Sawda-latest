@@ -18,15 +18,14 @@ const FollowingModel = () => {
   }
 
   return (
-
-      <BaseModal
+    <BaseModal
       opened={pathname.endsWith('following')}
       onClose={() => navigate(-1 || '/')}
       fullScreen
       pos="relative"
-      >
+    >
       <Following onFollowingSelect={handleFollowingSelect} />
-      </BaseModal>
+    </BaseModal>
   )
 }
 

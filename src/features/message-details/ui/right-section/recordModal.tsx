@@ -11,64 +11,63 @@ const RecordModal = ({
 }: RecordModalProps) => {
   return (
     <>
-
-        <BaseModal 
-          opened={showRecordModal}
-          onClose={cancelRecording}
-          centered
-          size="sm"
-          withCloseButton={false}
-          showOverlay
+      <BaseModal
+        opened={showRecordModal}
+        onClose={cancelRecording}
+        centered
+        size="sm"
+        withCloseButton={false}
+        showOverlay
+      >
+        <Stack
+          align="center"
+          gap="lg"
+          py="md"
         >
-          <Stack
-            align="center"
-            gap="lg"
-            py="md"
+          <div
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: '50%',
+              backgroundColor: 'var(--mantine-color-red-1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              animation: 'pulse 1.5s ease-in-out infinite',
+            }}
           >
-            <div
-              style={{
-                width: 100,
-                height: 100,
-                borderRadius: '50%',
-                backgroundColor: 'var(--mantine-color-red-1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                animation: 'pulse 1.5s ease-in-out infinite',
-              }}
-            >
-              <MdMic
-                size={50}
-                color="var(--mantine-color-red-6)"
-              />
-            </div>
+            <MdMic
+              size={50}
+              color="var(--mantine-color-red-6)"
+            />
+          </div>
 
-            <Text
-              size="xl"
-              fw={700}
-            >
-              {recordingTime}
-            </Text>
+          <Text
+            size="xl"
+            fw={700}
+          >
+            {recordingTime}
+          </Text>
 
-            <Group gap="md">
-              <Button
-                variant="outline"
-                color="gray"
-                onClick={cancelRecording}
-                leftSection={<MdClose size={18} />}
-              >
-                Cancel
-              </Button>
-              <Button
-                color="red"
-                leftSection={<MdStop size={18} />}
-                onClick={stopRecording}
-              >
-                Stop & Send
-              </Button>
-            </Group>
-          </Stack>
-        </BaseModal>
+          <Group gap="md">
+            <Button
+              variant="outline"
+              color="gray"
+              onClick={cancelRecording}
+              leftSection={<MdClose size={18} />}
+            >
+              Cancel
+            </Button>
+            <Button
+              color="red"
+              leftSection={<MdStop size={18} />}
+              onClick={stopRecording}
+            >
+              Stop & Send
+            </Button>
+          </Group>
+        </Stack>
+      </BaseModal>
       <style>
         {`
             @keyframes pulse {

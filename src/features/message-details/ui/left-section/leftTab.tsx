@@ -11,7 +11,7 @@ interface LeftTabProps {
 
 const HovTabs = styled(Tabs)<TabsProps>`
   .mantine-Tabs-tab:hover {
-    background-color: var(--mantine-color-primary-light-hover);
+    background-color: transparent;
   }
 
   .mantine-Tabs-tab {

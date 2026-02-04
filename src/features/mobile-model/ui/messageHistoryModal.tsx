@@ -13,12 +13,12 @@ const MessageHistoryModel = () => {
   const activeMessageUsername = searchParams.get('username') || ''
 
   return (
-      <BaseModal
+    <BaseModal
       opened={pathname.endsWith('message-history')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
       pos="relative"
-      >
+    >
       <RightSection
         selectedMessage={{
           id: activeMessageId,
@@ -26,7 +26,7 @@ const MessageHistoryModel = () => {
         }}
         onBack={() => navigate(`${Paths.MessageList}?id=${activeMessageId}`)}
       />
-      </BaseModal>
+    </BaseModal>
   )
 }
 

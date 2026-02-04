@@ -15,13 +15,12 @@ const FilterModal = () => {
   }
 
   return (
-
-      <BaseModal
+    <BaseModal
       opened={pathname.endsWith('filters')}
       onClose={handleClose}
       fullScreen
       pos="relative"
-      >
+    >
       {/* Content */}
       <ScrollArea
         h="100dvh"
@@ -47,7 +46,7 @@ const FilterModal = () => {
         </Group>
         <FilterForm />
       </ScrollArea>
-      </BaseModal>
+    </BaseModal>
   )
 }
 

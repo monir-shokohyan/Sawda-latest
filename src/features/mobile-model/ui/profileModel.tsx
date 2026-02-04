@@ -20,12 +20,12 @@ const ProfileModel = () => {
   const settingDropDown = useAppSelector(SettingDropDownSelector)
 
   return (
-      <BaseModal
+    <BaseModal
       opened={pathname.endsWith('profile')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
       pos="relative"
-      >
+    >
       {/* Content */}
       <ScrollArea
         h="74dvh"
@@ -96,7 +96,7 @@ const ProfileModel = () => {
       >
         Sign out
       </Button>
-      </BaseModal>
+    </BaseModal>
   )
 }
 

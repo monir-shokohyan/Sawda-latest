@@ -11,22 +11,20 @@ const CreateModel = () => {
   const { pathname } = useProfileDropDown({})
 
   return (
-
-      <BaseModal
+    <BaseModal
       opened={pathname.endsWith('add')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
       title={<Logo />}
       pos="relative"
-      >
-      
+    >
       <Flex
         direction="column"
         h="100%"
       >
         <AddEditProduct />
       </Flex>
-      </BaseModal>
+    </BaseModal>
   )
 }
 

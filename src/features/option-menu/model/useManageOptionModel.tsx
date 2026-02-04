@@ -11,7 +11,7 @@ import { useDisclosure } from '@mantine/hooks'
 
 const useManageOptionModel = ({ type, id }: OptionMenuProps) => {
   const navigate = useNavigate()
-  const [opened, {open, close}] = useDisclosure(false)
+  const [opened, { open, close }] = useDisclosure(false)
   const theme = useMantineTheme()
   const { isMobile } = Responsive()
   const optionConstant: MenuOption[] = [
@@ -51,8 +51,6 @@ const useManageOptionModel = ({ type, id }: OptionMenuProps) => {
   const Delete = () => {
     alert(id)
   }
-
-
 
   return {
     optionConstant,

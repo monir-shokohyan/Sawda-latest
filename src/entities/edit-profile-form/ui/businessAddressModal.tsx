@@ -87,7 +87,6 @@ const AddressModal: React.FC<AddressModalProps> = ({
           Save Address
         </MantineButton>
       </div>
-      
     </BaseModal>
   )
 }

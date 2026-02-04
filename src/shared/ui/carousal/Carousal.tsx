@@ -129,60 +129,59 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
         </Carousel>
 
         {/*Desktop Thumbnail Carousel */}
-          <Carousel
-            withControls={false}
-            slideSize="16.666%"
-            slideGap="md"
-          >
-            {data?.map((image, index) => (
-              <Carousel.Slide key={`thumb-${image.id}`}>
-                <Paper
-                  shadow="md"
-                  radius="md"
+        <Carousel
+          withControls={false}
+          slideSize="16.666%"
+          slideGap="md"
+        >
+          {data?.map((image, index) => (
+            <Carousel.Slide key={`thumb-${image.id}`}>
+              <Paper
+                shadow="md"
+                radius="md"
+                style={{
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  border: '2px solid transparent',
+                }}
+                onClick={() => handleThumbnailClick(index)}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)'
+                  e.currentTarget.style.borderColor = '#228be6'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = ''
+                  e.currentTarget.style.borderColor = 'transparent'
+                }}
+              >
+                <div
                   style={{
+                    width: '100%',
+                    paddingTop: '75%',
+                    position: 'relative',
                     overflow: 'hidden',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    border: '2px solid transparent',
-                  }}
-                  onClick={() => handleThumbnailClick(index)}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)'
-                    e.currentTarget.style.boxShadow =
-                      '0 8px 16px rgba(0,0,0,0.2)'
-                    e.currentTarget.style.borderColor = '#228be6'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)'
-                    e.currentTarget.style.boxShadow = ''
-                    e.currentTarget.style.borderColor = 'transparent'
                   }}
                 >
-                  <div
+                  <img
+                    src="/cover.png"
+                    alt="images of products"
                     style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
                       width: '100%',
-                      paddingTop: '75%',
-                      position: 'relative',
-                      overflow: 'hidden',
+                      height: '100%',
+                      objectFit: 'cover',
                     }}
-                  >
-                    <img
-                      src="/cover.png"
-                      alt="images of products"
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
-                    />
-                  </div>
-                </Paper>
-              </Carousel.Slide>
-            ))}
-          </Carousel>
+                  />
+                </div>
+              </Paper>
+            </Carousel.Slide>
+          ))}
+        </Carousel>
       </Stack>
     </Container>
   )

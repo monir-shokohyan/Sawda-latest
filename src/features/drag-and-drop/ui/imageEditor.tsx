@@ -152,14 +152,13 @@ export const ImageEditor = ({
   }
 
   return (
-
-      <BaseModal 
-        opened={opened}
-        onClose={handleClose}
-        size="xl"
-        centered
-        fullScreen={isMobile ? true : false}
-      >
+    <BaseModal
+      opened={opened}
+      onClose={handleClose}
+      size="xl"
+      centered
+      fullScreen={isMobile ? true : false}
+    >
       <ScrollArea
         h="75dvh"
         scrollbars="y"
@@ -294,6 +293,6 @@ export const ImageEditor = ({
           </Group>
         </Stack>
       </ScrollArea>
-      </BaseModal>
+    </BaseModal>
   )
 }
