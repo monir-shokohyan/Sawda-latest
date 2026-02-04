@@ -1,4 +1,5 @@
 import { Menu, MenuProps } from '@mantine/core'
+import { Responsive } from '@shared/hooks/responsive'
 import React from 'react'
 
 interface Props {
@@ -14,6 +15,7 @@ const MenuWrapper = ({
   position = 'top-end',
   width,
 }: Props) => {
+  const { isMobile } = Responsive()
   return (
     <Menu
       shadow="sm"
@@ -21,7 +23,7 @@ const MenuWrapper = ({
       withArrow
       transitionProps={{ transition: 'fade-down', duration: 250 }}
       position={position}
-      trigger="click-hover"
+      trigger={isMobile ? "click" : "hover"}
       onOpen={toggle}
       onClose={toggle}
     >
