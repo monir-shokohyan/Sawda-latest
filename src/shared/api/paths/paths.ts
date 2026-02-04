@@ -7,6 +7,8 @@ export enum Paths {
   Notification = '/settings/notification/',
   Privacy = '/settings/privacy/',
   ProductDetails = '/product/',
+  Register = '/register',
+  Login = '/login',
   AddProduct = '/add-edit-product/add',
   AddProductMobile = '/model/add',
   EditProduct = '/add-edit-product/edit',

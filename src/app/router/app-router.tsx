@@ -6,6 +6,8 @@ import { routes } from '../config/routes'
 import { Layout } from './layout'
 import { Authenticated } from '@refinedev/core'
 import { protectRoutes } from '@app/config/routes/secured-routes'
+import { Loader } from '@shared/ui/loader/Loader'
+import { IsAuthLayout } from './secure-layout'
 
 export const AppRouter = () => {
   return (
@@ -27,15 +29,8 @@ export const AppRouter = () => {
       </Route>
       <Route
         element={
-          <ErrorSuspense suspenseKey="/auth-layout">
-            <Authenticated
-              key="authentication"
-              loading={<div>Loading auth status...</div>}
-              // fallback={<div>You are not authorized. Please log in.</div>}
-              redirectOnFail="/login"
-            >
-              <Layout />
-            </Authenticated>
+          <ErrorSuspense suspenseKey="/auth-layout">    
+              <IsAuthLayout />
           </ErrorSuspense>
         }
       >

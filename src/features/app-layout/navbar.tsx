@@ -1,4 +1,4 @@
-import { Drawer, Flex, useMantineTheme } from '@mantine/core'
+import { Drawer, Flex, Group, useMantineTheme } from '@mantine/core'
 import { CategoryDropDown } from '@shared/ui/category/categoryDropDown'
 import { DarkMode } from '@shared/ui/darkMode/darkMode'
 import { LanguageDropDown } from '@shared/ui/language/languageDropDown'
@@ -18,6 +18,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { NotificationStatus } from '@features/notification-status'
 import { TbUserPlus } from 'react-icons/tb'
 import { Following } from '@features/followings'
+import { Auth } from '@shared/authentication/auth'
 
 const Navbar = () => {
   const { isMobile, isTablet } = Responsive()
@@ -25,7 +26,8 @@ const Navbar = () => {
   const [opened, { open, close }] = useDisclosure()
   const [openedFollowing, { open: openFollowing, close: closeFollowing }] =
     useDisclosure()
-
+  const { isAuth } = Auth()
+  
   return (
     <>
       <Flex
@@ -49,7 +51,7 @@ const Navbar = () => {
         >
           {!isMobile && <LanguageDropDown />}
           <Flex>
-            {!isMobile && (
+            {!isMobile && isAuth && (
               <>
                 <SActionIcon
                   variant="subtle"
@@ -95,7 +97,7 @@ const Navbar = () => {
 
             <DarkMode />
           </Flex>
-          {!isMobile && (
+          {!isMobile && isAuth && (
             <ProfileDropDown
               p={0}
               styles={{
@@ -105,6 +107,34 @@ const Navbar = () => {
               }}
             />
           )}
+
+            {!isMobile && !isAuth && (
+              <Group>
+              <SButton
+                variant="subtle"
+                color="lightText"
+                $isSubtle
+                size="sm"
+                p={0}
+                px={10}
+                onClick={() => navigate(Paths.Register)}
+              >
+                Register
+              </SButton>
+              <SButton
+                variant="subtle"
+                color="lightText"
+                $isSubtle
+                size="sm"
+                p={0}
+                px={10}
+                onClick={() => navigate(Paths.Login)}
+              >
+                Login
+              </SButton>
+              </Group>
+            )}
+
           {!isMobile && (
             <SButton
               variant="subtle"
@@ -113,7 +143,13 @@ const Navbar = () => {
               p={0}
               px={10}
               bg="originalBlue"
-              onClick={() => navigate(Paths.AddProduct)}
+              onClick={() => {
+                if(isAuth){
+                  navigate(Paths.AddProduct)
+                  return
+                }
+                navigate(Paths.Register)
+              }}
             >
               Place an ad
             </SButton>
