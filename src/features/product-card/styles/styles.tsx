@@ -106,6 +106,9 @@ export const ActionIconWrapper = styled.div<{
 }>`
   transition: transform 0.2s ease;
   display: inline-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ${({ $isAnimating, $liked }) =>
     $isAnimating && $liked
@@ -121,10 +124,6 @@ export const ActionIconWrapper = styled.div<{
             animation: ${heartPop} 0.3s ease-out;
           `
         : ''}
-  }
-
-  &:hover {
-    transform: scale(1.1);
   }
 `
 

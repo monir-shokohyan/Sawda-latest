@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UseModalProps } from '../types'
 import { Paths } from '@shared/api/paths/paths'
+import { FaFlag, FaRegEdit } from 'react-icons/fa'
+import { RiDeleteBin5Line } from 'react-icons/ri'
+import { MenuOption } from '@shared/ui/menu-dropdown/ui'
 
 const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
   const { isMobile } = Responsive()
@@ -65,9 +68,25 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
     delay: i * 0.03,
   }))
 
-  const report = () => {
-    alert('report is working')
-  }
+
+  const optionConstant: MenuOption[] = [
+    {
+      label: 'Report',
+      icon: <FaFlag size={14} />,
+      handleClick: () => alert('Report clicked'),
+    },
+    {
+      label: 'Edit',
+      icon: <FaRegEdit size={14} />,
+      handleClick: () => alert('Edit clicked'),
+    },
+    {
+      label: 'Delete',
+      icon: <RiDeleteBin5Line size={14} />,
+      handleClick: () => alert('Delete clicked'),
+      color: "red"
+    },
+  ]
 
   return {
     handleClick,
@@ -79,7 +98,7 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
     setShowOverlay,
     handleLikeClick,
     particles,
-    report,
+    optionConstant,
   }
 }
 

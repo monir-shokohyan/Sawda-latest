@@ -170,19 +170,19 @@ const ProfileHeader = () => {
                 <MdOutlineFileUpload size={18} />
               </SActionIcon>
 
-                  <MenuDropDown
-                    showExpandArrow={false}
-                    options={[
-                      {
-                        label: 'Report',
-                        icon: <FaFlag size={14} />,
-                        handleClick: () => alert('Report clicked'),
-                        color: 'red',
-                      },
-                    ]}
-                    width={100}
-                    position="bottom"
-                  />
+              <MenuDropDown
+                showExpandArrow={false}
+                options={[
+                  {
+                    label: 'Report',
+                    icon: <FaFlag size={14} />,
+                    handleClick: () => alert('Report clicked'),
+                    color: 'red',
+                  },
+                ]}
+                width={100}
+                position="bottom"
+              />
             </Group>
           </Flex>
         </GradientContainer>

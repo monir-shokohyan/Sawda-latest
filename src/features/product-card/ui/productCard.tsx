@@ -1,5 +1,5 @@
 import { Flex, Group, Text, Card as MantineCard } from '@mantine/core'
-import { FaFlag, FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FaFlag, FaHeart, FaRegEdit, FaRegHeart } from 'react-icons/fa'
 import { ProfileSection } from './profileSection'
 import {
   ActionIconWrapper,
@@ -13,6 +13,7 @@ import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
 import { SActionIcon } from '@shared/styles'
 import { MenuDropDown } from '@shared/ui/menu-dropdown'
+import { RiDeleteBin5Line } from 'react-icons/ri'
 
 const ProductCard: React.FC<UseModalProps> = ({
   profile,
@@ -26,6 +27,7 @@ const ProductCard: React.FC<UseModalProps> = ({
     handleLikeClick,
     showOverlay,
     particles,
+    optionConstant,
   } = useModals({ profile, handleToggleLike })
   return (
     <CardWrapper
@@ -108,18 +110,12 @@ const ProductCard: React.FC<UseModalProps> = ({
                 <FaRegHeart size={18} />
               )}
             </SActionIcon>
+            12
           </ActionIconWrapper>
 
           <MenuDropDown
             showExpandArrow={false}
-            options={[
-              {
-                label: 'Report',
-                icon: <FaFlag size={14} />,
-                handleClick: () => alert('Report clicked'),
-                color: 'red',
-              },
-            ]}
+            options={optionConstant}
             width={100}
             position="bottom"
           />

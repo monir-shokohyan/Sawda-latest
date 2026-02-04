@@ -1,13 +1,5 @@
 import { useState, useCallback } from 'react'
-import {
-  Modal,
-  Button,
-  Stack,
-  Group,
-  Slider,
-  Text,
-  ScrollArea,
-} from '@mantine/core'
+import { Button, Stack, Group, Slider, Text, ScrollArea } from '@mantine/core'
 import Cropper, { Area } from 'react-easy-crop'
 import { HModal, SButton } from '@shared/styles'
 import { Logo } from '@shared/ui/logo'

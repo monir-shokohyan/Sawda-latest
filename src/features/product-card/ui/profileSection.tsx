@@ -1,4 +1,4 @@
-import { Avatar, Flex, Stack, Text, useMantineTheme } from '@mantine/core'
+import { Avatar, Flex, Stack, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
@@ -29,7 +29,6 @@ const ProfileSection = ({
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
-  const theme = useMantineTheme()
   const padding = isMobile ? '5px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
 
@@ -40,7 +39,8 @@ const ProfileSection = ({
         pl={allowPadding ? padding : '0px'}
         style={{ cursor: 'pointer', flex: 1 }}
         direction={direction}
-        gap={15}
+        align="center"
+        gap={isMobile ? 8 : 15}
       >
         <Avatar
           color="blue"
