@@ -1,4 +1,1 @@
-export {
-  reducer as AuthReducer,
-  selector as AuthSelector,
-} from './slice'
+export { reducer as AuthReducer, selector as AuthSelector } from './slice'

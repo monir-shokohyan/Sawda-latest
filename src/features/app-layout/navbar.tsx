@@ -27,7 +27,7 @@ const Navbar = () => {
   const [openedFollowing, { open: openFollowing, close: closeFollowing }] =
     useDisclosure()
   const { isAuth } = Auth()
-  
+
   return (
     <>
       <Flex
@@ -108,8 +108,8 @@ const Navbar = () => {
             />
           )}
 
-            {!isMobile && !isAuth && (
-              <Group>
+          {!isMobile && !isAuth && (
+            <Group>
               <SButton
                 variant="subtle"
                 color="lightText"
@@ -132,8 +132,8 @@ const Navbar = () => {
               >
                 Login
               </SButton>
-              </Group>
-            )}
+            </Group>
+          )}
 
           {!isMobile && (
             <SButton
@@ -144,7 +144,7 @@ const Navbar = () => {
               px={10}
               bg="originalBlue"
               onClick={() => {
-                if(isAuth){
+                if (isAuth) {
                   navigate(Paths.AddProduct)
                   return
                 }

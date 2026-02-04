@@ -5,12 +5,23 @@ import { FavoritesPage } from '@pages/favorites'
 import { MessageDetailsPage } from '@pages/message-details'
 import { NotificationPage } from '@pages/notification'
 import { PrivacyPage } from '@pages/privacy'
+import { SecureMobileModalPage } from '@pages/secure-modal'
 import { ThemePage } from '@pages/theme'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 export const protectRoutes: RouteType[] = [
- {
+    {
+      key: 'secure-modal',
+      guarded: '',
+      path: '/secure-model/:id',
+      element: (
+        <ErrorSuspense suspenseKey="secure-modal">
+          <SecureMobileModalPage />
+        </ErrorSuspense>
+      ),
+    },
+  {
     key: 'edit-profile',
     guarded: '',
     path: '/settings/edit-profile/:id',
@@ -60,34 +71,34 @@ export const protectRoutes: RouteType[] = [
       </ErrorSuspense>
     ),
   },
-    {
-      key: 'add-edit-product',
-      guarded: '',
-      path: '/add-edit-product/:category',
-      element: (
-        <ErrorSuspense suspenseKey="add-edit-product">
-          <AddEditProductPage />
-        </ErrorSuspense>
-      ),
-    },
-    {
-      key: 'message-detail',
-      guarded: '',
-      path: '/message/:id',
-      element: (
-        <ErrorSuspense suspenseKey="message-detail">
-          <MessageDetailsPage />
-        </ErrorSuspense>
-      ),
-    },
-      {
-        key: 'favorites',
-        guarded: '',
-        path: '/favorites/:id',
-        element: (
-          <ErrorSuspense suspenseKey="favorites">
-            <FavoritesPage />
-          </ErrorSuspense>
-        ),
-      },
+  {
+    key: 'add-edit-product',
+    guarded: '',
+    path: '/add-edit-product/:category',
+    element: (
+      <ErrorSuspense suspenseKey="add-edit-product">
+        <AddEditProductPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'message-detail',
+    guarded: '',
+    path: '/message/:id',
+    element: (
+      <ErrorSuspense suspenseKey="message-detail">
+        <MessageDetailsPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'favorites',
+    guarded: '',
+    path: '/favorites/:id',
+    element: (
+      <ErrorSuspense suspenseKey="favorites">
+        <FavoritesPage />
+      </ErrorSuspense>
+    ),
+  },
 ]

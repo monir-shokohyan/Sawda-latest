@@ -29,8 +29,8 @@ export const AppRouter = () => {
       </Route>
       <Route
         element={
-          <ErrorSuspense suspenseKey="/auth-layout">    
-              <IsAuthLayout />
+          <ErrorSuspense suspenseKey="/auth-layout">
+            <IsAuthLayout />
           </ErrorSuspense>
         }
       >

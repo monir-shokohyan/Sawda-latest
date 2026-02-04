@@ -7,7 +7,6 @@ export const store = configureStore({
   reducer: {
     navbar: NavbarReducer,
     settingDropDown: SettingDropDownReducer,
-    Auth: AuthReducer
+    Auth: AuthReducer,
   },
-  
 })
