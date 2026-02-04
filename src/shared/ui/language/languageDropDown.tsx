@@ -16,12 +16,8 @@ const LanguageDropDown = (props: ButtonProps) => {
     <>
       <MenuDropDown
         options={modifiedLanguage}
-        triggerButton={
-          <TriggerButton
-            content="English"
-            props={props}
-          />
-        }
+        props={props}
+        triggerButton={<TriggerButton content="English" />}
         width={120}
       />
     </>

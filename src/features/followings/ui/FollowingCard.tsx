@@ -29,7 +29,7 @@ const NotificationCard = ({
           showTime={false}
           usernameSizeMobile="1rem"
           isFollowing
-          usernameSize='md'
+          usernameSize="md"
         />
       </Group>
     </StyledCard>

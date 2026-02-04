@@ -87,11 +87,6 @@ const ProfileModel = () => {
         pos="absolute"
         bottom={80}
         left={10}
-        styles={{
-          label: {
-            fontWeight: '400',
-          },
-        }}
       />
       <Button
         w="94%"

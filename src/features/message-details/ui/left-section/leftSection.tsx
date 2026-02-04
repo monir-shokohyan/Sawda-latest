@@ -74,9 +74,7 @@ const LeftSection = ({
               )}
             </Group>
 
-            <LeftMenu
-              constant={bulkEmailActions}
-            />
+            <LeftMenu constant={bulkEmailActions} />
           </Group>
 
           {selectionMode && selectedCount > 0 && (

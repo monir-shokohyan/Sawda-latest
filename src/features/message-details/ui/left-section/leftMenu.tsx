@@ -11,17 +11,15 @@ import { HoveredMenuItem } from '@shared/styles'
 import { MenuOption } from '@shared/ui/menu-dropdown/ui'
 import { MenuDropDown } from '@shared/ui/menu-dropdown'
 
-const LeftMenu = ( {constant}: {constant: MenuOption[]} ) => {
+const LeftMenu = ({ constant }: { constant: MenuOption[] }) => {
   return (
-         <MenuDropDown
-        options={constant}
-        showExpandArrow={false}
-        triggerButton={
-          <MdMoreVert size={20} />  
-        }
-        width={200}
-        position="bottom"
-      />
+    <MenuDropDown
+      options={constant}
+      showExpandArrow={false}
+      triggerButton={<MdMoreVert size={20} />}
+      width={200}
+      position="bottom"
+    />
   )
 }
 

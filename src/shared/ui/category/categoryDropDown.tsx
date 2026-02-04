@@ -24,11 +24,11 @@ const CategoryDropDown = (props: ButtonProps) => {
       triggerButton={
         <TriggerButton
           content="All Categories"
-          props={props}
         />
       }
       leftSection={<MdOutlineApps size={20} />}
-      width={250}
+      width={290}
+      props={props}
     />
   )
 }

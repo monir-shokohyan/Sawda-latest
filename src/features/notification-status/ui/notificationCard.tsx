@@ -36,7 +36,7 @@ const NotificationCard = ({
             isMessage
             showTime={false}
             usernameSizeMobile="1rem"
-            usernameSize='md'
+            usernameSize="md"
           />
         </Group>
       </Indicator>

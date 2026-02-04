@@ -8,9 +8,11 @@ import { TriggerButton } from '../buttons/triggerButton'
 const ProfileDropDown = (props: ButtonProps) => {
   const { isMobile } = Responsive()
   const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
-const modifiedProfile = ProfileConstant.filter(
-  profile => profile.label !== "Following" && profile.label !== "Notification"
-);  return (
+  const modifiedProfile = ProfileConstant.filter(
+    (profile) =>
+      profile.label !== 'Following' && profile.label !== 'Notification',
+  )
+  return (
     <>
       <MenuDropDown
         options={modifiedProfile}
@@ -19,11 +21,11 @@ const modifiedProfile = ProfileConstant.filter(
             content={
               isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name'
             }
-            props={props}
           />
         }
         width={160}
         leftSection={isMobile ? null : <MdOutlinePersonOutline size={20} />}
+        props={props}
       />
     </>
   )

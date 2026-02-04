@@ -26,7 +26,6 @@ export interface LeftButtonGroupProps {
   handleDeselectAll: () => void
 }
 
-
 export interface LeftSectionProps {
   onMessageSelect: (message: Message) => void
   activeMessageId?: number | null

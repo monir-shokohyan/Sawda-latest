@@ -37,6 +37,7 @@ export const ExpandArrow = ({
       className={className}
       style={{
         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        padding: '0px',
         ...style,
       }}
     >

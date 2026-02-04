@@ -1,4 +1,4 @@
-import { ActionIcon, Menu, ScrollArea, Text } from '@mantine/core'
+import { ActionIcon, ButtonProps, Menu, ScrollArea, Text } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { HoveredMenuItem, SButton } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
@@ -7,6 +7,7 @@ import { MenuWrapper } from '../Menu/MenuWrapper'
 import { ReactNode } from 'react'
 import { FaEllipsisV } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import { TriggerButton } from '../buttons/triggerButton'
 
 export interface MenuOption {
   label: string
@@ -37,17 +38,9 @@ interface Props {
   mobileIconOnly?: boolean
   leftSection?: ReactNode
   triggerButton?: ReactNode
+  props?: ButtonProps
 }
-const Trigger = () => {
-  return (
-    <ActionIcon
-      variant="transparent"
-      color="gray"
-    >
-      <FaEllipsisV size={16} />
-    </ActionIcon>
-  )
-}
+
 const Ui = ({
   options,
   showExpandArrow = true,
@@ -58,7 +51,8 @@ const Ui = ({
   color = 'textPrimary',
   mobileIconOnly = true,
   leftSection,
-  triggerButton = <Trigger />,
+  triggerButton = <TriggerButton content={<FaEllipsisV size={16} />} />,
+  props,
 }: Props) => {
   const { isMobile } = Responsive()
   const [opened, { toggle }] = useDisclosure(false)
@@ -87,12 +81,9 @@ const Ui = ({
             }
             color={color}
             size={size}
-            p={5}
-            styles={{
-              section: {
-                marginInline: showIconOnlyOnMobile ? '0px' : '8px',
-              },
-            }}
+            p={0}
+            px={8}
+            {...props}
           >
             {triggerButton}
           </SButton>

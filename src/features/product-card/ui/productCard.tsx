@@ -99,7 +99,7 @@ const ProductCard: React.FC<UseModalProps> = ({
             <SActionIcon
               variant="subtle"
               $isSubtle
-              color={profile?.liked ? 'red' : 'gray'}
+              color={profile?.liked ? 'red' : 'textPrimary'}
               onClick={handleLikeClick}
             >
               {profile?.liked ? (
@@ -120,6 +120,8 @@ const ProductCard: React.FC<UseModalProps> = ({
                 color: 'red',
               },
             ]}
+            width={100}
+            position="bottom"
           />
         </Group>
       </MantineCard>
