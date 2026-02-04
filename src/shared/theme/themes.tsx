@@ -13,6 +13,7 @@ import {
   Chip,
 } from '@mantine/core'
 import type { MantineColorsTuple } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 const darkAccent: MantineColorsTuple = [
   '#FFFFFF',
@@ -171,7 +172,6 @@ export const theme = createTheme({
           backgroundColor: theme.colors.background[8],
           borderRadius: '5px',
         },
-
         wrapper: {},
       }),
     }),
@@ -182,13 +182,13 @@ export const theme = createTheme({
           borderRadius: 0,
         },
         content: {
-          backgroundColor: theme.colors.background[9],
+          backgroundColor: theme.colors.background[8],
         },
         body: {
-          padding: '0px',
+          padding: useMediaQuery('(max-width: 768px)') ? '0px' : "20px",
         },
         title: {
-          fontSize: '20px',
+          fontSize: '16px',
           color: theme.colors.darkText[8],
           fontWeight: 500,
         },

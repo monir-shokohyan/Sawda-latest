@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { Message } from '@features/message-details/types'
 import { Following } from '@features/followings'
 import { HModal } from '@shared/styles'
+import { BaseModal } from '@shared/ui/modal'
 
 const FollowingModel = () => {
   const navigate = useNavigate()
@@ -17,16 +18,15 @@ const FollowingModel = () => {
   }
 
   return (
-    <HModal
+
+      <BaseModal
       opened={pathname.endsWith('following')}
       onClose={() => navigate(-1 || '/')}
       fullScreen
-      title={<Logo />}
       pos="relative"
-      transitionProps={{ transition: 'fade', duration: 200 }}
-    >
+      >
       <Following onFollowingSelect={handleFollowingSelect} />
-    </HModal>
+      </BaseModal>
   )
 }
 

@@ -1,6 +1,6 @@
 import { RecordModalProps } from '@features/message-details/types'
-import { Button, Group, Modal, Stack, Text } from '@mantine/core'
-import { HModal } from '@shared/styles'
+import { Button, Group, Stack, Text } from '@mantine/core'
+import { BaseModal } from '@shared/ui/modal'
 import { MdClose, MdMic, MdStop } from 'react-icons/md'
 
 const RecordModal = ({
@@ -11,64 +11,64 @@ const RecordModal = ({
 }: RecordModalProps) => {
   return (
     <>
-      <HModal
-        opened={showRecordModal}
-        onClose={cancelRecording}
-        centered
-        size="sm"
-        withCloseButton={false}
-        transitionProps={{ transition: 'fade', duration: 200 }}
-      >
-        <Stack
-          align="center"
-          gap="lg"
-          py="md"
+
+        <BaseModal 
+          opened={showRecordModal}
+          onClose={cancelRecording}
+          centered
+          size="sm"
+          withCloseButton={false}
+          showOverlay
         >
-          <div
-            style={{
-              width: 100,
-              height: 100,
-              borderRadius: '50%',
-              backgroundColor: 'var(--mantine-color-red-1)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              animation: 'pulse 1.5s ease-in-out infinite',
-            }}
+          <Stack
+            align="center"
+            gap="lg"
+            py="md"
           >
-            <MdMic
-              size={50}
-              color="var(--mantine-color-red-6)"
-            />
-          </div>
-
-          <Text
-            size="xl"
-            fw={700}
-          >
-            {recordingTime}
-          </Text>
-
-          <Group gap="md">
-            <Button
-              variant="outline"
-              color="gray"
-              onClick={cancelRecording}
-              leftSection={<MdClose size={18} />}
+            <div
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: '50%',
+                backgroundColor: 'var(--mantine-color-red-1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                animation: 'pulse 1.5s ease-in-out infinite',
+              }}
             >
-              Cancel
-            </Button>
-            <Button
-              color="red"
-              leftSection={<MdStop size={18} />}
-              onClick={stopRecording}
-            >
-              Stop & Send
-            </Button>
-          </Group>
-        </Stack>
-      </HModal>
+              <MdMic
+                size={50}
+                color="var(--mantine-color-red-6)"
+              />
+            </div>
 
+            <Text
+              size="xl"
+              fw={700}
+            >
+              {recordingTime}
+            </Text>
+
+            <Group gap="md">
+              <Button
+                variant="outline"
+                color="gray"
+                onClick={cancelRecording}
+                leftSection={<MdClose size={18} />}
+              >
+                Cancel
+              </Button>
+              <Button
+                color="red"
+                leftSection={<MdStop size={18} />}
+                onClick={stopRecording}
+              >
+                Stop & Send
+              </Button>
+            </Group>
+          </Stack>
+        </BaseModal>
       <style>
         {`
             @keyframes pulse {

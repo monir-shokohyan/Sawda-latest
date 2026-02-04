@@ -25,7 +25,7 @@ const Ui = () => {
       buttonTitle="Filter ads"
       buttonLeftSection={<TbAdjustmentsHorizontal />}
       handleSubmit={handleSubmit(onSubmit)}
-      allowPadding={false}
+      allowPadding={true}
     >
       <Flex
         gap={isMobile ? 5 : 20}

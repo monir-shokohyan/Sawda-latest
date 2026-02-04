@@ -1,9 +1,8 @@
 import { Paths } from '@shared/api/paths/paths'
-import { Logo } from '@shared/ui/logo'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { RightSection } from '@features/message-details/ui/right-section'
-import { HModal } from '@shared/styles'
+import { BaseModal } from '@shared/ui/modal'
 
 const MessageHistoryModel = () => {
   const navigate = useNavigate()
@@ -14,14 +13,12 @@ const MessageHistoryModel = () => {
   const activeMessageUsername = searchParams.get('username') || ''
 
   return (
-    <HModal
+      <BaseModal
       opened={pathname.endsWith('message-history')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
-      title={<Logo />}
       pos="relative"
-      transitionProps={{ transition: 'fade', duration: 200 }}
-    >
+      >
       <RightSection
         selectedMessage={{
           id: activeMessageId,
@@ -29,7 +26,7 @@ const MessageHistoryModel = () => {
         }}
         onBack={() => navigate(`${Paths.MessageList}?id=${activeMessageId}`)}
       />
-    </HModal>
+      </BaseModal>
   )
 }
 

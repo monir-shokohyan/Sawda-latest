@@ -6,8 +6,7 @@ import { FormInput } from '@shared/ui/form'
 import { AddressModalProps, BusinessAddress } from '../types'
 import { ModalDefaultValue } from '../constant'
 import { AddressSchema } from '../schema'
-import { HModal } from '@shared/styles'
-import { Logo } from '@shared/ui/logo'
+import { BaseModal } from '@shared/ui/modal'
 
 const AddressModal: React.FC<AddressModalProps> = ({
   opened,
@@ -19,7 +18,6 @@ const AddressModal: React.FC<AddressModalProps> = ({
     resolver: yupResolver(AddressSchema),
     defaultValues: initialData || ModalDefaultValue,
   })
-  const theme = useMantineTheme()
 
   React.useEffect(() => {
     if (opened && initialData) {
@@ -34,22 +32,12 @@ const AddressModal: React.FC<AddressModalProps> = ({
   }
 
   return (
-    <HModal
+    <BaseModal
       opened={opened}
       onClose={onClose}
-      title={<Logo />}
       size="md"
-      centered
-      transitionProps={{ transition: 'fade', duration: 200 }}
-      styles={{
-        header: {
-          background: theme.colors.background[8],
-        },
-        body: {
-          background: theme.colors.background[8],
-          padding: '15px',
-        },
-      }}
+      showLogo={false}
+      title="Add business address"
     >
       <Stack gap={3}>
         <FormInput<BusinessAddress>
@@ -99,9 +87,9 @@ const AddressModal: React.FC<AddressModalProps> = ({
           Save Address
         </MantineButton>
       </div>
-    </HModal>
+      
+    </BaseModal>
   )
 }
 
 export { AddressModal }
-export type { BusinessAddress }

@@ -8,7 +8,7 @@ import { ChatMessage } from './chat-components/chatMessage'
 import { TimeMessage } from './chat-components'
 import { AvatarMessage } from './chat-components/avatarMessage'
 import { BubbleWrapper, MessageBubble } from '../styles'
-import { HModal } from '@shared/styles'
+import { BaseModal } from '@shared/ui/modal'
 
 const ChatBubble = ({ message }: ChatBubbleProps) => {
   const { isOwn, timestamp, content, attachments } = message
@@ -71,20 +71,21 @@ const ChatBubble = ({ message }: ChatBubbleProps) => {
 
       {isOwn && <AvatarMessage src="/profile.png" />}
 
-      <HModal
+        <BaseModal
         opened={opened}
         onClose={close}
         centered
-        withCloseButton={false}
-        transitionProps={{ transition: 'fade', duration: 200 }}
-      >
+        size="xl"
+        withCloseButton={true}
+        showOverlay={true}
+        >
         <ImageCarousel
           data={images}
           slideGap={false}
           fullImage
           allowBg={false}
         />
-      </HModal>
+        </BaseModal>
     </BubbleWrapper>
   )
 }

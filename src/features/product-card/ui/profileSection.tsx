@@ -7,6 +7,7 @@ import { Paths } from '@shared/api/paths/paths'
 import { useDisclosure } from '@mantine/hooks'
 import { ProfileInfo } from '@features/profile-info'
 import { Logo } from '@shared/ui/logo'
+import { BaseModal } from '@shared/ui/modal'
 
 const ProfileSection = ({
   profile,
@@ -161,16 +162,14 @@ const ProfileSection = ({
         </Stack>
       </Flex>
 
-      <HModal
+      <BaseModal
         opened={opened}
         onClose={close}
-        title={<Logo />}
         pos="relative"
-        transitionProps={{ transition: 'fade', duration: 200 }}
         centered
       >
         <ProfileInfo Profile={profile} />
-      </HModal>
+      </BaseModal>
     </>
   )
 }

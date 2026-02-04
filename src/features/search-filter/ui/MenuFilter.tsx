@@ -39,17 +39,18 @@ const MenuFilter = ({
       </Menu.Target>
 
       <Menu.Dropdown
-        px={10}
-        py={20}
+        p={0}
       >
         <Group
           justify="space-between"
           align="center"
-          mb="md"
+          p="sm"
         >
-          <Menu.Label>
+          <Menu.Label >
+            <Group align='center'>
             <MdOutlineManageSearch size={19} />
             <span>Filter</span>
+            </Group>
           </Menu.Label>
 
           <SActionIcon

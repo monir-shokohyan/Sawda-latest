@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import { SettingDropDownSelector } from '../reducers'
 import { useAppSelector } from '@shared/hooks/redux-hooks'
 import { HModal } from '@shared/styles'
+import { BaseModal } from '@shared/ui/modal'
 
 const ProfileModel = () => {
   const navigate = useNavigate()
@@ -19,14 +20,12 @@ const ProfileModel = () => {
   const settingDropDown = useAppSelector(SettingDropDownSelector)
 
   return (
-    <HModal
+      <BaseModal
       opened={pathname.endsWith('profile')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
-      title={<Logo />}
       pos="relative"
-      transitionProps={{ transition: 'fade', duration: 200 }}
-    >
+      >
       {/* Content */}
       <ScrollArea
         h="74dvh"
@@ -97,7 +96,7 @@ const ProfileModel = () => {
       >
         Sign out
       </Button>
-    </HModal>
+      </BaseModal>
   )
 }
 

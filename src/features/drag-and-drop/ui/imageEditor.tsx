@@ -1,11 +1,11 @@
 import { useState, useCallback } from 'react'
 import { Button, Stack, Group, Slider, Text, ScrollArea } from '@mantine/core'
 import Cropper, { Area } from 'react-easy-crop'
-import { HModal, SButton } from '@shared/styles'
-import { Logo } from '@shared/ui/logo'
+import { SButton } from '@shared/styles'
 import { Controls, CropContainer, Segmented } from '../styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { ImageEditorProps, Point } from '../types'
+import { BaseModal } from '@shared/ui/modal'
 
 export const ImageEditor = ({
   opened,
@@ -152,23 +152,22 @@ export const ImageEditor = ({
   }
 
   return (
-    <HModal
-      opened={opened}
-      onClose={handleClose}
-      title={<Logo />}
-      size="xl"
-      centered
-      fullScreen={isMobile ? true : false}
-      transitionProps={{ transition: 'fade', duration: 200 }}
-    >
+
+      <BaseModal 
+        opened={opened}
+        onClose={handleClose}
+        size="xl"
+        centered
+        fullScreen={isMobile ? true : false}
+      >
       <ScrollArea
-        h="100dvh"
+        h="75dvh"
         scrollbars="y"
         scrollbarSize={4}
       >
         <Stack
           gap="md"
-          p="md"
+          p="sm"
         >
           <Segmented
             value={editMode}
@@ -284,17 +283,17 @@ export const ImageEditor = ({
               Reset
             </Button>
             <Group>
-              <Button
-                variant="default"
+              <SButton
+                variant="outline"
                 onClick={handleClose}
               >
                 Cancel
-              </Button>
+              </SButton>
               <SButton onClick={handleSave}>Save Changes</SButton>
             </Group>
           </Group>
         </Stack>
       </ScrollArea>
-    </HModal>
+      </BaseModal>
   )
 }

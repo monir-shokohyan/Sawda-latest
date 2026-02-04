@@ -1,11 +1,9 @@
-import { Modal } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
-import { Logo } from '@shared/ui/logo'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate } from 'react-router-dom'
 import { Message } from '@features/message-details/types'
 import { NotificationStatus } from '@features/notification-status'
-import { HModal } from '@shared/styles'
+import { BaseModal } from '@shared/ui/modal'
 
 const NotificationStatusModel = () => {
   const navigate = useNavigate()
@@ -18,15 +16,13 @@ const NotificationStatusModel = () => {
   }
 
   return (
-    <HModal
+    <BaseModal
       opened={pathname.endsWith('notification')}
       onClose={() => navigate(-1 || '/')}
       fullScreen
-      title={<Logo />}
-      transitionProps={{ transition: 'fade', duration: 200 }}
     >
       <NotificationStatus onNotificationSelect={handleNotificationSelect} />
-    </HModal>
+    </BaseModal>
   )
 }
 

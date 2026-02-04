@@ -1,13 +1,9 @@
-import { Modal } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
-import { Logo } from '@shared/ui/logo'
 import { useProfileDropDown } from '@shared/ui/profile/hook'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { SettingDropDownSelector } from '../reducers'
-import { useAppSelector } from '@shared/hooks/redux-hooks'
 import { LeftSection } from '@features/message-details/ui/left-section'
 import { Message } from '@features/message-details/types'
-import { HModal } from '@shared/styles'
+import { BaseModal } from '@shared/ui/modal'
 
 const MessageListModel = () => {
   const navigate = useNavigate()
@@ -22,19 +18,17 @@ const MessageListModel = () => {
   const activeMessageId = Number(searchParams.get('id')) || null
 
   return (
-    <HModal
+    <BaseModal
       opened={pathname.endsWith('message-list')}
       onClose={() => navigate(Paths.Main)}
       fullScreen
-      title={<Logo />}
       pos="relative"
-      transitionProps={{ transition: 'fade', duration: 200 }}
     >
       <LeftSection
         onMessageSelect={handleMessageSelect}
         activeMessageId={activeMessageId}
       />
-    </HModal>
+    </BaseModal>
   )
 }
 

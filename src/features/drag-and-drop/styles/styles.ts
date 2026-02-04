@@ -75,5 +75,5 @@ export const CropContainer = styled.div`
 `
 
 export const Controls = styled.div`
-  padding: 16px;
+  padding: 0px;
 `

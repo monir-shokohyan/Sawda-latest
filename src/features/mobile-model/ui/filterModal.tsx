@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { MdOutlineManageSearch } from 'react-icons/md'
 import { HModal } from '@shared/styles'
 import { FilterForm } from '@entities/filter-form'
+import { BaseModal } from '@shared/ui/modal'
 
 const FilterModal = () => {
   const navigate = useNavigate()
@@ -14,14 +15,13 @@ const FilterModal = () => {
   }
 
   return (
-    <HModal
+
+      <BaseModal
       opened={pathname.endsWith('filters')}
       onClose={handleClose}
       fullScreen
-      title={<Logo />}
       pos="relative"
-      transitionProps={{ transition: 'fade', duration: 200 }}
-    >
+      >
       {/* Content */}
       <ScrollArea
         h="100dvh"
@@ -47,7 +47,7 @@ const FilterModal = () => {
         </Group>
         <FilterForm />
       </ScrollArea>
-    </HModal>
+      </BaseModal>
   )
 }
 

@@ -73,7 +73,7 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
       <Stack gap="xl">
         <Carousel
           withIndicators
-          height={isMobile ? 300 : 500}
+          height={isMobile ? 300 : '50vh'}
           slideGap={slideGap ? 'sm' : '0px'}
           controlsOffset="xl"
           controlSize={50}
@@ -129,7 +129,6 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
         </Carousel>
 
         {/*Desktop Thumbnail Carousel */}
-        {!isMobile && (
           <Carousel
             withControls={false}
             slideSize="16.666%"
@@ -184,7 +183,6 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
               </Carousel.Slide>
             ))}
           </Carousel>
-        )}
       </Stack>
     </Container>
   )
