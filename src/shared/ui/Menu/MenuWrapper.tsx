@@ -23,7 +23,7 @@ const MenuWrapper = ({
       withArrow
       transitionProps={{ transition: 'fade-down', duration: 250 }}
       position={position}
-      trigger={isMobile ? "click" : "hover"}
+      trigger={isMobile ? 'click' : 'hover'}
       onOpen={toggle}
       onClose={toggle}
     >
