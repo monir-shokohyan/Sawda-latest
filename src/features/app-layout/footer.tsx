@@ -1,5 +1,6 @@
 import { Flex, Text, Box, Anchor, Image } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
+import { LanguageDropDown } from '@shared/ui/language'
 
 const Footer = () => {
   const { isMobile, isTablet } = Responsive()
@@ -58,9 +59,6 @@ const Footer = () => {
   const footerLinks = [
     { label: 'Help Centre', href: '#' },
     { label: 'Contact Us', href: '#' },
-    { label: 'Press', href: '#' },
-    { label: 'Sustainability', href: '#' },
-    { label: 'Jobs', href: '#' },
     { label: 'Advertise with Us', href: '#' },
     { label: 'Terms', href: '#' },
     { label: 'Privacy', href: '#' },
@@ -136,13 +134,15 @@ const Footer = () => {
             src={'/Rite-eats.png'}
             h={isMobile ? '24px' : '25px'}
           />
+
         </Flex>
+           <LanguageDropDown />
 
         {/* Links */}
         <Flex
-          gap={isMobile ? 8 : 16}
+          gap={isMobile ? 16 : 16}
           wrap="wrap"
-          direction={isMobile ? 'column' : 'row'}
+          // direction={isMobile ? 'column' : 'row'}
           align={isMobile ? 'flex-start' : 'center'}
         >
           {footerLinks.map((link, index) => (

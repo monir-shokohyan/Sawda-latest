@@ -157,7 +157,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
 
-      {isMobile && <MobileDownbar />}
+      {isMobile && isAuth && <MobileDownbar />}
       {!isMobile && (
         <Drawer
           opened={opened}

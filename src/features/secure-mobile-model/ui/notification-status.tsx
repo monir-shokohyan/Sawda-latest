@@ -11,7 +11,7 @@ const NotificationStatusModel = () => {
 
   const handleNotificationSelect = (message: Message) => {
     navigate(
-      `${Paths.MobileModel}message-history?id=${message.id}&username=${message.username}`,
+      `${Paths.SecureMobileModel}message-history?id=${message.id}&username=${message.username}`,
     )
   }
 

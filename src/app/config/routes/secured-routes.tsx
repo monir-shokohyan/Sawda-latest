@@ -5,19 +5,30 @@ import { FavoritesPage } from '@pages/favorites'
 import { MessageDetailsPage } from '@pages/message-details'
 import { NotificationPage } from '@pages/notification'
 import { PrivacyPage } from '@pages/privacy'
+import { ProfileDetailPage } from '@pages/profile-details'
 import { SecureMobileModalPage } from '@pages/secure-modal'
 import { ThemePage } from '@pages/theme'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 export const protectRoutes: RouteType[] = [
+  {
+    key: 'secure-modal',
+    guarded: '',
+    path: '/secure-model/:id',
+    element: (
+      <ErrorSuspense suspenseKey="secure-modal">
+        <SecureMobileModalPage />
+      </ErrorSuspense>
+    ),
+  },
     {
-      key: 'secure-modal',
+      key: 'profile-detail',
       guarded: '',
-      path: '/secure-model/:id',
+      path: '/profile/:id',
       element: (
-        <ErrorSuspense suspenseKey="secure-modal">
-          <SecureMobileModalPage />
+        <ErrorSuspense suspenseKey="profile-detail">
+          <ProfileDetailPage />
         </ErrorSuspense>
       ),
     },

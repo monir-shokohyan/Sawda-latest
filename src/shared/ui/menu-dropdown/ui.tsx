@@ -7,6 +7,7 @@ import { ReactNode } from 'react'
 import { FaEllipsisV } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { TriggerButton } from '../buttons/triggerButton'
+import { Paths } from '@shared/api/paths/paths'
 
 export interface MenuOption {
   label: string
@@ -18,7 +19,7 @@ export interface MenuOption {
   image?: string
 }
 
-interface Props {
+interface Props extends ButtonProps {
   options: MenuOption[]
   showExpandArrow?: boolean
   position?:
@@ -49,8 +50,8 @@ const Ui = ({
   size = 'sm',
   color = 'textPrimary',
   leftSection,
-  triggerButton = <TriggerButton content={<FaEllipsisV size={16} />} />,
-  props,
+  triggerButton = <FaEllipsisV size={16} />,
+  ...props
 }: Props) => {
   const [opened, { toggle }] = useDisclosure(false)
   const navigate = useNavigate()
@@ -92,9 +93,11 @@ const Ui = ({
                 key={`${option.label}-${index}`}
                 c={option.color || 'textPrimary'}
                 leftSection={option.icon}
-                disabled={option.disabled}
                 onClick={() => {
-                  if (option.disabled) return
+                  if (option.disabled) {
+                    navigate(Paths.Register)
+                    return
+                  }
                   if (option.handleClick) {
                     option.handleClick()
                     return

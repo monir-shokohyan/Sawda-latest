@@ -65,7 +65,7 @@ const MobileDownbar = () => {
         c="darkText"
         size="xl"
         $isSubtle
-        onClick={() => navigate(`${Paths.MobileModel}message-list`)}
+        onClick={() => navigate(`${Paths.SecureMobileModel}message-list`)}
       >
         <MdOutlineMessage size={24} />
       </SActionIcon>
@@ -75,7 +75,7 @@ const MobileDownbar = () => {
         c="darkText"
         $isSubtle
         size="xl"
-        onClick={() => navigate(`${Paths.MobileModel}profile`)}
+        onClick={() => navigate(`${Paths.SecureMobileModel}profile`)}
       >
         <MdPerson size={24} />
       </SActionIcon>

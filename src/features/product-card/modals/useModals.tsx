@@ -3,15 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UseModalProps } from '../types'
 import { Paths } from '@shared/api/paths/paths'
-import { FaFlag, FaRegEdit } from 'react-icons/fa'
-import { RiDeleteBin5Line } from 'react-icons/ri'
-import { MenuOption } from '@shared/ui/menu-dropdown/ui'
+import { Auth } from '@shared/authentication/auth'
 
 const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
   const [isAnimating, setIsAnimating] = useState<boolean>(false)
   const [showOverlay, setShowOverlay] = useState<boolean>(false)
+  const { isAuth } = Auth()
   let clickTimeout: NodeJS.Timeout | null = null
 
   const handleClick = (): void => {
@@ -33,7 +32,10 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
 
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation()
-
+    if(!isAuth){
+      navigate(Paths.Register)
+      return
+    }
     if (!profile?.liked) {
       setShowOverlay(true)
       setTimeout(() => setShowOverlay(false), 800)
@@ -46,6 +48,11 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
 
   const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
+
+    if(!isAuth){
+      navigate(Paths.Register)
+      return
+    }
 
     if (!profile?.liked) {
       setShowOverlay(true)

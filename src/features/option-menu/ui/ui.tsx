@@ -5,7 +5,7 @@ import { Button, Text } from '@mantine/core'
 import { HModal } from '@shared/styles'
 
 function Ui({ type, id }: OptionMenuProps) {
-  const { optionConstant, theme, opened, close, Delete } = useManageOptionModel(
+  const { optionConstant, opened, close, Delete } = useManageOptionModel(
     { type, id },
   )
   return (
@@ -15,7 +15,7 @@ function Ui({ type, id }: OptionMenuProps) {
         options={optionConstant}
         width={180}
         position="bottom"
-      />
+     />
       <HModal
         opened={opened}
         onClose={close}

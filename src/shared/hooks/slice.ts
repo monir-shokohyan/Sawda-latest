@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface AuthState {
+interface State {
   isAuth: boolean
 }
 
-const initialState: AuthState = {
+const initialState: State = {
   isAuth: false,
 }
 
@@ -15,7 +15,7 @@ const Slice = createSlice({
     activeAuth(state) {
       state.isAuth = true
     },
-    deActiveAuth(state) {
+    deactiveAuth(state) {
       state.isAuth = false
     },
     toggleAuth(state) {
@@ -24,7 +24,11 @@ const Slice = createSlice({
   },
 })
 
-export const { activeAuth, deActiveAuth, toggleAuth } = Slice.actions
+export const {
+  activeAuth,
+  deactiveAuth,
+  toggleAuth,
+} = Slice.actions
 
 export const reducer = Slice.reducer
 export const selector = (state: RootState) => state.Auth.isAuth
