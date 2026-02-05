@@ -23,5 +23,9 @@ export const schema = yup.object({
     .trim()
     .required('Confirm password is required')
     .oneOf([yup.ref('password')], 'Passwords do not match'),
-  phoneNumber: yup.string().trim().required('Phone number is required'),
+  phoneNumber: yup
+    .string()
+    .trim()
+    .required('Please enter a valid Afghan phone number (e.g., +93 XXX XXXXXX)')
+    .matches(/^(\+93)?[7][0-9]{8}$/, 'Please enter a valid Afghan phone number (e.g., +93 XXX XXXXXX)'),
 })

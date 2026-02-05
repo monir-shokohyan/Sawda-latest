@@ -23,15 +23,15 @@ const HovTabs = styled(Tabs)<TabsProps>`
 
 const RegisterTab = ({ filter, handleChange }: LeftTabProps) => {
   return (
-      <HovTabs
-        value={filter}
-        onChange={handleChange}
-      >
-        <Tabs.List grow>
-          <Tabs.Tab value="email">Email</Tabs.Tab>
-          <Tabs.Tab value="phone">Phone number</Tabs.Tab>
-        </Tabs.List>
-      </HovTabs>
+    <HovTabs
+      value={filter}
+      onChange={handleChange}
+    >
+      <Tabs.List grow>
+        <Tabs.Tab value="email">Email</Tabs.Tab>
+        <Tabs.Tab value="phone">Phone number</Tabs.Tab>
+      </Tabs.List>
+    </HovTabs>
   )
 }
 

@@ -2,15 +2,25 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
 import { Responsive } from '@shared/hooks/responsive'
-import { RegisterType } from '../types'
+import { RegisterType, TabType } from '../types'
 import { defaultValues } from '../constant'
+import { useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
+
 
 const useManageRegisterForm = () => {
   const { isMobile } = Responsive()
-
-  const { control, handleSubmit, watch } = useForm<RegisterType>({
+  const { control, handleSubmit } = useForm<RegisterType>({
     resolver: yupResolver(schema),
     defaultValues,
+  })
+  const [filter, setFilter] = useState<TabType>('phone')
+  const Toggle = () => {
+    setFilter((prev) => (prev === 'email' ? 'phone' : 'email'))
+  }
+  const handler = useSwipeable({
+    onSwipedLeft: () => Toggle(),
+    onSwipedRight: () => Toggle(),
   })
 
   const onSubmit = (data: any) => {
@@ -22,6 +32,9 @@ const useManageRegisterForm = () => {
     onSubmit,
     control,
     isMobile,
+    handler,
+    filter,
+    setFilter,
   }
 }
 

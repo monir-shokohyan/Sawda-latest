@@ -1,4 +1,4 @@
-import { Button, Group, Stack, Text } from '@mantine/core'
+import { Button, Group, InputProps, Stack, Text, TextInputProps } from '@mantine/core'
 import { ResText, SInput } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { ReactNode } from 'react'
@@ -20,6 +20,7 @@ interface FormInputProps<T extends FieldValues> {
   mb?: number
   placeholder?: string
   leftSection?: ReactNode
+  type?: TextInputProps['type']
 }
 
 const FormInput = <T extends FieldValues>({
@@ -32,6 +33,7 @@ const FormInput = <T extends FieldValues>({
   mb = 20,
   placeholder,
   leftSection,
+  type = "text",
 }: FormInputProps<T>) => {
   return (
     <Group
@@ -63,6 +65,7 @@ const FormInput = <T extends FieldValues>({
                 radius={3}
                 placeholder={placeholder}
                 leftSection={leftSection}
+                type={type}
               />
 
               {error && (
