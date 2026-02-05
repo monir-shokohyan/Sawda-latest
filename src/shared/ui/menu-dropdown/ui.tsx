@@ -51,7 +51,7 @@ const Ui = ({
   color = 'textPrimary',
   leftSection,
   triggerButton = <FaEllipsisV size={16} />,
-  clickTrigger  = false,
+  clickTrigger = false,
   ...props
 }: Props) => {
   const [opened, { toggle }] = useDisclosure(false)

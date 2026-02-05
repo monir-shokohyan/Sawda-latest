@@ -15,7 +15,7 @@ const MenuWrapper = ({
   toggle,
   position = 'top-end',
   width,
-  clickTrigger  = false,
+  clickTrigger = false,
 }: Props) => {
   const { isMobile } = Responsive()
   return (
