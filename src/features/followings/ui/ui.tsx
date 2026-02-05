@@ -32,7 +32,7 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
         radius="sm"
         p={0}
         bg="background.7"
-        style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        style={{ height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'hidden' }}
       >
         <Paper
           bg="background.7"
@@ -56,8 +56,7 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
             scrollBehavior: 'smooth',
-            minHeight: '80dvh',
-            height: '100%'
+            maxHeight: '85dvh',
           }}
         >
           <InfiniteScrollWrapper

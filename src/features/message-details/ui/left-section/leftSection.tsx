@@ -51,7 +51,7 @@ const LeftSection = ({
         radius="sm"
         p={0}
         bg="background.7"
-        style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        style={{ height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'hidden' }}
       >
         <StickyPaper type="header">
           <Group
@@ -103,8 +103,7 @@ const LeftSection = ({
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
             scrollBehavior: 'smooth',
-            minHeight: '80dvh',
-            height: '100%'
+            maxHeight: '85dvh',
           }}
         >
           <InfiniteScrollWrapper
