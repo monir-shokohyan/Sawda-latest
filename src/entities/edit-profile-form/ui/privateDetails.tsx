@@ -15,8 +15,7 @@ const PrivateDetails = ({ control }: FormSetProps) => {
     <>
       <Details
         title="Private details"
-        icon={<FaRegEyeSlash style={{ marginTop: '2px', flexShrink: 0 }} />}
-        text="Only you can view this"
+        allowBox={false}
       />
 
       <FormInput

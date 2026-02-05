@@ -1,3 +1,4 @@
+import { Divider } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { ReactNode } from 'react'
@@ -26,6 +27,7 @@ const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
       <ResText
         fontSize={TypographySize.Normal}
         c="darkText"
+        mb={allowBox ? "0px" : 'lg'}
       >
         {title}
       </ResText>

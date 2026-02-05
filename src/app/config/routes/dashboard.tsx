@@ -7,8 +7,19 @@ import { RegisterPage } from '@shared/authentication/registerPage'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 import { SearchPage } from '@pages/search'
+import { ProfileDetailPage } from '@pages/profile-details'
 
 export const mainRoute: RouteType[] = [
+  {
+    key: 'profile-detail',
+    guarded: '',
+    path: '/profile/:id',
+    element: (
+      <ErrorSuspense suspenseKey="profile-detail">
+        <ProfileDetailPage />
+      </ErrorSuspense>
+    ),
+  },
   {
     key: 'dashboard',
     guarded: '',

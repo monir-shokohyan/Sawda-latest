@@ -15,10 +15,12 @@ import { Responsive } from '@shared/hooks/responsive'
 import { TypographySize } from '@shared/typography'
 import { ProfileConstant } from '../constant'
 import { OptionMenu } from '@features/option-menu'
+import { Auth } from '@shared/authentication/auth'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
   const { isMobile } = Responsive()
+  const { isAuth } = Auth()
 
   return (
     <BackgroundImage
@@ -154,26 +156,30 @@ const ProfileHeader = () => {
                 </>
               )}
 
-              <SButton
-                variant="outline"
-                radius={20}
-                size="compact-md"
-                w={isMobile ? '70%' : 'auto'}
-              >
-                Follow
-              </SButton>
+              {isAuth && (
+                <>
+                  <SButton
+                    variant="outline"
+                    radius={20}
+                    size="compact-md"
+                    w={isMobile ? '70%' : 'auto'}
+                  >
+                    Follow
+                  </SButton>
 
-              <SActionIcon
-                variant="outline"
-                radius="50%"
-              >
-                <MdOutlineFileUpload size={18} />
-              </SActionIcon>
+                  <SActionIcon
+                    variant="outline"
+                    radius="50%"
+                  >
+                    <MdOutlineFileUpload size={18} />
+                  </SActionIcon>
 
-              <OptionMenu
-                type="account"
-                id="monir"
-              />
+                  <OptionMenu
+                    type="account"
+                    id="monir"
+                  />
+                </>
+              )}
             </Group>
           </Flex>
         </GradientContainer>

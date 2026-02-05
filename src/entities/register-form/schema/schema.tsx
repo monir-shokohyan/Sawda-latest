@@ -1,6 +1,11 @@
 import * as yup from 'yup'
 
 export const schema = yup.object({
+  username: yup
+    .string()
+    .trim()
+    .min(8, 'At least 6 characters')
+    .required('Username is required'),
   email: yup
     .string()
     .trim()
@@ -18,4 +23,9 @@ export const schema = yup.object({
     .trim()
     .required('Confirm password is required')
     .oneOf([yup.ref('password')], 'Passwords do not match'),
+  phoneNumber: yup
+    .string()
+    .trim()
+    .required('Phone number is required')
+      
 })

@@ -1,6 +1,6 @@
 import { Details } from '@shared/ui/details/details'
 import { FormInput } from '@shared/ui/form'
-import { FaInfoCircle, FaPlus } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa'
 import { Control } from 'react-hook-form'
 import { FormData } from '../types'
 import { LinkText } from '../styles'
@@ -23,13 +23,8 @@ const BusinessDetails = ({
     <>
       <Details
         title="Business details"
-        icon={<FaInfoCircle style={{ marginTop: '2px', flexShrink: 0 }} />}
-        text="Buyers won't see this info unless you switch to a professional
-                account. Professional accounts make it a lot easier for buyers
-                to find you and they can tap into Info about you you can create
-                a professional account."
+        allowBox={false}
       />
-
       <FormInput<FormData>
         control={control}
         label="Company name"
@@ -59,6 +54,7 @@ const BusinessDetails = ({
       <div style={{ fontSize: '13px', marginBottom: '12px' }}>
         Verify number to let buyers WhatsApp you.
       </div>
+      
       <LinkText>Verify WhatsApp number now</LinkText>
       <Stack
         gap={3}
