@@ -86,7 +86,6 @@ const ProfileSection = ({
                 {profile?.timestamp}
               </Text>
             )}
-          
           </Flex>
           {showEmail && (
             <Text
@@ -149,20 +148,20 @@ const ProfileSection = ({
             </HoveredText>
           )}
         </Stack>
-          {isFollowing && (
-              <SButton
-                variant="subtle"
-                color="lightText"
-                size="sm"
-                p={0}
-                px={10}
-                bg="originalBlue"
-                miw={70}
-                style={{fontSize: '0.7rem'}}
-              >
-                {profile?.isFollowing ? 'Unfollow' : 'Follow'}
-              </SButton>
-            )}
+        {isFollowing && (
+          <SButton
+            variant="subtle"
+            color="lightText"
+            size="sm"
+            p={0}
+            px={10}
+            bg="originalBlue"
+            miw={70}
+            style={{ fontSize: '0.7rem' }}
+          >
+            {profile?.isFollowing ? 'Unfollow' : 'Follow'}
+          </SButton>
+        )}
       </Flex>
 
       <BaseModal

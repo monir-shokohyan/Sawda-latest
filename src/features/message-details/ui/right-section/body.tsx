@@ -14,6 +14,7 @@ const Body = ({
     <ChatContainer
       direction="column-reverse"
       bg="background.8"
+      h="85dvh"
     >
       <div
         id="messageScrollContainer"
