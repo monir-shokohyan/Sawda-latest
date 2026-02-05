@@ -9,15 +9,20 @@ import { RegisterTab } from './Tab'
 import { useState } from 'react'
 import { TabType } from '../types'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
-import { LuPhone } from "react-icons/lu";
-
+import { LuPhone } from 'react-icons/lu'
+import { useSwipeable } from 'react-swipeable'
 
 const Ui = () => {
   const { handleSubmit, onSubmit, control } = useManageRegisterForm()
   const [filter, setFilter] = useState<TabType>('phone')
   const Toggle = () => {
-    setFilter(prev=> prev === "email" ? "phone" : "email")
+    setFilter((prev) => (prev === 'email' ? 'phone' : 'email'))
   }
+  const handler = useSwipeable({
+    onSwipedLeft: () => Toggle(),
+    onSwipedRight: () => Toggle(),
+  })
+
 
   return (
     <FormWrapper
@@ -26,12 +31,11 @@ const Ui = () => {
       allowButton
       buttonFullWidth
     >
-      <Stack gap="md">
-          <RegisterTab
-            handleChange={(value) => setFilter(value as TabType)}
-            filter={filter}
-            toggle={Toggle}
-          />
+      <Stack gap="md" {...handler}>
+        <RegisterTab
+          handleChange={(value) => setFilter(value as TabType)}
+          filter={filter}
+        />
         <FormInput
           name="username"
           control={control}
@@ -40,24 +44,25 @@ const Ui = () => {
           leftSection={<FiUser size={16} />}
           mb={0}
         />
-        {
-        filter === "email" ? <FormInput
-          name="email"
-          control={control}
-          label="Email"
-          placeholder="your@email.com"
-          leftSection={<TbMail size={16} />}
-          mb={0}
-          /> :   
-          <FormNumberInput
-          name="phoneNumber"
-          control={control}
-          label="Mobile number"
-          placeholder="+93 XXX XXX-XXX"
-          leftSection={<LuPhone size={16} />}
-          mb={0}
+        {filter === 'email' ? (
+          <FormInput
+            name="email"
+            control={control}
+            label="Email"
+            placeholder="your@email.com"
+            leftSection={<TbMail size={16} />}
+            mb={0}
           />
-        }
+        ) : (
+          <FormNumberInput
+            name="phoneNumber"
+            control={control}
+            label="Mobile number"
+            placeholder="+93 XXX XXX-XXX"
+            leftSection={<LuPhone size={16} />}
+            mb={0}
+          />
+        )}
         <FormPasswordInput
           name="password"
           control={control}

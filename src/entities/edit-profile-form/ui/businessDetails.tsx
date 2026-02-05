@@ -54,7 +54,7 @@ const BusinessDetails = ({
       <div style={{ fontSize: '13px', marginBottom: '12px' }}>
         Verify number to let buyers WhatsApp you.
       </div>
-      
+
       <LinkText>Verify WhatsApp number now</LinkText>
       <Stack
         gap={3}

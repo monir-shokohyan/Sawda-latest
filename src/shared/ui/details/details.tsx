@@ -27,7 +27,7 @@ const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
       <ResText
         fontSize={TypographySize.Normal}
         c="darkText"
-        mb={allowBox ? "0px" : 'lg'}
+        mb={allowBox ? '0px' : 'lg'}
       >
         {title}
       </ResText>
