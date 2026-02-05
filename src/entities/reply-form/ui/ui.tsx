@@ -27,10 +27,10 @@ const Ui = () => {
             size="lg"
             radius="xl"
             loading={isSubmitting}
+            pos="absolute"
+            top={30}
+            right={5}
             style={{
-              position: 'absolute',
-              top: 30,
-              right: 5,
               zIndex: 10,
             }}
             aria-label="Send message"

@@ -33,9 +33,9 @@ const Ui = ({
   return (
     <Flex
       py={allowPadding ? paddingY : '0px'}
-      px={allowPadding ? paddingX : '10px'}
+      px={allowPadding ? paddingX : '0px'}
       direction="column"
-      bg={transparent ? "transparent" : "background.8"}
+      bg={transparent ? 'transparent' : 'background.8'}
       style={{
         flexGrow: '1',
       }}

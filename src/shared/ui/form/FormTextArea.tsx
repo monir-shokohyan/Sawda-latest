@@ -41,7 +41,7 @@ const FormTextarea = <T extends FieldValues>({
   isButton = false,
   handleClick,
   mb = 30,
-  rows= 8,
+  rows = 8,
 }: FormTextareaProps<T>) => {
   const value = useWatch({
     control,
