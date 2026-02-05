@@ -20,6 +20,7 @@ interface FormTextareaProps<T extends FieldValues> {
   isButton?: boolean
   handleClick?: () => void
   mb?: number
+  rows?: number
 }
 
 const CharCounter = styled.div`
@@ -40,6 +41,7 @@ const FormTextarea = <T extends FieldValues>({
   isButton = false,
   handleClick,
   mb = 30,
+  rows= 8,
 }: FormTextareaProps<T>) => {
   const value = useWatch({
     control,
@@ -74,9 +76,9 @@ const FormTextarea = <T extends FieldValues>({
               <Textarea
                 {...field}
                 placeholder={placeholder}
-                minRows={8}
+                minRows={4}
                 maxRows={16}
-                rows={8}
+                rows={rows}
                 maxLength={maxLength}
                 error={!!error}
                 aria-invalid={!!error}

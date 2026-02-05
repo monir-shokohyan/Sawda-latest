@@ -13,6 +13,7 @@ const useManageReplyForm = () => {
     formState: { errors, isSubmitting },
     reset,
     setValue,
+    control,
   } = useForm<ReplyFormType>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -22,7 +23,6 @@ const useManageReplyForm = () => {
 
   const onSubmit = (data: ReplyFormType) => {
     console.log('Sending message:', data.message)
-
     reset()
   }
 
@@ -32,9 +32,8 @@ const useManageReplyForm = () => {
     reset,
     setValue,
     isSubmitting,
-    errors,
     onSubmit,
-    theme,
+    control,
   }
 }
 

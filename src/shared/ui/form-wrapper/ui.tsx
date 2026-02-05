@@ -7,12 +7,13 @@ import { ReactNode } from 'react'
 interface Props {
   handleSubmit?: () => void
   title?: string
-  buttonTitle: string
+  buttonTitle?: string
   children: ReactNode
   allowButton?: boolean
   buttonLeftSection?: ReactNode
   allowPadding?: boolean
   buttonFullWidth?: boolean
+  transparent?: boolean
 }
 
 const Ui = ({
@@ -24,6 +25,7 @@ const Ui = ({
   buttonLeftSection,
   allowPadding = true,
   buttonFullWidth = false,
+  transparent = false,
 }: Props) => {
   const { isMobile } = Responsive()
   const paddingY = isMobile ? 20 : 40
@@ -33,7 +35,7 @@ const Ui = ({
       py={allowPadding ? paddingY : '0px'}
       px={allowPadding ? paddingX : '10px'}
       direction="column"
-      bg="background.8"
+      bg={transparent ? "transparent" : "background.8"}
       style={{
         flexGrow: '1',
       }}

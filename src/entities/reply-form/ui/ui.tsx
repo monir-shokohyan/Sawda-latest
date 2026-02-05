@@ -1,24 +1,21 @@
-import { Flex, Stack, Textarea } from '@mantine/core'
+import { Flex, Stack } from '@mantine/core'
 import { SActionIcon, SButton } from '@shared/styles'
 import { FiSend } from 'react-icons/fi'
-
 import { quickReplies } from '../constant'
 import { useManageReplyForm } from '../model'
+import { FormWrapper } from '@shared/ui/form-wrapper'
+import { FormTextarea } from '@shared/ui/form/FormTextArea'
 
 const Ui = () => {
-  const {
-    handleSubmit,
-    onSubmit,
-    isSubmitting,
-    errors,
-    setValue,
-    register,
-    theme,
-  } = useManageReplyForm()
+  const { handleSubmit, onSubmit, isSubmitting, setValue, control } =
+    useManageReplyForm()
 
   return (
     <Stack gap={20}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <FormWrapper
+        allowPadding={false}
+        transparent
+      >
         <Stack
           gap={6}
           pos="relative"
@@ -32,35 +29,26 @@ const Ui = () => {
             loading={isSubmitting}
             style={{
               position: 'absolute',
-              top: '23%',
-              right: 8,
+              top: 30,
+              right: 5,
               zIndex: 10,
             }}
             aria-label="Send message"
+            onClick={handleSubmit(onSubmit)}
           >
             <FiSend size={18} />
           </SActionIcon>
 
-          <Textarea
+          <FormTextarea
             placeholder="Greetings..."
             label="Ask the seller"
-            autosize
-            minRows={5}
-            error={errors.message?.message}
-            styles={{
-              input: {
-                background: theme.colors.backgroundInput?.[8] || '#f8f9fa',
-                paddingLeft: '52px !important',
-                paddingTop: '38px !important',
-              },
-              label: {
-                marginBottom: 6,
-              },
-            }}
-            {...register('message')}
+            name="message"
+            control={control}
+            mb={0}
+            rows={5}
           />
         </Stack>
-      </form>
+      </FormWrapper>
 
       {/* Quick replies */}
       <Flex
