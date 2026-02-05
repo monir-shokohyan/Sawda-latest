@@ -37,6 +37,7 @@ const NotificationCard = ({
             showTime={false}
             usernameSizeMobile="1rem"
             usernameSize="md"
+            isStaticColor={false}
           />
         </Group>
       </Indicator>

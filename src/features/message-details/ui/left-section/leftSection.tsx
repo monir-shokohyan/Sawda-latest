@@ -51,7 +51,12 @@ const LeftSection = ({
         radius="sm"
         p={0}
         bg="background.7"
-        style={{ height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'hidden' }}
+        style={{
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          overflowY: 'hidden',
+        }}
       >
         <StickyPaper type="header">
           <Group

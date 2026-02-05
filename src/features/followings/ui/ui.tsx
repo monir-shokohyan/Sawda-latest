@@ -32,7 +32,12 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
         radius="sm"
         p={0}
         bg="background.7"
-        style={{ height: '100%', display: 'flex', flexDirection: 'column', overflowY: 'hidden' }}
+        style={{
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          overflowY: 'hidden',
+        }}
       >
         <Paper
           bg="background.7"
