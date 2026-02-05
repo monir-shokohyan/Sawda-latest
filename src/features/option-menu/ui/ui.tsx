@@ -16,6 +16,7 @@ function Ui({ type, id }: OptionMenuProps) {
         options={optionConstant}
         width={180}
         position="bottom"
+        clickTrigger={true}
       />
       <HModal
         opened={opened}

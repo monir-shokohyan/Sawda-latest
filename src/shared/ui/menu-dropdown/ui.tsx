@@ -6,7 +6,6 @@ import { MenuWrapper } from '../Menu/MenuWrapper'
 import { ReactNode } from 'react'
 import { FaEllipsisV } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { TriggerButton } from '../buttons/triggerButton'
 import { Paths } from '@shared/api/paths/paths'
 
 export interface MenuOption {
@@ -39,6 +38,7 @@ interface Props extends ButtonProps {
   leftSection?: ReactNode
   triggerButton?: ReactNode
   props?: ButtonProps
+  clickTrigger?: boolean
 }
 
 const Ui = ({
@@ -51,6 +51,7 @@ const Ui = ({
   color = 'textPrimary',
   leftSection,
   triggerButton = <FaEllipsisV size={16} />,
+  clickTrigger  = false,
   ...props
 }: Props) => {
   const [opened, { toggle }] = useDisclosure(false)
@@ -62,6 +63,7 @@ const Ui = ({
         toggle={toggle}
         position={position}
         width={width}
+        clickTrigger={clickTrigger}
       >
         <Menu.Target>
           <SButton

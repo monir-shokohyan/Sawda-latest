@@ -7,6 +7,7 @@ interface Props {
   toggle: () => void
   position: MenuProps['position']
   width?: number | string
+  clickTrigger?: boolean
 }
 
 const MenuWrapper = ({
@@ -14,6 +15,7 @@ const MenuWrapper = ({
   toggle,
   position = 'top-end',
   width,
+  clickTrigger  = false,
 }: Props) => {
   const { isMobile } = Responsive()
   return (
@@ -23,7 +25,7 @@ const MenuWrapper = ({
       withArrow
       transitionProps={{ transition: 'fade-down', duration: 250 }}
       position={position}
-      trigger={isMobile ? 'click' : 'hover'}
+      trigger={isMobile || clickTrigger ? 'click' : 'hover'}
       onOpen={toggle}
       onClose={toggle}
     >
