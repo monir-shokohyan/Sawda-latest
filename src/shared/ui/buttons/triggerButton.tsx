@@ -5,10 +5,7 @@ interface PropsType extends ButtonProps {
   content: ReactNode
 }
 
-const TriggerButton = ({
-  content = 'All Categories',
-  ...props
-}:PropsType) => {
+const TriggerButton = ({ content = 'All Categories', ...props }: PropsType) => {
   return (
     <Button
       variant="transparent"

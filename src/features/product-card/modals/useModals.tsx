@@ -32,7 +32,7 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
 
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation()
-    if(!isAuth){
+    if (!isAuth) {
       navigate(Paths.Register)
       return
     }
@@ -49,7 +49,7 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
   const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation()
 
-    if(!isAuth){
+    if (!isAuth) {
       navigate(Paths.Register)
       return
     }

@@ -25,7 +25,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   navbar: NavbarReducer,
   settingDropDown: SettingDropDownReducer,
-  Auth: AuthReducer
+  Auth: AuthReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

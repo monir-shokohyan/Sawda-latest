@@ -22,14 +22,17 @@ export const Providers = ({ children }: PropsWithChildren) => {
           })}
           theme={theme}
         >
-          <PersistGate loading={<Loader />} persistor={persistor}>
-          <ModalsProvider>
-            <Notifications />
-            <AdminRefineProvider>
-              <LenisProvider>{children}</LenisProvider>
-            </AdminRefineProvider>
-          </ModalsProvider>
-        </PersistGate>
+          <PersistGate
+            loading={<Loader />}
+            persistor={persistor}
+          >
+            <ModalsProvider>
+              <Notifications />
+              <AdminRefineProvider>
+                <LenisProvider>{children}</LenisProvider>
+              </AdminRefineProvider>
+            </ModalsProvider>
+          </PersistGate>
         </MantineProvider>
       </Provider>
     </BrowserRouter>

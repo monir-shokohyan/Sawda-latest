@@ -112,18 +112,18 @@ const Navbar = () => {
             <Group>
               <SButton
                 variant="subtle"
-                color="lightText"
                 $isSubtle
                 size="sm"
                 p={0}
                 px={10}
+                color="darkText"
                 onClick={() => navigate(Paths.Register)}
               >
                 Register
               </SButton>
               <SButton
                 variant="subtle"
-                color="lightText"
+                color="darkText"
                 $isSubtle
                 size="sm"
                 p={0}

@@ -24,11 +24,7 @@ const Slice = createSlice({
   },
 })
 
-export const {
-  activeAuth,
-  deactiveAuth,
-  toggleAuth,
-} = Slice.actions
+export const { activeAuth, deactiveAuth, toggleAuth } = Slice.actions
 
 export const reducer = Slice.reducer
 export const selector = (state: RootState) => state.Auth.isAuth

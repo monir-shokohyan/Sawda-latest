@@ -23,5 +23,5 @@ export enum Paths {
   MessageList = '/model/message-list',
   NotificationStatus = '/secure-model/notification',
   FollowingStatus = '/secure-model/following',
-  Forget = '/forget-password'
+  Forget = '/forget-password',
 }

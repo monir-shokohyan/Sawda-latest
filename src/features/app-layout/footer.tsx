@@ -134,9 +134,8 @@ const Footer = () => {
             src={'/Rite-eats.png'}
             h={isMobile ? '24px' : '25px'}
           />
-
         </Flex>
-           <LanguageDropDown />
+        <LanguageDropDown />
 
         {/* Links */}
         <Flex

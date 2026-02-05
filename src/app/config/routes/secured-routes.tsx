@@ -22,16 +22,16 @@ export const protectRoutes: RouteType[] = [
       </ErrorSuspense>
     ),
   },
-    {
-      key: 'profile-detail',
-      guarded: '',
-      path: '/profile/:id',
-      element: (
-        <ErrorSuspense suspenseKey="profile-detail">
-          <ProfileDetailPage />
-        </ErrorSuspense>
-      ),
-    },
+  {
+    key: 'profile-detail',
+    guarded: '',
+    path: '/profile/:id',
+    element: (
+      <ErrorSuspense suspenseKey="profile-detail">
+        <ProfileDetailPage />
+      </ErrorSuspense>
+    ),
+  },
   {
     key: 'edit-profile',
     guarded: '',
