@@ -11,8 +11,8 @@ import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { LuPhone } from 'react-icons/lu'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, control, handler, filter, setFilter } = useManageRegisterForm()
-  
+  const { handleSubmit, onSubmit, control, handler, filter, setFilter } =
+    useManageRegisterForm()
 
   return (
     <FormWrapper
@@ -55,10 +55,9 @@ const Ui = () => {
             leftSection={<LuPhone size={16} />}
             mb={0}
             type="tel"
-            prefix='+93'
+            prefix="+93"
             maxLength={12}
             thousandSeparator={false}
-            
           />
         )}
         <FormPasswordInput

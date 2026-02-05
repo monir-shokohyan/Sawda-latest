@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Following, FollowingFilter, FollowingSectionProps } from '../types'
 import { Responsive } from '@shared/hooks/responsive'
 import { generateFollowing } from '../constant'
-import { useSwipe } from '@shared/hooks/useSwipe'
+import { useSwipeable } from 'react-swipeable'
 
 const useManageFollowingSection = ({
   onFollowingSelect,
@@ -14,8 +14,8 @@ const useManageFollowingSection = ({
   const [totalFetched, setTotalFetched] = useState(15)
   const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<FollowingFilter>('Following')
-  const [animationDirection, setAnimationDirection] = useState<
-    'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState
+    <'left' | 'right' | null
   >(null)
   const FollowingContainerRef = useRef<HTMLDivElement>(null)
 
@@ -37,24 +37,13 @@ const useManageFollowingSection = ({
     }
   }
 
-  const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe({
-    onSwipeLeft: handleSwipeLeft,
-    onSwipeRight: handleSwipeRight,
-    minSwipeDistance: 50,
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: handleSwipeRight,
+    trackMouse: false,
+    preventScrollOnSwipe: false,
+    delta: 50,
   })
-
-  useEffect(() => {
-    const scrollContainer = FollowingContainerRef.current
-    if (!scrollContainer) return
-    scrollContainer.addEventListener('touchstart', onTouchStart)
-    scrollContainer.addEventListener('touchmove', onTouchMove)
-    scrollContainer.addEventListener('touchend', onTouchEnd)
-    return () => {
-      scrollContainer.removeEventListener('touchstart', onTouchStart)
-      scrollContainer.removeEventListener('touchmove', onTouchMove)
-      scrollContainer.removeEventListener('touchend', onTouchEnd)
-    }
-  }, [onTouchStart, onTouchMove, onTouchEnd])
 
   useEffect(() => {
     if (animationDirection) {
@@ -123,6 +112,7 @@ const useManageFollowingSection = ({
     Followings,
     FollowingContainerRef,
     animationDirection,
+    swipeHandlers,
   }
 }
 

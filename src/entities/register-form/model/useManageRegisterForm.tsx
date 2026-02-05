@@ -7,7 +7,6 @@ import { defaultValues } from '../constant'
 import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 
-
 const useManageRegisterForm = () => {
   const { isMobile } = Responsive()
   const { control, handleSubmit } = useForm<RegisterType>({
@@ -21,6 +20,7 @@ const useManageRegisterForm = () => {
   const handler = useSwipeable({
     onSwipedLeft: () => Toggle(),
     onSwipedRight: () => Toggle(),
+    delta: 50,
   })
 
   const onSubmit = (data: any) => {

@@ -18,6 +18,7 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
     filter,
     setFilter,
     Followings,
+    swipeHandlers,
   } = useManageFollowingSection({ onFollowingSelect })
 
   return (
@@ -31,6 +32,7 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
         p={0}
         bg="background.7"
         style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        {...swipeHandlers}
       >
         <Paper
           bg="background.7"

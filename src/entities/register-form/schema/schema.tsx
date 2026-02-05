@@ -27,5 +27,8 @@ export const schema = yup.object({
     .string()
     .trim()
     .required('Please enter a valid Afghan phone number (e.g., +93 XXX XXXXXX)')
-    .matches(/^(\+93)?[7][0-9]{8}$/, 'Please enter a valid Afghan phone number (e.g., +93 XXX XXXXXX)'),
+    .matches(
+      /^(\+93)?[7][0-9]{8}$/,
+      'Please enter a valid Afghan phone number (e.g., +93 XXX XXXXXX)',
+    ),
 })
