@@ -103,6 +103,8 @@ const LeftSection = ({
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
             scrollBehavior: 'smooth',
+            minHeight: '80dvh',
+            height: '100%'
           }}
         >
           <InfiniteScrollWrapper

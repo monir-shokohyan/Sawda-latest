@@ -56,7 +56,8 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
             scrollBehavior: 'smooth',
-            maxHeight: '88dvh',
+            minHeight: '80dvh',
+            height: '100%'
           }}
         >
           <InfiniteScrollWrapper

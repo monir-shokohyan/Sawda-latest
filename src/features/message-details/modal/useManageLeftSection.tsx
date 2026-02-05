@@ -19,8 +19,8 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
   const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<MessageFilter>('all')
   const [selectionMode, setSelectionMode] = useState(false)
-  const [animationDirection, setAnimationDirection] = useState
-    <'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState<
+    'left' | 'right' | null
   >(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const fetchMoreDataRef = useRef<(() => void) | null>(null)

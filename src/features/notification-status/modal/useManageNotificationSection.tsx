@@ -18,8 +18,8 @@ const useManageNotificationSection = ({
   const [totalFetched, setTotalFetched] = useState(15)
   const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<NotificationFilter>('All')
-  const [animationDirection, setAnimationDirection] = useState
-    <'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState<
+    'left' | 'right' | null
   >(null)
   const notificationContainerRef = useRef<HTMLDivElement>(null)
 
