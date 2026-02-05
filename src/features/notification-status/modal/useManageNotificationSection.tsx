@@ -6,7 +6,7 @@ import {
 } from '../types'
 import { Responsive } from '@shared/hooks/responsive'
 import { generateNotification } from '../constant'
-import { useSwipe } from '@shared/hooks/useSwipe'
+import { useSwipeable } from 'react-swipeable'
 
 const useManageNotificationSection = ({
   onNotificationSelect,
@@ -16,10 +16,10 @@ const useManageNotificationSection = ({
     generateNotification(0, 15),
   )
   const [totalFetched, setTotalFetched] = useState(15)
-  const [reachedEnd, setReachedEnd] = useState(false) // master flag: no more data exists at all
+  const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<NotificationFilter>('All')
-  const [animationDirection, setAnimationDirection] = useState<
-    'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState
+    <'left' | 'right' | null
   >(null)
   const notificationContainerRef = useRef<HTMLDivElement>(null)
 
@@ -41,24 +41,13 @@ const useManageNotificationSection = ({
     }
   }
 
-  const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe({
-    onSwipeLeft: handleSwipeLeft,
-    onSwipeRight: handleSwipeRight,
-    minSwipeDistance: 50,
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: handleSwipeRight,
+    trackMouse: false,
+    preventScrollOnSwipe: false,
+    delta: 50,
   })
-
-  useEffect(() => {
-    const scrollContainer = notificationContainerRef.current
-    if (!scrollContainer) return
-    scrollContainer.addEventListener('touchstart', onTouchStart)
-    scrollContainer.addEventListener('touchmove', onTouchMove)
-    scrollContainer.addEventListener('touchend', onTouchEnd)
-    return () => {
-      scrollContainer.removeEventListener('touchstart', onTouchStart)
-      scrollContainer.removeEventListener('touchmove', onTouchMove)
-      scrollContainer.removeEventListener('touchend', onTouchEnd)
-    }
-  }, [onTouchStart, onTouchMove, onTouchEnd])
 
   useEffect(() => {
     if (animationDirection) {
@@ -127,6 +116,7 @@ const useManageNotificationSection = ({
     notifications,
     notificationContainerRef,
     animationDirection,
+    swipeHandlers,
   }
 }
 

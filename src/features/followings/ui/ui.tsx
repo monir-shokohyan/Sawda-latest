@@ -26,13 +26,13 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
       w="100%"
       gap={0}
       p={0}
+      {...swipeHandlers}
     >
       <Card
         radius="sm"
         p={0}
         bg="background.7"
         style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-        {...swipeHandlers}
       >
         <Paper
           bg="background.7"

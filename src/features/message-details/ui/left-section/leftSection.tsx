@@ -21,7 +21,6 @@ const LeftSection = ({
     handleMarkAsRead,
     handleMarkAsUnread,
     handleMessageClick,
-    handleSelectAll,
     handleToggleSelect,
     hasMore,
     fetchMoreData,
@@ -34,6 +33,7 @@ const LeftSection = ({
     setFilter,
     messages,
     bulkEmailActions,
+    swipeHandlers,
   } = useManageLeftSection({ onMessageSelect })
   return (
     <Stack
@@ -43,6 +43,7 @@ const LeftSection = ({
         top: isMobile ? 0 : 30,
         height: isMobile ? '90vh' : 'calc(100vh - 60px)',
       }}
+      {...swipeHandlers}
       gap={0}
     >
       <Card

@@ -21,6 +21,7 @@ const Ui = ({
     filter,
     setFilter,
     notifications,
+    swipeHandlers,
   } = useManageNotificationSection({ onNotificationSelect })
 
   return (
@@ -28,6 +29,7 @@ const Ui = ({
       w="100%"
       gap={0}
       p={0}
+      {...swipeHandlers}
     >
       <Card
         radius="sm"

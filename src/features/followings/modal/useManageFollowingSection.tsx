@@ -14,8 +14,8 @@ const useManageFollowingSection = ({
   const [totalFetched, setTotalFetched] = useState(15)
   const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<FollowingFilter>('Following')
-  const [animationDirection, setAnimationDirection] = useState
-    <'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState<
+    'left' | 'right' | null
   >(null)
   const FollowingContainerRef = useRef<HTMLDivElement>(null)
 

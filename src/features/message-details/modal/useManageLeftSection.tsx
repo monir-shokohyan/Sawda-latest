@@ -2,7 +2,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import { useEffect, useRef, useState } from 'react'
 import { LeftSectionProps, Message, MessageFilter } from '../types'
 import { generateMessages } from '../constant'
-import { useSwipe } from '@shared/hooks/useSwipe'
+import { useSwipeable } from 'react-swipeable'
 import { MenuOption } from '@shared/ui/menu-dropdown/ui'
 import {
   MdDelete,
@@ -19,8 +19,8 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
   const [reachedEnd, setReachedEnd] = useState(false)
   const [filter, setFilter] = useState<MessageFilter>('all')
   const [selectionMode, setSelectionMode] = useState(false)
-  const [animationDirection, setAnimationDirection] = useState<
-    'left' | 'right' | null
+  const [animationDirection, setAnimationDirection] = useState
+    <'left' | 'right' | null
   >(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const fetchMoreDataRef = useRef<(() => void) | null>(null)
@@ -45,26 +45,13 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
     }
   }
 
-  const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe({
-    onSwipeLeft: handleSwipeLeft,
-    onSwipeRight: handleSwipeRight,
-    minSwipeDistance: 50,
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleSwipeLeft,
+    onSwipedRight: handleSwipeRight,
+    trackMouse: false,
+    preventScrollOnSwipe: false,
+    delta: 50,
   })
-
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current
-    if (!scrollContainer) return
-
-    scrollContainer.addEventListener('touchstart', onTouchStart)
-    scrollContainer.addEventListener('touchmove', onTouchMove)
-    scrollContainer.addEventListener('touchend', onTouchEnd)
-
-    return () => {
-      scrollContainer.removeEventListener('touchstart', onTouchStart)
-      scrollContainer.removeEventListener('touchmove', onTouchMove)
-      scrollContainer.removeEventListener('touchend', onTouchEnd)
-    }
-  }, [onTouchStart, onTouchMove, onTouchEnd])
 
   useEffect(() => {
     if (animationDirection) {
@@ -230,6 +217,7 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
     scrollContainerRef,
     animationDirection,
     bulkEmailActions,
+    swipeHandlers,
   }
 }
 
