@@ -20,7 +20,7 @@ const ProfileSection = ({
   allowPadding = true,
   usernameSizeMobile = '0.7rem',
   usernameSize = 'lg',
-  timeSize = '0.7rem',
+  timeSize = '0.8rem',
   showEmail = false,
   direction = 'row',
   hoverUsername = true,
@@ -30,7 +30,7 @@ const ProfileSection = ({
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
-  const padding = isMobile ? '7px' : 'xs'
+  const padding = isMobile ? '0px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
 
   return (
@@ -86,18 +86,7 @@ const ProfileSection = ({
                 {profile?.timestamp}
               </Text>
             )}
-            {isFollowing && (
-              <SButton
-                variant="subtle"
-                color="lightText"
-                size="sm"
-                p={0}
-                px={10}
-                bg="originalBlue"
-              >
-                {profile?.isFollowing ? 'Unfollow' : 'Follow back'}
-              </SButton>
-            )}
+          
           </Flex>
           {showEmail && (
             <Text
@@ -129,9 +118,9 @@ const ProfileSection = ({
           {isMessage && (
             <Text
               size={isMobile ? timeSize : 'xs'}
-              lineClamp={2}
+              lineClamp={4}
               c={profile?.isRead ? 'dimmed' : 'darkText'}
-              fw={profile?.isRead ? 400 : 500}
+              fw={profile?.isRead ? 400 : 400}
             >
               {profile?.message}
             </Text>
@@ -160,6 +149,20 @@ const ProfileSection = ({
             </HoveredText>
           )}
         </Stack>
+          {isFollowing && (
+              <SButton
+                variant="subtle"
+                color="lightText"
+                size="sm"
+                p={0}
+                px={10}
+                bg="originalBlue"
+                miw={70}
+                style={{fontSize: '0.7rem'}}
+              >
+                {profile?.isFollowing ? 'Unfollow' : 'Follow'}
+              </SButton>
+            )}
       </Flex>
 
       <BaseModal
