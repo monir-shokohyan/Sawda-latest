@@ -12,7 +12,8 @@ import { LoginTab } from './Tab'
 import { TabType } from '../types'
 
 const Ui = () => {
-  const { handler, handleSubmit, onSubmit, control, filter, setFilter } = useManageLoginForm()
+  const { handler, handleSubmit, onSubmit, control, filter, setFilter } =
+    useManageLoginForm()
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
@@ -20,12 +21,15 @@ const Ui = () => {
       allowButton
       buttonFullWidth
     >
-         <LoginTab
-          handleChange={(value) => setFilter(value as TabType)}
-          filter={filter}
-        />
-      <Stack gap="md" {...handler}>
-          {filter === 'email' ? (
+      <LoginTab
+        handleChange={(value) => setFilter(value as TabType)}
+        filter={filter}
+      />
+      <Stack
+        gap="md"
+        {...handler}
+      >
+        {filter === 'email' ? (
           <FormInput
             name="email"
             control={control}

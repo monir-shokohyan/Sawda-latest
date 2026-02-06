@@ -14,16 +14,15 @@ const useManageLoginForm = () => {
     resolver: yupResolver(schema) as any,
     defaultValues,
   })
-    const [filter, setFilter] = useState<TabType>('phone')
-    const Toggle = () => {
-      setFilter((prev) => (prev === 'email' ? 'phone' : 'email'))
-    }
-    const handler = useSwipeable({
-      onSwipedLeft: () => Toggle(),
-      onSwipedRight: () => Toggle(),
-      delta: 50,
-    })
-  
+  const [filter, setFilter] = useState<TabType>('phone')
+  const Toggle = () => {
+    setFilter((prev) => (prev === 'email' ? 'phone' : 'email'))
+  }
+  const handler = useSwipeable({
+    onSwipedLeft: () => Toggle(),
+    onSwipedRight: () => Toggle(),
+    delta: 50,
+  })
 
   const onSubmit = (data: any) => {
     console.log(data)

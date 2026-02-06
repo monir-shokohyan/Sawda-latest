@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export const schema = yup.object().shape(
   {
@@ -22,7 +22,7 @@ export const schema = yup.object().shape(
             .required('Email or phone number is required')
             .matches(
               /^(?:\+93|0)?7[0-9]{8}$/,
-              'Please enter a valid Afghan mobile number (e.g. 07X XXX XXXX or +937XXXXXXXX)'
+              'Please enter a valid Afghan mobile number (e.g. 07X XXX XXXX or +937XXXXXXXX)',
             ),
         otherwise: (s) => s.nullable().notRequired(),
       }),
@@ -35,5 +35,5 @@ export const schema = yup.object().shape(
 
     remember: yup.boolean().defined(),
   },
-  [['email', 'phoneNumber']]
-);
+  [['email', 'phoneNumber']],
+)
