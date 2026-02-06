@@ -27,11 +27,12 @@ const ProfileSection = ({
   isStaticColor = false,
   isMessage = false,
   isFollowing = false,
-  isCard= false,
+  isCard = false,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
-  const padding = isMobile && isCard ? '10px' : isMobile && !isCard ? '0px' : 'xs'
+  const padding =
+    isMobile && isCard ? '10px' : isMobile && !isCard ? '0px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
 
   return (

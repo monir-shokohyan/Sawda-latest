@@ -57,7 +57,10 @@ const ProductCard: React.FC<UseModalProps> = ({
         onDoubleClick={handleDoubleClick}
         bg="background.7"
       >
-        <ProfileSection profile={profile} isCard/>
+        <ProfileSection
+          profile={profile}
+          isCard
+        />
 
         <ImageContainer
           src={`https://picsum.photos/${width}/${height}?random=${cacheBuster}`}

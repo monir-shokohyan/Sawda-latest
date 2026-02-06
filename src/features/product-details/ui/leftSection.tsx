@@ -27,20 +27,6 @@ const LeftSection = () => {
         </ResText>
       )}
 
-      <Flex gap={10}>
-        <SButton
-          radius={3}
-          leftSection={<MdOutlineFavorite />}
-        >
-          <Text size="sm">Add to favorites</Text>
-        </SButton>
-        <SButton
-          radius={3}
-          leftSection={<MdEditDocument />}
-        >
-          <Text size="sm">Add a note</Text>
-        </SButton>
-      </Flex>
       <ImageCarousel />
       <ProductDetails
         DetailsList={DetailsList}
