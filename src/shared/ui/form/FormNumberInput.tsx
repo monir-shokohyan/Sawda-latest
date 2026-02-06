@@ -55,9 +55,7 @@ const FormNumberInput = <T extends FieldValues>({
         w="100%"
       >
         <label>
-           <Paragraph>
-                  {label}
-                </Paragraph>
+          <Paragraph>{label}</Paragraph>
         </label>
 
         <Controller

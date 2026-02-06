@@ -39,9 +39,7 @@ const FormRating = <T extends FieldValues>({
     >
       {label && (
         <label>
-          <Paragraph>
-            {label}
-          </Paragraph>
+          <Paragraph>{label}</Paragraph>
         </label>
       )}
 

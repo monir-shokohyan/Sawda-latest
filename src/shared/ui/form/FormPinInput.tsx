@@ -77,9 +77,7 @@ const FormPinInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-           <Paragraph>
-                  {label}
-                </Paragraph>
+          <Paragraph>{label}</Paragraph>
         </label>
 
         <Controller
@@ -112,9 +110,7 @@ const FormPinInput = <T extends FieldValues>({
           )}
         />
       </Stack>
-       <Paragraph c="dimmed">
-        Didn't recieve code ?
-                </Paragraph>
+      <Paragraph c="dimmed">Didn't recieve code ?</Paragraph>
 
       {isButton && (
         <SButton

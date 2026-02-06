@@ -20,9 +20,7 @@ const Listing = () => {
         align="center"
         py={30}
       >
-        <PrimaryHeading>
-          Listing
-        </PrimaryHeading>
+        <PrimaryHeading>Listing</PrimaryHeading>
         <Group
           justify="space-between"
           align="center"

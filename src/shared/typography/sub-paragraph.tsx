@@ -8,9 +8,8 @@ const SubParagraph = ({ children, ...props }: Props) => {
       fontSize={TypographySize.Small}
       c="darkText"
       {...props}
-      
     >
-      { children }
+      {children}
     </ResText>
   )
 }

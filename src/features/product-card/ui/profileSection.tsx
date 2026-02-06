@@ -82,18 +82,14 @@ const ProfileSection = ({
               {profile?.username}
             </HoveredText>
             {isMessage && (
-               <Paragraph c="dimmed">
-                 {profile?.timestamp}
-               </Paragraph>
+              <Paragraph c="dimmed">{profile?.timestamp}</Paragraph>
             )}
           </Flex>
 
           {showEmail && (
-               <Paragraph
-                c={isStaticColor ? 'white' : 'dimmed'}
-                >
-                 {profile?.email}
-               </Paragraph>
+            <Paragraph c={isStaticColor ? 'white' : 'dimmed'}>
+              {profile?.email}
+            </Paragraph>
           )}
           {showActiveNow && (
             <Text

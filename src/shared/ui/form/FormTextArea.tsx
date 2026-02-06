@@ -59,9 +59,7 @@ const FormTextarea = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph>
-            {label}
-          </Paragraph>
+          <Paragraph>{label}</Paragraph>
         </label>
 
         <Controller

@@ -11,12 +11,7 @@ import {
 } from '@mantine/core'
 import { SubHeading } from '@shared/typography/sub-heading'
 import { GoOrganization } from 'react-icons/go'
-import {
-  MdCalendarToday,
-  MdEmail,
-  MdLink,
-  MdLocationOn,
-} from 'react-icons/md'
+import { MdCalendarToday, MdEmail, MdLink, MdLocationOn } from 'react-icons/md'
 
 const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
   const theme = useMantineTheme()
@@ -215,9 +210,7 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
           radius={20}
           size="md"
         >
-          <SubHeading c="primary">
-            Send message
-          </SubHeading>
+          <SubHeading c="primary">Send message</SubHeading>
         </Button>
       </Group>
     </Stack>

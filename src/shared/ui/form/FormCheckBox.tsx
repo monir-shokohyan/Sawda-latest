@@ -37,11 +37,7 @@ export function FormCheckbox<T extends FieldValues>({
             <Checkbox
               checked={!!value}
               onChange={(e) => onChange(e.currentTarget.checked)}
-              label={
-                <Paragraph>
-                  {label}
-                </Paragraph>
-              }
+              label={<Paragraph>{label}</Paragraph>}
               description={description}
               error={!!error}
               disabled={disabled}

@@ -15,9 +15,7 @@ const Reviews = () => {
         align="center"
         py={30}
       >
-        <PrimaryHeading>
-          Reviews
-        </PrimaryHeading>
+        <PrimaryHeading>Reviews</PrimaryHeading>
 
         <Select
           data={NewestToOldestObj}

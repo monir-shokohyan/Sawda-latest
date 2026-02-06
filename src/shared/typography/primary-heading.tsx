@@ -9,7 +9,7 @@ const PrimaryHeading = ({ children, ...props }: Props) => {
       c="darkText"
       {...props}
     >
-      { children }
+      {children}
     </ResText>
   )
 }

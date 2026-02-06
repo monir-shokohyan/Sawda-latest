@@ -32,13 +32,9 @@ const ProductDetails = ({
                   w="45%"
                   gap={4}
                 >
-                  <SubHeading fw={500}>
-                    {detail.title}
-                  </SubHeading>
+                  <SubHeading fw={500}>{detail.title}</SubHeading>
 
-                   <Paragraph>
-                    {detail.description} %
-                  </Paragraph>
+                  <Paragraph>{detail.description} %</Paragraph>
                 </Stack>
               )
             }
@@ -48,9 +44,7 @@ const ProductDetails = ({
                   w="45%"
                   gap={4}
                 >
-                   <SubHeading fw={500}>
-                    {detail.title}
-                  </SubHeading>
+                  <SubHeading fw={500}>{detail.title}</SubHeading>
                   <Group gap={7}>
                     {Array.isArray(detail.description) &&
                       detail.description.map((colorObj) => {
@@ -71,12 +65,8 @@ const ProductDetails = ({
                 w="45%"
                 gap={4}
               >
-                  <SubHeading fw={500}>
-                  {detail.title}
-                  </SubHeading>
-                  <Paragraph>
-                    {detail.description}
-                  </Paragraph>
+                <SubHeading fw={500}>{detail.title}</SubHeading>
+                <Paragraph>{detail.description}</Paragraph>
               </Stack>
             )
           })}
@@ -84,12 +74,12 @@ const ProductDetails = ({
 
         <Divider />
 
-         <Paragraph>
-            True wireless freedom with premium sound. Deep bass, crystal-clear
-            highs, and active noise cancellation that actually works. 32-hour
-            total battery life (8 hours per charge + case), IPX5 sweat-proof,
-            touch controls, and instant pairing.
-          </Paragraph>
+        <Paragraph>
+          True wireless freedom with premium sound. Deep bass, crystal-clear
+          highs, and active noise cancellation that actually works. 32-hour
+          total battery life (8 hours per charge + case), IPX5 sweat-proof,
+          touch controls, and instant pairing.
+        </Paragraph>
 
         <List
           p={0}
@@ -106,9 +96,7 @@ const ProductDetails = ({
           {DetailsList.map((listInfo) => {
             return (
               <List.Item>
-                <Paragraph>
-                  {listInfo.title}
-                </Paragraph>
+                <Paragraph>{listInfo.title}</Paragraph>
               </List.Item>
             )
           })}

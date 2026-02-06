@@ -6,9 +6,13 @@ import { TbLock, TbMail } from 'react-icons/tb'
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 import { FormCheckbox } from '@shared/ui/form/FormCheckBox'
 import { Paths } from '@shared/api/paths/paths'
+import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
+import { LuPhone } from 'react-icons/lu'
+import { LoginTab } from './Tab'
+import { TabType } from '../types'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, control } = useManageLoginForm()
+  const { handler, handleSubmit, onSubmit, control, filter, setFilter } = useManageLoginForm()
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
@@ -16,15 +20,34 @@ const Ui = () => {
       allowButton
       buttonFullWidth
     >
-      <Stack gap="md">
-        <FormInput
-          name="email"
-          label="Email"
-          placeholder="your@email.com"
-          control={control}
-          leftSection={<TbMail size={16} />}
-          mb={0}
+         <LoginTab
+          handleChange={(value) => setFilter(value as TabType)}
+          filter={filter}
         />
+      <Stack gap="md" {...handler}>
+          {filter === 'email' ? (
+          <FormInput
+            name="email"
+            control={control}
+            label="Email"
+            placeholder="your@email.com"
+            leftSection={<TbMail size={16} />}
+            mb={0}
+          />
+        ) : (
+          <FormNumberInput
+            name="phoneNumber"
+            control={control}
+            label="Mobile number"
+            placeholder="+93 7XX XXX-XXX"
+            leftSection={<LuPhone size={16} />}
+            mb={0}
+            type="tel"
+            prefix="+93"
+            maxLength={12}
+            thousandSeparator={false}
+          />
+        )}
 
         <FormPasswordInput
           name="password"

@@ -22,11 +22,7 @@ interface DetailsProps {
 const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
   return (
     <>
-      <SubHeading
-        mb={allowBox ? '0px' : 'lg'}
-      >
-        {title}
-      </SubHeading>
+      <SubHeading mb={allowBox ? '0px' : 'lg'}>{title}</SubHeading>
       {allowBox && (
         <InfoBox>
           {icon}

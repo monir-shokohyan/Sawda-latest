@@ -8,9 +8,8 @@ const Paragraph = ({ children, ...props }: Props) => {
       fontSize={TypographySize.SemiSmall}
       c="darkText"
       {...props}
-      
     >
-      { children }
+      {children}
     </ResText>
   )
 }

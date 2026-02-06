@@ -42,9 +42,7 @@ const Ui = () => {
           gap={3}
           mb={10}
         >
-          <SubHeading>
-            profile photo
-          </SubHeading>
+          <SubHeading>profile photo</SubHeading>
           <ProfilePhotoSection>
             <ProfilePhoto>
               {photoPreview ? (
@@ -58,7 +56,7 @@ const Ui = () => {
             </ProfilePhoto>
 
             <PhotoInfo>
-               <Paragraph>
+              <Paragraph>
                 Your favorite face picture as an important way for buyers and
                 sellers to learn about each part other.
               </Paragraph>

@@ -28,9 +28,7 @@ export function SimilarAdsSection() {
       pb={10}
     >
       <TitleWrapper onClick={toggleOpen}>
-        <PrimaryHeading>
-          Similar advertisements
-        </PrimaryHeading>
+        <PrimaryHeading>Similar advertisements</PrimaryHeading>
         <IconWrapper
           $isOpen={isOpen}
           variant="transparent"

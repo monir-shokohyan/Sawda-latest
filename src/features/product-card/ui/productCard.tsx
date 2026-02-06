@@ -11,7 +11,7 @@ import {
 import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
-import {  SActionIcon } from '@shared/styles'
+import { SActionIcon } from '@shared/styles'
 import { OptionMenu } from '@features/option-menu'
 import { useMemo } from 'react'
 import { SubHeading } from '@shared/typography/sub-heading'
@@ -75,8 +75,8 @@ const ProductCard: React.FC<UseModalProps> = ({
           <SubHeading
             fw={500}
             lineClamp={2}
-            style={{flexGrow: 1 }}
-            >
+            style={{ flexGrow: 1 }}
+          >
             {profile?.title}
           </SubHeading>
           <Group
@@ -121,9 +121,7 @@ const ProductCard: React.FC<UseModalProps> = ({
                 <FaRegHeart size={18} />
               )}
             </SActionIcon>
-             <SubHeading fw={500}>
-              12
-              </SubHeading>
+            <SubHeading fw={500}>12</SubHeading>
           </ActionIconWrapper>
 
           <OptionMenu

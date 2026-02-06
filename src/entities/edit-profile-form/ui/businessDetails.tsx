@@ -61,11 +61,7 @@ const BusinessDetails = ({
         mb={30}
       >
         <label>
-   
-          <Paragraph>
-            Business address
-          </Paragraph>
-
+          <Paragraph>Business address</Paragraph>
         </label>
         {businessAddress ? (
           <div

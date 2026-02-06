@@ -45,9 +45,7 @@ const FormSlider = <T extends FieldValues>({
           mb={5}
         >
           <label>
-          <Paragraph>
-            {label}
-          </Paragraph>
+            <Paragraph>{label}</Paragraph>
           </label>
 
           {showValue && (

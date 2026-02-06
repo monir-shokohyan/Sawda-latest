@@ -1,6 +1,6 @@
-import { TextProps } from "@mantine/core";
-import { ReactNode } from "react";
+import { TextProps } from '@mantine/core'
+import { ReactNode } from 'react'
 
 export interface Props extends TextProps {
-  children: ReactNode;
+  children: ReactNode
 }

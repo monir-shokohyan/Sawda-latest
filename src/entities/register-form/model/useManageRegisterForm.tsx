@@ -10,7 +10,7 @@ import { useSwipeable } from 'react-swipeable'
 const useManageRegisterForm = () => {
   const { isMobile } = Responsive()
   const { control, handleSubmit } = useForm<RegisterType>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema) as any,
     defaultValues,
   })
   const [filter, setFilter] = useState<TabType>('phone')

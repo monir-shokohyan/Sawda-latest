@@ -67,14 +67,10 @@ const ProfileHeader = () => {
                       align="center"
                       gap={5}
                     >
-                       <SubHeading>
-                        5.0
-                      </SubHeading>
+                      <SubHeading>5.0</SubHeading>
                       <FaStar color={theme.colors.originalBlue[8]} />
                     </Flex>
-                    <SubParagraph>
-                      7 reviews
-                    </SubParagraph>
+                    <SubParagraph>7 reviews</SubParagraph>
                   </Stack>
 
                   <Stack
@@ -84,13 +80,9 @@ const ProfileHeader = () => {
                     style={{ borderLeft: '1px solid lightgray' }}
                     px={10}
                   >
-                     <SubHeading>
-                      1y 7d
-                    </SubHeading>
-                    
-                    <SubParagraph>
-                      Joined
-                    </SubParagraph>
+                    <SubHeading>1y 7d</SubHeading>
+
+                    <SubParagraph>Joined</SubParagraph>
                   </Stack>
                 </Flex>
               )}
@@ -108,14 +100,10 @@ const ProfileHeader = () => {
                       align="center"
                       gap={5}
                     >
-                      <SubHeading>
-                        5.0
-                      </SubHeading>
+                      <SubHeading>5.0</SubHeading>
                       <FaStar color={theme.colors.originalBlue[8]} />
                     </Flex>
-                    <SubParagraph>
-                      7 reviews
-                    </SubParagraph>
+                    <SubParagraph>7 reviews</SubParagraph>
                   </Stack>
 
                   <Stack
@@ -124,12 +112,8 @@ const ProfileHeader = () => {
                     align="center"
                     style={{ borderLeft: '1px solid lightgray' }}
                   >
-                    <SubHeading>
-                      1y 7d
-                    </SubHeading>
-                    <SubParagraph>
-                      Joined
-                    </SubParagraph>
+                    <SubHeading>1y 7d</SubHeading>
+                    <SubParagraph>Joined</SubParagraph>
                   </Stack>
                 </>
               )}
