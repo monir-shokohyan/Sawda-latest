@@ -9,6 +9,7 @@ interface FormCheckboxProps<T extends FieldValues> {
   label: string
   description?: string
   disabled?: boolean
+  mb?: number
 }
 
 export function FormCheckbox<T extends FieldValues>({
@@ -17,11 +18,12 @@ export function FormCheckbox<T extends FieldValues>({
   label,
   description,
   disabled = false,
+  mb=20
 }: FormCheckboxProps<T>) {
   return (
     <Group
       align="flex-start"
-      mb={20}
+      mb={mb}
       wrap="nowrap"
     >
       <Controller

@@ -14,6 +14,8 @@ interface Props {
   allowPadding?: boolean
   buttonFullWidth?: boolean
   transparent?: boolean
+  marginTop?: string
+  fullSize?: boolean
 }
 
 const Ui = ({
@@ -26,6 +28,8 @@ const Ui = ({
   allowPadding = true,
   buttonFullWidth = false,
   transparent = false,
+  marginTop = '20px',
+  fullSize = true,
 }: Props) => {
   const { isMobile } = Responsive()
   const paddingY = isMobile ? 20 : 40
@@ -37,7 +41,7 @@ const Ui = ({
       direction="column"
       bg={transparent ? 'transparent' : 'background.8'}
       style={{
-        flexGrow: '1',
+        flexGrow: fullSize ? 1 : 0,
       }}
     >
       {title && (
@@ -49,7 +53,7 @@ const Ui = ({
         </ResText>
       )}
 
-      <div style={{ marginTop: '20px' }}>
+      <div style={{ marginTop: marginTop }}>
         {children}
         {allowButton && (
           <SButton

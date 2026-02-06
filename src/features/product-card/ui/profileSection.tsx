@@ -2,11 +2,10 @@ import { Avatar, Flex, Stack, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { useNavigate } from 'react-router-dom'
 import { ProfileProps } from '../types'
-import { HModal, HoveredText, SButton } from '@shared/styles'
+import { HoveredText, SButton } from '@shared/styles'
 import { Paths } from '@shared/api/paths/paths'
 import { useDisclosure } from '@mantine/hooks'
 import { ProfileInfo } from '@features/profile-info'
-import { Logo } from '@shared/ui/logo'
 import { BaseModal } from '@shared/ui/modal'
 
 const ProfileSection = ({
@@ -18,7 +17,7 @@ const ProfileSection = ({
   size = 'md',
   mobileSize = '33px',
   allowPadding = true,
-  usernameSizeMobile = '0.7rem',
+  usernameSizeMobile = '0.9rem',
   usernameSize = 'lg',
   timeSize = '0.8rem',
   showEmail = false,
@@ -28,6 +27,7 @@ const ProfileSection = ({
   isMessage = false,
   isFollowing = false,
   isCard = false,
+  fullSize = true,
 }: ProfileProps) => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
@@ -36,11 +36,11 @@ const ProfileSection = ({
   const [opened, { open, close }] = useDisclosure(false)
 
   return (
-    <>
+    <div>
       <Flex
         p={padding}
         pl={allowPadding ? padding : '0px'}
-        style={{ cursor: 'pointer', flex: 1 }}
+        style={{ cursor: 'pointer', flex: fullSize ? 1 : 'none' }}
         direction={direction}
         align="center"
         gap={isMobile ? 8 : 15}
@@ -80,7 +80,8 @@ const ProfileSection = ({
             >
               {profile?.username}
             </HoveredText>
-            {isMessage && (
+            {
+            isMessage && (
               <Text
                 size={isMobile ? timeSize : 'xs'}
                 c="dimmed"
@@ -89,6 +90,7 @@ const ProfileSection = ({
               </Text>
             )}
           </Flex>
+
           {showEmail && (
             <Text
               size={isMobile ? timeSize : 'xs'}
@@ -174,7 +176,7 @@ const ProfileSection = ({
       >
         <ProfileInfo Profile={profile} />
       </BaseModal>
-    </>
+    </div>
   )
 }
 

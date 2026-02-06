@@ -24,4 +24,5 @@ export interface ProfileProps {
   isMessage?: boolean
   isFollowing?: boolean
   isCard?: boolean
+  fullSize?: boolean
 }

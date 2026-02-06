@@ -1,4 +1,4 @@
-import { Stack } from '@mantine/core'
+import { Divider, Stack } from '@mantine/core'
 import { ResText, SButton } from '@shared/styles'
 import { AddressModal } from './businessAddressModal'
 import {
@@ -36,9 +36,10 @@ const Ui = () => {
         handleSubmit={handleSubmit(onSubmit)}
         buttonFullWidth={isMobile}
       >
+        <Divider />
         <Stack
           gap={3}
-          mb={30}
+          mb={10}
         >
           <ResText
             c="darkText"
@@ -46,7 +47,6 @@ const Ui = () => {
           >
             profile photo
           </ResText>
-
           <ProfilePhotoSection>
             <ProfilePhoto>
               {photoPreview ? (
@@ -79,20 +79,22 @@ const Ui = () => {
               </SButton>
             </PhotoInfo>
           </ProfilePhotoSection>
+          <Divider />
 
           <AccountDetails control={control} />
         </Stack>
-
+        <Divider />
         <Stack
           gap={3}
-          mb={30}
+          mb={10}
         >
           <PrivateDetails control={control} />
         </Stack>
 
+        <Divider />
         <Stack
           gap={3}
-          mb={30}
+          mb={10}
         >
           <BusinessDetails
             control={control}

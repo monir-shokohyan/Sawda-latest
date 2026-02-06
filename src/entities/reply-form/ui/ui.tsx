@@ -11,13 +11,14 @@ const Ui = () => {
     useManageReplyForm()
 
   return (
-    <Stack gap={20}>
+    <Stack gap={0} >
       <FormWrapper
         allowPadding={false}
         transparent
+        marginTop='0px'
       >
         <Stack
-          gap={6}
+          gap={0}
           pos="relative"
         >
           <SActionIcon
@@ -45,7 +46,7 @@ const Ui = () => {
             name="message"
             control={control}
             mb={0}
-            rows={5}
+            rows={4}
           />
         </Stack>
       </FormWrapper>

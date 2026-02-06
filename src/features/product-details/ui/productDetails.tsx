@@ -1,4 +1,4 @@
-import { ColorSwatch, Flex, Group, List, Stack, ThemeIcon } from '@mantine/core'
+import { ColorSwatch, Divider, Flex, Group, List, Stack, ThemeIcon } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { ResText } from '@shared/styles'
 import { FaRegDotCircle } from 'react-icons/fa'
@@ -11,13 +11,7 @@ const ProductDetails = ({
 }: ProductsDetailsProps) => {
   const { isMobile } = Responsive()
   return (
-    <Stack mt={40}>
-      <ResText
-        c="darkText"
-        fontSize={TypographySize.Normal}
-      >
-        Details
-      </ResText>
+    <Stack >
       <Stack>
         <Flex
           wrap="wrap"
@@ -31,7 +25,7 @@ const ProductDetails = ({
                   gap={4}
                 >
                   <ResText
-                    fontWeight="400"
+                    fontWeight="500"
                     fontSize={TypographySize.Normal}
                     c="darkText"
                   >
@@ -49,7 +43,7 @@ const ProductDetails = ({
                 >
                   <ResText
                     fontSize={TypographySize.Normal}
-                    fontWeight="400"
+                    fontWeight="500"
                     c="darkText"
                   >
                     {detail.title}
@@ -76,7 +70,7 @@ const ProductDetails = ({
               >
                 <ResText
                   fontSize={TypographySize.Normal}
-                  fontWeight="400"
+                  fontWeight="500"
                   c="darkText"
                 >
                   {detail.title}
@@ -88,6 +82,8 @@ const ProductDetails = ({
             )
           })}
         </Flex>
+
+        <Divider />
 
         <ResText fontSize={TypographySize.Normal}>
           True wireless freedom with premium sound. Deep bass, crystal-clear
@@ -118,6 +114,7 @@ const ProductDetails = ({
             )
           })}
         </List>
+        <Divider />
       </Stack>
     </Stack>
   )

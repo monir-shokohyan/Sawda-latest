@@ -75,7 +75,7 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
 
   return (
     <Container px={0}>
-      <Stack gap="xl">
+      <Stack>
         <Carousel
           withIndicators
           height={isMobile ? 300 : '50vh'}

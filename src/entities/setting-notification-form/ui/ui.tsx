@@ -1,4 +1,4 @@
-import { Stack } from '@mantine/core'
+import { Divider, Stack } from '@mantine/core'
 import { useManageNotification } from '../modal'
 import { FormWrapper } from '@shared/ui/form-wrapper'
 import { Details } from '@shared/ui/details/details'
@@ -15,7 +15,7 @@ const Ui = () => {
       >
         <Stack
           gap={3}
-          mb={30}
+          mb={10}
         >
           <Details
             title="Listings you are interested in"
@@ -23,13 +23,13 @@ const Ui = () => {
           />
           <Stack
             gap={10}
-            my={30}
+            my={10}
             mx={30}
           >
             <FormCheckbox
               label="Email"
               control={control}
-              name="email"
+              name="email"              
             />
             <FormCheckbox
               label="Mobile app push noifications"
@@ -40,15 +40,17 @@ const Ui = () => {
         </Stack>
         <Stack
           gap={3}
-          mb={30}
+          mb={10}
         >
+
+          <Divider />
           <Details
             title="From sawda"
             allowBox={false}
           />
           <Stack
             gap={10}
-            my={30}
+            my={10}
             mx={30}
           >
             <FormCheckbox
