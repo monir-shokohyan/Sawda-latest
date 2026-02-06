@@ -1,6 +1,5 @@
 import { Checkbox, Group, Stack, Text } from '@mantine/core'
-import { ResText } from '@shared/styles' // keep SInput if you still use it elsewhere
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormCheckboxProps<T extends FieldValues> {
@@ -18,7 +17,7 @@ export function FormCheckbox<T extends FieldValues>({
   label,
   description,
   disabled = false,
-  mb=20
+  mb = 20,
 }: FormCheckboxProps<T>) {
   return (
     <Group
@@ -39,12 +38,9 @@ export function FormCheckbox<T extends FieldValues>({
               checked={!!value}
               onChange={(e) => onChange(e.currentTarget.checked)}
               label={
-                <ResText
-                  fontSize={TypographySize.SemiSmall}
-                  c="darkText"
-                >
+                <Paragraph>
                   {label}
-                </ResText>
+                </Paragraph>
               }
               description={description}
               error={!!error}

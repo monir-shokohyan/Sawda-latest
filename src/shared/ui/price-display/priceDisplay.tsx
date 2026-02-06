@@ -3,12 +3,7 @@ import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { Props } from './type'
 
-const Ui = ({
-  amount,
-  currency = 'USD',
-  size = 'xl',
-  mb = 0,
-}: Props) => {
+const Ui = ({ amount, currency = 'USD', size = 'xl', mb = 0 }: Props) => {
   const formatPrice = (value: number, curr: 'USD' | 'AFN') => {
     const formatted = value.toLocaleString('en-US', {
       minimumFractionDigits: 2,
@@ -30,7 +25,7 @@ const Ui = ({
           iconSize: 18,
         }
       case 'md':
-         return {
+        return {
           fontSize: TypographySize.Large,
           iconSize: 22,
         }
@@ -47,8 +42,15 @@ const Ui = ({
   const currencySymbol = currency === 'USD' ? '$' : 'AF'
 
   return (
-    <Stack gap={4} mb={mb}>
-      <Group gap={6} wrap="nowrap" align="baseline">
+    <Stack
+      gap={4}
+      mb={mb}
+    >
+      <Group
+        gap={6}
+        wrap="nowrap"
+        align="baseline"
+      >
         <ResText
           c="darkText"
           fontSize={styles.fontSize}

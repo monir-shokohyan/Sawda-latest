@@ -16,7 +16,7 @@ const Ui = () => {
       title=""
       allowPadding={false}
       transparent
-      marginTop='0px'
+      marginTop="0px"
       fullSize={false}
     >
       <Stack gap="0px">

@@ -1,8 +1,4 @@
-import {
-  Stack,
-  Text,
-  Box,
-} from '@mantine/core'
+import { Stack, Text, Box } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
 import { Auth } from '@shared/authentication/auth'
 import { SButton } from '@shared/styles'
@@ -13,9 +9,7 @@ interface ShowHideButtonProps {
   phone?: string
 }
 
-const ShowHideButton = ({
-  phone = '+93750179642',
-}: ShowHideButtonProps) => {
+const ShowHideButton = ({ phone = '+93750179642' }: ShowHideButtonProps) => {
   const navigate = useNavigate()
   const { isAuth } = Auth()
 
@@ -56,9 +50,7 @@ const ShowHideButton = ({
           justify="center"
           align="center"
         >
-          <Text
-            style={{ letterSpacing: '0.5px' }}
-          >
+          <Text style={{ letterSpacing: '0.5px' }}>
             {isAuth ? formatPhoneDisplay(phone) : maskPhone(phone)}
           </Text>
         </Stack>

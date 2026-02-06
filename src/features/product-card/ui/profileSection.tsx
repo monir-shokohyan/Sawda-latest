@@ -7,6 +7,7 @@ import { Paths } from '@shared/api/paths/paths'
 import { useDisclosure } from '@mantine/hooks'
 import { ProfileInfo } from '@features/profile-info'
 import { BaseModal } from '@shared/ui/modal'
+import { Paragraph } from '@shared/typography/paragraph'
 
 const ProfileSection = ({
   profile,
@@ -80,24 +81,19 @@ const ProfileSection = ({
             >
               {profile?.username}
             </HoveredText>
-            {
-            isMessage && (
-              <Text
-                size={isMobile ? timeSize : 'xs'}
-                c="dimmed"
-              >
-                {profile?.timestamp}
-              </Text>
+            {isMessage && (
+               <Paragraph c="dimmed">
+                 {profile?.timestamp}
+               </Paragraph>
             )}
           </Flex>
 
           {showEmail && (
-            <Text
-              size={isMobile ? timeSize : 'xs'}
-              c={isStaticColor ? 'white' : 'dimmed'}
-            >
-              {profile?.email}
-            </Text>
+               <Paragraph
+                c={isStaticColor ? 'white' : 'dimmed'}
+                >
+                 {profile?.email}
+               </Paragraph>
           )}
           {showActiveNow && (
             <Text

@@ -1,8 +1,7 @@
 import { Button, Group, Stack, Text, NumberInput, Select } from '@mantine/core'
-import { ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 import { useState } from 'react'
+import { Paragraph } from '@shared/typography/paragraph'
 
 type CurrencyType = 'AFN' | 'USD'
 
@@ -77,12 +76,9 @@ const FormPriceInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
+          <Paragraph>
             {label}
-          </ResText>
+          </Paragraph>
         </label>
 
         <Group

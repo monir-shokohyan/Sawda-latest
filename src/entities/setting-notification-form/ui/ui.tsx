@@ -29,7 +29,7 @@ const Ui = () => {
             <FormCheckbox
               label="Email"
               control={control}
-              name="email"              
+              name="email"
             />
             <FormCheckbox
               label="Mobile app push noifications"
@@ -42,7 +42,6 @@ const Ui = () => {
           gap={3}
           mb={10}
         >
-
           <Divider />
           <Details
             title="From sawda"

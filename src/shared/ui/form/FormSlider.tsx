@@ -1,6 +1,5 @@
 import { Button, Group, Stack, Text, Slider, SliderProps } from '@mantine/core'
-import { ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormSliderProps<T extends FieldValues> extends Omit<
@@ -46,12 +45,9 @@ const FormSlider = <T extends FieldValues>({
           mb={5}
         >
           <label>
-            <ResText
-              fontSize={TypographySize.SemiSmall}
-              c="darkText"
-            >
-              {label}
-            </ResText>
+          <Paragraph>
+            {label}
+          </Paragraph>
           </label>
 
           {showValue && (

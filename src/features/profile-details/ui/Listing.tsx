@@ -4,8 +4,8 @@ import { MenuFilter } from '@features/search-filter/ui/MenuFilter'
 import { Group, TextInput } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
 import { Responsive } from '@shared/hooks/responsive'
-import { SActionIcon, ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SActionIcon } from '@shared/styles'
+import { PrimaryHeading } from '@shared/typography/primary-heading'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
@@ -20,12 +20,9 @@ const Listing = () => {
         align="center"
         py={30}
       >
-        <ResText
-          fontSize={TypographySize.Large}
-          c="textPrimary"
-        >
+        <PrimaryHeading>
           Listing
-        </ResText>
+        </PrimaryHeading>
         <Group
           justify="space-between"
           align="center"

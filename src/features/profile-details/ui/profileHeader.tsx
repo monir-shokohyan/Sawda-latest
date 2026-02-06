@@ -8,14 +8,15 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { ProfileSection } from '@features/product-card/ui/profileSection'
-import { SActionIcon, ResText, SButton } from '@shared/styles'
+import { SActionIcon, SButton } from '@shared/styles'
 import { FaStar } from 'react-icons/fa'
 import { MdOutlineFileUpload } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
-import { TypographySize } from '@shared/typography'
 import { ProfileConstant } from '../constant'
 import { OptionMenu } from '@features/option-menu'
 import { Auth } from '@shared/authentication/auth'
+import { SubHeading } from '@shared/typography/sub-heading'
+import { SubParagraph } from '@shared/typography/sub-paragraph'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
@@ -66,20 +67,14 @@ const ProfileHeader = () => {
                       align="center"
                       gap={5}
                     >
-                      <ResText
-                        c="textPrimary"
-                        fontSize={TypographySize.Normal}
-                      >
+                       <SubHeading>
                         5.0
-                      </ResText>
+                      </SubHeading>
                       <FaStar color={theme.colors.originalBlue[8]} />
                     </Flex>
-                    <ResText
-                      c="textPrimary"
-                      fontSize={TypographySize.Small}
-                    >
+                    <SubParagraph>
                       7 reviews
-                    </ResText>
+                    </SubParagraph>
                   </Stack>
 
                   <Stack
@@ -89,18 +84,13 @@ const ProfileHeader = () => {
                     style={{ borderLeft: '1px solid lightgray' }}
                     px={10}
                   >
-                    <ResText
-                      c="textPrimary"
-                      fontSize={TypographySize.Normal}
-                    >
+                     <SubHeading>
                       1y 7d
-                    </ResText>
-                    <ResText
-                      c="textPrimary"
-                      fontSize={TypographySize.Small}
-                    >
+                    </SubHeading>
+                    
+                    <SubParagraph>
                       Joined
-                    </ResText>
+                    </SubParagraph>
                   </Stack>
                 </Flex>
               )}
@@ -118,20 +108,14 @@ const ProfileHeader = () => {
                       align="center"
                       gap={5}
                     >
-                      <ResText
-                        c="textPrimary"
-                        fontSize={TypographySize.Normal}
-                      >
+                      <SubHeading>
                         5.0
-                      </ResText>
+                      </SubHeading>
                       <FaStar color={theme.colors.originalBlue[8]} />
                     </Flex>
-                    <ResText
-                      c="textPrimary"
-                      fontSize={TypographySize.Small}
-                    >
+                    <SubParagraph>
                       7 reviews
-                    </ResText>
+                    </SubParagraph>
                   </Stack>
 
                   <Stack
@@ -140,18 +124,12 @@ const ProfileHeader = () => {
                     align="center"
                     style={{ borderLeft: '1px solid lightgray' }}
                   >
-                    <ResText
-                      c="textPrimary"
-                      fontSize={TypographySize.Normal}
-                    >
+                    <SubHeading>
                       1y 7d
-                    </ResText>
-                    <ResText
-                      c="textPrimary"
-                      fontSize={TypographySize.Small}
-                    >
+                    </SubHeading>
+                    <SubParagraph>
                       Joined
-                    </ResText>
+                    </SubParagraph>
                   </Stack>
                 </>
               )}

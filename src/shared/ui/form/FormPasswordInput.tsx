@@ -1,7 +1,7 @@
 import { Button, Group, Stack, Text, Progress } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { ResText, SInputPassword } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SInputPassword } from '@shared/styles'
+import { Paragraph } from '@shared/typography/paragraph'
 import { ReactNode, useMemo } from 'react'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
@@ -56,12 +56,9 @@ const FormPasswordInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
-            {label}
-          </ResText>
+           <Paragraph>
+                  {label}
+                </Paragraph>
         </label>
 
         <Controller

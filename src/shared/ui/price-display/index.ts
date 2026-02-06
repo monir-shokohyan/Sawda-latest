@@ -1,1 +1,1 @@
-export { Ui as PriceDisplay} from './priceDisplay'
+export { Ui as PriceDisplay } from './priceDisplay'

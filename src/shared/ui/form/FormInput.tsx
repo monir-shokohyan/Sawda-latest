@@ -6,8 +6,8 @@ import {
   Text,
   TextInputProps,
 } from '@mantine/core'
-import { ResText, SInput } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SInput } from '@shared/styles'
+import { Paragraph } from '@shared/typography/paragraph'
 import { ReactNode } from 'react'
 import {
   Controller,
@@ -52,12 +52,9 @@ const FormInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
-            {label}
-          </ResText>
+           <Paragraph>
+                  {label}
+                </Paragraph>
         </label>
 
         <Controller

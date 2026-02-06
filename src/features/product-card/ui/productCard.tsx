@@ -11,9 +11,10 @@ import {
 import { useModals } from '../modals'
 import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
-import { SActionIcon } from '@shared/styles'
+import {  SActionIcon } from '@shared/styles'
 import { OptionMenu } from '@features/option-menu'
 import { useMemo } from 'react'
+import { SubHeading } from '@shared/typography/sub-heading'
 
 const ProductCard: React.FC<UseModalProps> = ({
   profile,
@@ -30,8 +31,8 @@ const ProductCard: React.FC<UseModalProps> = ({
   } = useModals({ profile, handleToggleLike })
   const cacheBuster = Math.ceil(Math.random() * 400)
   const { width, height } = useMemo(() => {
-    const w = Math.floor(Math.random() * (800 - 300 + 1)) + 300 // 300–800
-    const h = Math.floor(Math.random() * (600 - 200 + 1)) + 200 // 200–600
+    const w = Math.floor(Math.random() * (800 - 300 + 1)) + 300
+    const h = Math.floor(Math.random() * (600 - 200 + 1)) + 200
     return { width: w, height: h }
   }, [])
 
@@ -71,14 +72,13 @@ const ProductCard: React.FC<UseModalProps> = ({
           py={isMobile ? '5px' : '16px'}
           direction="column"
         >
-          <Text
-            size={isMobile ? '0.9rem' : 'sm'}
+          <SubHeading
             fw={500}
-            lineClamp={1}
-            style={{ flexGrow: 1 }}
-          >
+            lineClamp={2}
+            style={{flexGrow: 1 }}
+            >
             {profile?.title}
-          </Text>
+          </SubHeading>
           <Group
             gap="xs"
             mt={isMobile ? '5px' : 'xs'}
@@ -121,7 +121,9 @@ const ProductCard: React.FC<UseModalProps> = ({
                 <FaRegHeart size={18} />
               )}
             </SActionIcon>
-            12
+             <SubHeading fw={500}>
+              12
+              </SubHeading>
           </ActionIconWrapper>
 
           <OptionMenu

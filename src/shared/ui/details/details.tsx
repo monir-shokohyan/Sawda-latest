@@ -1,6 +1,4 @@
-import { Divider } from '@mantine/core'
-import { ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SubHeading } from '@shared/typography/sub-heading'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
@@ -24,13 +22,11 @@ interface DetailsProps {
 const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
   return (
     <>
-      <ResText
-        fontSize={TypographySize.Normal}
-        c="darkText"
+      <SubHeading
         mb={allowBox ? '0px' : 'lg'}
       >
         {title}
-      </ResText>
+      </SubHeading>
       {allowBox && (
         <InfoBox>
           {icon}

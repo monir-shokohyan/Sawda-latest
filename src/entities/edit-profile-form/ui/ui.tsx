@@ -1,5 +1,5 @@
 import { Divider, Stack } from '@mantine/core'
-import { ResText, SButton } from '@shared/styles'
+import { SButton } from '@shared/styles'
 import { AddressModal } from './businessAddressModal'
 import {
   PhotoIcon,
@@ -11,8 +11,9 @@ import { AccountDetails } from './accountDetails'
 import { PrivateDetails } from './privateDetails'
 import { BusinessDetails } from './businessDetails'
 import { useManageEditProfile } from '../modal'
-import { TypographySize } from '@shared/typography'
 import { FormWrapper } from '@shared/ui/form-wrapper'
+import { Paragraph } from '@shared/typography/paragraph'
+import { SubHeading } from '@shared/typography/sub-heading'
 
 const Ui = () => {
   const {
@@ -41,12 +42,9 @@ const Ui = () => {
           gap={3}
           mb={10}
         >
-          <ResText
-            c="darkText"
-            fontSize={TypographySize.Normal}
-          >
+          <SubHeading>
             profile photo
-          </ResText>
+          </SubHeading>
           <ProfilePhotoSection>
             <ProfilePhoto>
               {photoPreview ? (
@@ -58,14 +56,13 @@ const Ui = () => {
                 <PhotoIcon />
               )}
             </ProfilePhoto>
+
             <PhotoInfo>
-              <ResText
-                c="darkText"
-                fontSize={TypographySize.SemiSmall}
-              >
+               <Paragraph>
                 Your favorite face picture as an important way for buyers and
                 sellers to learn about each part other.
-              </ResText>
+              </Paragraph>
+
               <SButton
                 variant="outline"
                 component="label"

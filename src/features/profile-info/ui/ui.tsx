@@ -9,15 +9,13 @@ import {
   Text,
   useMantineTheme,
 } from '@mantine/core'
-import { ResText, SButton } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SubHeading } from '@shared/typography/sub-heading'
 import { GoOrganization } from 'react-icons/go'
 import {
   MdCalendarToday,
   MdEmail,
   MdLink,
   MdLocationOn,
-  MdWork,
 } from 'react-icons/md'
 
 const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
@@ -217,12 +215,9 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
           radius={20}
           size="md"
         >
-          <ResText
-            fontSize={TypographySize.Normal}
-            color="primary"
-          >
+          <SubHeading c="primary">
             Send message
-          </ResText>
+          </SubHeading>
         </Button>
       </Group>
     </Stack>

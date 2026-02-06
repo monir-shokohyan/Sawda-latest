@@ -1,7 +1,6 @@
 import { Group, Stack, Text } from '@mantine/core'
 import { Select, SelectProps } from '@mantine/core'
-import { ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormSelectProps<T extends FieldValues> extends Omit<
@@ -33,12 +32,9 @@ const FormSelect = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
+          <Paragraph>
             {label}
-          </ResText>
+          </Paragraph>
         </label>
 
         <Controller

@@ -1,9 +1,9 @@
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { Flex, Group, Rating, Select, Stack } from '@mantine/core'
-import { ResText } from '@shared/styles'
 import { useState } from 'react'
 import { NewestToOldestObj } from '../constant'
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
+import { PrimaryHeading } from '@shared/typography/primary-heading'
 
 const Reviews = () => {
   const [selectedFilter, setSelectedFilter] = useState('newest')
@@ -15,12 +15,9 @@ const Reviews = () => {
         align="center"
         py={30}
       >
-        <ResText
-          fontSize={TypographySize.Large}
-          c="textPrimary"
-        >
+        <PrimaryHeading>
           Reviews
-        </ResText>
+        </PrimaryHeading>
 
         <Select
           data={NewestToOldestObj}
@@ -48,11 +45,11 @@ const Reviews = () => {
                 allowPadding={false}
               />
               <Rating />
-              <ResText fontSize={TypographySize.SemiSmall}>
+              <Paragraph>
                 Good price for the item, though the description could have been
                 clearer. Was really grateful that they were flexible for meeting
                 up Thanks so much!
-              </ResText>
+              </Paragraph>
             </Stack>
           </Flex>
         )

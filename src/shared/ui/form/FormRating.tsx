@@ -1,6 +1,5 @@
 import { Rating, Stack, Text } from '@mantine/core'
-import { ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormRatingProps<T extends FieldValues> {
@@ -40,12 +39,9 @@ const FormRating = <T extends FieldValues>({
     >
       {label && (
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
+          <Paragraph>
             {label}
-          </ResText>
+          </Paragraph>
         </label>
       )}
 

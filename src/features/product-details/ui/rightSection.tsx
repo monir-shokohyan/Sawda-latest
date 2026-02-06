@@ -23,9 +23,9 @@ const RightSection = () => {
     >
       {!isMobile && (
         <PriceDisplay
-        amount={30000}
-        currency="USD"
-        />        
+          amount={30000}
+          currency="USD"
+        />
       )}
 
       <Stack>

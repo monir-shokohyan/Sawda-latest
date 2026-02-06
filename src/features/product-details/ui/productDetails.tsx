@@ -1,9 +1,17 @@
-import { ColorSwatch, Divider, Flex, Group, List, Stack, ThemeIcon } from '@mantine/core'
+import {
+  ColorSwatch,
+  Divider,
+  Flex,
+  Group,
+  List,
+  Stack,
+  ThemeIcon,
+} from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { ResText } from '@shared/styles'
 import { FaRegDotCircle } from 'react-icons/fa'
 import { ProductsDetailsProps } from '../types'
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
+import { SubHeading } from '@shared/typography/sub-heading'
 
 const ProductDetails = ({
   DetailsObject,
@@ -11,7 +19,7 @@ const ProductDetails = ({
 }: ProductsDetailsProps) => {
   const { isMobile } = Responsive()
   return (
-    <Stack >
+    <Stack>
       <Stack>
         <Flex
           wrap="wrap"
@@ -24,14 +32,13 @@ const ProductDetails = ({
                   w="45%"
                   gap={4}
                 >
-                  <ResText
-                    fontWeight="500"
-                    fontSize={TypographySize.Normal}
-                    c="darkText"
-                  >
+                  <SubHeading fw={500}>
                     {detail.title}
-                  </ResText>
-                  <ResText fontSize={16}>{detail.description} %</ResText>
+                  </SubHeading>
+
+                   <Paragraph>
+                    {detail.description} %
+                  </Paragraph>
                 </Stack>
               )
             }
@@ -41,13 +48,9 @@ const ProductDetails = ({
                   w="45%"
                   gap={4}
                 >
-                  <ResText
-                    fontSize={TypographySize.Normal}
-                    fontWeight="500"
-                    c="darkText"
-                  >
+                   <SubHeading fw={500}>
                     {detail.title}
-                  </ResText>
+                  </SubHeading>
                   <Group gap={7}>
                     {Array.isArray(detail.description) &&
                       detail.description.map((colorObj) => {
@@ -68,16 +71,12 @@ const ProductDetails = ({
                 w="45%"
                 gap={4}
               >
-                <ResText
-                  fontSize={TypographySize.Normal}
-                  fontWeight="500"
-                  c="darkText"
-                >
+                  <SubHeading fw={500}>
                   {detail.title}
-                </ResText>
-                <ResText fontSize={TypographySize.Normal}>
-                  {detail.description}
-                </ResText>
+                  </SubHeading>
+                  <Paragraph>
+                    {detail.description}
+                  </Paragraph>
               </Stack>
             )
           })}
@@ -85,12 +84,12 @@ const ProductDetails = ({
 
         <Divider />
 
-        <ResText fontSize={TypographySize.Normal}>
-          True wireless freedom with premium sound. Deep bass, crystal-clear
-          highs, and active noise cancellation that actually works. 32-hour
-          total battery life (8 hours per charge + case), IPX5 sweat-proof,
-          touch controls, and instant pairing.
-        </ResText>
+         <Paragraph>
+            True wireless freedom with premium sound. Deep bass, crystal-clear
+            highs, and active noise cancellation that actually works. 32-hour
+            total battery life (8 hours per charge + case), IPX5 sweat-proof,
+            touch controls, and instant pairing.
+          </Paragraph>
 
         <List
           p={0}
@@ -100,16 +99,16 @@ const ProductDetails = ({
               variant="transparent"
               size="md"
             >
-              <FaRegDotCircle color="currentColor" />
+              <FaRegDotCircle color="darkText" />
             </ThemeIcon>
           }
         >
           {DetailsList.map((listInfo) => {
             return (
               <List.Item>
-                <ResText fontSize={TypographySize.Normal}>
+                <Paragraph>
                   {listInfo.title}
-                </ResText>
+                </Paragraph>
               </List.Item>
             )
           })}

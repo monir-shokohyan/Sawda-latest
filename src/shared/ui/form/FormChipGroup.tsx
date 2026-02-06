@@ -1,6 +1,5 @@
 import { Group, Stack, Text, Chip, ChipGroupProps } from '@mantine/core'
-import { ResText } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
 interface FormChipGroupProps<T extends FieldValues> extends Omit<
@@ -32,12 +31,9 @@ const FormChipGroup = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
-            {label}
-          </ResText>
+           <Paragraph>
+                  {label}
+                </Paragraph>
         </label>
 
         <Controller

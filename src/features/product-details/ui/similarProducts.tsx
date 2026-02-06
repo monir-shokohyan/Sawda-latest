@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-import { Stack, Grid } from '@mantine/core' // assuming you're using Mantine
-import { ResText } from '@shared/styles'
+import { Stack, Grid } from '@mantine/core'
 import { Content, IconWrapper, TitleWrapper } from '../styles'
 import { ProductCard } from '@features/product-card'
-import { TypographySize } from '@shared/typography'
+import { PrimaryHeading } from '@shared/typography/primary-heading'
 
 const ProductsMaps = Array.from({ length: 9 }, (_, i) => ({
   id: i,
@@ -29,9 +28,9 @@ export function SimilarAdsSection() {
       pb={10}
     >
       <TitleWrapper onClick={toggleOpen}>
-        <ResText fontSize={TypographySize.Large}>
+        <PrimaryHeading>
           Similar advertisements
-        </ResText>
+        </PrimaryHeading>
         <IconWrapper
           $isOpen={isOpen}
           variant="transparent"

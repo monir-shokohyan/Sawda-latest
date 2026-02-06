@@ -5,8 +5,8 @@ import { Control } from 'react-hook-form'
 import { FormData } from '../types'
 import { LinkText } from '../styles'
 import { Stack } from '@mantine/core'
-import { ResText, SButton } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SButton } from '@shared/styles'
+import { Paragraph } from '@shared/typography/paragraph'
 
 interface FormSetProps {
   control: Control<FormData>
@@ -61,12 +61,11 @@ const BusinessDetails = ({
         mb={30}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
+   
+          <Paragraph>
             Business address
-          </ResText>
+          </Paragraph>
+
         </label>
         {businessAddress ? (
           <div

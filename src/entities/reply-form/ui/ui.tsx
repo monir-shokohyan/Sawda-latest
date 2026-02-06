@@ -11,11 +11,11 @@ const Ui = () => {
     useManageReplyForm()
 
   return (
-    <Stack gap={0} >
+    <Stack gap={0}>
       <FormWrapper
         allowPadding={false}
         transparent
-        marginTop='0px'
+        marginTop="0px"
       >
         <Stack
           gap={0}

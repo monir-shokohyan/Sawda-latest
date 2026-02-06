@@ -1,7 +1,7 @@
 import { Flex } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { ResText, SButton } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { SButton } from '@shared/styles'
+import { PrimaryHeading } from '@shared/typography/primary-heading'
 import { ReactNode } from 'react'
 
 interface Props {
@@ -45,12 +45,9 @@ const Ui = ({
       }}
     >
       {title && (
-        <ResText
-          c="darkText"
-          fontSize={TypographySize.Large}
-        >
+        <PrimaryHeading>
           {title}
-        </ResText>
+        </PrimaryHeading>
       )}
 
       <div style={{ marginTop: marginTop }}>

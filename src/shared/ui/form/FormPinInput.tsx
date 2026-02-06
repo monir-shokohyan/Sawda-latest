@@ -1,6 +1,6 @@
-import { Button, Group, PinInput, Stack, Text } from '@mantine/core'
-import { ResText, SButton } from '@shared/styles'
-import { TypographySize } from '@shared/typography'
+import { PinInput, Stack, Text } from '@mantine/core'
+import { SButton } from '@shared/styles'
+import { Paragraph } from '@shared/typography/paragraph'
 import { useEffect, useState } from 'react'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
@@ -77,12 +77,9 @@ const FormPinInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <ResText
-            fontSize={TypographySize.SemiSmall}
-            c="darkText"
-          >
-            {label}
-          </ResText>
+           <Paragraph>
+                  {label}
+                </Paragraph>
         </label>
 
         <Controller
@@ -115,13 +112,9 @@ const FormPinInput = <T extends FieldValues>({
           )}
         />
       </Stack>
-
-      <ResText
-        fontSize={TypographySize.SemiSmall}
-        c="dimmed"
-      >
+       <Paragraph c="dimmed">
         Didn't recieve code ?
-      </ResText>
+                </Paragraph>
 
       {isButton && (
         <SButton
