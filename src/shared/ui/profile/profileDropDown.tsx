@@ -3,7 +3,6 @@ import { MdOutlinePersonOutline } from 'react-icons/md'
 import { Responsive } from '@shared/hooks/responsive'
 import { useProfileDropDown } from './hook'
 import { MenuDropDown } from '../menu-dropdown'
-import { TriggerButton } from '../buttons/triggerButton'
 
 const ProfileDropDown = (props: ButtonProps) => {
   const { isMobile } = Responsive()
@@ -16,13 +15,7 @@ const ProfileDropDown = (props: ButtonProps) => {
     <>
       <MenuDropDown
         options={modifiedProfile}
-        triggerButton={
-          <TriggerButton
-            content={
-              isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name'
-            }
-          />
-        }
+        triggerButton={ isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name' }
         width={160}
         leftSection={isMobile ? null : <MdOutlinePersonOutline size={20} />}
         props={props}

@@ -24,4 +24,5 @@ export enum Paths {
   NotificationStatus = '/secure-model/notification',
   FollowingStatus = '/secure-model/following',
   Forget = '/forget-password',
+  Otp = '/otp',
 }

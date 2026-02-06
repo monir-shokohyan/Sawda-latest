@@ -1,26 +1,29 @@
+import { ForgetForm } from '@entities/forget-password'
 import { Center } from '@mantine/core'
-import { Title, Text, Anchor, Stack } from '@mantine/core'
-import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
+import {
+  Title,
+  Text,
+  Anchor,
+  Stack,
+} from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { RegisterForm } from '@entities/register-form'
+import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 
-export const RegisterPage = () => {
+export const ForgotPasswordFeature = () => {
   const { isMobile } = Responsive()
+
   return (
-    <ContainerWithBreadCrumb title="register">
+     <ContainerWithBreadCrumb title="forgot-password">
       <Center>
-        <Stack
-          gap="lg"
-          w={isMobile ? '100%' : '50%'}
-          py="5vh"
-        >
-          <Stack gap="lg">
+          <Stack gap="sm"
+            w={isMobile ? '100%' : '50%'}
+            py="5vh">
             <Title
               order={2}
               ta="center"
               c="var(--mantine-primary-color-filled)"
             >
-              Create Account
+              Forgot Password?
             </Title>
 
             <Text
@@ -28,26 +31,25 @@ export const RegisterPage = () => {
               c="dimmed"
               size="sm"
             >
-              Sign up to get started
+              Enter your email or password to receive a reset link
             </Text>
 
-            <RegisterForm />
+            <ForgetForm />
 
             <Text
               ta="center"
               size="sm"
               c="dimmed"
             >
-              Already have an account?{' '}
+              Remembered your password?
               <Anchor
                 href="/login"
                 fw={600}
               >
-                Login
+                Back to Login
               </Anchor>
             </Text>
           </Stack>
-        </Stack>
       </Center>
     </ContainerWithBreadCrumb>
   )

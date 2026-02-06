@@ -4,6 +4,7 @@ import { Carousel } from '@mantine/carousel'
 import '@mantine/carousel/styles.css'
 import type { EmblaCarouselType } from 'embla-carousel'
 import { Responsive } from '@shared/hooks/responsive'
+import { LazyImage } from '../image'
 
 interface ImageData {
   id?: number
@@ -18,32 +19,7 @@ interface Props {
   fullImage?: boolean
   allowBg?: boolean
 }
-const images: ImageData[] = [
-  {
-    id: 1,
-    url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop',
-  },
-  {
-    id: 2,
-    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=600&fit=crop',
-  },
-  {
-    id: 3,
-    url: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=1200&h=600&fit=crop',
-  },
-  {
-    id: 4,
-    url: 'https://images.unsplash.com/photo-1514539079130-25950c84af65?w=1200&h=600&fit=crop',
-  },
-  {
-    id: 5,
-    url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&h=600&fit=crop',
-  },
-  {
-    id: 6,
-    url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=600&fit=crop',
-  },
-]
+
 
 const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null)
@@ -67,6 +43,36 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
     embla?.scrollTo(index)
   }
   const { isMobile } = Responsive()
+
+  /////////////////// will be deleted
+    const width = Math.floor(Math.random() * (800 - 300 + 1)) + 300;
+    const height = Math.floor(Math.random() * (600 - 200 + 1)) + 200;
+    const images: ImageData[] = [
+  {
+    id: 1,
+    url: `https://picsum.photos/4000/1800?random=1`,
+  },
+  {
+    id: 2,
+    url: `https://picsum.photos/3100/1700?random=2`,
+  },
+  {
+    id: 3,
+    url: `https://picsum.photos/1600/1400?random=3`,
+  },
+  {
+    id: 4,
+    url: `https://picsum.photos/2000/2300?random=4`,
+  },
+  {
+    id: 5,
+    url: `https://picsum.photos/1400/1400?random=5`,
+  },
+  {
+    id: 6,
+    url: `https://picsum.photos/2500/2500?random=6`,
+  },
+]
 
   return (
     <Container px={0}>
@@ -114,15 +120,12 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
         >
           {images?.map((image) => (
             <Carousel.Slide key={image.id}>
-              <img
+              <LazyImage
                 src={image.url}
-                alt="image of product"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: fullImage ? 'contain' : 'cover',
-                  display: 'block',
-                }}
+                alt="product image"
+                fallbackSrc='/bg.jpg'
+                width="100%"
+                height="100%"
               />
             </Carousel.Slide>
           ))}

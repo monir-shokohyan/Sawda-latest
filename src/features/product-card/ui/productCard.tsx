@@ -13,6 +13,7 @@ import { UseModalProps } from '../types'
 import { ImageContainer } from './ImageContainer'
 import { SActionIcon } from '@shared/styles'
 import { OptionMenu } from '@features/option-menu'
+import { useMemo } from 'react'
 
 const ProductCard: React.FC<UseModalProps> = ({
   profile,
@@ -27,6 +28,13 @@ const ProductCard: React.FC<UseModalProps> = ({
     showOverlay,
     particles,
   } = useModals({ profile, handleToggleLike })
+    const cacheBuster = Math.ceil(Math.random()*(400));
+    const { width, height } = useMemo(() => {
+    const w = Math.floor(Math.random() * (800 - 300 + 1)) + 300; // 300–800
+    const h = Math.floor(Math.random() * (600 - 200 + 1)) + 200; // 200–600
+    return { width: w, height: h };
+  }, []);
+
   return (
     <CardWrapper
       data-tooltip-id="global-tooltip"
@@ -51,7 +59,7 @@ const ProductCard: React.FC<UseModalProps> = ({
       >
         <ProfileSection profile={profile} />
 
-        <ImageContainer />
+        <ImageContainer src={`https://picsum.photos/${width}/${height}?random=${cacheBuster}`} />
 
         <Flex
           px={16}

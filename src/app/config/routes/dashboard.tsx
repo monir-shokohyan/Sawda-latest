@@ -1,13 +1,14 @@
 import { DashboardPage } from '@pages/dashboard'
 import { MobileModalPage } from '@pages/modal'
 import { ProductDetailPage } from '@pages/product-details'
-import { LoginPage } from '@shared/authentication'
-import { ForgotPasswordPage } from '@shared/authentication/forgetPassword'
-import { RegisterPage } from '@shared/authentication/registerPage'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 import { SearchPage } from '@pages/search'
 import { ProfileDetailPage } from '@pages/profile-details'
+import { RegisterPage } from '@pages/register'
+import { LoginPage } from '@pages/login'
+import { ForgotPasswordPage } from '@pages/forgot-password'
+import { OtpPage } from '@pages/otp'
 
 export const mainRoute: RouteType[] = [
   {
@@ -87,6 +88,16 @@ export const mainRoute: RouteType[] = [
     element: (
       <ErrorSuspense suspenseKey="forget-password">
         <ForgotPasswordPage />
+      </ErrorSuspense>
+    ),
+  },
+  {
+    key: 'otp',
+    guarded: '',
+    path: '/otp',
+    element: (
+      <ErrorSuspense suspenseKey="otp">
+        <OtpPage />
       </ErrorSuspense>
     ),
   },

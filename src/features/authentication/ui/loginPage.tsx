@@ -3,14 +3,14 @@ import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 import { Responsive } from '@shared/hooks/responsive'
 import { LoginForm } from '@entities/login-form'
 
-export const LoginPage = () => {
+export const LoginFeature = () => {
   const { isMobile } = Responsive()
 
   return (
     <ContainerWithBreadCrumb title="login">
       <Center>
         <Stack
-          gap="lg"
+          gap="sm"
           w={isMobile ? '100%' : '50%'}
           py="5vh"
         >

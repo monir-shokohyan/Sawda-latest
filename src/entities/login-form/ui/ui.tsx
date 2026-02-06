@@ -5,6 +5,7 @@ import { FormInput } from '@shared/ui/form'
 import { TbLock, TbMail } from 'react-icons/tb'
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 import { FormCheckbox } from '@shared/ui/form/FormCheckBox'
+import { Paths } from '@shared/api/paths/paths'
 
 const Ui = () => {
   const { handleSubmit, onSubmit, control } = useManageLoginForm()
@@ -46,7 +47,7 @@ const Ui = () => {
 
           <Anchor
             size="sm"
-            href="/forgot-password"
+            href={Paths.Forget}
           >
             Forgot password?
           </Anchor>

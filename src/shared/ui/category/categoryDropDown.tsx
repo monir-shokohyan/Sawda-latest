@@ -3,7 +3,6 @@ import { CategoryConstants } from './constant'
 import { Paths } from '@shared/api/paths/paths'
 import { useNavigate } from 'react-router-dom'
 import { MenuDropDown } from '../menu-dropdown'
-import { TriggerButton } from '../buttons/triggerButton'
 import { ButtonProps } from '@mantine/core'
 
 const CategoryDropDown = (props: ButtonProps) => {
@@ -21,7 +20,7 @@ const CategoryDropDown = (props: ButtonProps) => {
   return (
     <MenuDropDown
       options={modifiedCategory}
-      triggerButton={<TriggerButton content="All Categories" />}
+      triggerButton="All Categories"
       leftSection={<MdOutlineApps size={20} />}
       width={290}
       props={props}

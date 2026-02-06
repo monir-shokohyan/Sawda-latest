@@ -1,7 +1,6 @@
 import { ButtonProps } from '@mantine/core'
 import { LanguageContants } from './constant'
 import { MenuDropDown } from '../menu-dropdown'
-import { TriggerButton } from '../buttons/triggerButton'
 
 const LanguageDropDown = (props: ButtonProps) => {
   const modifiedLanguage = LanguageContants.map((language) => {
@@ -17,7 +16,7 @@ const LanguageDropDown = (props: ButtonProps) => {
       <MenuDropDown
         options={modifiedLanguage}
         props={props}
-        triggerButton={<TriggerButton content="English" />}
+        triggerButton="English"
         width={120}
       />
     </>

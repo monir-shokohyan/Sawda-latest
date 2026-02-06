@@ -19,4 +19,6 @@ export interface ProfileInfoProps {
   following?: number
   company?: string
   joinedDate?: string
+  imageSrc?: string
+
 }
