@@ -27,12 +27,12 @@ const useManageForgotForm = () => {
   })
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    
-      navigate({
-        pathname: Paths.Otp,
-        search: `?${filter}=${encodeURIComponent(data[filter])}`
-      });
+    console.log(data)
+
+    navigate({
+      pathname: Paths.Otp,
+      search: `?${filter}=${encodeURIComponent(data[filter])}`,
+    })
   }
 
   return {

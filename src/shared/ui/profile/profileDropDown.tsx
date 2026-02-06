@@ -15,7 +15,9 @@ const ProfileDropDown = (props: ButtonProps) => {
     <>
       <MenuDropDown
         options={modifiedProfile}
-        triggerButton={ isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name' }
+        triggerButton={
+          isMobile ? <MdOutlinePersonOutline size={20} /> : 'User name'
+        }
         width={160}
         leftSection={isMobile ? null : <MdOutlinePersonOutline size={20} />}
         props={props}

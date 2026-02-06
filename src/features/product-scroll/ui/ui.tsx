@@ -7,7 +7,7 @@ import { ProductCard } from '@features/product-card'
 import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
 
 const generateProducts = (start: number, count: number): Product[] => {
-  const cacheBuster = Math.ceil(Math.random()*(400));
+  const cacheBuster = Math.ceil(Math.random() * 400)
   return Array.from({ length: count }, (_, i) => ({
     id: start + i,
     username: 'abraham534',
@@ -18,7 +18,7 @@ const generateProducts = (start: number, count: number): Product[] => {
     originalPrice: 'S$442',
     status: 'Likely new',
     liked: false,
-    imageSrc: `https://picsum.photos/1200/800?random=${cacheBuster}`
+    imageSrc: `https://picsum.photos/1200/800?random=${cacheBuster}`,
   }))
 }
 

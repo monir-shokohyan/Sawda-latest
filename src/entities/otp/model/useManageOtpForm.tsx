@@ -12,7 +12,6 @@ const useManageOtpForm = () => {
     defaultValues,
   })
 
-
   const onSubmit = (data: any) => {
     console.log(data)
   }

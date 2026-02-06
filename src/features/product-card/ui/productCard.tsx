@@ -28,12 +28,12 @@ const ProductCard: React.FC<UseModalProps> = ({
     showOverlay,
     particles,
   } = useModals({ profile, handleToggleLike })
-    const cacheBuster = Math.ceil(Math.random()*(400));
-    const { width, height } = useMemo(() => {
-    const w = Math.floor(Math.random() * (800 - 300 + 1)) + 300; // 300–800
-    const h = Math.floor(Math.random() * (600 - 200 + 1)) + 200; // 200–600
-    return { width: w, height: h };
-  }, []);
+  const cacheBuster = Math.ceil(Math.random() * 400)
+  const { width, height } = useMemo(() => {
+    const w = Math.floor(Math.random() * (800 - 300 + 1)) + 300 // 300–800
+    const h = Math.floor(Math.random() * (600 - 200 + 1)) + 200 // 200–600
+    return { width: w, height: h }
+  }, [])
 
   return (
     <CardWrapper
@@ -57,9 +57,11 @@ const ProductCard: React.FC<UseModalProps> = ({
         onDoubleClick={handleDoubleClick}
         bg="background.7"
       >
-        <ProfileSection profile={profile} />
+        <ProfileSection profile={profile} isCard/>
 
-        <ImageContainer src={`https://picsum.photos/${width}/${height}?random=${cacheBuster}`} />
+        <ImageContainer
+          src={`https://picsum.photos/${width}/${height}?random=${cacheBuster}`}
+        />
 
         <Flex
           px={16}

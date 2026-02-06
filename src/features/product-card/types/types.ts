@@ -23,4 +23,5 @@ export interface ProfileProps {
   isStaticColor?: boolean
   isMessage?: boolean
   isFollowing?: boolean
+  isCard?: boolean
 }
