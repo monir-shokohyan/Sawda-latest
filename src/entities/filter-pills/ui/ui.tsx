@@ -18,7 +18,7 @@ const Ui = () => {
     currencySymbol,
     isMobile,
     resetForm,
-  } = useManageFilterForm({isPill: true})
+  } = useManageFilterForm({ isPill: true })
 
   return (
     <Flex
@@ -72,14 +72,13 @@ const Ui = () => {
           currencySymbol={currencySymbol}
           currencyIcon={currencyIcon}
         />
-          {!isMobile &&  <Divider orientation="vertical" />
-          }
+        {!isMobile && <Divider orientation="vertical" />}
         <Button
           variant="default"
           radius="xl"
           size="sm"
-          onClick={() =>resetForm()}
-          rightSection={ <MdOutlineCleaningServices /> }
+          onClick={() => resetForm()}
+          rightSection={<MdOutlineCleaningServices />}
           styles={{
             root: {
               paddingInline: '8px',

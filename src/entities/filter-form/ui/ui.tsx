@@ -17,7 +17,7 @@ const Ui = () => {
     currencySymbol,
     handleSubmit,
     onSubmit,
-  } = useManageFilterForm({isPill: false})
+  } = useManageFilterForm({ isPill: false })
   return (
     <FormWrapper
       title=""

@@ -700,10 +700,10 @@ export const ProvinceConstants: (Categorytype & {
   },
 ]
 export const defaultValues = {
-      priceFrom: 0,
-      priceTo: 0,
-      province: '',
-      district: '',
-      category: '',
-      currency: '',
-    }
+  priceFrom: 0,
+  priceTo: 0,
+  province: '',
+  district: '',
+  category: '',
+  currency: '',
+}

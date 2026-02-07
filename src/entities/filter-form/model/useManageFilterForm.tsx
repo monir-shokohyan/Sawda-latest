@@ -8,7 +8,7 @@ import { TbCurrencyAfghani } from 'react-icons/tb'
 import { MdAttachMoney } from 'react-icons/md'
 import { useEffect } from 'react'
 
-const useManageFilterForm = ({isPill = false}:{isPill: boolean}) => {
+const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
   const { isMobile } = Responsive()
   const { control, handleSubmit, watch, reset } = useForm<FilterFormType>({
     resolver: yupResolver(schema) as any,
@@ -18,7 +18,7 @@ const useManageFilterForm = ({isPill = false}:{isPill: boolean}) => {
   const formValues = watch()
 
   useEffect(() => {
-    if(isPill){
+    if (isPill) {
       handleSubmit(onSubmit)()
     }
   }, [formValues])
