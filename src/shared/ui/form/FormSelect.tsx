@@ -81,7 +81,7 @@ const FormSelect = <T extends FieldValues>({
                             paddingLeft: selectProps.leftSection
                               ? '40px'
                               : '16px',
-                            paddingRight: '16px',
+                            paddingRight: '32px',
                             fontWeight: 500,
                             width: '7rem',
                             borderColor: hasValue
@@ -108,6 +108,7 @@ const FormSelect = <T extends FieldValues>({
                     position: 'bottom-start',
                     middlewares: { flip: true, shift: true },
                     withinPortal: true,
+                    width: isPill ? 'auto' : undefined,
                   }}
                   nothingFoundMessage="Nothing found"
                 />
