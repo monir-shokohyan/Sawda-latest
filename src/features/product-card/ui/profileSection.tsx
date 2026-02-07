@@ -18,7 +18,7 @@ const ProfileSection = ({
   size = 'md',
   mobileSize = '33px',
   allowPadding = true,
-  usernameSizeMobile = '0.9rem',
+  usernameSizeMobile = '0.8rem',
   usernameSize = 'lg',
   timeSize = '0.8rem',
   showEmail = false,
@@ -56,9 +56,10 @@ const ProfileSection = ({
         <Stack
           gap={isMobile ? '4px' : '0px'}
           style={{ width: '100%' }}
+          align={direction === "column" ?'center' : "default"}
         >
           <Flex
-            justify="space-between"
+            justify={direction === "column" ?'center' : "space-between"}
             align="center"
             gap={20}
             w="100%"
@@ -66,6 +67,7 @@ const ProfileSection = ({
             <HoveredText
               fw={600}
               size={isMobile ? usernameSizeMobile : usernameSize}
+              lineClamp={1}
               onClick={(e) => {
                 if (!hoverUsername) return
                 e.stopPropagation()
