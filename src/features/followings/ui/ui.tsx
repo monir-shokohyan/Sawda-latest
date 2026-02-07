@@ -43,7 +43,6 @@ const Ui = ({ onFollowingSelect, activeMessageId }: FollowingSectionProps) => {
           bg="background.7"
           p={0}
         >
-          <Group justify="space-between"></Group>
 
           <FollowingTab
             handleChange={(value) => setFilter(value as FollowingFilter)}

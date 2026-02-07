@@ -37,7 +37,7 @@ const ProfileSection = ({
   const [opened, { open, close }] = useDisclosure(false)
 
   return (
-    <div>
+    <>
       <Flex
         p={padding}
         pl={allowPadding ? padding : '0px'}
@@ -56,10 +56,10 @@ const ProfileSection = ({
         <Stack
           gap={isMobile ? '4px' : '0px'}
           style={{ width: '100%' }}
-          align={direction === "column" ?'center' : "default"}
+          align={direction === 'column' ? 'center' : 'default'}
         >
           <Flex
-            justify={direction === "column" ?'center' : "space-between"}
+            justify={direction === 'column' ? 'center' : 'space-between'}
             align="center"
             gap={20}
             w="100%"
@@ -145,8 +145,9 @@ const ProfileSection = ({
               Profile details
             </HoveredText>
           )}
+     
         </Stack>
-        {isFollowing && (
+                       {isFollowing && (
           <SButton
             variant="subtle"
             color="lightText"
@@ -170,7 +171,7 @@ const ProfileSection = ({
       >
         <ProfileInfo Profile={profile} />
       </BaseModal>
-    </div>
+    </>
   )
 }
 
