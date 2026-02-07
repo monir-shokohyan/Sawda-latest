@@ -145,9 +145,8 @@ const ProfileSection = ({
               Profile details
             </HoveredText>
           )}
-     
         </Stack>
-                       {isFollowing && (
+        {isFollowing && (
           <SButton
             variant="subtle"
             color="lightText"

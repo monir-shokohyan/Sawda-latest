@@ -3,15 +3,25 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
 import { Responsive } from '@shared/hooks/responsive'
 import { FilterFormType } from '../types'
-import { ProvinceConstants } from '../constant'
+import { defaultValues, ProvinceConstants } from '../constant'
 import { TbCurrencyAfghani } from 'react-icons/tb'
 import { MdAttachMoney } from 'react-icons/md'
+import { useEffect } from 'react'
 
-const useManageFilterForm = () => {
+const useManageFilterForm = ({isPill = false}:{isPill: boolean}) => {
   const { isMobile } = Responsive()
-  const { control, handleSubmit, watch } = useForm<FilterFormType>({
-    resolver: yupResolver(schema),
+  const { control, handleSubmit, watch, reset } = useForm<FilterFormType>({
+    resolver: yupResolver(schema) as any,
+    defaultValues,
   })
+
+  const formValues = watch()
+
+  useEffect(() => {
+    if(isPill){
+      handleSubmit(onSubmit)()
+    }
+  }, [formValues])
 
   const getDistrictsForProvince = () => {
     const province = ProvinceConstants.find(
@@ -22,13 +32,16 @@ const useManageFilterForm = () => {
   const currencySymbol = watch('currency') === 'AFN' ? '؋' : '$'
   const currencyIcon =
     watch('currency') === 'AFN' ? (
-      <TbCurrencyAfghani size={20} />
+      <TbCurrencyAfghani size={16} />
     ) : (
-      <MdAttachMoney size={20} />
+      <MdAttachMoney size={16} />
     )
   const isProvinceActive = !!watch('province')
   const onSubmit = (data: FilterFormType) => {
     console.log(data)
+  }
+  const resetForm = () => {
+    reset(defaultValues)
   }
 
   return {
@@ -40,6 +53,7 @@ const useManageFilterForm = () => {
     currencySymbol,
     isProvinceActive,
     onSubmit,
+    resetForm,
   }
 }
 

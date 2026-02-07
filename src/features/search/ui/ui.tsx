@@ -9,6 +9,7 @@ import { CategoryConstants } from '@shared/ui/category/constant'
 import { MdCheck } from 'react-icons/md'
 import { Categorytype } from '@shared/ui/category/types'
 import { Paths } from '@shared/api/paths/paths'
+import { PillsForm } from '@entities/filter-pills'
 
 function Ui() {
   const { isMobile } = Responsive()
@@ -29,7 +30,7 @@ function Ui() {
         <Group
           w="100%"
           justify="space-between"
-          py="xl"
+          py="20px"
           wrap="wrap"
         >
           <HoveredSelect
@@ -65,6 +66,7 @@ function Ui() {
           />
         </Group>
       </GradientContainer>
+      <PillsForm />
 
       <ProductScroll allowPadding={false} />
     </Stack>

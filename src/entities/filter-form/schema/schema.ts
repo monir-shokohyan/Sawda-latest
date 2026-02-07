@@ -1,10 +1,20 @@
 import * as yup from 'yup'
 
 export const schema = yup.object({
-  category: yup.string().defined(),
-  province: yup.string().defined(),
-  district: yup.string().defined(),
-  currency: yup.string().defined(),
-  priceFrom: yup.number().defined().positive('Price must be positive'),
-  priceTo: yup.number().defined().positive('Price must be positive'),
+  category: yup.string().default(''),
+  province: yup.string().default(''),
+  district: yup.string().default(''),
+  currency: yup.string().default(''),
+  priceFrom: yup
+    .number()
+    .default(0)
+    .transform((value, originalValue) => (originalValue === '' ? 0 : value))
+    .min(0, 'Price cannot be negative')
+    .nullable(),
+  priceTo: yup
+    .number()
+    .default(0)
+    .transform((value, originalValue) => (originalValue === '' ? 0 : value))
+    .min(0, 'Price cannot be negative')
+    .nullable(),
 })
