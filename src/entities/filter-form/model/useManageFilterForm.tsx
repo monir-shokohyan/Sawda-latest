@@ -8,9 +8,11 @@ import { TbCurrencyAfghani } from 'react-icons/tb'
 import { MdAttachMoney } from 'react-icons/md'
 import { useEffect } from 'react'
 import { useCategories } from '@shared/ui/category/useCategory'
+import { useTranslation } from 'react-i18next'
 
 const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   const { control, handleSubmit, watch, reset } = useForm<FilterFormType>({
     resolver: yupResolver(schema) as any,
     defaultValues,
@@ -57,6 +59,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     onSubmit,
     resetForm,
     category,
+    t,
   }
 }
 

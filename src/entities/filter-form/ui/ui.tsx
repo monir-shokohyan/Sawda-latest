@@ -17,6 +17,7 @@ const Ui = () => {
     handleSubmit,
     onSubmit,
     category,
+    t,
   } = useManageFilterForm({ isPill: false })
   return (
     <FormWrapper
@@ -42,8 +43,8 @@ const Ui = () => {
         <FormSelect
           name="province"
           control={control}
-          label="Select Province"
-          placeholder="Choose a province"
+          label={t('product.province')}
+          placeholder={t('product.selectProvince')}
           data={ProvinceConstants}
           mb={10}
         />
@@ -57,8 +58,8 @@ const Ui = () => {
         <FormSelect
           name="district"
           control={control}
-          label="Select District"
-          placeholder="Choose a district"
+          label={t('product.district')}
+          placeholder={t('product.selectDistrict')}
           data={getDistrictsForProvince()}
           disabled={!isProvinceActive}
           mb={10}

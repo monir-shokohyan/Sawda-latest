@@ -12,47 +12,47 @@ import { ProvinceConstants } from '@entities/filter-form/constant'
 import { useManageAddProduct } from '../model'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
-  const { isFree, isMobile, handleSubmit, control, category } =
+  const { isFree, isMobile, handleSubmit, control, category, t } =
     useManageAddProduct()
 
   return (
     <FormWrapper
-      title="About Product"
+      title={t('product.aboutProduct')}
       allowButton
-      buttonTitle="Add Product"
+      buttonTitle={t('product.addProduct')}
       handleSubmit={handleSubmit(onSubmit)}
       buttonFullWidth={isMobile}
     >
       <FormInput
-        label="Title"
+        label={t('product.title')}
         name="title"
         control={control}
         placeholder="write your title"
       />
       <FormSelect
-        label="Category"
+        label={t('product.category')}
         name="category"
-        placeholder="Select Category"
+        placeholder={t('product.selectCategory')}
         control={control}
         data={category}
       />
       <FormTextarea
-        label="About product"
+        label={t('product.aboutProduct')}
         name="description"
         control={control}
         mb={0}
       />
       <FormChipGroup
-        label="Condition"
+        label={t('product.condition')}
         name="condition"
         multiple={false}
         control={control}
         options={ConditionConstants}
       />
       <FormSelect
-        label="Province"
+        label={t('product.province')}
         name="province"
-        placeholder="Select province"
+        placeholder={t('product.selectProvince')}
         control={control}
         data={ProvinceConstants}
       />
@@ -65,7 +65,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
       />
 
       <FormChipGroup
-        label="Price"
+        label={t('product.price')}
         name="isfree"
         multiple={false}
         control={control}
@@ -74,9 +74,9 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
       {isFree && (
         <>
           <FormPriceInput
-            label=""
+            label={t('product.price')}
             name="price"
-            placeholder="Select Price"
+            placeholder={t('product.selectPrice')}
             control={control}
           />
           <FormSlider

@@ -18,6 +18,7 @@ const Ui = () => {
     isMobile,
     resetForm,
     category,
+    t,
   } = useManageFilterForm({ isPill: true })
 
   return (
@@ -40,8 +41,8 @@ const Ui = () => {
         <FormSelect
           name="province"
           control={control}
-          label="Province"
-          placeholder="province"
+          label={t('product.province')}
+          placeholder={t('product.selectProvince')}
           data={ProvinceConstants}
           mb={10}
           shape="pill"
@@ -49,8 +50,8 @@ const Ui = () => {
         <FormSelect
           name="district"
           control={control}
-          label="District"
-          placeholder="district"
+          label={t('product.district')}
+          placeholder={t('product.selectDistrict')}
           data={getDistrictsForProvince()}
           disabled={!isProvinceActive}
           mb={10}
