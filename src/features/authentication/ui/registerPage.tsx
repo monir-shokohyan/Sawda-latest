@@ -3,9 +3,12 @@ import { Title, Text, Anchor, Stack } from '@mantine/core'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 import { Responsive } from '@shared/hooks/responsive'
 import { RegisterForm } from '@entities/register-form'
+import { useTranslation } from 'react-i18next'
 
 export const RegisterFeature = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
+
   return (
     <ContainerWithBreadCrumb title="register">
       <Center>
@@ -20,7 +23,7 @@ export const RegisterFeature = () => {
               ta="center"
               c="var(--mantine-primary-color-filled)"
             >
-              Create Account
+              {t('auth.createAccount')}
             </Title>
 
             <Text
@@ -28,7 +31,7 @@ export const RegisterFeature = () => {
               c="dimmed"
               size="sm"
             >
-              Sign up to get started
+              {t('auth.signUpToGetStarted')}
             </Text>
 
             <RegisterForm />
@@ -38,12 +41,12 @@ export const RegisterFeature = () => {
               size="sm"
               c="dimmed"
             >
-              Already have an account?{' '}
+              {t('auth.alreadyHaveAnAccount')}
               <Anchor
                 href="/login"
                 fw={600}
               >
-                Login
+                {t('auth.signIn')}
               </Anchor>
             </Text>
           </Stack>

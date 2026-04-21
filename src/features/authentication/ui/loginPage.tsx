@@ -2,9 +2,12 @@ import { Title, Text, Anchor, Stack, Center } from '@mantine/core'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
 import { Responsive } from '@shared/hooks/responsive'
 import { LoginForm } from '@entities/login-form'
+import { useTranslation } from 'react-i18next'
 
 export const LoginFeature = () => {
   const { isMobile } = Responsive()
+    const { t } = useTranslation()
+
 
   return (
     <ContainerWithBreadCrumb title="login">
@@ -19,7 +22,7 @@ export const LoginFeature = () => {
             ta="center"
             c="var(--mantine-primary-color-filled)"
           >
-            Welcome Back
+            {t('auth.welcomeBack')}
           </Title>
 
           <Text
@@ -27,7 +30,7 @@ export const LoginFeature = () => {
             c="dimmed"
             size="sm"
           >
-            Sign in to your account
+            {t('auth.signInToAccount')}
           </Text>
           <LoginForm />
           <Text
@@ -35,12 +38,12 @@ export const LoginFeature = () => {
             size="sm"
             c="dimmed"
           >
-            Don’t have an account?{' '}
+            {t('auth.dontHaveAccount')}
             <Anchor
               href="/register"
               fw={600}
             >
-              Sign up
+              {t('auth.signUp')}
             </Anchor>
           </Text>
         </Stack>

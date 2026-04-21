@@ -1,5 +1,4 @@
 import { Flex } from '@mantine/core'
-import { CategoryConstants } from '@shared/ui/category/constant'
 import { CurrencyConstants, ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal } from 'react-icons/tb'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
@@ -17,6 +16,7 @@ const Ui = () => {
     currencySymbol,
     handleSubmit,
     onSubmit,
+    category
   } = useManageFilterForm({ isPill: false })
   return (
     <FormWrapper
@@ -35,7 +35,7 @@ const Ui = () => {
           control={control}
           label="Select Category"
           placeholder="Choose a category"
-          data={CategoryConstants}
+          data={category}
           nothingFoundMessage="No category found"
           mb={10}
         />

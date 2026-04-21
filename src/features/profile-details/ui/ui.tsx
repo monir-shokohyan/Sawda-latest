@@ -6,11 +6,13 @@ import { Listing } from './Listing'
 import { Reviews } from './Reviews'
 import { STabs } from '@shared/styles'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
+import { useTranslation } from 'react-i18next'
 
 function Ui() {
   const [searchParams] = useSearchParams()
   const name = searchParams.get('name') ?? 'Untitled'
   const [tab, setTab] = useState('Listing')
+  const { t } = useTranslation()
 
   return (
     <ContainerWithBreadCrumb title={name}>
@@ -26,8 +28,8 @@ function Ui() {
           mt={100}
         >
           <Tabs.List>
-            <Tabs.Tab value="Listing">Listing</Tabs.Tab>
-            <Tabs.Tab value="Reviews">Reviews</Tabs.Tab>
+            <Tabs.Tab value="Listing">{t('profile.reviews')}</Tabs.Tab>
+            <Tabs.Tab value="Reviews">{t('profile.reviews')}</Tabs.Tab>
           </Tabs.List>
 
           <Tabs.Panel value="Listing">

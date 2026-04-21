@@ -5,9 +5,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
 import { defaultValues } from '../constant'
 import { Responsive } from '@shared/hooks/responsive'
+import { useTranslation } from 'react-i18next'
 
 const useManageEditProfile = () => {
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
+  const { t } = useTranslation()
   const [addressModalOpen, setAddressModalOpen] = useState<boolean>(false)
   const [businessAddress, setBusinessAddress] =
     useState<BusinessAddress | null>(null)
@@ -57,6 +59,7 @@ const useManageEditProfile = () => {
     onSubmit,
     setAddressModalOpen,
     isMobile,
+    t,
   }
 }
 

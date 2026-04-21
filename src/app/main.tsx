@@ -6,6 +6,7 @@ import { Providers } from '@app/providers'
 import { AppRouter } from './router'
 
 import './main.css'
+import '@shared/i18n'
 import '@mantine/core/styles.css'
 import '@mantine/notifications/styles.css'
 import 'react-lazy-load-image-component/src/effects/blur.css'

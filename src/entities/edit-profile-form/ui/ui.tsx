@@ -27,12 +27,13 @@ const Ui = () => {
     businessAddress,
     onSubmit,
     isMobile,
+    t,
   } = useManageEditProfile()
   return (
     <>
       <FormWrapper
         allowButton
-        title="Edit profile"
+        title={t('profile.editProfile')}
         buttonTitle="save"
         handleSubmit={handleSubmit(onSubmit)}
         buttonFullWidth={isMobile}
@@ -48,7 +49,7 @@ const Ui = () => {
               {photoPreview ? (
                 <img
                   src={photoPreview}
-                  alt="Profile"
+                  alt={t('profile.profile')}
                 />
               ) : (
                 <PhotoIcon />

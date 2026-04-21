@@ -6,12 +6,14 @@ import { Paths } from '@shared/api/paths/paths'
 import { Responsive } from '@shared/hooks/responsive'
 import { SActionIcon } from '@shared/styles'
 import { PrimaryHeading } from '@shared/typography/primary-heading'
+import { useTranslation } from 'react-i18next'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 const Listing = () => {
   const { isMobile } = Responsive()
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   return (
     <>
@@ -26,7 +28,7 @@ const Listing = () => {
           align="center"
         >
           <TextInput
-            placeholder="Search listing..."
+            placeholder={t('nav.search')}
             radius={5}
             size="sm"
             rightSection={

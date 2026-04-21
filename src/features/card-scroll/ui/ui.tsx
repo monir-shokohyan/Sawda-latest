@@ -1,11 +1,12 @@
 import { Flex } from '@mantine/core'
 import { UiProps } from '../types'
 import { CardCategory } from './card'
-import { CategoryConstants } from '@shared/ui/category/constant'
 import { Carousel } from '@mantine/carousel'
+import { useCategories } from '@shared/ui/category/useCategory'
 
 const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
-  const filteredCategories = CategoryConstants.filter((category) => {
+  const { category } = useCategories()
+  const filteredCategories = category.filter((category) => {
     return category!.id >= minNum && category.id <= maxNum
   })
 
@@ -24,13 +25,13 @@ const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
           }}
           emblaOptions={{ dragFree: true, align: 'start' }}
         >
-          {filteredCategories.map((category) => (
+          {filteredCategories.map((categoryM) => (
             <Carousel.Slide
-              key={category.id}
+              key={categoryM.id}
               style={{ height: 'auto' }}
             >
               <CardCategory
-                category={category}
+                category={categoryM}
                 isMobile={isMobile}
               />
             </Carousel.Slide>

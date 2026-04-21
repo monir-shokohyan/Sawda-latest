@@ -10,11 +10,13 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { SubHeading } from '@shared/typography/sub-heading'
+import { useTranslation } from 'react-i18next'
 import { GoOrganization } from 'react-icons/go'
 import { MdCalendarToday, MdEmail, MdLink, MdLocationOn } from 'react-icons/md'
 
 const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
   const theme = useMantineTheme()
+  const { t } = useTranslation()
   return (
     <Stack
       gap="lg"
@@ -69,7 +71,7 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
               fw={600}
               size="sm"
             >
-              Bio
+              {t('profile.bio')}
             </Text>
             <Text
               size="sm"

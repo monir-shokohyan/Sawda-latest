@@ -8,9 +8,11 @@ import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '@shared/api/paths/paths'
+import { useTranslation } from 'react-i18next'
 
 const useManageForgotForm = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   const { control, handleSubmit } = useForm<ForgetType>({
     resolver: yupResolver(schema as any),
     defaultValues,
@@ -43,6 +45,7 @@ const useManageForgotForm = () => {
     handler,
     filter,
     setFilter,
+    t,
   }
 }
 

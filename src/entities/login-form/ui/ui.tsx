@@ -12,12 +12,12 @@ import { LoginTab } from './Tab'
 import { TabType } from '../types'
 
 const Ui = () => {
-  const { handler, handleSubmit, onSubmit, control, filter, setFilter } =
+  const { handler, handleSubmit, onSubmit, control, filter, setFilter, t } =
     useManageLoginForm()
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
-      buttonTitle="Sign In"
+      buttonTitle={t('auth.signIn')}
       allowButton
       buttonFullWidth
     >
@@ -33,7 +33,7 @@ const Ui = () => {
           <FormInput
             name="email"
             control={control}
-            label="Email"
+            label={t('auth.email')}
             placeholder="your@email.com"
             leftSection={<TbMail size={16} />}
             mb={0}
@@ -42,7 +42,7 @@ const Ui = () => {
           <FormNumberInput
             name="phoneNumber"
             control={control}
-            label="Mobile number"
+            label={t('auth.phoneNumber')}
             placeholder="+93 7XX XXX-XXX"
             leftSection={<LuPhone size={16} />}
             mb={0}
@@ -56,8 +56,8 @@ const Ui = () => {
         <FormPasswordInput
           name="password"
           control={control}
-          label="Password"
-          placeholder="Your password"
+          label={t('auth.password')}
+          placeholder={t('auth.password')}
           leftSection={<TbLock size={16} />}
           mb={0}
         />
@@ -69,14 +69,14 @@ const Ui = () => {
           <FormCheckbox
             name="remember"
             control={control}
-            label="Remember me"
+            label={t('auth.rememberMe')}
           />
 
           <Anchor
             size="sm"
             href={Paths.Forget}
           >
-            Forgot password?
+            {t('auth.forgotPassword')}
           </Anchor>
         </Group>
       </Stack>

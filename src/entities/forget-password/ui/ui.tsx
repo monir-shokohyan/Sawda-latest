@@ -9,13 +9,13 @@ import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { LuPhone } from 'react-icons/lu'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, control, handler, filter, setFilter } =
+  const { handleSubmit, onSubmit, control, handler, filter, setFilter,t } =
     useManageForgotForm()
 
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
-      buttonTitle="Send Reset Link"
+      buttonTitle={t('auth.sendResetLink')}
       allowButton
       buttonFullWidth
     >
@@ -32,7 +32,7 @@ const Ui = () => {
           <FormInput
             name="email"
             control={control}
-            label="Email"
+            label={t('auth.email')}
             placeholder="your@email.com"
             leftSection={<TbMail size={16} />}
           />
@@ -40,7 +40,7 @@ const Ui = () => {
           <FormNumberInput
             name="phone"
             control={control}
-            label="Mobile number"
+            label={t('auth.phoneNumber')}
             placeholder="+93 7XX XXX-XXX"
             leftSection={<LuPhone size={16} />}
             type="tel"

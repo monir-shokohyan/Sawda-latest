@@ -7,6 +7,7 @@ import { defaultValues, ProvinceConstants } from '../constant'
 import { TbCurrencyAfghani } from 'react-icons/tb'
 import { MdAttachMoney } from 'react-icons/md'
 import { useEffect } from 'react'
+import { useCategories } from '@shared/ui/category/useCategory'
 
 const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
   const { isMobile } = Responsive()
@@ -14,6 +15,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     resolver: yupResolver(schema) as any,
     defaultValues,
   })
+  const { category } = useCategories()
 
   const formValues = watch()
 
@@ -44,6 +46,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     reset(defaultValues)
   }
 
+
   return {
     isMobile,
     control,
@@ -54,6 +57,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     isProvinceActive,
     onSubmit,
     resetForm,
+    category
   }
 }
 

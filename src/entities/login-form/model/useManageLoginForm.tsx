@@ -6,9 +6,11 @@ import { loginType, TabType } from '../types'
 import { defaultValues } from '../constant'
 import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
+import { useTranslation } from 'react-i18next'
 
 const useManageLoginForm = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
 
   const { control, handleSubmit } = useForm<loginType>({
     resolver: yupResolver(schema) as any,
@@ -35,6 +37,7 @@ const useManageLoginForm = () => {
     filter,
     setFilter,
     handler,
+    t,
   }
 }
 

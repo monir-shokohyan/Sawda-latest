@@ -5,17 +5,18 @@ import { ProductScroll } from '@features/product-scroll/ui'
 import { Responsive } from '@shared/hooks/responsive'
 import { HoveredSelect } from '@shared/styles'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { CategoryConstants } from '@shared/ui/category/constant'
 import { MdCheck } from 'react-icons/md'
 import { Categorytype } from '@shared/ui/category/types'
 import { Paths } from '@shared/api/paths/paths'
 import { PillsForm } from '@entities/filter-pills'
+import { useCategories } from '@shared/ui/category/useCategory'
 
 function Ui() {
   const { isMobile } = Responsive()
   const [searchParams] = useSearchParams()
-  const category = searchParams.get('category') ?? 'Untitled'
+  const categoryParam = searchParams.get('category') ?? 'Untitled'
   const navigate = useNavigate()
+  const { category } = useCategories()
 
   const selectCategory = (value: string | null) => {
     navigate(`${Paths.Search}/monir?category=${value}`)
@@ -35,13 +36,13 @@ function Ui() {
         >
           <HoveredSelect
             placeholder="Choose a category"
-            data={CategoryConstants}
+            data={category}
             nothingFoundMessage="No category found"
             comboboxProps={{
               transitionProps: { transition: 'fade-down', duration: 400 },
             }}
             onChange={selectCategory}
-            defaultValue={category || '1'}
+            defaultValue={categoryParam || '1'}
             size="md"
             renderOption={({ option, checked }) => (
               <Group

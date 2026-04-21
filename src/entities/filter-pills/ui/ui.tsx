@@ -4,7 +4,6 @@ import {
 } from '@entities/filter-form/constant'
 import { useManageFilterForm } from '@entities/filter-form/model'
 import { Button, Divider, Flex, Group } from '@mantine/core'
-import { CategoryConstants } from '@shared/ui/category/constant'
 import { FormSelect } from '@shared/ui/form/FormSelect'
 import { PriceFilterPill } from './priceFilterPill'
 import { MdOutlineCleaningServices } from 'react-icons/md'
@@ -18,6 +17,7 @@ const Ui = () => {
     currencySymbol,
     isMobile,
     resetForm,
+    category,
   } = useManageFilterForm({ isPill: true })
 
   return (
@@ -32,7 +32,7 @@ const Ui = () => {
           control={control}
           label="Category"
           placeholder="category"
-          data={CategoryConstants}
+          data={category}
           nothingFoundMessage="No category found"
           mb={10}
           shape="pill"

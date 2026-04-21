@@ -19,6 +19,7 @@ import { NotificationStatus } from '@features/notification-status'
 import { TbUserPlus } from 'react-icons/tb'
 import { Following } from '@features/followings'
 import { Auth } from '@shared/authentication/auth'
+import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
   const { isMobile, isTablet } = Responsive()
@@ -27,6 +28,7 @@ const Navbar = () => {
   const [openedFollowing, { open: openFollowing, close: closeFollowing }] =
     useDisclosure()
   const { isAuth } = Auth()
+  const { t } = useTranslation()
 
   return (
     <>
@@ -119,7 +121,7 @@ const Navbar = () => {
                 color="darkText"
                 onClick={() => navigate(Paths.Register)}
               >
-                Register
+                {t('nav.register')}
               </SButton>
               <SButton
                 variant="subtle"
@@ -130,7 +132,7 @@ const Navbar = () => {
                 px={10}
                 onClick={() => navigate(Paths.Login)}
               >
-                Login
+                {t('nav.login')}
               </SButton>
             </Group>
           )}
@@ -151,7 +153,7 @@ const Navbar = () => {
                 navigate(Paths.Register)
               }}
             >
-              Place an ad
+              {t('nav.placeAd')}
             </SButton>
           )}
         </Flex>

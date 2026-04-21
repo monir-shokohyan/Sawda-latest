@@ -7,6 +7,7 @@ import { LinkText } from '../styles'
 import { Stack } from '@mantine/core'
 import { SButton } from '@shared/styles'
 import { Paragraph } from '@shared/typography/paragraph'
+import { useTranslation } from 'react-i18next'
 
 interface FormSetProps {
   control: Control<FormData>
@@ -19,20 +20,21 @@ const BusinessDetails = ({
   businessAddress,
   setAddressModalOpen,
 }: FormSetProps) => {
+  const { t } = useTranslation()
   return (
     <>
       <Details
-        title="Business details"
+        title={t('profile.businessDetails')}
         allowBox={false}
       />
       <FormInput<FormData>
         control={control}
-        label="Company name"
+        label={t('profile.companyName')}
         name="companyName"
       />
       <FormInput<FormData>
         control={control}
-        label="Business registration number"
+        label={t('profile.businessRegNumber')}
         name="businessRegistrationNumber"
       />
       <FormInput<FormData>
@@ -47,7 +49,7 @@ const BusinessDetails = ({
       />
       <FormInput<FormData>
         control={control}
-        label="Business email"
+        label={t('profile.businessEmail')}
         name="businessEmail"
       />
 
@@ -55,7 +57,7 @@ const BusinessDetails = ({
         Verify number to let buyers WhatsApp you.
       </div>
 
-      <LinkText>Verify WhatsApp number now</LinkText>
+      <LinkText>{t('profile.verifyWhatsapp')}</LinkText>
       <Stack
         gap={3}
         mb={30}

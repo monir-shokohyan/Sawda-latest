@@ -5,7 +5,7 @@ import { Details } from '@shared/ui/details/details'
 import { FormCheckbox } from '@shared/ui/form/FormCheckBox'
 
 const Ui = () => {
-  const { control } = useManageNotification()
+  const { control, t } = useManageNotification()
   return (
     <>
       <FormWrapper
@@ -27,7 +27,7 @@ const Ui = () => {
             mx={30}
           >
             <FormCheckbox
-              label="Email"
+              label={t('auth.email')}
               control={control}
               name="email"
             />
@@ -53,7 +53,7 @@ const Ui = () => {
             mx={30}
           >
             <FormCheckbox
-              label="Email"
+              label={t('auth.email')}
               control={control}
               name="sawdaEmail"
             />

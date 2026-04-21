@@ -3,9 +3,11 @@ import { Center } from '@mantine/core'
 import { Title, Text, Anchor, Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
+import { useTranslation } from 'react-i18next'
 
 export const ForgotPasswordFeature = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
 
   return (
     <ContainerWithBreadCrumb title="forgot-password">
@@ -20,7 +22,7 @@ export const ForgotPasswordFeature = () => {
             ta="center"
             c="var(--mantine-primary-color-filled)"
           >
-            Forgot Password?
+            {t('auth.forgotPassword')}
           </Title>
 
           <Text
@@ -28,7 +30,7 @@ export const ForgotPasswordFeature = () => {
             c="dimmed"
             size="sm"
           >
-            Enter your email or password to receive a reset link
+            {t('auth.enterEmailToReset')}
           </Text>
 
           <ForgetForm />
@@ -38,12 +40,12 @@ export const ForgotPasswordFeature = () => {
             size="sm"
             c="dimmed"
           >
-            Remembered your password?
+            {t('auth.rememberedPassword')}
             <Anchor
               href="/login"
               fw={600}
             >
-              Back to Login
+              {t('auth.backToLogin')}
             </Anchor>
           </Text>
         </Stack>

@@ -1,6 +1,7 @@
 import { Tabs, TabsProps } from '@mantine/core'
 import styled from 'styled-components'
 import { TabType } from '../types'
+import { useTranslation } from 'react-i18next'
 
 interface LeftTabProps {
   filter: TabType
@@ -22,14 +23,15 @@ const HovTabs = styled(Tabs)<TabsProps>`
 `
 
 const ForgetTab = ({ filter, handleChange }: LeftTabProps) => {
+  const { t } = useTranslation()
   return (
     <HovTabs
       value={filter}
       onChange={handleChange}
     >
       <Tabs.List grow>
-        <Tabs.Tab value="email">Email</Tabs.Tab>
-        <Tabs.Tab value="phone">Phone number</Tabs.Tab>
+        <Tabs.Tab value="email">{t('auth.email')}</Tabs.Tab>
+        <Tabs.Tab value="phone">{t('auth.phoneNumber')}</Tabs.Tab>
       </Tabs.List>
     </HovTabs>
   )

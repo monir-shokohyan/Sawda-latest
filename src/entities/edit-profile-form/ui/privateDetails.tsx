@@ -5,39 +5,41 @@ import { FaRegEyeSlash } from 'react-icons/fa'
 import { GenderObj } from '../constant'
 import { Control } from 'react-hook-form'
 import { FormData } from '../types'
+import { useTranslation } from 'react-i18next'
 
 interface FormSetProps {
   control: Control<FormData>
 }
 
 const PrivateDetails = ({ control }: FormSetProps) => {
+  const { t } = useTranslation()
   return (
     <>
       <Details
-        title="Private details"
+        title={t('profile.privateDetails')}
         allowBox={false}
       />
 
       <FormInput
-        label="Email"
+        label={t('auth.email')}
         control={control}
         name="email"
-        buttonTitle="Update"
+        buttonTitle={t('profile.update')}
         isButton={true}
       />
 
       <FormInput<FormData>
         control={control}
         name="mobileNumber"
-        label="Mobile number"
-        buttonTitle="Update"
+        label={t('auth.mobileNumber')}
+        buttonTitle={t('profile.update')}
         isButton={true}
       />
 
       <FormSelect
-        label="Gender"
+        label={t('profile.gender')}
         name="gender"
-        placeholder="Select Gender"
+        placeholder={t('profile.selectGender')}
         control={control}
         data={GenderObj}
       />

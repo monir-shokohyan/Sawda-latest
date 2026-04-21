@@ -6,32 +6,34 @@ import { FaRegEye } from 'react-icons/fa'
 import { AfghanistanCities } from '../constant'
 import { Control } from 'react-hook-form'
 import { FormData } from '../types'
+import { useTranslation } from 'react-i18next'
 
 interface FormSetProps {
   control: Control<FormData>
 }
 
 const AccountDetails = ({ control }: FormSetProps) => {
+  const { t } = useTranslation()
   return (
     <>
       <Details
-        title="Account details"
+        title={t('profile.accountDetails')}
         icon={<FaRegEye style={{ marginTop: '2px', flexShrink: 0 }} />}
-        text="This info appears on your profile profile"
+        text={t('profile.thisInfoAppears')}
       />
 
       <FormInput
-        label="User name"
+        label={t('auth.username')}
         control={control}
         name="username"
       />
       <FormInput
-        label="Full name"
+        label={t('profile.fullName')}
         control={control}
         name="fullName"
       />
       <FormInput
-        label="Phone number"
+        label={t('auth.phoneNumber')}
         control={control}
         name="phoneNumber"
       />
@@ -45,13 +47,13 @@ const AccountDetails = ({ control }: FormSetProps) => {
       />
 
       <FormInput
-        label="Email address"
+        label={t('auth.emailAddress')}
         control={control}
         name="emailAddress"
       />
 
       <FormTextarea
-        label="Bio"
+        label={t('profile.bio')}
         control={control}
         name="bio"
       />

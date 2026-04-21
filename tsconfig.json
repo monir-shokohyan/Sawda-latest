@@ -18,7 +18,7 @@
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
   },
   "extends": "./tsconfig.paths.json",
   "include": ["src", "types", "commitlint.config.cjs"],

@@ -4,14 +4,14 @@ import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormPasswordInput } from '@shared/ui/form/FormPasswordInput'
 
 const Ui = () => {
-  const { handleSubmit, control, onSubmit, isMobile } =
+  const { handleSubmit, control, onSubmit, isMobile, t } =
     useManageChangePassword()
   return (
     <>
       <FormWrapper
         allowButton
-        title="Change password"
-        buttonTitle="Save changes"
+        title={t('profile.changePassword')}
+        buttonTitle={t('profile.saveChanges')}
         handleSubmit={handleSubmit(onSubmit)}
         buttonFullWidth={isMobile}
       >
@@ -20,17 +20,17 @@ const Ui = () => {
           mb={30}
         >
           <FormPasswordInput
-            label="Current password"
+            label={t('auth.currentPassword')}
             control={control}
             name="currentPassword"
           />
           <FormPasswordInput
-            label="New password"
+            label={t('auth.newPassword')}
             control={control}
             name="newPassword"
           />
           <FormPasswordInput
-            label="Confirm password"
+            label={t('auth.confirmPassword')}
             control={control}
             name="confirmPassword"
           />

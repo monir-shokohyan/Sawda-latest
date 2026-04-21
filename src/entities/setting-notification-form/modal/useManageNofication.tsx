@@ -5,8 +5,10 @@ import { schema } from '../schema'
 import { defaultValues } from '../constant'
 import { Responsive } from '@shared/hooks/responsive'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const useManageNotification = () => {
+  const { t } = useTranslation()
   const { control, watch } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues,
@@ -23,6 +25,7 @@ const useManageNotification = () => {
   return {
     control,
     isMobile,
+    t,
   }
 }
 

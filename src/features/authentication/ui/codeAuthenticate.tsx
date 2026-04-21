@@ -5,8 +5,10 @@ import { Title, Text, Anchor, Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
+import { useTranslation } from 'react-i18next'
 export const OtpFeature = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
 
   return (
     <ContainerWithBreadCrumb title="OTP">
@@ -29,7 +31,7 @@ export const OtpFeature = () => {
             c="dimmed"
             size="sm"
           >
-            Enter the verification code sent to your email/phone
+            {t('auth.enterVerificationCode')}
           </Text>
 
           <OtpForm />
@@ -38,12 +40,12 @@ export const OtpFeature = () => {
             size="sm"
             c="dimmed"
           >
-            Remembered your password?
+            {t('auth.rememberedPassword')}
             <Anchor
               href="/login"
               fw={600}
             >
-              Back to Login
+              {t('auth.backToLogin')}
             </Anchor>
           </Text>
         </Stack>

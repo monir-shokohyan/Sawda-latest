@@ -11,13 +11,13 @@ import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { LuPhone } from 'react-icons/lu'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, control, handler, filter, setFilter } =
+  const { handleSubmit, onSubmit, control, handler, filter, setFilter, t } =
     useManageRegisterForm()
 
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
-      buttonTitle="Sign Up"
+      buttonTitle={t('auth.signUp')}
       allowButton
       buttonFullWidth
     >
@@ -32,8 +32,8 @@ const Ui = () => {
         <FormInput
           name="username"
           control={control}
-          label="User name"
-          placeholder="Your username"
+          label={t('auth.username')}
+          placeholder={t('auth.yourUsername')}
           leftSection={<FiUser size={16} />}
           mb={0}
         />
@@ -41,7 +41,7 @@ const Ui = () => {
           <FormInput
             name="email"
             control={control}
-            label="Email"
+            label={t('auth.email')}
             placeholder="your@email.com"
             leftSection={<TbMail size={16} />}
             mb={0}
@@ -50,7 +50,7 @@ const Ui = () => {
           <FormNumberInput
             name="phoneNumber"
             control={control}
-            label="Mobile number"
+            label={t('auth.phoneNumber')}
             placeholder="+93 7XX XXX-XXX"
             leftSection={<LuPhone size={16} />}
             mb={0}
@@ -63,8 +63,8 @@ const Ui = () => {
         <FormPasswordInput
           name="password"
           control={control}
-          label="Password"
-          placeholder="Your password"
+          label={t('auth.password')}
+          placeholder={t('auth.yourPassword')}
           leftSection={<TbLock size={16} />}
           showStrength
           mb={0}
@@ -73,8 +73,8 @@ const Ui = () => {
         <FormPasswordInput
           name="confirm_password"
           control={control}
-          label="Password"
-          placeholder="Repeat password"
+          label={t('auth.confirmPassword')}
+          placeholder={t('auth.repeatPassword')}
           leftSection={<TbLock size={16} />}
           mb={30}
         />

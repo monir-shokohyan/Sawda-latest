@@ -2,7 +2,6 @@ import { AddProductSubmitProps } from '../types'
 import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormInput } from '@shared/ui/form'
 import { FormSelect } from '@shared/ui/form/FormSelect'
-import { CategoryConstants } from '@shared/ui/category/constant'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 import { FormChipGroup } from '@shared/ui/form/FormChipGroup'
 import { ConditionConstants, IsFreeConstants } from '../constant'
@@ -13,7 +12,7 @@ import { ProvinceConstants } from '@entities/filter-form/constant'
 import { useManageAddProduct } from '../model'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
-  const { isFree, isMobile, handleSubmit, control } = useManageAddProduct()
+  const { isFree, isMobile, handleSubmit, control, category } = useManageAddProduct()
 
   return (
     <FormWrapper
@@ -34,7 +33,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         name="category"
         placeholder="Select Category"
         control={control}
-        data={CategoryConstants}
+        data={category}
       />
       <FormTextarea
         label="About product"

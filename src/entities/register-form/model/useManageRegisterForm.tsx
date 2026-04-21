@@ -6,9 +6,11 @@ import { RegisterType, TabType } from '../types'
 import { defaultValues } from '../constant'
 import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
+import { useTranslation } from 'react-i18next'
 
 const useManageRegisterForm = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   const { control, handleSubmit } = useForm<RegisterType>({
     resolver: yupResolver(schema) as any,
     defaultValues,
@@ -35,6 +37,7 @@ const useManageRegisterForm = () => {
     handler,
     filter,
     setFilter,
+    t,
   }
 }
 

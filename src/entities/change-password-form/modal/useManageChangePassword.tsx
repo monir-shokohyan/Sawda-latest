@@ -4,13 +4,14 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
 import { defaultValues } from '../constant'
 import { Responsive } from '@shared/hooks/responsive'
+import { useTranslation } from 'react-i18next'
 
 const useManageChangePassword = () => {
   const { control, handleSubmit } = useForm<FormData>({
     resolver: yupResolver(schema),
     defaultValues,
   })
-
+  const { t } = useTranslation()
   const { isMobile } = Responsive()
 
   const onSubmit = (data: FormData): void => {
@@ -24,6 +25,7 @@ const useManageChangePassword = () => {
     control,
     onSubmit,
     isMobile,
+    t,
   }
 }
 
