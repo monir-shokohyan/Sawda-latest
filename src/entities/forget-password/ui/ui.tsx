@@ -9,7 +9,7 @@ import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { LuPhone } from 'react-icons/lu'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, control, handler, filter, setFilter,t } =
+  const { handleSubmit, onSubmit, control, handler, filter, setFilter, t } =
     useManageForgotForm()
 
   return (

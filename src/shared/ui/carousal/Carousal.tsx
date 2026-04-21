@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Paper, Stack, rem } from '@mantine/core'
 import { Carousel } from '@mantine/carousel'
 import '@mantine/carousel/styles.css'
-import type { EmblaCarouselType } from 'embla-carousel';
+import type { EmblaCarouselType } from 'embla-carousel'
 import { Responsive } from '@shared/hooks/responsive'
 import { LazyImage } from '../image'
 

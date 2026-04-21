@@ -46,7 +46,6 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     reset(defaultValues)
   }
 
-
   return {
     isMobile,
     control,
@@ -57,7 +56,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     isProvinceActive,
     onSubmit,
     resetForm,
-    category
+    category,
   }
 }
 

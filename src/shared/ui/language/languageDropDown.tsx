@@ -18,7 +18,8 @@ const LanguageDropDown = (props: ButtonProps) => {
     handleClick: () => i18n.changeLanguage(lang.value),
   }))
 
-  const currentLabel = languages.find((l) => l.value === i18n.language)?.label ?? 'English'
+  const currentLabel =
+    languages.find((l) => l.value === i18n.language)?.label ?? 'English'
 
   return (
     <MenuDropDown

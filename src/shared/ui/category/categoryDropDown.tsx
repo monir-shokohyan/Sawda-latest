@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 
 const CategoryDropDown = (props: ButtonProps) => {
   const navigate = useNavigate()
-  const { t } =useTranslation()
+  const { t } = useTranslation()
 
   const modifiedCategory = CategoryConstants.map((category) => {
     return {

@@ -11,10 +11,28 @@ const LanguageForMobile = () => {
         value={i18n.language}
         onChange={(val) => i18n.changeLanguage(val as string)}
       >
-        <Group justify="flex-start" gap={5}>
-          <Chip variant="outline" value="en">Eng</Chip>
-          <Chip variant="outline" value="fa">دری</Chip>
-          <Chip variant="outline" value="ps">پښتو</Chip>
+        <Group
+          justify="flex-start"
+          gap={5}
+        >
+          <Chip
+            variant="outline"
+            value="en"
+          >
+            Eng
+          </Chip>
+          <Chip
+            variant="outline"
+            value="fa"
+          >
+            دری
+          </Chip>
+          <Chip
+            variant="outline"
+            value="ps"
+          >
+            پښتو
+          </Chip>
         </Group>
       </Chip.Group>
       <DarkMode />

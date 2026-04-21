@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 export const LoginFeature = () => {
   const { isMobile } = Responsive()
-    const { t } = useTranslation()
-
+  const { t } = useTranslation()
 
   return (
     <ContainerWithBreadCrumb title="login">
