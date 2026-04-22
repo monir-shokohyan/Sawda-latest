@@ -212,7 +212,7 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
           radius={20}
           size="md"
         >
-          <SubHeading c="primary">Send message</SubHeading>
+          <SubHeading c="primary">{t('product.sendMessage')}</SubHeading>
         </Button>
       </Group>
     </Stack>

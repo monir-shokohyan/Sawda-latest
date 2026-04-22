@@ -2,21 +2,21 @@ import { useManagePrivacy } from '../modal'
 import { FormCheckbox } from '@shared/ui/form/FormCheckBox'
 
 const Ui = () => {
-  const { control } = useManagePrivacy()
+  const { control,t } = useManagePrivacy()
   return (
     <>
       <FormCheckbox
-        label="Interest based information"
+        label={t('settings.locationBasedInfo')}
         control={control}
         name="interest"
       />
       <FormCheckbox
-        label="Location based information"
+        label={t('settings.locationBasedInfo')}
         control={control}
         name="location"
       />
       <FormCheckbox
-        label="Demographic information"
+        label={t('settings.demographicInfo')}
         control={control}
         name="demographic"
       />

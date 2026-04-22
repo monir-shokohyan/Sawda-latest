@@ -5,6 +5,7 @@ import { schema } from '../schema'
 import { defaultValues } from '../constant'
 import { Responsive } from '@shared/hooks/responsive'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const useManagePrivacy = () => {
   const { control, watch } = useForm<FormData>({
@@ -12,6 +13,7 @@ const useManagePrivacy = () => {
     defaultValues,
     mode: 'onChange',
   })
+  const { t }= useTranslation()
 
   const values = watch()
 
@@ -23,6 +25,7 @@ const useManagePrivacy = () => {
   return {
     control,
     isMobile,
+    t,
   }
 }
 

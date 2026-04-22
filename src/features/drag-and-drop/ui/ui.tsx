@@ -31,6 +31,7 @@ const Ui = ({
     editingImage,
     setEditingImage,
     isDark,
+    t,
   } = useDropDown({ images, setImages })
 
   return (
@@ -43,7 +44,7 @@ const Ui = ({
           accept={[MIME_TYPES.jpeg, MIME_TYPES.png, MIME_TYPES.webp]}
           maxSize={maxSize * 1024 ** 2}
           maxFiles={maxFiles - images.length}
-          aria-label="Drop photos here"
+          aria-label={t('image.dropFiles')}
           loading={isCompressing}
         >
           <div style={{ pointerEvents: 'none' }}>
@@ -78,14 +79,14 @@ const Ui = ({
               mt="sm"
               c="darkText"
             >
-              <SDropzone.Accept>Drop files here</SDropzone.Accept>
+              <SDropzone.Accept>{t('image.dragAndDrop')}</SDropzone.Accept>
               <SDropzone.Reject>
                 Image file less than {maxSize}mb
               </SDropzone.Reject>
               <SDropzone.Idle>
                 {isCompressing
-                  ? 'Compressing images...'
-                  : 'Drag & drop to Upload'}
+                  ? t('image.compressingImages')
+                  : t('image.dragAndDrop')}
               </SDropzone.Idle>
             </Text>
 
@@ -106,7 +107,7 @@ const Ui = ({
           disabled={images.length >= maxFiles || isCompressing}
           maw={250}
         >
-          {isCompressing ? 'Compressing...' : 'Select photos'}
+          {isCompressing ? t('image.compressing') : t('image.selectPhotos')}
         </SButton>
       </Wrapper>
 

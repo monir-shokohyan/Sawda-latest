@@ -14,10 +14,12 @@ import {
 import { TbHome, TbRefresh } from 'react-icons/tb'
 import { FallbackProps } from 'react-error-boundary'
 import { SButton } from '@shared/styles'
+import { useTranslation } from 'react-i18next'
 
 const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const navigate = useNavigate()
   const [showDetails, setShowDetails] = useState(false)
+  const { t } = useTranslation()
 
   const errorMessage =
     error instanceof Error
@@ -71,12 +73,12 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
               onClick={resetErrorBoundary}
               color="primary"
             >
-              Try Again
+              {t('common.tryAgain')}
             </SButton>
           </Tooltip>
 
           <Tooltip
-            label="Return to homepage"
+            label={t('common.returnToHomepage')}
             position="bottom"
           >
             <Button
@@ -105,7 +107,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
             style={{ maxWidth: '100%' }}
           >
             <Text fw={500}>{errorMessage}</Text>
-            {process.env.NODE_ENV !== 'production' &&
+            {!import.meta.env.PROD &&
               error instanceof Error && (
                 <Text
                   mt="xs"

@@ -63,12 +63,21 @@
     "update": "تازه کول",
     "logout": "وتل",
     "profile": "پروفایل",
-    "verifyWhatsapp": "اوس د واټساپ شمیره تصدیق کړئ"
+    "verifyWhatsapp": "اوس د واټساپ شمیره تصدیق کړئ",
+    "follow": "تعقیب کول",
+    "signOut": "د حساب څخه وتل",
+    "posts": "پوسټونه",
+    "followers": "پیروونکي",
+    "contactNumber": "د اړیکو شمیره",
+    "website": "ستاسو ویب‌سایټ",
+    "provinces": "ولایتونه",
+    "selectProvince": "ولایت وټاکئ"
   },
   "product": {
     "addProduct": "توکی اضافه کړئ",
     "aboutProduct": "د توکي په اړه",
     "title": "سرلیک",
+    "writeTitle": "خپل سرلیک ولیکئ",
     "category": "کټګوري",
     "selectCategory": "کټګوري وټاکئ",
     "condition": "حالت",
@@ -79,6 +88,8 @@
     "selectDistrict": "ولسوالي وټاکئ",
     "price": "بیه",
     "selectPrice": "بیه وټاکئ",
+    "priceFrom": "له بیې",
+    "priceTo": "تر بیې",
     "discount": "تخفیف",
     "color": "رنګ",
     "pickColor": "رنګ وټاکئ",
@@ -109,6 +120,7 @@
     "privacy": "محرمیت",
     "theme": "تھیم",
     "dataPrivacy": "د ډاټا او محرمیت ترتیبات",
+    "dataAndPrivacy": "ډاټا او محرمیت",
     "privacyPreferences": "د محرمیت غوره توبونه",
     "demographicInfo": "د نفوس معلومات",
     "interestBasedInfo": "د علایقو پر بنسټ معلومات",
@@ -193,10 +205,40 @@
   },
   "gender": {
     "male": "نارینه",
-    "female": "ښځینه"
+    "female": "ښځینه",
+    "other": "نور"
   },
   "following": {
-    "following": "تعقیبول"
+    "following": "تعقیبول",
+    "follower": "پیروونکی"
+  },
+  "notification": {
+    "all": "ټول",
+    "following": "تعقیبول",
+    "support": "ملاتړ"
+  },
+  "theme": {
+    "system": "سیسټم",
+    "light": "روښانه",
+    "dark": "تیاره",
+    "systemAlt": "د سیسټم ډیفالټ تھیم مخکتنه",
+    "lightAlt": "د روښانه تھیم مخکتنه",
+    "darkAlt": "د تیارې تھیم مخکتنه"
+  },
+  "optionMenu": {
+    "report": "راپور",
+    "edit": "{{type}} سمول",
+    "delete": "{{type}} ړنګول",
+    "deleteTitle": "ستاسو {{type}} ړنګول",
+    "confirmDeleteProfile": "ایا ډاډه یاست چې خپل پروفایل ړنګ کړئ؟ دا عمل بیرته نه راګرځیږي او د معلوماتو د بیرته راګرځولو لپاره باید له ملاتړ سره اړیکه ونیسئ.",
+    "confirmDeleteProduct": "ایا ډاډه یاست چې خپل توکی ړنګ کړئ؟",
+    "cancel": "لغو"
+  },
+  "favorites": {
+    "favorites": "خوښې"
+  },
+  "privacy": {
+    "infoText": "سودا کولی شي هغه معلومات چې شخصي ډاټا نه ګڼل کیږي د خپلو تبلیغاتي او تحلیلي شریکانو سره شریک کړي. دا د سودا د اوږدمهاله سوداګریز دوامداری کمک کوي ترڅو موږ وکولی شو اساسي ځانګړتیاوې د ټولو کاربرانو لپاره وړیا وساتو. د ستاسو ملاتړ مننه."
   },
   "common": {
     "home": "کور",
@@ -212,6 +254,12 @@
     "returnToHomepage": "کور پاڼې ته ستنیدل",
     "tryAgain": "بیا هڅه وکړئ",
     "businessConduct": "د سوداګرۍ چلند",
-    "saveChanges": "بدلونونه خوندي کړئ"
+    "saveChanges": "بدلونونه خوندي کړئ",
+    "cancel": "لغو",
+    "chooseCategory": "کټګوري وټاکئ",
+    "noCategoryFound": "کټګوري ونه موندل شوه",
+    "nothingFound": "هیڅ ونه موندل شول",
+    "selectCategory": "کټګوري وټاکئ",
+    "category": "کټګوري"
   }
 }

@@ -13,6 +13,10 @@ interface FormSetProps {
 
 const PrivateDetails = ({ control }: FormSetProps) => {
   const { t } = useTranslation()
+  const modifiedGenderObj = GenderObj.map(item=>({
+    ...item,
+    label: t(item.label)
+  }))
   return (
     <>
       <Details
@@ -41,7 +45,7 @@ const PrivateDetails = ({ control }: FormSetProps) => {
         name="gender"
         placeholder={t('profile.selectGender')}
         control={control}
-        data={GenderObj}
+        data={modifiedGenderObj}
       />
     </>
   )

@@ -63,12 +63,21 @@
     "update": "Update",
     "logout": "Logout",
     "profile": "Profile",
-    "verifyWhatsapp": "Verify WhatsApp number now"
+    "verifyWhatsapp": "Verify WhatsApp number now",
+    "follow": "Follow",
+    "signOut": "Sign out",
+    "posts": "Posts",
+    "followers": "Followers",
+    "contactNumber": "Contact number",
+    "website": "Your website",
+    "provinces": "Provinces",
+    "selectProvince": "Select province"
   },
   "product": {
     "addProduct": "Add Product",
     "aboutProduct": "About Product",
     "title": "Title",
+    "writeTitle": "Write your title",
     "category": "Category",
     "selectCategory": "Select Category",
     "condition": "Condition",
@@ -79,6 +88,8 @@
     "selectDistrict": "Select District",
     "price": "Price",
     "selectPrice": "Select Price",
+    "priceFrom": "Price From",
+    "priceTo": "Price To",
     "discount": "Discount",
     "color": "Color",
     "pickColor": "Pick a color",
@@ -109,6 +120,7 @@
     "privacy": "Privacy",
     "theme": "Theme",
     "dataPrivacy": "Data & privacy settings",
+    "dataAndPrivacy": "Data and privacy",
     "privacyPreferences": "Privacy preferences",
     "demographicInfo": "Demographic information",
     "interestBasedInfo": "Interest based information",
@@ -193,10 +205,40 @@
   },
   "gender": {
     "male": "Male",
-    "female": "Female"
+    "female": "Female",
+    "other": "Other"
   },
   "following": {
-    "following": "Following"
+    "following": "Following",
+    "follower": "Follower"
+  },
+  "notification": {
+    "all": "All",
+    "following": "Following",
+    "support": "Support"
+  },
+  "theme": {
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "systemAlt": "System default theme preview",
+    "lightAlt": "Light theme preview",
+    "darkAlt": "Dark theme preview"
+  },
+  "optionMenu": {
+    "report": "Report",
+    "edit": "Edit {{type}}",
+    "delete": "Delete {{type}}",
+    "deleteTitle": "Delete your {{type}}",
+    "confirmDeleteProfile": "Are you sure you want to delete your profile? This action is destructive and you will have to contact support to restore your data.",
+    "confirmDeleteProduct": "Are you sure you want to delete your product?",
+    "cancel": "Cancel"
+  },
+  "favorites": {
+    "favorites": "Favorites"
+  },
+  "privacy": {
+    "infoText": "Sawda may share information that does not constitute personal data with our advertising and analytics partners. This contributes to Sawda's business sustainability in the long run, so that we can keep our basic features free for all users. Thank you for your support."
   },
   "common": {
     "home": "Home",
@@ -212,6 +254,12 @@
     "returnToHomepage": "Return to homepage",
     "tryAgain": "Try again",
     "businessConduct": "Business Conduct",
-    "saveChanges": "Save Changes"
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "chooseCategory": "Choose a category",
+    "noCategoryFound": "No category found",
+    "nothingFound": "Nothing found",
+    "selectCategory": "Select Category",
+    "category": "Category"
   }
 }

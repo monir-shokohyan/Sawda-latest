@@ -7,6 +7,7 @@ import { AddressModalProps, BusinessAddress } from '../types'
 import { ModalDefaultValue } from '../constant'
 import { AddressSchema } from '../schema'
 import { BaseModal } from '@shared/ui/modal'
+import { useTranslation } from 'react-i18next'
 
 const AddressModal: React.FC<AddressModalProps> = ({
   opened,
@@ -18,6 +19,7 @@ const AddressModal: React.FC<AddressModalProps> = ({
     resolver: yupResolver(AddressSchema),
     defaultValues: initialData || ModalDefaultValue,
   })
+  const { t } = useTranslation()
 
   React.useEffect(() => {
     if (opened && initialData) {
@@ -37,34 +39,34 @@ const AddressModal: React.FC<AddressModalProps> = ({
       onClose={onClose}
       size="md"
       showLogo={false}
-      title="Add business address"
+      title={t('address.addBusinessAddress')}
     >
       <Stack gap={3}>
         <FormInput<BusinessAddress>
           control={control}
           name="streetAddress"
-          label="Street Address"
+          label={t('address.streetAddress')}
           mb={10}
         />
 
         <FormInput<BusinessAddress>
           control={control}
           name="city"
-          label="City"
+          label={t('address.city')}
           mb={10}
         />
 
         <FormInput<BusinessAddress>
           control={control}
           name="stateProvince"
-          label="State/Province"
+          label={t('address.stateProvince')}
           mb={10}
         />
 
         <FormInput<BusinessAddress>
           control={control}
           name="postalCode"
-          label="Postal Code"
+          label={t('address.postalCode')}
           mb={10}
         />
       </Stack>

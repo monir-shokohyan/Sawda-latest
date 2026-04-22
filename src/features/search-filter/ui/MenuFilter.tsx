@@ -6,6 +6,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import { FilterButton } from './filterButton'
 import { useDisclosure } from '@mantine/hooks'
 import { FilterForm } from '@entities/filter-form'
+import { useTranslation } from 'react-i18next'
 
 interface FilterProps {
   iconSize?: 'xl' | 'md' | 'lg' | 'sm'
@@ -18,6 +19,7 @@ const MenuFilter = ({
 }: FilterProps) => {
   const { isMobile } = Responsive()
   const [opened, { toggle, close }] = useDisclosure(false)
+  const { t } = useTranslation()
 
   return (
     <Menu
@@ -47,7 +49,7 @@ const MenuFilter = ({
           <Menu.Label>
             <Group align="center">
               <MdOutlineManageSearch size={19} />
-              <span>Filter</span>
+              <span>{t('filter.filter')}</span>
             </Group>
           </Menu.Label>
 

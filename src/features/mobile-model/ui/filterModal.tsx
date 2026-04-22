@@ -6,6 +6,7 @@ import { MdOutlineManageSearch } from 'react-icons/md'
 import { HModal } from '@shared/styles'
 import { FilterForm } from '@entities/filter-form'
 import { BaseModal } from '@shared/ui/modal'
+import { useTranslation } from 'react-i18next'
 
 const FilterModal = () => {
   const navigate = useNavigate()
@@ -13,6 +14,7 @@ const FilterModal = () => {
   const handleClose = () => {
     navigate(-1 || '')
   }
+  const { t } = useTranslation()
 
   return (
     <BaseModal
@@ -41,7 +43,7 @@ const FilterModal = () => {
             size="12px"
             pt={3}
           >
-            Filter
+            {t('filter.filter')}
           </Text>
         </Group>
         <FilterForm />

@@ -32,7 +32,7 @@ export interface BusinessAddress {
   streetAddress: string
   city: string
   stateProvince: string
-  postalCode: string
+  postalCode: any
 }
 export interface AddressModalProps {
   opened: boolean

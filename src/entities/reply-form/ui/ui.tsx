@@ -7,7 +7,7 @@ import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, isSubmitting, setValue, control } =
+  const { handleSubmit, onSubmit, isSubmitting, setValue, control, t } =
     useManageReplyForm()
 
   return (
@@ -41,8 +41,8 @@ const Ui = () => {
           </SActionIcon>
 
           <FormTextarea
-            placeholder="Greetings..."
-            label="Ask the seller"
+            placeholder={t('messages.greetings')}
+            label={t('product.askSeller')}
             name="message"
             control={control}
             mb={0}

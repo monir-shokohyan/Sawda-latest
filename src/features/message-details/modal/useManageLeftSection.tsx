@@ -11,9 +11,11 @@ import {
   MdMarkEmailUnread,
   MdSelectAll,
 } from 'react-icons/md'
+import { useTranslation } from 'react-i18next'
 
 const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   const [messages, setMessages] = useState<Message[]>(generateMessages(0, 15))
   const [totalFetched, setTotalFetched] = useState(15)
   const [reachedEnd, setReachedEnd] = useState(false)
@@ -218,6 +220,7 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
     animationDirection,
     bulkEmailActions,
     swipeHandlers,
+    t,
   }
 }
 

@@ -6,6 +6,7 @@ import { Controls, CropContainer, Segmented } from '../styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { ImageEditorProps, Point } from '../types'
 import { BaseModal } from '@shared/ui/modal'
+import { useTranslation } from 'react-i18next'
 
 export const ImageEditor = ({
   opened,
@@ -16,6 +17,7 @@ export const ImageEditor = ({
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   const [rotation, setRotation] = useState(0)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null)
   const [aspect, setAspect] = useState<number | undefined>(4 / 3)
@@ -288,7 +290,7 @@ export const ImageEditor = ({
               >
                 Cancel
               </SButton>
-              <SButton onClick={handleSave}>Save Changes</SButton>
+              <SButton onClick={handleSave}>{t('product.saving')}</SButton>
             </Group>
           </Group>
         </Stack>

@@ -2,38 +2,40 @@ export const ConditionConstants = [
   {
     id: 1,
     value: '1',
-    label: 'Brand new',
+    label: 'condition.brandNew',
   },
   {
     id: 2,
     value: '2',
-    label: 'Like new',
+    label: 'condition.likeNew',
   },
   {
     id: 3,
     value: '3',
-    label: 'Lightly used',
+    label: 'condition.lightlyUsed',
   },
   {
     id: 4,
     value: '4',
-    label: 'Well used',
+    label: 'condition.wellUsed',
   },
   {
     id: 5,
     value: '5',
-    label: 'Heavily used',
+    label: 'condition.heavilyUsed',
   },
-]
+] as const
+
+
 export const IsFreeConstants = [
   {
     id: 1,
     value: '1',
-    label: 'For Sale',
+    label: 'product.forSale',
   },
   {
     id: 2,
     value: '2',
-    label: 'For Free',
+    label: 'product.forFree',
   },
-]
+] as const

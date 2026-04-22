@@ -170,7 +170,7 @@ const Navbar = () => {
             timingFunction: 'linear',
           }}
           position="right"
-          title="Notification"
+          title={t('settings.notification')}
         >
           <NotificationStatus onNotificationSelect={() => alert('wokring')} />
         </Drawer>
@@ -185,7 +185,7 @@ const Navbar = () => {
             timingFunction: 'linear',
           }}
           position="right"
-          title="Following"
+          title={t('following.following')}
         >
           <Following onFollowingSelect={() => alert('wokring')} />
         </Drawer>

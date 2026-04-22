@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
 import { Responsive } from '@shared/hooks/responsive'
 import { FilterFormType } from '../types'
-import { defaultValues, ProvinceConstants } from '../constant'
+import { CurrencyConstants, defaultValues, ProvinceConstants } from '../constant'
 import { TbCurrencyAfghani } from 'react-icons/tb'
 import { MdAttachMoney } from 'react-icons/md'
 import { useEffect } from 'react'
@@ -47,6 +47,10 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
   const resetForm = () => {
     reset(defaultValues)
   }
+  const modifiedCurrencyConstant = CurrencyConstants.map(item=>({
+    ...item,
+    label: t(item.label)
+  }))
 
   return {
     isMobile,
@@ -60,6 +64,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     resetForm,
     category,
     t,
+    modifiedCurrencyConstant,
   }
 }
 

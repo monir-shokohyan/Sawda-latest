@@ -4,9 +4,9 @@ import { MdOutlineLocationOn } from 'react-icons/md'
 const ProvinceIcon = <MdOutlineLocationOn size={20} />
 
 export const CurrencyConstants = [
-  { value: 'AFN', label: 'Afghani (AFN)' },
-  { value: 'USD', label: 'Dollar (USD)' },
-]
+  { value: 'AFN', label: 'currency.afn' },
+  { value: 'USD', label: 'currency.usd' },
+] as const
 
 export const ProvinceConstants: (Categorytype & {
   districts: { value: string; label: string }[]

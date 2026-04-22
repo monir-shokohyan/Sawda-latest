@@ -60,8 +60,8 @@ const Ui = () => {
         <FormSelect
           name="currency"
           control={control}
-          label="Currency"
-          placeholder="currency"
+          label={t('product.currency')}
+          placeholder={t('product.selectCurrency')}
           data={CurrencyConstants}
           mb={10}
           shape="pill"

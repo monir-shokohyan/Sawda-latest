@@ -5,13 +5,13 @@ import { FormRating } from '@shared/ui/form/FormRating'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, control } = useManageReviewForm()
+  const { handleSubmit, onSubmit, control, t } = useManageReviewForm()
 
   return (
     <FormWrapper
       handleSubmit={handleSubmit(onSubmit)}
       allowButton
-      buttonTitle="Post Review"
+      buttonTitle={t('product.postReview')}
       buttonFullWidth
       title=""
       allowPadding={false}
@@ -26,7 +26,7 @@ const Ui = () => {
           mb={0}
         />
         <FormTextarea
-          placeholder="Write your review"
+          placeholder={t('product.writeReview')}
           label=""
           name="review"
           control={control}

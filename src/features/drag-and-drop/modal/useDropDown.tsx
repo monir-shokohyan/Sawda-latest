@@ -4,6 +4,7 @@ import { Responsive } from '@shared/hooks/responsive'
 import imageCompression from 'browser-image-compression'
 import { FileWithPath } from '@mantine/dropzone'
 import { ImageFile } from '../types'
+import { useTranslation } from 'react-i18next'
 
 interface UseDropDownProps {
   images: ImageFile[]
@@ -15,7 +16,8 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
   const theme = useMantineTheme()
   const openRef = useRef<() => void>(null)
   const [isCompressing, setIsCompressing] = useState(false)
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  const { colorScheme } = useMantineColorScheme()
+  const { t } = useTranslation()
 
   const isDark = colorScheme === 'dark'
 
@@ -116,5 +118,6 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
     handleDrop,
     removeImage,
     isDark,
+    t,
   }
 }

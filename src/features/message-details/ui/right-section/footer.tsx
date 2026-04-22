@@ -36,6 +36,7 @@ const Footer = ({
     MAX_FILES,
     recordingTime,
     cancelRecording,
+    t,
   } = useManageRightfooter({ inputValue, handleSendMessage })
   return (
     <>
@@ -154,7 +155,7 @@ const Footer = ({
               multiple
             >
               {(props) => (
-                <Tooltip label="Attach images">
+                <Tooltip label={t('messages.attachImages')}>
                   <ActionIcon
                     size="lg"
                     radius="xl"
@@ -171,7 +172,7 @@ const Footer = ({
           </Box>
 
           {/* Voice Recording Button */}
-          <Tooltip label="Record voice message">
+          <Tooltip label={t('messages.recordVoice')}>
             <ActionIcon
               size="lg"
               radius="xl"

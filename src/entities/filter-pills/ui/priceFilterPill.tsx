@@ -3,6 +3,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { ExpandArrow } from '@shared/ui/expandArrow'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { Control, FieldValues, Path, useWatch } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { IoIosArrowDown } from 'react-icons/io'
 
 interface PriceFilterPillProps<T extends FieldValues> {
@@ -24,6 +25,7 @@ const PriceFilterPill = <T extends FieldValues>({
 
   const priceFrom = useWatch({ control, name: priceFromName })
   const priceTo = useWatch({ control, name: priceToName })
+  const { t } = useTranslation()
 
   const hasValue = priceFrom > 0 || priceTo > 0
 
@@ -95,7 +97,7 @@ const PriceFilterPill = <T extends FieldValues>({
             name={priceFromName}
             control={control}
             label={`Price From (${currencySymbol})`}
-            placeholder="From"
+            placeholder={t('filter.from')}
             mb={0}
           />
           <FormNumberInput

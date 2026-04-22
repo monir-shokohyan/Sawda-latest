@@ -4,6 +4,7 @@ import { Stack, Grid } from '@mantine/core'
 import { Content, IconWrapper, TitleWrapper } from '../styles'
 import { ProductCard } from '@features/product-card'
 import { PrimaryHeading } from '@shared/typography/primary-heading'
+import { useTranslation } from 'react-i18next'
 
 const ProductsMaps = Array.from({ length: 9 }, (_, i) => ({
   id: i,
@@ -19,6 +20,7 @@ const ProductsMaps = Array.from({ length: 9 }, (_, i) => ({
 
 export function SimilarAdsSection() {
   const [isOpen, setIsOpen] = useState(true)
+  const { t } = useTranslation()
 
   const toggleOpen = () => setIsOpen((prev) => !prev)
 
@@ -28,7 +30,7 @@ export function SimilarAdsSection() {
       pb={10}
     >
       <TitleWrapper onClick={toggleOpen}>
-        <PrimaryHeading>Similar advertisements</PrimaryHeading>
+        <PrimaryHeading>{t('product.similarAds')}</PrimaryHeading>
         <IconWrapper
           $isOpen={isOpen}
           variant="transparent"

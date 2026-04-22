@@ -4,7 +4,6 @@ import { FormInput } from '@shared/ui/form'
 import { FormSelect } from '@shared/ui/form/FormSelect'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 import { FormChipGroup } from '@shared/ui/form/FormChipGroup'
-import { ConditionConstants, IsFreeConstants } from '../constant'
 import { FormColorPicker } from '@shared/ui/form/FormColorPicker'
 import { FormPriceInput } from '@shared/ui/form/FormPriceInput'
 import { FormSlider } from '@shared/ui/form/FormSlider'
@@ -12,7 +11,7 @@ import { ProvinceConstants } from '@entities/filter-form/constant'
 import { useManageAddProduct } from '../model'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
-  const { isFree, isMobile, handleSubmit, control, category, t } =
+  const { isFree, isMobile, handleSubmit, control, category, t, modifiedContant, modifiedConditionConstant } =
     useManageAddProduct()
 
   return (
@@ -47,7 +46,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         name="condition"
         multiple={false}
         control={control}
-        options={ConditionConstants}
+        options={modifiedConditionConstant}
       />
       <FormSelect
         label={t('product.province')}
@@ -57,7 +56,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         data={ProvinceConstants}
       />
       <FormColorPicker
-        label="Pick a color"
+        label={t('product.pickColor')}
         name="color"
         control={control}
         multiple
@@ -69,7 +68,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         name="isfree"
         multiple={false}
         control={control}
-        options={IsFreeConstants}
+        options={modifiedContant}
       />
       {isFree && (
         <>

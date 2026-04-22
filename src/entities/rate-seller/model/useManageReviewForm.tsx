@@ -4,6 +4,7 @@ import { schema } from '../schema'
 import { Responsive } from '@shared/hooks/responsive'
 import { ReviewType } from '../types'
 import { defaultValues } from '../constant'
+import { useTranslation } from 'react-i18next'
 
 const useManageReviewForm = () => {
   const { isMobile } = Responsive()
@@ -11,6 +12,7 @@ const useManageReviewForm = () => {
     resolver: yupResolver(schema),
     defaultValues,
   })
+  const { t } = useTranslation()
 
   const onSubmit = (data: any) => {
     console.log(data)
@@ -25,6 +27,7 @@ const useManageReviewForm = () => {
     control,
     isMobile,
     ResendOtp,
+    t,
   }
 }
 

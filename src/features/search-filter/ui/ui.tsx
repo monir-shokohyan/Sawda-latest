@@ -5,6 +5,7 @@ import { FilterButton } from './filterButton'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '@shared/api/paths/paths'
 import { MenuFilter } from './MenuFilter'
+import { useTranslation } from 'react-i18next'
 
 const Ui = ({
   isMobile,
@@ -18,6 +19,7 @@ const Ui = ({
       ? { base: '90vw', sm: '90vw', md: '40vw', lg: '40vw' }
       : { base: '90vw', sm: '90vw', md: '55vw', lg: '70vw' }
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const handleClick = () => {
     if (isMobile) {
@@ -52,7 +54,7 @@ const Ui = ({
       {!isMobile && !isDashboard && <MenuFilter arrowPosition="bottom" />}
       <SInput
         type="text"
-        placeholder="Search"
+        placeholder={t('common.search')}
         w={inputWidth}
         radius={0}
         h="100%"

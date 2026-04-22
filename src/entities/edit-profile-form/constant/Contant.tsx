@@ -46,10 +46,10 @@ const AfghanistanCities = [
   { value: 'Puli Alam', label: 'Puli Alam' },
 ]
 const GenderObj = [
-  { value: 'Male', label: 'Male' },
-  { value: 'Female', label: 'Female' },
-  { value: 'Others', label: 'Others' },
-]
+  { value: 'Male', label: 'gender.male' },
+  { value: 'Female', label: 'gender.female' },
+  { value: 'Others', label: 'gender.other' },
+] as const
 
 const defaultValues = {
   username: 'johndoe',

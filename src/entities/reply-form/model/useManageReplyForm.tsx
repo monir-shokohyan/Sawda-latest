@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { ReplyFormType } from '../types'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from '../schema'
+import { useTranslation } from 'react-i18next'
 
 const useManageReplyForm = () => {
   const theme = useMantineTheme()
@@ -20,6 +21,7 @@ const useManageReplyForm = () => {
       message: '',
     },
   })
+  const { t } = useTranslation()
 
   const onSubmit = (data: ReplyFormType) => {
     console.log('Sending message:', data.message)
@@ -34,6 +36,7 @@ const useManageReplyForm = () => {
     isSubmitting,
     onSubmit,
     control,
+    t,
   }
 }
 

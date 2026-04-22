@@ -9,9 +9,11 @@ import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { RateSellerForm } from '@entities/rate-seller'
 import { BiMessageDetail } from 'react-icons/bi'
 import { PriceDisplay } from '@shared/ui/price-display'
+import { useTranslation } from 'react-i18next'
 
 const RightSection = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   return (
     <Stack
       w={isMobile ? '100%' : '25%'}
@@ -37,7 +39,7 @@ const RightSection = () => {
           radius={3}
           leftSection={<BiMessageDetail size={18} />}
         >
-          <Text size="md">Write a message</Text>
+          <Text size="md">{t('messages.writeMessage')}</Text>
         </SGButton>
       </Stack>
       <Divider />

@@ -34,6 +34,7 @@ const LeftSection = ({
     messages,
     bulkEmailActions,
     swipeHandlers,
+    t,
   } = useManageLeftSection({ onMessageSelect })
   return (
     <Stack
@@ -68,7 +69,7 @@ const LeftSection = ({
                 fw={600}
                 size="lg"
               >
-                Messages
+                {t('messages.messages')}
               </Text>
               {unreadCount > 0 && (
                 <Badge

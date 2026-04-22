@@ -2,6 +2,7 @@ import { notifications } from '@mantine/notifications'
 import React, { useEffect, useRef, useState } from 'react'
 import { AttachedFile, RightFooterProps } from '../types'
 import imageCompression from 'browser-image-compression'
+import { useTranslation } from 'react-i18next'
 
 const useManageRightfooter = ({
   inputValue,
@@ -13,10 +14,11 @@ const useManageRightfooter = ({
   const [isRecording, setIsRecording] = useState(false)
   const [recordingTime, setRecordingTime] = useState(0)
   const [showRecordModal, setShowRecordModal] = useState(false)
+  const { t } = useTranslation()
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioChunksRef = useRef<Blob[]>([])
-  const recordingIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const recordingIntervalRef = useRef<any | null>(null)
 
   useEffect(() => {
     return () => {
@@ -70,7 +72,7 @@ const useManageRightfooter = ({
   const validateFile = (file: File): boolean => {
     if (file.size > MAX_FILE_SIZE) {
       notifications.show({
-        title: 'File Too Large',
+        title: t('image.fileTooLarge'),
         message: `${file.name} exceeds 5MB limit (${(file.size / 1024 / 1024).toFixed(2)}MB)`,
         color: 'red',
       })
@@ -85,7 +87,7 @@ const useManageRightfooter = ({
     // Check file limit
     if (attachedFiles.length + fileArray.length > MAX_FILES) {
       notifications.show({
-        title: 'Too Many Files',
+        title: t('image.tooManyFiles'),
         message: `You can only attach up to ${MAX_FILES} files`,
         color: 'orange',
       })
@@ -170,7 +172,7 @@ const useManageRightfooter = ({
   const startRecording = async () => {
     if (attachedFiles.length >= MAX_FILES) {
       notifications.show({
-        title: 'File Limit Reached',
+        title: t('image.fileLimitReached'),
         message: `You can only attach up to ${MAX_FILES} files`,
         color: 'orange',
       })
@@ -229,7 +231,7 @@ const useManageRightfooter = ({
       }, 1000)
     } catch (error) {
       notifications.show({
-        title: 'Microphone Access Denied',
+        title: t('messages.micAccessDenied'),
         message: 'Please allow microphone access to record audio',
         color: 'red',
       })
@@ -317,6 +319,7 @@ const useManageRightfooter = ({
     MAX_FILES,
     MAX_FILE_SIZE,
     cancelRecording,
+    t,
   }
 }
 

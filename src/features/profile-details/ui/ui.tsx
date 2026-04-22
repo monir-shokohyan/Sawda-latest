@@ -28,7 +28,7 @@ function Ui() {
           mt={100}
         >
           <Tabs.List>
-            <Tabs.Tab value="Listing">{t('profile.reviews')}</Tabs.Tab>
+            <Tabs.Tab value="Listing">{t('profile.listing')}</Tabs.Tab>
             <Tabs.Tab value="Reviews">{t('profile.reviews')}</Tabs.Tab>
           </Tabs.List>
 

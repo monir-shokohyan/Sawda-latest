@@ -63,12 +63,21 @@
     "update": "به‌روزرسانی",
     "logout": "خروج",
     "profile": "پروفایل",
-    "verifyWhatsapp": "همین حالا شماره واتساپ را تأیید کنید"
+    "verifyWhatsapp": "همین حالا شماره واتساپ را تأیید کنید",
+    "follow": "دنبال کردن",
+    "signOut": "خروج از حساب",
+    "posts": "پست‌ها",
+    "followers": "دنبال‌کنندگان",
+    "contactNumber": "شماره تماس",
+    "website": "وب‌سایت شما",
+    "provinces": "ولایات",
+    "selectProvince": "انتخاب ولایت"
   },
   "product": {
     "addProduct": "افزودن محصول",
     "aboutProduct": "درباره محصول",
     "title": "عنوان",
+    "writeTitle": "عنوان محصول را بنویسید",
     "category": "دسته‌بندی",
     "selectCategory": "انتخاب دسته‌بندی",
     "condition": "وضعیت",
@@ -79,6 +88,8 @@
     "selectDistrict": "انتخاب ولسوالی",
     "price": "قیمت",
     "selectPrice": "انتخاب قیمت",
+    "priceFrom": "از قیمت",
+    "priceTo": "تا قیمت",
     "discount": "تخفیف",
     "color": "رنگ",
     "pickColor": "انتخاب رنگ",
@@ -109,6 +120,7 @@
     "privacy": "حریم خصوصی",
     "theme": "قالب",
     "dataPrivacy": "تنظیمات داده و حریم خصوصی",
+    "dataAndPrivacy": "داده و حریم خصوصی",
     "privacyPreferences": "ترجیحات حریم خصوصی",
     "demographicInfo": "اطلاعات جمعیتی",
     "interestBasedInfo": "اطلاعات بر اساس علایق",
@@ -193,10 +205,40 @@
   },
   "gender": {
     "male": "مذکر",
-    "female": "مؤنث"
+    "female": "مؤنث",
+    "other": "دیگر"
   },
   "following": {
-    "following": "دنبال‌شوندگان"
+    "following": "دنبال‌شوندگان",
+    "follower": "دنبال کننده"
+  },
+  "notification": {
+    "all": "همه",
+    "following": "دنبال‌شوندگان",
+    "support": "پشتیبانی"
+  },
+  "theme": {
+    "system": "سیستم",
+    "light": "روشن",
+    "dark": "تاریک",
+    "systemAlt": "پیش‌نمایش قالب پیش‌فرض سیستم",
+    "lightAlt": "پیش‌نمایش قالب روشن",
+    "darkAlt": "پیش‌نمایش قالب تاریک"
+  },
+  "optionMenu": {
+    "report": "گزارش",
+    "edit": "ویرایش {{type}}",
+    "delete": "حذف {{type}}",
+    "deleteTitle": "حذف {{type}} شما",
+    "confirmDeleteProfile": "آیا مطمئنید که می‌خواهید پروفایل خود را حذف کنید؟ این عمل غیرقابل برگشت است و برای بازیابی اطلاعات باید با پشتیبانی تماس بگیرید.",
+    "confirmDeleteProduct": "آیا مطمئنید که می‌خواهید محصول خود را حذف کنید؟",
+    "cancel": "لغو"
+  },
+  "favorites": {
+    "favorites": "علاقه‌مندی‌ها"
+  },
+  "privacy": {
+    "infoText": "سودا ممکن است اطلاعاتی که داده شخصی محسوب نمی‌شوند را با شرکای تبلیغاتی و تحلیلی خود به اشتراک بگذارد. این به پایداری کسب‌وکار سودا در طولانی‌مدت کمک می‌کند تا بتوانیم ویژگی‌های پایه را برای همه کاربران رایگان نگه داریم. از حمایت شما متشکریم."
   },
   "common": {
     "home": "خانه",
@@ -212,6 +254,12 @@
     "returnToHomepage": "بازگشت به صفحه اصلی",
     "tryAgain": "دوباره امتحان کنید",
     "businessConduct": "آیین‌نامه تجاری",
-    "saveChanges": "ذخیره تغییرات"
+    "saveChanges": "ذخیره تغییرات",
+    "cancel": "لغو",
+    "chooseCategory": "انتخاب دسته‌بندی",
+    "noCategoryFound": "دسته‌بندی یافت نشد",
+    "nothingFound": "چیزی یافت نشد",
+    "selectCategory": "انتخاب دسته‌بندی",
+    "category": "دسته‌بندی"
   }
 }

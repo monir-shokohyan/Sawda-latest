@@ -18,7 +18,7 @@ const Ui = () => {
           mb={10}
         >
           <Details
-            title="Listings you are interested in"
+            title={t('settings.listingsInterested')}
             allowBox={false}
           />
           <Stack
@@ -32,7 +32,7 @@ const Ui = () => {
               name="email"
             />
             <FormCheckbox
-              label="Mobile app push noifications"
+              label={t('settings.mobileAppPush')}
               control={control}
               name="pushNotification"
             />
@@ -44,7 +44,7 @@ const Ui = () => {
         >
           <Divider />
           <Details
-            title="From sawda"
+            title={t('messages.fromSawda')}
             allowBox={false}
           />
           <Stack
@@ -58,12 +58,12 @@ const Ui = () => {
               name="sawdaEmail"
             />
             <FormCheckbox
-              label="Mobile app push noifications"
+              label={t('settings.mobileAppPush')}
               control={control}
               name="sawdaPushNotification"
             />
             <FormCheckbox
-              label="Sms"
+              label={t('settings.sms')}
               control={control}
               name="sms"
             />

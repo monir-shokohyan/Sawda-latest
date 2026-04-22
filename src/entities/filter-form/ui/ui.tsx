@@ -1,5 +1,5 @@
 import { Flex } from '@mantine/core'
-import { CurrencyConstants, ProvinceConstants } from '../constant'
+import { ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal } from 'react-icons/tb'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { FormSelect } from '@shared/ui/form/FormSelect'
@@ -18,12 +18,13 @@ const Ui = () => {
     onSubmit,
     category,
     t,
+    modifiedCurrencyConstant,
   } = useManageFilterForm({ isPill: false })
   return (
     <FormWrapper
       title=""
       allowButton
-      buttonTitle="Filter ads"
+      buttonTitle={t('filter.filterAds')}
       buttonLeftSection={<TbAdjustmentsHorizontal />}
       handleSubmit={handleSubmit(onSubmit)}
     >
@@ -67,9 +68,9 @@ const Ui = () => {
         <FormSelect
           name="currency"
           control={control}
-          label="Currency"
-          placeholder="Select currency"
-          data={CurrencyConstants}
+          label={t('product.currency')}
+          placeholder={t('product.selectCurrency')}
+          data={modifiedCurrencyConstant}
           leftSection={currencyIcon}
           mb={10}
         />
@@ -84,14 +85,14 @@ const Ui = () => {
           name="priceFrom"
           control={control}
           label={`Price From (${currencySymbol})`}
-          placeholder="From"
+          placeholder={t('filter.from')}
           mb={10}
         />
         <FormNumberInput
           label={`Price To (${currencySymbol})`}
           name="priceTo"
           control={control}
-          placeholder="To"
+          placeholder={t('filter.to')}
           mb={10}
         />
       </Flex>
