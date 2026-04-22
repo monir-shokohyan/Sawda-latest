@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useState } from 'react'
+import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store, persistor } from './store'
@@ -15,17 +15,35 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { Loader } from '@shared/ui/loader/Loader'
 import { useTranslation } from 'react-i18next'
 
+const RTL_LANGS = ['fa', 'ps']
+
 export const Providers = ({ children }: PropsWithChildren) => {
   const [dir, setDir] = useState<'ltr' | 'rtl'>('ltr')
+  const [lang, setLang] = useState<string>('en')
   const { i18n } = useTranslation()
+
   useEffect(() => {
-    const updateDir = (lang: string) => {
-      setDir(['fa', 'ps'].includes(lang) ? 'rtl' : 'ltr')
+    const updateDir = (language: string) => {
+      const isRtl = RTL_LANGS.includes(language)
+      setDir(isRtl ? 'rtl' : 'ltr')
+      setLang(language)
+      document.documentElement.lang = language
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr'
     }
     updateDir(i18n.language)
     i18n.on('languageChanged', updateDir)
     return () => i18n.off('languageChanged', updateDir)
   }, [])
+
+  const dynamicTheme = useMemo(
+    () => ({
+      ...theme,
+      fontFamily: RTL_LANGS.includes(lang)
+        ? 'Vazirmatn, sans-serif'
+        : 'Inter, sans-serif',
+    }),
+    [lang],
+  )
   return (
     <BrowserRouter>
       <Provider store={store}>
@@ -38,7 +56,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
             colorSchemeManager={localStorageColorSchemeManager({
               key: 'my-app-theme',
             })}
-            theme={theme}
+            theme={dynamicTheme}
           >
             <PersistGate
               loading={<Loader />}
