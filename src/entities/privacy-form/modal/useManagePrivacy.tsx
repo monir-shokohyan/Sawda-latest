@@ -13,7 +13,7 @@ const useManagePrivacy = () => {
     defaultValues,
     mode: 'onChange',
   })
-  const { t }= useTranslation()
+  const { t } = useTranslation()
 
   const values = watch()
 

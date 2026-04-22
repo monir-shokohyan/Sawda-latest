@@ -2,7 +2,7 @@ import { useManagePrivacy } from '../modal'
 import { FormCheckbox } from '@shared/ui/form/FormCheckBox'
 
 const Ui = () => {
-  const { control,t } = useManagePrivacy()
+  const { control, t } = useManagePrivacy()
   return (
     <>
       <FormCheckbox

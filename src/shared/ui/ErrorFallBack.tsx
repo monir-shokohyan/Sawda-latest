@@ -107,18 +107,17 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
             style={{ maxWidth: '100%' }}
           >
             <Text fw={500}>{errorMessage}</Text>
-            {!import.meta.env.PROD &&
-              error instanceof Error && (
-                <Text
-                  mt="xs"
-                  size="sm"
-                  c="dimmed"
-                  component="pre"
-                  style={{ whiteSpace: 'pre-wrap' }}
-                >
-                  {error.stack}
-                </Text>
-              )}
+            {!import.meta.env.PROD && error instanceof Error && (
+              <Text
+                mt="xs"
+                size="sm"
+                c="dimmed"
+                component="pre"
+                style={{ whiteSpace: 'pre-wrap' }}
+              >
+                {error.stack}
+              </Text>
+            )}
           </Alert>
         )}
       </Stack>

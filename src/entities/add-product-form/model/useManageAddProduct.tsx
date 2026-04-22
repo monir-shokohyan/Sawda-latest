@@ -15,16 +15,25 @@ const useManageAddProduct = () => {
   const { category } = useCategories()
   const isFree = watch('isfree') === '1'
   const { t } = useTranslation()
-  const modifiedContant = IsFreeConstants.map((item)=>({
+  const modifiedContant = IsFreeConstants.map((item) => ({
     ...item,
-    label: t(item.label)
+    label: t(item.label),
   }))
-  const modifiedConditionConstant = ConditionConstants.map(item=>({
+  const modifiedConditionConstant = ConditionConstants.map((item) => ({
     ...item,
-    label: t(item.label)
+    label: t(item.label),
   }))
 
-  return { isMobile, control, handleSubmit, isFree, category, t, modifiedContant, modifiedConditionConstant }
+  return {
+    isMobile,
+    control,
+    handleSubmit,
+    isFree,
+    category,
+    t,
+    modifiedContant,
+    modifiedConditionConstant,
+  }
 }
 
 export { useManageAddProduct }

@@ -26,7 +26,6 @@ export const ConditionConstants = [
   },
 ] as const
 
-
 export const IsFreeConstants = [
   {
     id: 1,

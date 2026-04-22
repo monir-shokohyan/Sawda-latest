@@ -17,8 +17,12 @@ const FollowingTab = ({
       onChange={handleChange}
     >
       <Tabs.List grow>
-        <Tabs.Tab value="Following">{t('following.following')} ({followingCount})</Tabs.Tab>
-        <Tabs.Tab value="Follower">{t('following.follower')} ({followersCount})</Tabs.Tab>
+        <Tabs.Tab value="Following">
+          {t('following.following')} ({followingCount})
+        </Tabs.Tab>
+        <Tabs.Tab value="Follower">
+          {t('following.follower')} ({followersCount})
+        </Tabs.Tab>
       </Tabs.List>
     </HovTabs>
   )

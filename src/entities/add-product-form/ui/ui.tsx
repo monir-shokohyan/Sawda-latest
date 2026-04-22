@@ -11,8 +11,16 @@ import { ProvinceConstants } from '@entities/filter-form/constant'
 import { useManageAddProduct } from '../model'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
-  const { isFree, isMobile, handleSubmit, control, category, t, modifiedContant, modifiedConditionConstant } =
-    useManageAddProduct()
+  const {
+    isFree,
+    isMobile,
+    handleSubmit,
+    control,
+    category,
+    t,
+    modifiedContant,
+    modifiedConditionConstant,
+  } = useManageAddProduct()
 
   return (
     <FormWrapper
