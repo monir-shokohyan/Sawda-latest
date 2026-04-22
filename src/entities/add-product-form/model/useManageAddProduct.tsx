@@ -6,6 +6,7 @@ import { AddProductFormData } from '../types'
 import { useCategories } from '@shared/ui/category/useCategory'
 import { useTranslation } from 'react-i18next'
 import { ConditionConstants, IsFreeConstants } from '../constant'
+import { ProvinceConstants } from '@entities/filter-form/constant'
 
 const useManageAddProduct = () => {
   const { control, handleSubmit, watch } = useForm<AddProductFormData>({
@@ -23,6 +24,14 @@ const useManageAddProduct = () => {
     ...item,
     label: t(item.label),
   }))
+  const modifiedProvinceConstants = ProvinceConstants.map((province) => ({
+    ...province,
+    label: t(province.label),
+    districts: province.districts.map((d) => ({
+      ...d,
+      label: t(d.label),
+    })),
+  }))
 
   return {
     isMobile,
@@ -33,6 +42,7 @@ const useManageAddProduct = () => {
     t,
     modifiedContant,
     modifiedConditionConstant,
+    modifiedProvinceConstants,
   }
 }
 

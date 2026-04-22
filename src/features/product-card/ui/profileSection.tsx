@@ -8,6 +8,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { ProfileInfo } from '@features/profile-info'
 import { BaseModal } from '@shared/ui/modal'
 import { Paragraph } from '@shared/typography/paragraph'
+import { useIsRtlLang } from '@shared/hooks'
 
 const ProfileSection = ({
   profile,
@@ -35,6 +36,7 @@ const ProfileSection = ({
   const padding =
     isMobile && isCard ? '10px' : isMobile && !isCard ? '0px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
+  const { textAlign } = useIsRtlLang()
 
   return (
     <>
@@ -89,7 +91,7 @@ const ProfileSection = ({
           </Flex>
 
           {showEmail && (
-            <Paragraph c={isStaticColor ? 'white' : 'dimmed'}>
+            <Paragraph c={isStaticColor ? 'white' : 'dimmed'} style={{textAlign}}>
               {profile?.email}
             </Paragraph>
           )}

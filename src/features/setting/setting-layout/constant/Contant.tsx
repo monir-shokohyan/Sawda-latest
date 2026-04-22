@@ -1,11 +1,11 @@
 import { Paths } from '@shared/api/paths/paths'
 
 const MenuItems = [
-  { label: 'Edit profile', path: Paths.EditProfile },
-  { label: 'Change password', path: Paths.ChangePassword },
-  { label: 'Notification', path: Paths.Notification },
-  { label: 'Data and privacy', path: Paths.Privacy },
-  { label: 'Theme', path: Paths.Theme },
-]
+  { label: 'profile.editProfile', path: Paths.EditProfile },
+  { label: 'profile.changePassword', path: Paths.ChangePassword },
+  { label: 'settings.notification', path: Paths.Notification },
+  { label: 'settings.dataAndPrivacy', path: Paths.Privacy },
+  { label: 'settings.theme', path: Paths.Theme },
+] as const
 
 export { MenuItems }

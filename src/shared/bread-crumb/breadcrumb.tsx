@@ -2,6 +2,7 @@ import { Anchor, Breadcrumbs, Text } from '@mantine/core'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import { FaHome } from 'react-icons/fa'
+import { useIsRtlLang } from '@shared/hooks'
 
 export interface BreadcrumbItem {
   title: React.ReactNode
@@ -29,6 +30,7 @@ const BreadcrumbsNav: React.FC<BreadcrumbsNavProps> = ({
       color="#366FB4"
     />
   )
+  const { isEnglish } = useIsRtlLang()
 
   const breadcrumbElements = items.map((item, index) => {
     const isLast = index === items.length - 1
@@ -69,7 +71,7 @@ const BreadcrumbsNav: React.FC<BreadcrumbsNavProps> = ({
       className={className}
       style={{ margin: '10px' }}
     >
-      <Breadcrumbs separator={separator ?? '→'}>
+      <Breadcrumbs separator={separator ?? '-'}>
         {breadcrumbElements}
       </Breadcrumbs>
     </nav>

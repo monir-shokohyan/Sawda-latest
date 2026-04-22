@@ -4,6 +4,7 @@ import { Stack, StackProps } from '@mantine/core'
 import { GeneralPadding } from '@shared/constants'
 import BreadcrumbsNav from '@shared/bread-crumb/breadcrumb'
 import { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   isSetting?: boolean
@@ -29,6 +30,7 @@ const Ui = (Uiprops: Props) => {
   } = Uiprops
 
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   return (
     <GradientContainer>
       <Stack
@@ -41,7 +43,7 @@ const Ui = (Uiprops: Props) => {
           <BreadcrumbsNav
             items={[
               { title: 'Home', href: '/' },
-              { title: 'settings' },
+              { title: t('settings.settings') },
               { title },
             ]}
           />

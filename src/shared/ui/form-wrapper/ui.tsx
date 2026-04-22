@@ -1,4 +1,5 @@
 import { Flex } from '@mantine/core'
+import { useIsRtlLang } from '@shared/hooks'
 import { Responsive } from '@shared/hooks/responsive'
 import { SButton } from '@shared/styles'
 import { PrimaryHeading } from '@shared/typography/primary-heading'
@@ -34,6 +35,7 @@ const Ui = ({
   const { isMobile } = Responsive()
   const paddingY = isMobile ? 20 : 40
   const paddingX = isMobile ? 10 : 40
+  const { textAlign } = useIsRtlLang()
   return (
     <Flex
       py={allowPadding ? paddingY : '0px'}
@@ -44,7 +46,7 @@ const Ui = ({
         flexGrow: fullSize ? 1 : 0,
       }}
     >
-      {title && <PrimaryHeading>{title}</PrimaryHeading>}
+      {title && <PrimaryHeading style={{textAlign}}>{title}</PrimaryHeading>}
 
       <div style={{ marginTop: marginTop }}>
         {children}

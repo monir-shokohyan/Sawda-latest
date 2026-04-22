@@ -1,36 +1,42 @@
 import { useMantineColorScheme } from '@mantine/core'
+import { useTranslation } from 'react-i18next'
 
 const useManageTheme = () => {
   const { colorScheme, setColorScheme } = useMantineColorScheme()
+  const { t } = useTranslation()
 
   const ThemeObj = [
     {
-      textFooter: 'System',
+      textFooter: 'theme.system',
       src: '/mode/systemTheme.svg',
       alt: 'System default theme preview',
       handleClick: () => setColorScheme('auto'),
       active: colorScheme === 'auto',
     },
     {
-      textFooter: 'Light',
+      textFooter: 'theme.light',
       src: '/mode/lightTheme.svg',
       alt: 'Light theme preview',
       handleClick: () => setColorScheme('light'),
       active: colorScheme === 'light',
     },
     {
-      textFooter: 'Dark',
+      textFooter: 'theme.dark',
       src: '/mode/darkTheme.svg',
       alt: 'Dark theme preview',
       handleClick: () => setColorScheme('dark'),
       active: colorScheme === 'dark',
     },
-  ]
-  console.log('color scheme :', colorScheme)
+  ] as const
+  const modifiedThemeObj = ThemeObj.map(theme=>({
+    ...theme,
+    textFooter: t(theme.textFooter)
+  }))
 
   return {
-    ThemeObj,
+    modifiedThemeObj,
     colorScheme,
+    t,
   }
 }
 

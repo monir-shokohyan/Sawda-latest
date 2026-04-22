@@ -1,5 +1,6 @@
 import { Button, Group, Stack, Text, Progress } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import { useIsRtlLang } from '@shared/hooks'
 import { SInputPassword } from '@shared/styles'
 import { Paragraph } from '@shared/typography/paragraph'
 import { ReactNode, useMemo } from 'react'
@@ -45,6 +46,7 @@ const FormPasswordInput = <T extends FieldValues>({
   maxLength = 8,
 }: FormInputProps<T>) => {
   const [visible, { toggle }] = useDisclosure(false)
+  const { textAlign } = useIsRtlLang()
 
   return (
     <Group
@@ -56,7 +58,7 @@ const FormPasswordInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph>{label}</Paragraph>
+          <Paragraph style={{textAlign}}>{label}</Paragraph>
         </label>
 
         <Controller

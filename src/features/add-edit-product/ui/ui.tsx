@@ -7,17 +7,19 @@ import { useState } from 'react'
 import { ImageFile } from '@features/drag-and-drop/types'
 import { AddProductFormData } from '@entities/add-product-form/types'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
+import { useTranslation } from 'react-i18next'
 
 function Ui() {
   const { isMobile } = Responsive()
   const [images, setImages] = useState<ImageFile[]>([])
+    const { t } = useTranslation()
 
   const onSubmit = (data: AddProductFormData) => {
     console.log(data)
   }
 
   return (
-    <ContainerWithBreadCrumb title="Add product">
+    <ContainerWithBreadCrumb title={t('product.addProduct')}>
       <Flex
         gap="10px"
         p={isMobile ? '0px' : 'xl'}

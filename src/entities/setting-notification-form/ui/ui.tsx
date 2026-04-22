@@ -10,7 +10,7 @@ const Ui = () => {
     <>
       <FormWrapper
         allowButton={false}
-        title="Notifications"
+        title={t('settings.notifications')}
         buttonTitle=""
       >
         <Stack

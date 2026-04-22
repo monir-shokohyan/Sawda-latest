@@ -16,7 +16,7 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
     >
       <SText
         size={isMobile ? '0.7rem' : 'sm'}
-        fw={500}
+        fw={600}
         c="StextPrimary"
         mb="md"
         lineClamp={2}

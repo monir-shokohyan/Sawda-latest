@@ -6,6 +6,7 @@ import {
   Text,
   TextInputProps,
 } from '@mantine/core'
+import { useIsRtlLang } from '@shared/hooks'
 import { SInput } from '@shared/styles'
 import { Paragraph } from '@shared/typography/paragraph'
 import { ReactNode } from 'react'
@@ -42,6 +43,7 @@ const FormInput = <T extends FieldValues>({
   leftSection,
   type = 'text',
 }: FormInputProps<T>) => {
+  const { textAlign } = useIsRtlLang()
   return (
     <Group
       align="flex-end"
@@ -52,7 +54,7 @@ const FormInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph>{label}</Paragraph>
+          <Paragraph style={{textAlign}}>{label}</Paragraph>
         </label>
 
         <Controller

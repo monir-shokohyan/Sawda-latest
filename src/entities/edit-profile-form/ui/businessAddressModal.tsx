@@ -83,10 +83,10 @@ const AddressModal: React.FC<AddressModalProps> = ({
           variant="outline"
           onClick={onClose}
         >
-          Cancel
+          {t('optionMenu.cancel')}
         </MantineButton>
         <MantineButton onClick={handleSubmit(onSubmit)}>
-          Save Address
+          {t('common.saveChanges')}
         </MantineButton>
       </div>
     </BaseModal>

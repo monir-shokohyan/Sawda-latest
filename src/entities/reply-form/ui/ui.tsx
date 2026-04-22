@@ -7,7 +7,7 @@ import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, isSubmitting, setValue, control, t } =
+  const { handleSubmit, onSubmit, isSubmitting, setValue, control, t ,isEnglish, modifiedQuickReplies } =
     useManageReplyForm()
 
   return (
@@ -30,14 +30,15 @@ const Ui = () => {
             loading={isSubmitting}
             pos="absolute"
             top={30}
-            right={5}
+            right={isEnglish ? 5 : 'auto'}
+            left={!isEnglish ? 5 : 'auto'}
             style={{
               zIndex: 10,
             }}
             aria-label="Send message"
             onClick={handleSubmit(onSubmit)}
           >
-            <FiSend size={18} />
+            <FiSend size={18}/>
           </SActionIcon>
 
           <FormTextarea
@@ -57,7 +58,7 @@ const Ui = () => {
         gap={10}
         align="flex-start"
       >
-        {quickReplies.map((text) => (
+        {modifiedQuickReplies.map((text) => (
           <SButton
             key={text}
             onClick={() => setValue('message', text, { shouldValidate: true })}

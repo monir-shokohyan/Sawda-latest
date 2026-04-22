@@ -1,3 +1,4 @@
+import { useIsRtlLang } from '@shared/hooks'
 import { SubHeading } from '@shared/typography/sub-heading'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
@@ -20,9 +21,10 @@ interface DetailsProps {
 }
 
 const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
+  const { textAlign } = useIsRtlLang()
   return (
     <>
-      <SubHeading mb={allowBox ? '0px' : 'lg'}>{title}</SubHeading>
+      <SubHeading mb={allowBox ? '0px' : 'lg'} style={{textAlign}}>{title}</SubHeading>
       {allowBox && (
         <InfoBox>
           {icon}

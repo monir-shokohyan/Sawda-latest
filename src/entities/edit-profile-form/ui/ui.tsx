@@ -28,13 +28,14 @@ const Ui = () => {
     onSubmit,
     isMobile,
     t,
+    textAlign,
   } = useManageEditProfile()
   return (
     <>
       <FormWrapper
         allowButton
         title={t('profile.editProfile')}
-        buttonTitle="save"
+        buttonTitle={t('profile.saveChanges')}
         handleSubmit={handleSubmit(onSubmit)}
         buttonFullWidth={isMobile}
       >
@@ -43,7 +44,7 @@ const Ui = () => {
           gap={3}
           mb={10}
         >
-          <SubHeading>profile photo</SubHeading>
+          <SubHeading style={{textAlign}}>{t('profile.profilePhoto')}</SubHeading>
           <ProfilePhotoSection>
             <ProfilePhoto>
               {photoPreview ? (
@@ -57,16 +58,15 @@ const Ui = () => {
             </ProfilePhoto>
 
             <PhotoInfo>
-              <Paragraph>
-                Your favorite face picture as an important way for buyers and
-                sellers to learn about each part other.
+              <Paragraph style={{textAlign}}>
+               {t('profile.photoDescription')}
               </Paragraph>
 
               <SButton
                 variant="outline"
                 component="label"
               >
-                Upload a photo
+                {t('profile.uploadPhoto')}
                 <input
                   type="file"
                   accept="image/*"

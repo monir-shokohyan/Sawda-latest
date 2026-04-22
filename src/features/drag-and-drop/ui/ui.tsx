@@ -33,18 +33,20 @@ const Ui = ({
     isDark,
     t,
   } = useDropDown({ images, setImages })
-
+ console.log(images.length);
+ 
   return (
     <>
       <Wrapper>
         <SDropzone
           openRef={openRef}
-          onDrop={handleDrop}
+          onDrop={(files)=>handleDrop(files,maxFiles)}
           radius="md"
           accept={[MIME_TYPES.jpeg, MIME_TYPES.png, MIME_TYPES.webp]}
           maxSize={maxSize * 1024 ** 2}
           maxFiles={maxFiles - images.length}
           aria-label={t('image.dropFiles')}
+          disabled={Image.length >= 4}
           loading={isCompressing}
         >
           <div style={{ pointerEvents: 'none' }}>
@@ -91,11 +93,10 @@ const Ui = ({
             </Text>
 
             <Description>
-              Drag & drop photos here to upload. We can accept <i>.jpeg</i>,{' '}
-              <i>.png</i>, and <i>.webp</i> photos that are less than {maxSize}
-              mb in size.{' '}
+              {t('image.dropDescription')}
+              <br/>
               {images.length < maxFiles &&
-                `Maximum ${maxFiles - images.length} more photos.`}
+                `${maxFiles - images.length} ${t('image.maxMorePhotos')}`}
             </Description>
           </div>
         </SDropzone>
@@ -118,7 +119,7 @@ const Ui = ({
             mb="sm"
             c="darkText"
           >
-            Uploaded Photos ({images.length}/{maxFiles})
+            {t('image.uploadedPhotos')} ({images.length}/{maxFiles})
           </Text>
           <SimpleGrid
             cols={2}

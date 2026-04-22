@@ -6,6 +6,7 @@ import { schema } from '../schema'
 import { defaultValues } from '../constant'
 import { Responsive } from '@shared/hooks/responsive'
 import { useTranslation } from 'react-i18next'
+import { useIsRtlLang } from '@shared/hooks'
 
 const useManageEditProfile = () => {
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
@@ -20,6 +21,7 @@ const useManageEditProfile = () => {
   })
 
   const { isMobile } = Responsive()
+  const { textAlign } = useIsRtlLang()
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const file = e.target.files?.[0]
@@ -60,6 +62,7 @@ const useManageEditProfile = () => {
     setAddressModalOpen,
     isMobile,
     t,
+    textAlign,
   }
 }
 

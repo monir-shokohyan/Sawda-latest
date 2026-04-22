@@ -5,6 +5,7 @@ import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 import { Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
+import { useTranslation } from 'react-i18next'
 
 const SettingList = () => {
   const { pathname } = useLocation()
@@ -13,7 +14,12 @@ const SettingList = () => {
   const FontSize = isMobile
     ? TypographySize.SemiLarge
     : TypographySize.SemiSmall
+  const { t } = useTranslation()
 
+  const modifiedMenuItems = MenuItems.map(item=>({
+    ...item,
+    label: t(item.label)
+  }))
   return (
     <>
       <Stack
@@ -21,7 +27,7 @@ const SettingList = () => {
         p={isMobile ? 0 : 20}
         gap={5}
       >
-        {MenuItems.map((item) => (
+        {modifiedMenuItems.map((item) => (
           <SidebarItem
             key={item.path}
             $isActive={pathname.startsWith(item.path)}

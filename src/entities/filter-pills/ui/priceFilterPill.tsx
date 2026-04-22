@@ -1,5 +1,6 @@
 import { Group, Menu, Stack, Box, Button } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import { useIsRtlLang } from '@shared/hooks'
 import { ExpandArrow } from '@shared/ui/expandArrow'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { Control, FieldValues, Path, useWatch } from 'react-hook-form'
@@ -26,6 +27,7 @@ const PriceFilterPill = <T extends FieldValues>({
   const priceFrom = useWatch({ control, name: priceFromName })
   const priceTo = useWatch({ control, name: priceToName })
   const { t } = useTranslation()
+  const { dir } = useIsRtlLang()
 
   const hasValue = priceFrom > 0 || priceTo > 0
 
@@ -34,12 +36,12 @@ const PriceFilterPill = <T extends FieldValues>({
       return `${currencySymbol}${priceFrom} - ${currencySymbol}${priceTo}`
     }
     if (priceFrom > 0) {
-      return `From ${currencySymbol}${priceFrom}`
+      return `${currencySymbol}${priceFrom}`
     }
     if (priceTo > 0) {
-      return `Up to ${currencySymbol}${priceTo}`
+      return `${currencySymbol}${priceTo}`
     }
-    return 'Price'
+    return t('product.price')
   }
 
   const handleApply = () => {
@@ -92,16 +94,16 @@ const PriceFilterPill = <T extends FieldValues>({
       </Menu.Target>
 
       <Menu.Dropdown p="md">
-        <Stack gap="md">
+        <Stack gap="md" dir={dir}>
           <FormNumberInput
             name={priceFromName}
             control={control}
-            label={`Price From (${currencySymbol})`}
+            label={`${t('product.priceFrom')} (${currencySymbol})`}
             placeholder={t('filter.from')}
             mb={0}
           />
           <FormNumberInput
-            label={`Price To (${currencySymbol})`}
+            label={`${t('product.priceTo')}  (${currencySymbol})`}
             name={priceToName}
             control={control}
             placeholder="To"
@@ -116,7 +118,7 @@ const PriceFilterPill = <T extends FieldValues>({
               size="sm"
               onClick={handleApply}
             >
-              Apply
+              {t('common.apply')}
             </Button>
           </Group>
         </Stack>

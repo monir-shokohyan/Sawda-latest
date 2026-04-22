@@ -31,8 +31,17 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     }
   }, [formValues])
 
+  const modifiedProvinceConstants = ProvinceConstants.map((province) => ({
+    ...province,
+    label: t(province.label),
+    districts: province.districts.map((d) => ({
+      ...d,
+      label: t(d.label),
+    })),
+  }))  
+
   const getDistrictsForProvince = () => {
-    const province = ProvinceConstants.find(
+    const province = modifiedProvinceConstants.find(
       (p) => p.value === watch('province'),
     )
     return province?.districts || []
@@ -69,6 +78,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
     category,
     t,
     modifiedCurrencyConstant,
+    modifiedProvinceConstants,
   }
 }
 

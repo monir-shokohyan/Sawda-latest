@@ -8,6 +8,7 @@ import { Stack } from '@mantine/core'
 import { SButton } from '@shared/styles'
 import { Paragraph } from '@shared/typography/paragraph'
 import { useTranslation } from 'react-i18next'
+import { useIsRtlLang } from '@shared/hooks'
 
 interface FormSetProps {
   control: Control<FormData>
@@ -21,6 +22,7 @@ const BusinessDetails = ({
   setAddressModalOpen,
 }: FormSetProps) => {
   const { t } = useTranslation()
+  const { textAlign } = useIsRtlLang()
   return (
     <>
       <Details
@@ -39,12 +41,12 @@ const BusinessDetails = ({
       />
       <FormInput<FormData>
         control={control}
-        label="Contact number"
+        label={t('profile.contactNumber')}
         name="contactNumber"
       />
       <FormInput<FormData>
         control={control}
-        label="Your website"
+        label={t('profile.website')}
         name="website"
       />
       <FormInput<FormData>
@@ -54,7 +56,7 @@ const BusinessDetails = ({
       />
 
       <div style={{ fontSize: '13px', marginBottom: '12px' }}>
-        Verify number to let buyers WhatsApp you.
+        {t('profile.verifyNumber')}
       </div>
 
       <LinkText>{t('profile.verifyWhatsapp')}</LinkText>
@@ -63,7 +65,7 @@ const BusinessDetails = ({
         mb={30}
       >
         <label>
-          <Paragraph>{t('address.businessAddress')}</Paragraph>
+          <Paragraph style={{textAlign}}>{t('address.businessAddress')}</Paragraph>
         </label>
         {businessAddress ? (
           <div
@@ -83,7 +85,7 @@ const BusinessDetails = ({
               onClick={() => setAddressModalOpen(true)}
               style={{ marginTop: '8px', display: 'inline-block' }}
             >
-              Edit address
+              {t('profile.editAddress')}
             </LinkText>
           </div>
         ) : (
@@ -93,7 +95,7 @@ const BusinessDetails = ({
             variant="outline"
             rightSection={<FaPlus />}
           >
-            Add address
+            {t('profile.addAddress')}
           </SButton>
         )}
       </Stack>

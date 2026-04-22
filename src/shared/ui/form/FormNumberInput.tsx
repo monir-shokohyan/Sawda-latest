@@ -6,6 +6,7 @@ import {
   NumberInput,
   NumberInputProps,
 } from '@mantine/core'
+import { useIsRtlLang } from '@shared/hooks'
 import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
@@ -43,6 +44,7 @@ const FormNumberInput = <T extends FieldValues>({
   rightSectionWidth,
   ...restProps
 }: FormNumberInputProps<T>) => {
+  const { dir, textAlign } = useIsRtlLang()
   return (
     <Group
       align="flex-end"
@@ -55,7 +57,7 @@ const FormNumberInput = <T extends FieldValues>({
         w="100%"
       >
         <label>
-          <Paragraph>{label}</Paragraph>
+          <Paragraph style={{textAlign,direction: dir}}>{label}</Paragraph>
         </label>
 
         <Controller

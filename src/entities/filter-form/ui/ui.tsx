@@ -1,5 +1,4 @@
 import { Flex } from '@mantine/core'
-import { ProvinceConstants } from '../constant'
 import { TbAdjustmentsHorizontal } from 'react-icons/tb'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { FormSelect } from '@shared/ui/form/FormSelect'
@@ -19,6 +18,7 @@ const Ui = () => {
     category,
     t,
     modifiedCurrencyConstant,
+    modifiedProvinceConstants,
   } = useManageFilterForm({ isPill: false })
   return (
     <FormWrapper
@@ -35,8 +35,8 @@ const Ui = () => {
         <FormSelect
           name="category"
           control={control}
-          label="Select Category"
-          placeholder="Choose a category"
+          label={t('common.selectCategory')}
+          placeholder={t('common.chooseCategory')}
           data={category}
           nothingFoundMessage="No category found"
           mb={10}
@@ -46,7 +46,7 @@ const Ui = () => {
           control={control}
           label={t('product.province')}
           placeholder={t('product.selectProvince')}
-          data={ProvinceConstants}
+          data={modifiedProvinceConstants}
           mb={10}
         />
       </Flex>
@@ -84,12 +84,12 @@ const Ui = () => {
         <FormNumberInput
           name="priceFrom"
           control={control}
-          label={`Price From (${currencySymbol})`}
+          label={`${t('product.priceFrom')} (${currencySymbol})`}
           placeholder={t('filter.from')}
           mb={10}
         />
         <FormNumberInput
-          label={`Price To (${currencySymbol})`}
+          label={`${t('product.priceTo')} (${currencySymbol})`}
           name="priceTo"
           control={control}
           placeholder={t('filter.to')}

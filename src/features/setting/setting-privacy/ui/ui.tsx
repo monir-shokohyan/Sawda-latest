@@ -20,7 +20,7 @@ const Ui = () => {
         >
           <Details
             title={t('settings.privacyPreferences')}
-            text="Sawda may share information that do not constitute personal data with our our advertising and analytics partners. This contributes to Sawda’s business sustainability in the long run, so that we can keep our basic features free for all users. Thank you for your support. More info"
+            text={t('privacy.infoText')}
             icon={<MdInfoOutline style={{ marginTop: '2px', flexShrink: 0 }} />}
           />
 

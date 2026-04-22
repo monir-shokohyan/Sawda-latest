@@ -5,14 +5,14 @@ import ThemeCard from './themeCard'
 import { Responsive } from '@shared/hooks/responsive'
 
 const Ui = () => {
-  const { ThemeObj } = useManageTheme()
+  const { modifiedThemeObj, t } = useManageTheme()
   const theme = useMantineTheme()
   const { isMobile } = Responsive()
   return (
     <>
       <FormWrapper
         allowButton={false}
-        title="Theme"
+        title={t('settings.theme')}
         buttonTitle=""
       >
         <Flex
@@ -21,7 +21,7 @@ const Ui = () => {
           p={20}
           justify="space-evenly"
         >
-          {ThemeObj.map((themeCard) => {
+          {modifiedThemeObj.map((themeCard) => {
             const { src, textFooter, handleClick, alt, active } = themeCard
             return (
               <ThemeCard

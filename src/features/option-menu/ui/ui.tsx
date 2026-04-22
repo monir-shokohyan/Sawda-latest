@@ -5,7 +5,7 @@ import { Button, Text } from '@mantine/core'
 import { HModal } from '@shared/styles'
 
 function Ui({ type, id }: OptionMenuProps) {
-  const { optionConstant, opened, close, Delete } = useManageOptionModel({
+  const { optionConstant, opened, close, Delete, t } = useManageOptionModel({
     type,
     id,
   })
@@ -28,10 +28,10 @@ function Ui({ type, id }: OptionMenuProps) {
         transitionProps={{ transition: 'fade', duration: 200 }}
       >
         <Text size="sm">
-          Are you sure you want to delete your{' '}
           {type === 'account'
-            ? 'profile? This action is destructive and you will have to contact support to restore your data.'
-            : 'product ?'}
+            ? t('optionMenu.confirmDeleteProfile')
+            : t('optionMenu.confirmDeleteProduct')
+            }
         </Text>
         <div
           style={{

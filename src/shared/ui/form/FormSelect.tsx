@@ -4,6 +4,7 @@ import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 import { useState } from 'react'
 import { ExpandArrow } from '../expandArrow'
+import { useIsRtlLang } from '@shared/hooks'
 
 interface FormSelectProps<T extends FieldValues> extends Omit<
   SelectProps,
@@ -26,6 +27,7 @@ const FormSelect = <T extends FieldValues>({
 }: FormSelectProps<T>) => {
   const isPill = shape === 'pill'
   const [dropdownOpened, setDropdownOpened] = useState(false)
+  const { textAlign, isEnglish } = useIsRtlLang()
 
   return (
     <Group
@@ -40,7 +42,7 @@ const FormSelect = <T extends FieldValues>({
       >
         {label && !isPill && (
           <label>
-            <Paragraph>{label}</Paragraph>
+            <Paragraph style={{textAlign}}>{label}</Paragraph>
           </label>
         )}
 
@@ -70,18 +72,12 @@ const FormSelect = <T extends FieldValues>({
                   styles={
                     isPill
                       ? {
-                          root: {
-                            width: 'max-content',
-                          },
-                          wrapper: {
-                            width: 'max-content',
-                          },
                           input: {
                             borderRadius: '50px',
                             paddingLeft: selectProps.leftSection
                               ? '40px'
-                              : '16px',
-                            paddingRight: '32px',
+                              :isEnglish ?  '16px' : '38px',
+                            paddingRight: isEnglish ? '32px' : '10px',
                             fontWeight: 500,
                             width: '7rem',
                             borderColor: hasValue

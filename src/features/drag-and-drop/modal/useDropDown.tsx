@@ -21,40 +21,41 @@ export const useDropDown = ({ images, setImages }: UseDropDownProps) => {
 
   const isDark = colorScheme === 'dark'
 
-  const handleDrop = async (files: FileWithPath[]) => {
-    setIsCompressing(true)
+ const handleDrop = async (files: FileWithPath[], maxFiles: number) => {
+  const remaining = maxFiles - images.length
+  if (remaining <= 0) return
 
-    try {
-      const newImages: ImageFile[] = await Promise.all(
-        files.map(async (file) => {
-          const originalSize = file.size
+  const filesToProcess = files.slice(0, remaining)
+  setIsCompressing(true)
 
-          const compressedFile = await imageCompression(file, {
-            maxSizeMB: 1,
-            maxWidthOrHeight: 1920,
-            useWebWorker: true,
-            fileType: file.type,
-          })
+  try {
+    const newImages: ImageFile[] = await Promise.all(
+      filesToProcess.map(async (file) => {
+        const originalSize = file.size
+        const compressedFile = await imageCompression(file, {
+          maxSizeMB: 1,
+          maxWidthOrHeight: 1920,
+          useWebWorker: true,
+          fileType: file.type,
+        })
+        return {
+          file: compressedFile,
+          preview: URL.createObjectURL(compressedFile),
+          id: `${Date.now()}-${Math.random()}`,
+          originalSize,
+          compressedSize: compressedFile.size,
+          status: 'completed' as const,
+        }
+      }),
+    )
 
-          return {
-            file: compressedFile,
-            preview: URL.createObjectURL(compressedFile),
-            id: `${Date.now()}-${Math.random()}`,
-            originalSize,
-            compressedSize: compressedFile.size,
-            status: 'completed' as const,
-          }
-        }),
-      )
-
-      setImages((prev) => [...prev, ...newImages])
-    } catch (error) {
-      console.error('Error compressing images:', error)
-    } finally {
-      setIsCompressing(false)
-    }
+    setImages((prev) => [...prev, ...newImages])
+  } catch (error) {
+    console.error('Error compressing images:', error)
+  } finally {
+    setIsCompressing(false)
   }
-
+}
   const removeImage = (id: string) => {
     setImages((prev) => {
       const image = prev.find((img) => img.id === id)

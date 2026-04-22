@@ -1,4 +1,5 @@
 import { Button, Group, Stack, Text, Textarea } from '@mantine/core'
+import { useIsRtlLang } from '@shared/hooks'
 import { Paragraph } from '@shared/typography/paragraph'
 import {
   Controller,
@@ -48,6 +49,7 @@ const FormTextarea = <T extends FieldValues>({
   }) as string | undefined
 
   const currentLength = value?.length || 0
+  const { textAlign, dir } = useIsRtlLang()
 
   return (
     <Group
@@ -59,7 +61,7 @@ const FormTextarea = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph>{label}</Paragraph>
+          <Paragraph style={{textAlign}}>{label}</Paragraph>
         </label>
 
         <Controller

@@ -1,7 +1,3 @@
-import {
-  CurrencyConstants,
-  ProvinceConstants,
-} from '@entities/filter-form/constant'
 import { useManageFilterForm } from '@entities/filter-form/model'
 import { Button, Divider, Flex, Group } from '@mantine/core'
 import { FormSelect } from '@shared/ui/form/FormSelect'
@@ -19,6 +15,8 @@ const Ui = () => {
     resetForm,
     category,
     t,
+    modifiedProvinceConstants,
+    modifiedCurrencyConstant,
   } = useManageFilterForm({ isPill: true })
 
   return (
@@ -31,8 +29,8 @@ const Ui = () => {
         <FormSelect
           name="category"
           control={control}
-          label="Category"
-          placeholder="category"
+          label={t('product.category')}
+          placeholder={t('product.category')}
           data={category}
           nothingFoundMessage="No category found"
           mb={10}
@@ -42,8 +40,8 @@ const Ui = () => {
           name="province"
           control={control}
           label={t('product.province')}
-          placeholder={t('product.selectProvince')}
-          data={ProvinceConstants}
+          placeholder={t('product.province')}
+          data={modifiedProvinceConstants}
           mb={10}
           shape="pill"
         />
@@ -51,7 +49,7 @@ const Ui = () => {
           name="district"
           control={control}
           label={t('product.district')}
-          placeholder={t('product.selectDistrict')}
+          placeholder={t('product.district')}
           data={getDistrictsForProvince()}
           disabled={!isProvinceActive}
           mb={10}
@@ -61,8 +59,8 @@ const Ui = () => {
           name="currency"
           control={control}
           label={t('product.currency')}
-          placeholder={t('product.selectCurrency')}
-          data={CurrencyConstants}
+          placeholder={t('product.currency')}
+          data={modifiedCurrencyConstant}
           mb={10}
           shape="pill"
         />
@@ -92,7 +90,7 @@ const Ui = () => {
           w="7rem"
           c="dimmed"
         >
-          Clear
+          {t('common.clear')}
         </Button>
       </Group>
     </Flex>

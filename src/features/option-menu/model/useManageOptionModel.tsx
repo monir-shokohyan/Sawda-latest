@@ -8,28 +8,30 @@ import { useMantineTheme } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { useDisclosure } from '@mantine/hooks'
 import { Auth } from '@shared/authentication/auth'
+import { useTranslation } from 'react-i18next'
 
 const useManageOptionModel = ({ type, id }: OptionMenuProps) => {
   const navigate = useNavigate()
   const [opened, { open, close }] = useDisclosure(false)
   const { isAuth } = Auth()
+  const { t } = useTranslation()
   const theme = useMantineTheme()
   const { isMobile } = Responsive()
   const optionConstant: MenuOption[] = [
     {
-      label: 'Report',
+      label: t('optionMenu.report'),
       icon: <FaFlag size={14} />,
       handleClick: () => Report(),
       disabled: !isAuth,
     },
     {
-      label: `Edit ${type}`,
+      label: t(`optionMenu.edit`),
       icon: <FaRegEdit size={14} />,
       handleClick: () => Edit(),
       disabled: !isAuth,
     },
     {
-      label: `Delete ${type}`,
+      label: t(`optionMenu.delete`),
       icon: <RiDeleteBin5Line size={14} />,
       handleClick: () => open(),
       color: 'red',
@@ -62,6 +64,7 @@ const useManageOptionModel = ({ type, id }: OptionMenuProps) => {
     opened,
     close,
     Delete,
+    t,
   }
 }
 
