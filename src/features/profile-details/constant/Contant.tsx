@@ -3,16 +3,16 @@ import { TbClockOff } from 'react-icons/tb'
 
 const NewestToOldestObj = [
   {
-    label: 'Newest',
+    label: 'filter.newest',
     icon: FaClock,
     value: 'newest',
   },
   {
-    label: 'Oldest',
+    label: 'filter.oldest',
     icon: TbClockOff,
     value: 'oldest',
   },
-]
+] as const
 
 const ProfileConstant = {
   username: 'monir_codes',

@@ -22,7 +22,7 @@ const Listing = () => {
         align="center"
         py={30}
       >
-        <PrimaryHeading>Listing</PrimaryHeading>
+        <PrimaryHeading>{t('profile.listing')}</PrimaryHeading>
         <Group
           justify="space-between"
           align="center"

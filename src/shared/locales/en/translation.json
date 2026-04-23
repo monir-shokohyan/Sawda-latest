@@ -154,7 +154,7 @@
     "unread": "Unread",
     "all": "All",
     "stopAndSend": "Stop & Send",
-    "deleteSelected": "Delete Selected ({{count}})",
+    "deleteSelected": "Delete Selected",
     "maxFilesMessage": "You can only attach up to {{count}} files",
     "imageCompressedDesc": "Reduced from {{original}}MB to {{compressed}}MB",
     "usingOriginalImage": "Using original image",

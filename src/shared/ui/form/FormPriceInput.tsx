@@ -44,27 +44,27 @@ const FormPriceInput = <T extends FieldValues>({
 }: FormPriceInputProps<T>) => {
   const { t } = useTranslation()
   const CURRENCY_CONFIG = {
-  AFN: {
-    symbol: '؋',
-    decimalScale: 2,
-    label: 'currency.afn',
-  },
-  USD: {
-    symbol: '$',
-    decimalScale: 2,
-    label: 'currency.usd',
-  },
-}
+    AFN: {
+      symbol: '؋',
+      decimalScale: 2,
+      label: 'currency.afn',
+    },
+    USD: {
+      symbol: '$',
+      decimalScale: 2,
+      label: 'currency.usd',
+    },
+  }
   const [selectedCurrency, setSelectedCurrency] =
     useState<CurrencyType>(defaultCurrency)
   const currencyConfig = CURRENCY_CONFIG[selectedCurrency]
 
-  const currencyOptions = (Object.entries(CURRENCY_CONFIG) as [CurrencyType, CurrencyConfig][]).map(
-  ([key, config]) => ({
+  const currencyOptions = (
+    Object.entries(CURRENCY_CONFIG) as [CurrencyType, CurrencyConfig][]
+  ).map(([key, config]) => ({
     value: key,
     label: t(config.label as any),
-  }),
-)
+  }))
   const { textAlign } = useIsRtlLang()
 
   return (
@@ -79,7 +79,7 @@ const FormPriceInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph style={{textAlign}}>{label}</Paragraph>
+          <Paragraph style={{ textAlign }}>{label}</Paragraph>
         </label>
 
         <Group

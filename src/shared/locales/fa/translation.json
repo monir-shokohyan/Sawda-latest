@@ -154,7 +154,7 @@
     "unread": "خوانده نشده",
     "all": "همه",
     "stopAndSend": "توقف و ارسال",
-    "deleteSelected": "حذف انتخاب‌شده‌ها ({{count}})",
+    "deleteSelected": "حذف انتخاب‌شده‌ها",
     "maxFilesMessage": "شما فقط می‌توانید تا {{count}} فایل پیوست کنید",
     "imageCompressedDesc": "کاهش یافته از {{original}}MB به {{compressed}}MB",
     "usingOriginalImage": "استفاده از تصویر اصلی",

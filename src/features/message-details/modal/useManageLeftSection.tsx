@@ -159,7 +159,7 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
 
   const bulkEmailActions: MenuOption[] = [
     {
-      label: 'Select All',
+      label: 'filter.selectAll',
       icon: <MdSelectAll size={16} />,
       handleClick: () => {
         setSelectionMode(true)
@@ -167,20 +167,20 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
       },
     },
     {
-      label: 'Deselect All',
+      label: 'filter.deselectAll',
       icon: <MdDeselect size={16} />,
       handleClick: handleDeselectAll,
       disabled: selectedCount === 0,
     },
 
     {
-      label: 'Mark as Read',
+      label: 'settings.markAsRead',
       icon: <MdMarkEmailRead size={16} />,
       handleClick: handleMarkAsRead,
       disabled: selectedCount === 0,
     },
     {
-      label: 'Mark as Unread',
+      label: 'settings.markAsUnread',
       icon: <MdMarkEmailUnread size={16} />,
       handleClick: handleMarkAsUnread,
       disabled: selectedCount === 0,

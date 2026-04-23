@@ -5,9 +5,11 @@ import { ProductScroll } from '@features/product-scroll/ui'
 import { Responsive } from '@shared/hooks/responsive'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
+import { useTranslation } from 'react-i18next'
 
 function Ui() {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   return (
     <Stack
       w="100%"
@@ -25,7 +27,7 @@ function Ui() {
             c="darkText"
             fontSize={TypographySize.UltraLarge}
           >
-            Favorites
+            {t('favorites.favorites')}
           </ResText>
           <SearchFilter
             isMobile={isMobile}

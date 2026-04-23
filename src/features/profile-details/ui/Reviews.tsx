@@ -4,9 +4,16 @@ import { useState } from 'react'
 import { NewestToOldestObj } from '../constant'
 import { Paragraph } from '@shared/typography/paragraph'
 import { PrimaryHeading } from '@shared/typography/primary-heading'
+import { useTranslation } from 'react-i18next'
 
 const Reviews = () => {
   const [selectedFilter, setSelectedFilter] = useState('newest')
+  const { t } = useTranslation()
+  const modifiedNewestToOld = NewestToOldestObj.map(item=>({
+    ...item,
+    label: t(item.label)
+
+  }))
 
   return (
     <>
@@ -15,10 +22,10 @@ const Reviews = () => {
         align="center"
         py={30}
       >
-        <PrimaryHeading>Reviews</PrimaryHeading>
+        <PrimaryHeading>{t('profile.reviews')}</PrimaryHeading>
 
         <Select
-          data={NewestToOldestObj}
+          data={modifiedNewestToOld}
           defaultValue={selectedFilter}
           value={selectedFilter}
           onChange={(value) => setSelectedFilter(value as string)}

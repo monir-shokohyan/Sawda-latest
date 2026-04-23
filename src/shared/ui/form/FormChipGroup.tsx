@@ -33,7 +33,7 @@ const FormChipGroup = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph style={{textAlign}}>{label}</Paragraph>
+          <Paragraph style={{ textAlign }}>{label}</Paragraph>
         </label>
 
         <Controller

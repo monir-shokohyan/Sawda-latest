@@ -154,7 +154,7 @@
     "unread": "نه لوستل شوی",
     "all": "ټول",
     "stopAndSend": "ودروئ او واستوئ",
-    "deleteSelected": "غوره شوي ړنګ کړئ ({{count}})",
+    "deleteSelected": "غوره شوي ړنګ کړئ",
     "maxFilesMessage": "تاسو یوازې تر {{count}} فایلونو پورې ضمیمه کولی شئ",
     "imageCompressedDesc": "له {{original}}MB نه {{compressed}}MB ته کم شو",
     "usingOriginalImage": "اصلي انځور کارول",

@@ -5,11 +5,13 @@ import { LeftSection } from './left-section'
 import { RightSection } from './right-section'
 import { Message } from '../types'
 import { ContainerWithBreadCrumb } from '@shared/ui/container-with-bread-crumb'
+import { useTranslation } from 'react-i18next'
 
 const Ui = () => {
   const { isMobile } = Responsive()
   const [selectedMessage, setSelectedMessage] = useState<Message | undefined>()
   const [showChat, setShowChat] = useState(false)
+  const { t } = useTranslation()
 
   const handleMessageSelect = (message: Message) => {
     setSelectedMessage(message)
@@ -46,7 +48,7 @@ const Ui = () => {
   }
 
   return (
-    <ContainerWithBreadCrumb title="Messages">
+    <ContainerWithBreadCrumb title={t('messages.messages')}>
       <Flex
         gap="2%"
         p={isMobile ? '0px' : 'xl'}

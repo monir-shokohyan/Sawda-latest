@@ -160,7 +160,7 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
                   size="xs"
                   c="dimmed"
                 >
-                  Posts
+                  {t('profile.posts')}
                 </Text>
               </Stack>
             )}
@@ -179,7 +179,7 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
                   size="xs"
                   c="dimmed"
                 >
-                  Followers
+                  {t('following.follower')}
                 </Text>
               </Stack>
             )}
@@ -198,7 +198,7 @@ const Ui = ({ Profile }: { Profile: ProfileProps['profile'] }) => {
                   size="xs"
                   c="dimmed"
                 >
-                  Following
+                  {t('following.follower')}
                 </Text>
               </Stack>
             )}

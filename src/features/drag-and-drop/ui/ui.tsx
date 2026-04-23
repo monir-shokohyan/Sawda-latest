@@ -33,13 +33,13 @@ const Ui = ({
     isDark,
     t,
   } = useDropDown({ images, setImages })
- 
+
   return (
     <>
       <Wrapper>
         <SDropzone
           openRef={openRef}
-          onDrop={(files)=>handleDrop(files,maxFiles)}
+          onDrop={(files) => handleDrop(files, maxFiles)}
           radius="md"
           accept={[MIME_TYPES.jpeg, MIME_TYPES.png, MIME_TYPES.webp]}
           maxSize={maxSize * 1024 ** 2}
@@ -93,7 +93,7 @@ const Ui = ({
 
             <Description>
               {t('image.dropDescription')}
-              <br/>
+              <br />
               {images.length < maxFiles &&
                 `${maxFiles - images.length} ${t('image.maxMorePhotos')}`}
             </Description>

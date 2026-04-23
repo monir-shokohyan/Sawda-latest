@@ -9,6 +9,7 @@ import { ProfileInfo } from '@features/profile-info'
 import { BaseModal } from '@shared/ui/modal'
 import { Paragraph } from '@shared/typography/paragraph'
 import { useIsRtlLang } from '@shared/hooks'
+import { useTranslation } from 'react-i18next'
 
 const ProfileSection = ({
   profile,
@@ -37,6 +38,7 @@ const ProfileSection = ({
     isMobile && isCard ? '10px' : isMobile && !isCard ? '0px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
   const { textAlign } = useIsRtlLang()
+  const { t } = useTranslation()
 
   return (
     <>
@@ -147,7 +149,7 @@ const ProfileSection = ({
               td="underline"
               $isActive={true}
             >
-              Profile details
+              {t('common.profileDetails')}
             </HoveredText>
           )}
         </Stack>

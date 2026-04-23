@@ -1,6 +1,7 @@
 import { Avatar, Card, Stack, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { InteractiveCard } from '@shared/styles'
+import { useTranslation } from 'react-i18next'
 import { MdSend } from 'react-icons/md'
 import styled from 'styled-components'
 
@@ -10,6 +11,7 @@ const EmptyState = styled(Stack)`
 
 const EmptyInbox = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
   return (
     <Stack w={isMobile ? '100%' : '72%'}>
       <Card
@@ -40,15 +42,14 @@ const EmptyInbox = () => {
             c="darkText"
             mb="xs"
           >
-            No Message Selected
+            {t('messages.noMessageSelected')}
           </Text>
           <Text
             size="sm"
             c="dimmed"
             maw={400}
           >
-            Select a message from the list to view the conversation history and
-            start chatting.
+            {t('messages.selectMessagePrompt')}
           </Text>
         </EmptyState>
       </Card>

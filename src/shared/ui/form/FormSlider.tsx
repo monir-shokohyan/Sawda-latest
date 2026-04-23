@@ -1,4 +1,12 @@
-import { Button, Group, Stack, Text, Slider, SliderProps, DirectionProvider } from '@mantine/core'
+import {
+  Button,
+  Group,
+  Stack,
+  Text,
+  Slider,
+  SliderProps,
+  DirectionProvider,
+} from '@mantine/core'
 import { useIsRtlLang } from '@shared/hooks'
 import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
@@ -47,7 +55,7 @@ const FormSlider = <T extends FieldValues>({
           mb={5}
         >
           <label>
-            <Paragraph style={{textAlign}}>{label}</Paragraph>
+            <Paragraph style={{ textAlign }}>{label}</Paragraph>
           </label>
 
           {showValue && (
@@ -75,23 +83,23 @@ const FormSlider = <T extends FieldValues>({
           render={({ field, fieldState: { error } }) => (
             <>
               <div style={{ direction: 'ltr' }}>
-              <Slider
-                {...field}
-                {...sliderProps}
-                value={field.value ?? 0}
-                onChange={(value) => field.onChange(value)}
-                styles={{
-                  track: {
-                    cursor: 'pointer',
-                  },
-                  thumb: {
-                    cursor: 'grab',
-                    left: 'var(--slider-thumb-offset)',
-                    right: 'auto',
-                  },
-                }}
-              />
-            </div>
+                <Slider
+                  {...field}
+                  {...sliderProps}
+                  value={field.value ?? 0}
+                  onChange={(value) => field.onChange(value)}
+                  styles={{
+                    track: {
+                      cursor: 'pointer',
+                    },
+                    thumb: {
+                      cursor: 'grab',
+                      left: 'var(--slider-thumb-offset)',
+                      right: 'auto',
+                    },
+                  }}
+                />
+              </div>
 
               {error && (
                 <Text

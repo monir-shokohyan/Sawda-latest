@@ -1,9 +1,11 @@
 import { Flex, Text, Box, Anchor, Image } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { LanguageDropDown } from '@shared/ui/language'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
   const { isMobile, isTablet } = Responsive()
+  const { t } = useTranslation()
 
   const popularSearches = [
     'gaming',
@@ -57,13 +59,17 @@ const Footer = () => {
   ]
 
   const footerLinks = [
-    { label: 'Help Centre', href: '#' },
-    { label: 'Contact Us', href: '#' },
-    { label: 'Advertise with Us', href: '#' },
-    { label: 'Terms', href: '#' },
-    { label: 'Privacy', href: '#' },
-    { label: 'Business Conduct', href: '#' },
+    { label: 'common.helpCentre', href: '#' },
+    { label: 'common.contactUs', href: '#' },
+    { label: 'common.advertiseWithUs', href: '#' },
+    { label: 'common.terms', href: '#' },
+    { label: 'settings.privacy', href: '#' },
+    { label: 'common.businessConduct', href: '#' },
   ]
+  const modifiedFooterLinks = footerLinks.map(item=>({
+    ...item,
+    label: t(item.label as any)
+  }))
 
   return (
     <Box
@@ -84,7 +90,7 @@ const Footer = () => {
           fw={600}
           mb={12}
         >
-          Top search
+          {t('common.topSearch')}
         </Text>
         <Flex
           gap={8}
@@ -144,7 +150,7 @@ const Footer = () => {
           // direction={isMobile ? 'column' : 'row'}
           align={isMobile ? 'flex-start' : 'center'}
         >
-          {footerLinks.map((link, index) => (
+          {modifiedFooterLinks.map((link, index) => (
             <Flex
               key={index}
               align="center"

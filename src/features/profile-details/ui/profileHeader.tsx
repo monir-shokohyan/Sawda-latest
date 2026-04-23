@@ -17,11 +17,13 @@ import { OptionMenu } from '@features/option-menu'
 import { Auth } from '@shared/authentication/auth'
 import { SubHeading } from '@shared/typography/sub-heading'
 import { SubParagraph } from '@shared/typography/sub-paragraph'
+import { useTranslation } from 'react-i18next'
 
 const ProfileHeader = () => {
   const theme = useMantineTheme()
   const { isMobile } = Responsive()
   const { isAuth } = Auth()
+  const { t } = useTranslation()
 
   return (
     <BackgroundImage
@@ -70,7 +72,7 @@ const ProfileHeader = () => {
                       <SubHeading>5.0</SubHeading>
                       <FaStar color={theme.colors.originalBlue[8]} />
                     </Flex>
-                    <SubParagraph>7 reviews</SubParagraph>
+                    <SubParagraph>7 {t('profile.reviews')}</SubParagraph>
                   </Stack>
 
                   <Stack
@@ -82,7 +84,7 @@ const ProfileHeader = () => {
                   >
                     <SubHeading>1y 7d</SubHeading>
 
-                    <SubParagraph>Joined</SubParagraph>
+                    <SubParagraph>{t('profile.joined')}</SubParagraph>
                   </Stack>
                 </Flex>
               )}
@@ -103,7 +105,7 @@ const ProfileHeader = () => {
                       <SubHeading>5.0</SubHeading>
                       <FaStar color={theme.colors.originalBlue[8]} />
                     </Flex>
-                    <SubParagraph>7 reviews</SubParagraph>
+                    <SubParagraph>7 {t('profile.reviews')}</SubParagraph>
                   </Stack>
 
                   <Stack
@@ -113,7 +115,7 @@ const ProfileHeader = () => {
                     style={{ borderLeft: '1px solid lightgray' }}
                   >
                     <SubHeading>1y 7d</SubHeading>
-                    <SubParagraph>Joined</SubParagraph>
+                    <SubParagraph>{t('profile.joined')}</SubParagraph>
                   </Stack>
                 </>
               )}
@@ -126,7 +128,7 @@ const ProfileHeader = () => {
                     size="compact-md"
                     w={isMobile ? '70%' : 'auto'}
                   >
-                    Follow
+                    {t('profile.follow')}
                   </SButton>
 
                   <SActionIcon
