@@ -36,14 +36,14 @@ const LeftSection = ({
     swipeHandlers,
     t,
   } = useManageLeftSection({ onMessageSelect })
-  
+
   return (
     <Stack
       w={isMobile ? '100%' : '25%'}
       style={{
         position: isMobile ? 'relative' : 'sticky',
         top: isMobile ? 0 : 30,
-        height: isMobile ? '90vh' : 'calc(100vh - 60px)',
+        height: isMobile ? '100%' : 'calc(100vh - 60px)',
       }}
       {...swipeHandlers}
       gap={0}
