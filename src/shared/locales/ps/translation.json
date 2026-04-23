@@ -307,7 +307,9 @@
     "noCategoryFound": "کټګوري ونه موندل شوه",
     "nothingFound": "هیڅ ونه موندل شول",
     "selectCategory": "کټګوري وټاکئ",
-    "category": "کټګوري"
+    "category": "کټګوري",
+    "selectedColors": "غوره شوي رنګونه"
+
   },
   "provinces": {
     "badakhshan": "بدخشان",

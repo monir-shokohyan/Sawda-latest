@@ -307,7 +307,8 @@
     "noCategoryFound": "دسته‌بندی یافت نشد",
     "nothingFound": "چیزی یافت نشد",
     "selectCategory": "انتخاب دسته‌بندی",
-    "category": "دسته‌بندی"
+    "category": "دسته‌بندی",
+    "selectedColors": "رنگ های انتخاب شده"
   },
   "provinces": {
     "badakhshan": "بدخشان",

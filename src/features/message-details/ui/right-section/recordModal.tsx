@@ -1,6 +1,7 @@
 import { RecordModalProps } from '@features/message-details/types'
 import { Button, Group, Stack, Text } from '@mantine/core'
 import { BaseModal } from '@shared/ui/modal'
+import { useTranslation } from 'react-i18next'
 import { MdClose, MdMic, MdStop } from 'react-icons/md'
 
 const RecordModal = ({
@@ -9,6 +10,7 @@ const RecordModal = ({
   recordingTime,
   stopRecording,
 }: RecordModalProps) => {
+  const { t } = useTranslation()
   return (
     <>
       <BaseModal
@@ -56,14 +58,14 @@ const RecordModal = ({
               onClick={cancelRecording}
               leftSection={<MdClose size={18} />}
             >
-              Cancel
+            {t('common.cancel')}
             </Button>
             <Button
               color="red"
               leftSection={<MdStop size={18} />}
               onClick={stopRecording}
             >
-              Stop & Send
+              {t('messages.stopAndSend')}
             </Button>
           </Group>
         </Stack>

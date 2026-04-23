@@ -9,6 +9,7 @@ import {
 import { useIsRtlLang } from '@shared/hooks'
 import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 interface FormColorPickerProps<T extends FieldValues> extends Omit<
   ColorPickerProps,
@@ -38,6 +39,7 @@ const FormColorPicker = <T extends FieldValues>({
   ...colorPickerProps
 }: FormColorPickerProps<T>) => {
   const { textAlign } = useIsRtlLang()
+  const { t } = useTranslation()
   return (
     <Group
       align="flex-end"
@@ -106,7 +108,7 @@ const FormColorPicker = <T extends FieldValues>({
                           size="xs"
                           c="dimmed"
                         >
-                          Selected Colors ({selectedColors.length}/{maxColors})
+                          {t('common.selectedColors')} ({selectedColors.length}/{maxColors})
                         </Text>
                         <Group gap={8}>
                           {selectedColors.map((color, index) => (

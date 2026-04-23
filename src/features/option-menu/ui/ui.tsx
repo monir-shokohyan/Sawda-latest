@@ -21,7 +21,7 @@ function Ui({ type, id }: OptionMenuProps) {
       <HModal
         opened={opened}
         onClose={close}
-        title={`Delete your ${type}`}
+        title={t('optionMenu.delete')}
         size="md"
         centered
         onClick={(e) => e.stopPropagation()}
@@ -44,13 +44,13 @@ function Ui({ type, id }: OptionMenuProps) {
             variant="outline"
             onClick={close}
           >
-            Cancel
+            {t('optionMenu.cancel')}
           </Button>
           <Button
             onClick={Delete}
             color="red"
           >
-            Delete
+            {t('optionMenu.delete')}
           </Button>
         </div>
       </HModal>

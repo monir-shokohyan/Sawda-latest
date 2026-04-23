@@ -307,7 +307,8 @@
     "noCategoryFound": "No category found",
     "nothingFound": "Nothing found",
     "selectCategory": "Select Category",
-    "category": "Category"
+    "category": "Category",
+    "selectedColors": "Selected Colors"
   },
   "provinces": {
     "badakhshan": "Badakhshan",

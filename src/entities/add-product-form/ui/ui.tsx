@@ -7,7 +7,6 @@ import { FormChipGroup } from '@shared/ui/form/FormChipGroup'
 import { FormColorPicker } from '@shared/ui/form/FormColorPicker'
 import { FormPriceInput } from '@shared/ui/form/FormPriceInput'
 import { FormSlider } from '@shared/ui/form/FormSlider'
-import { ProvinceConstants } from '@entities/filter-form/constant'
 import { useManageAddProduct } from '../model'
 
 const Ui = ({ onSubmit }: AddProductSubmitProps) => {
@@ -20,6 +19,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
     t,
     modifiedContant,
     modifiedConditionConstant,
+    modifiedProvinceConstants,
   } = useManageAddProduct()
 
   return (
@@ -34,7 +34,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         label={t('product.title')}
         name="title"
         control={control}
-        placeholder="write your title"
+        placeholder={t('product.writeTitle')}
       />
       <FormSelect
         label={t('product.category')}
@@ -61,7 +61,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
         name="province"
         placeholder={t('product.selectProvince')}
         control={control}
-        data={ProvinceConstants}
+        data={modifiedProvinceConstants}
       />
       <FormColorPicker
         label={t('product.pickColor')}
