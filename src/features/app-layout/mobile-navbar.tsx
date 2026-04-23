@@ -55,7 +55,7 @@ const MobileDownbar = () => {
           width: 48,
           height: 48,
         }}
-        onClick={() => navigate(Paths.AddProductMobile)}
+        onClick={() => navigate(`${Paths.SecureMobileModel}add`)}
       >
         <MdAdd size={28} />
       </SActionIcon>

@@ -22,7 +22,6 @@ const Ui = ({ isMobile, minNum = 1, maxNum = 2 }: UiProps) => {
           py={6}
           styles={{
             container: { alignItems: 'stretch' },
-            
           }}
           emblaOptions={{ dragFree: true, align: 'start' }}
         >

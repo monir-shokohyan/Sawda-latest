@@ -38,11 +38,11 @@ const Navbar = () => {
         h={53}
         align="center"
         bg="background.8"
-        pos={isMobile ? "static" : "fixed"}
+        pos={isMobile ? 'static' : 'fixed'}
         top={0}
         left={0}
         w="100%"
-        style={{zIndex: 99, opacity: '90%'}}
+        style={{ zIndex: 99, opacity: '90%' }}
       >
         <Flex
           align="center"
