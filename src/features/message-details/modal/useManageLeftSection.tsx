@@ -193,9 +193,9 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
       disabled: selectedCount === 0,
       color: 'red',
     },
-  ].map(item=>({
+  ].map((item) => ({
     ...item,
-    label: t(item.label as any)
+    label: t(item.label as any),
   }))
 
   return {
