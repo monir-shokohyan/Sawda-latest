@@ -187,13 +187,16 @@ const useManageLeftSection = ({ onMessageSelect }: LeftSectionProps) => {
     },
 
     {
-      label: `Delete Selected (${selectedCount})`,
+      label: `messages.deleteSelected`,
       icon: <MdDelete size={16} />,
       handleClick: handleDeleteSelected,
       disabled: selectedCount === 0,
       color: 'red',
     },
-  ]
+  ].map(item=>({
+    ...item,
+    label: t(item.label as any)
+  }))
 
   return {
     handleDeleteSelected,
