@@ -36,6 +36,7 @@ const LeftSection = ({
     swipeHandlers,
     t,
   } = useManageLeftSection({ onMessageSelect })
+  
   return (
     <Stack
       w={isMobile ? '100%' : '25%'}
@@ -105,11 +106,11 @@ const LeftSection = ({
           id="messageScrollContainer"
           style={{
             flex: 1,
+            minHeight: 0,
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
             scrollbarWidth: 'thin',
             scrollBehavior: 'smooth',
-            maxHeight: '85dvh',
           }}
         >
           <InfiniteScrollWrapper
