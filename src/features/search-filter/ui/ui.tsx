@@ -32,19 +32,16 @@ const Ui = ({
       navigate(`${Paths.Favorites}filters`)
     }
   }
-  
+
   const isDashboard = route === 'dashboard'
   const getInputPl = () => {
-    if(isMobile && isDashboard){
+    if (isMobile && isDashboard) {
       return '5px'
-    }
-    else if(!isMobile && isDashboard && isEnglish){
+    } else if (!isMobile && isDashboard && isEnglish) {
       return '20px'
-    }
-    else {
+    } else {
       return '0px'
     }
-
   }
   return (
     <InputContainer
@@ -54,7 +51,6 @@ const Ui = ({
       bg="primary"
       pl={getInputPl()}
       pr={!isMobile && isDashboard && !isEnglish ? '20px' : '0px'}
-
     >
       {isMobile && (
         <FilterButton
