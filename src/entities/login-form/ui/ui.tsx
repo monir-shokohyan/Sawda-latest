@@ -47,7 +47,6 @@ const Ui = () => {
             leftSection={<LuPhone size={16} />}
             mb={0}
             type="tel"
-            prefix="+93"
             maxLength={12}
             thousandSeparator={false}
           />

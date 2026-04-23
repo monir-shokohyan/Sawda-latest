@@ -44,17 +44,15 @@ const FormNumberInput = <T extends FieldValues>({
   rightSectionWidth,
   ...restProps
 }: FormNumberInputProps<T>) => {
-  const { dir, textAlign } = useIsRtlLang()
+  const { dir, textAlign, isEnglish } = useIsRtlLang()
   return (
     <Group
       align="flex-end"
       mb={mb}
-      w="100%"
     >
       <Stack
         style={{ flex: 1 }}
         gap={3}
-        w="100%"
       >
         <label>
           <Paragraph style={{ textAlign, direction: dir }}>{label}</Paragraph>

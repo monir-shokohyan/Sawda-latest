@@ -56,3 +56,6 @@ body {
 .mantine-LoadingOverlay-overlay {
   background-color: #00000048 !important;
 }
+.mantine-NumberInput-input {
+  padding-right: 35px !important;
+}
