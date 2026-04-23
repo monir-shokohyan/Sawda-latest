@@ -9,10 +9,9 @@ import { useTranslation } from 'react-i18next'
 const Reviews = () => {
   const [selectedFilter, setSelectedFilter] = useState('newest')
   const { t } = useTranslation()
-  const modifiedNewestToOld = NewestToOldestObj.map(item=>({
+  const modifiedNewestToOld = NewestToOldestObj.map((item) => ({
     ...item,
-    label: t(item.label)
-
+    label: t(item.label),
   }))
 
   return (

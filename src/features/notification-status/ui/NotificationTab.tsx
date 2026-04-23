@@ -16,8 +16,13 @@ const NotificationTab = ({
       onChange={handleChange}
     >
       <Tabs.List grow>
-        <Tabs.Tab value="All"> {t('notification.all')}({notification?.length})</Tabs.Tab>
-        <Tabs.Tab value="Following">{t('notification.following')} ({followingCount})</Tabs.Tab>
+        <Tabs.Tab value="All">
+          {' '}
+          {t('notification.all')}({notification?.length})
+        </Tabs.Tab>
+        <Tabs.Tab value="Following">
+          {t('notification.following')} ({followingCount})
+        </Tabs.Tab>
         <Tabs.Tab value="Support">
           {t('notification.support')} (
           {notification?.length ? notification.length - followingCount : 0})

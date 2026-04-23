@@ -66,9 +66,9 @@ const Footer = () => {
     { label: 'settings.privacy', href: '#' },
     { label: 'common.businessConduct', href: '#' },
   ]
-  const modifiedFooterLinks = footerLinks.map(item=>({
+  const modifiedFooterLinks = footerLinks.map((item) => ({
     ...item,
-    label: t(item.label as any)
+    label: t(item.label as any),
   }))
 
   return (
