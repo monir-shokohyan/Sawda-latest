@@ -8,7 +8,7 @@ import { CreateModel } from './createModel'
 function Ui() {
   return (
     <>
-      <CreateModel/ >
+      <CreateModel />
       <ProfileModel />
       <MessageListModel />
       <MessageHistoryModel />

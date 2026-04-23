@@ -162,7 +162,7 @@ export const ImageEditor = ({
       fullScreen={isMobile ? true : false}
     >
       <ScrollArea
-        h="75dvh"
+        h={isMobile ? "100%" : "75dvh"}
         scrollbars="y"
         scrollbarSize={4}
       >
