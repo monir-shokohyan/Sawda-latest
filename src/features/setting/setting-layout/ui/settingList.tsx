@@ -16,9 +16,9 @@ const SettingList = () => {
     : TypographySize.SemiSmall
   const { t } = useTranslation()
 
-  const modifiedMenuItems = MenuItems.map(item=>({
+  const modifiedMenuItems = MenuItems.map((item) => ({
     ...item,
-    label: t(item.label)
+    label: t(item.label),
   }))
   return (
     <>

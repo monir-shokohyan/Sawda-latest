@@ -6,6 +6,7 @@ import {
   ColorPicker,
   ColorPickerProps,
 } from '@mantine/core'
+import { useIsRtlLang } from '@shared/hooks'
 import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
@@ -36,6 +37,7 @@ const FormColorPicker = <T extends FieldValues>({
   showSelectedColors = true,
   ...colorPickerProps
 }: FormColorPickerProps<T>) => {
+  const { textAlign } = useIsRtlLang()
   return (
     <Group
       align="flex-end"
@@ -46,7 +48,7 @@ const FormColorPicker = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph>{label}</Paragraph>
+          <Paragraph style={{textAlign}}>{label}</Paragraph>
         </label>
 
         <Controller

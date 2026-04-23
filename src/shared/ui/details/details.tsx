@@ -24,7 +24,12 @@ const Details = ({ icon, text, title, allowBox = true }: DetailsProps) => {
   const { textAlign } = useIsRtlLang()
   return (
     <>
-      <SubHeading mb={allowBox ? '0px' : 'lg'} style={{textAlign}}>{title}</SubHeading>
+      <SubHeading
+        mb={allowBox ? '0px' : 'lg'}
+        style={{ textAlign }}
+      >
+        {title}
+      </SubHeading>
       {allowBox && (
         <InfoBox>
           {icon}

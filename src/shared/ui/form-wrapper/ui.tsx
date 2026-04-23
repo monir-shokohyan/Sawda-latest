@@ -46,7 +46,7 @@ const Ui = ({
         flexGrow: fullSize ? 1 : 0,
       }}
     >
-      {title && <PrimaryHeading style={{textAlign}}>{title}</PrimaryHeading>}
+      {title && <PrimaryHeading style={{ textAlign }}>{title}</PrimaryHeading>}
 
       <div style={{ marginTop: marginTop }}>
         {children}

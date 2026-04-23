@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next'
 function Ui() {
   const { isMobile } = Responsive()
   const [images, setImages] = useState<ImageFile[]>([])
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
   const onSubmit = (data: AddProductFormData) => {
     console.log(data)

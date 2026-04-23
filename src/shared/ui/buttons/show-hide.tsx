@@ -50,7 +50,10 @@ const ShowHideButton = ({ phone = '+93750179642' }: ShowHideButtonProps) => {
           justify="center"
           align="center"
         >
-          <Text style={{ letterSpacing: '0.5px' }} dir='ltr'>
+          <Text
+            style={{ letterSpacing: '0.5px' }}
+            dir="ltr"
+          >
             {isAuth ? formatPhoneDisplay(phone) : maskPhone(phone)}
           </Text>
         </Stack>

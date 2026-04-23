@@ -4,7 +4,7 @@ import { Flex } from '@mantine/core'
 import { useTranslation } from 'react-i18next'
 
 const Ui = () => {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
   return (
     <Flex
       w="100%"

@@ -39,7 +39,7 @@ const RightSection = () => {
           radius={3}
           leftSection={<BiMessageDetail size={18} />}
         >
-          <Text size="md" >{t('messages.writeMessage')}</Text>
+          <Text size="md">{t('messages.writeMessage')}</Text>
         </SGButton>
       </Stack>
       <Divider />

@@ -38,7 +38,7 @@ const useManageFilterForm = ({ isPill = false }: { isPill: boolean }) => {
       ...d,
       label: t(d.label),
     })),
-  }))  
+  }))
 
   const getDistrictsForProvince = () => {
     const province = modifiedProvinceConstants.find(

@@ -42,7 +42,7 @@ const FormSelect = <T extends FieldValues>({
       >
         {label && !isPill && (
           <label>
-            <Paragraph style={{textAlign}}>{label}</Paragraph>
+            <Paragraph style={{ textAlign }}>{label}</Paragraph>
           </label>
         )}
 
@@ -76,7 +76,9 @@ const FormSelect = <T extends FieldValues>({
                             borderRadius: '50px',
                             paddingLeft: selectProps.leftSection
                               ? '40px'
-                              :isEnglish ?  '16px' : '38px',
+                              : isEnglish
+                                ? '16px'
+                                : '38px',
                             paddingRight: isEnglish ? '32px' : '10px',
                             fontWeight: 500,
                             width: '7rem',

@@ -4,9 +4,11 @@ import { CategoryTypeProps } from '../types'
 import { SText } from '@shared/styles'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '@shared/api/paths/paths'
+import { useIsRtlLang } from '@shared/hooks'
 
 const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
   const navigate = useNavigate()
+  const { isEnglish } = useIsRtlLang()
   return (
     <CategoryCard
       shadow="sm"
@@ -33,7 +35,8 @@ const CardCategory = ({ category, isMobile }: CategoryTypeProps) => {
         style={{
           position: 'absolute',
           bottom: '0px',
-          right: '0px',
+          right: isEnglish ? '0px' : 'auto',
+          left: !isEnglish ? '0px' : 'auto',
           zIndex: 1,
           opacity: 0.8,
         }}

@@ -87,7 +87,7 @@ const Ui = ({ onSubmit }: AddProductSubmitProps) => {
             control={control}
           />
           <FormSlider
-            label="Discount"
+            label={t('product.discount')}
             name="discount"
             control={control}
             valueSuffix=" %"

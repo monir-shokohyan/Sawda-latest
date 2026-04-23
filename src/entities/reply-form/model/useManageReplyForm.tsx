@@ -30,10 +30,9 @@ const useManageReplyForm = () => {
     console.log('Sending message:', data.message)
     reset()
   }
-const modifiedQuickReplies = quickReplies.map(item=> t(item as any))
-console.log(quickReplies);
-console.log(modifiedQuickReplies);
-
+  const modifiedQuickReplies = quickReplies.map((item) => t(item as any))
+  console.log(quickReplies)
+  console.log(modifiedQuickReplies)
 
   return {
     register,

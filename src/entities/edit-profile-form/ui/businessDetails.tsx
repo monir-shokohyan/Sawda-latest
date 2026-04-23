@@ -65,7 +65,9 @@ const BusinessDetails = ({
         mb={30}
       >
         <label>
-          <Paragraph style={{textAlign}}>{t('address.businessAddress')}</Paragraph>
+          <Paragraph style={{ textAlign }}>
+            {t('address.businessAddress')}
+          </Paragraph>
         </label>
         {businessAddress ? (
           <div

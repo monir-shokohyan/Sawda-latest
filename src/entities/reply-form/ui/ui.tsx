@@ -7,8 +7,16 @@ import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 
 const Ui = () => {
-  const { handleSubmit, onSubmit, isSubmitting, setValue, control, t ,isEnglish, modifiedQuickReplies } =
-    useManageReplyForm()
+  const {
+    handleSubmit,
+    onSubmit,
+    isSubmitting,
+    setValue,
+    control,
+    t,
+    isEnglish,
+    modifiedQuickReplies,
+  } = useManageReplyForm()
 
   return (
     <Stack gap={0}>
@@ -38,7 +46,7 @@ const Ui = () => {
             aria-label="Send message"
             onClick={handleSubmit(onSubmit)}
           >
-            <FiSend size={18}/>
+            <FiSend size={18} />
           </SActionIcon>
 
           <FormTextarea

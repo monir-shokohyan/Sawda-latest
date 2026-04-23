@@ -91,7 +91,10 @@ const ProfileSection = ({
           </Flex>
 
           {showEmail && (
-            <Paragraph c={isStaticColor ? 'white' : 'dimmed'} style={{textAlign}}>
+            <Paragraph
+              c={isStaticColor ? 'white' : 'dimmed'}
+              style={{ textAlign }}
+            >
               {profile?.email}
             </Paragraph>
           )}

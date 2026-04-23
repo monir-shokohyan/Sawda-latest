@@ -44,7 +44,9 @@ const Ui = () => {
           gap={3}
           mb={10}
         >
-          <SubHeading style={{textAlign}}>{t('profile.profilePhoto')}</SubHeading>
+          <SubHeading style={{ textAlign }}>
+            {t('profile.profilePhoto')}
+          </SubHeading>
           <ProfilePhotoSection>
             <ProfilePhoto>
               {photoPreview ? (
@@ -58,8 +60,8 @@ const Ui = () => {
             </ProfilePhoto>
 
             <PhotoInfo>
-              <Paragraph style={{textAlign}}>
-               {t('profile.photoDescription')}
+              <Paragraph style={{ textAlign }}>
+                {t('profile.photoDescription')}
               </Paragraph>
 
               <SButton

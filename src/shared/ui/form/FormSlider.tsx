@@ -1,4 +1,5 @@
-import { Button, Group, Stack, Text, Slider, SliderProps } from '@mantine/core'
+import { Button, Group, Stack, Text, Slider, SliderProps, DirectionProvider } from '@mantine/core'
+import { useIsRtlLang } from '@shared/hooks'
 import { Paragraph } from '@shared/typography/paragraph'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 
@@ -31,6 +32,7 @@ const FormSlider = <T extends FieldValues>({
   mb = 30,
   ...sliderProps
 }: FormSliderProps<T>) => {
+  const { textAlign, isEnglish } = useIsRtlLang()
   return (
     <Group
       align="flex-end"
@@ -45,7 +47,7 @@ const FormSlider = <T extends FieldValues>({
           mb={5}
         >
           <label>
-            <Paragraph>{label}</Paragraph>
+            <Paragraph style={{textAlign}}>{label}</Paragraph>
           </label>
 
           {showValue && (
@@ -72,6 +74,7 @@ const FormSlider = <T extends FieldValues>({
           control={control}
           render={({ field, fieldState: { error } }) => (
             <>
+              <div style={{ direction: 'ltr' }}>
               <Slider
                 {...field}
                 {...sliderProps}
@@ -83,9 +86,12 @@ const FormSlider = <T extends FieldValues>({
                   },
                   thumb: {
                     cursor: 'grab',
+                    left: 'var(--slider-thumb-offset)',
+                    right: 'auto',
                   },
                 }}
               />
+            </div>
 
               {error && (
                 <Text

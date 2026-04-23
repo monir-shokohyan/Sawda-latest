@@ -57,7 +57,7 @@ const FormNumberInput = <T extends FieldValues>({
         w="100%"
       >
         <label>
-          <Paragraph style={{textAlign,direction: dir}}>{label}</Paragraph>
+          <Paragraph style={{ textAlign, direction: dir }}>{label}</Paragraph>
         </label>
 
         <Controller

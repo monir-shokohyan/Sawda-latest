@@ -94,7 +94,10 @@ const PriceFilterPill = <T extends FieldValues>({
       </Menu.Target>
 
       <Menu.Dropdown p="md">
-        <Stack gap="md" dir={dir}>
+        <Stack
+          gap="md"
+          dir={dir}
+        >
           <FormNumberInput
             name={priceFromName}
             control={control}

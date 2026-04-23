@@ -33,7 +33,6 @@ const Ui = ({
     isDark,
     t,
   } = useDropDown({ images, setImages })
- console.log(images.length);
  
   return (
     <>

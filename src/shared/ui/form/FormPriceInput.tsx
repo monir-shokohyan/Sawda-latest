@@ -2,6 +2,8 @@ import { Button, Group, Stack, Text, NumberInput, Select } from '@mantine/core'
 import { Controller, Control, FieldValues, Path } from 'react-hook-form'
 import { useState } from 'react'
 import { Paragraph } from '@shared/typography/paragraph'
+import { useIsRtlLang } from '@shared/hooks'
+import { useTranslation } from 'react-i18next'
 
 type CurrencyType = 'AFN' | 'USD'
 
@@ -9,19 +11,6 @@ interface CurrencyConfig {
   symbol: string
   decimalScale: number
   label: string
-}
-
-const CURRENCY_CONFIG: Record<CurrencyType, CurrencyConfig> = {
-  AFN: {
-    symbol: '؋',
-    decimalScale: 2,
-    label: 'AFN',
-  },
-  USD: {
-    symbol: '$',
-    decimalScale: 2,
-    label: 'USD',
-  },
 }
 
 interface FormPriceInputProps<T extends FieldValues> {
@@ -53,16 +42,30 @@ const FormPriceInput = <T extends FieldValues>({
   showCurrencySelector = true,
   mb = 20,
 }: FormPriceInputProps<T>) => {
+  const { t } = useTranslation()
+  const CURRENCY_CONFIG = {
+  AFN: {
+    symbol: '؋',
+    decimalScale: 2,
+    label: 'currency.afn',
+  },
+  USD: {
+    symbol: '$',
+    decimalScale: 2,
+    label: 'currency.usd',
+  },
+}
   const [selectedCurrency, setSelectedCurrency] =
     useState<CurrencyType>(defaultCurrency)
   const currencyConfig = CURRENCY_CONFIG[selectedCurrency]
 
-  const currencyOptions = Object.entries(CURRENCY_CONFIG).map(
-    ([key, config]) => ({
-      value: key,
-      label: key,
-    }),
-  )
+  const currencyOptions = (Object.entries(CURRENCY_CONFIG) as [CurrencyType, CurrencyConfig][]).map(
+  ([key, config]) => ({
+    value: key,
+    label: t(config.label as any),
+  }),
+)
+  const { textAlign } = useIsRtlLang()
 
   return (
     <Group
@@ -76,7 +79,7 @@ const FormPriceInput = <T extends FieldValues>({
         gap={3}
       >
         <label>
-          <Paragraph>{label}</Paragraph>
+          <Paragraph style={{textAlign}}>{label}</Paragraph>
         </label>
 
         <Group
@@ -90,7 +93,7 @@ const FormPriceInput = <T extends FieldValues>({
               onChange={(value) => setSelectedCurrency(value as CurrencyType)}
               data={currencyOptions}
               radius={3}
-              w={80}
+              w={110}
               comboboxProps={{
                 transitionProps: { transition: 'fade-down', duration: 400 },
                 position: 'bottom-start',

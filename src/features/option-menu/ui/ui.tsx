@@ -30,8 +30,7 @@ function Ui({ type, id }: OptionMenuProps) {
         <Text size="sm">
           {type === 'account'
             ? t('optionMenu.confirmDeleteProfile')
-            : t('optionMenu.confirmDeleteProduct')
-            }
+            : t('optionMenu.confirmDeleteProduct')}
         </Text>
         <div
           style={{

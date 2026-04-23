@@ -28,9 +28,9 @@ const useManageTheme = () => {
       active: colorScheme === 'dark',
     },
   ] as const
-  const modifiedThemeObj = ThemeObj.map(theme=>({
+  const modifiedThemeObj = ThemeObj.map((theme) => ({
     ...theme,
-    textFooter: t(theme.textFooter)
+    textFooter: t(theme.textFooter),
   }))
 
   return {
