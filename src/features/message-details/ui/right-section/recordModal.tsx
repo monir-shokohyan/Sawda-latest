@@ -58,7 +58,7 @@ const RecordModal = ({
               onClick={cancelRecording}
               leftSection={<MdClose size={18} />}
             >
-            {t('common.cancel')}
+              {t('common.cancel')}
             </Button>
             <Button
               color="red"

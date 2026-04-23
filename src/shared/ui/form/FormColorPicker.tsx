@@ -108,7 +108,8 @@ const FormColorPicker = <T extends FieldValues>({
                           size="xs"
                           c="dimmed"
                         >
-                          {t('common.selectedColors')} ({selectedColors.length}/{maxColors})
+                          {t('common.selectedColors')} ({selectedColors.length}/
+                          {maxColors})
                         </Text>
                         <Group gap={8}>
                           {selectedColors.map((color, index) => (
