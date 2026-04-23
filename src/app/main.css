@@ -47,9 +47,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6) !important;
   }
 }
-/* .mantine-Carousel-viewport {
-  overflow: visible !important;
-} */
+
 .mantine-Select-option:hover {
   background-color: #366fb415 !important;
 }
