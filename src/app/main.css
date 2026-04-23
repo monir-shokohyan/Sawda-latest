@@ -14,7 +14,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #424242;
   border-radius: 4px;
 }
 
@@ -46,6 +46,9 @@ body {
   &:hover {
     background-color: rgba(0, 0, 0, 0.6) !important;
   }
+}
+.mantine-Carousel-viewport{
+  overflow: visible !important;
 }
 .mantine-Select-option:hover {
   background-color: #366fb415 !important;
