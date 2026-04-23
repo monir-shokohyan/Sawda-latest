@@ -60,9 +60,9 @@ const Ui = ({ amount, currency = 'USD', size = 'xl', mb = 0 }: Props) => {
             fontVariantNumeric: 'tabular-nums',
           }}
         >
-          {currency === 'USD' && currencySymbol} 
-          <span style={{paddingInline: '5px'}}>
-          {formatPrice(amount, currency)}
+          {currency === 'USD' && currencySymbol}
+          <span style={{ paddingInline: '5px' }}>
+            {formatPrice(amount, currency)}
           </span>
           {currency === 'AFN' && ` ${currencySymbol}`}
         </ResText>
