@@ -21,7 +21,7 @@ export const useIsRtlLang = (): dirType => {
   }, [i18n])
 
   return {
-    dir: isRtl ? 'ltr' : 'rtl',
+    dir: isRtl ? 'rtl' : 'ltr',
     textAlign: isRtl ? 'right' : 'left',
     isEnglish: isRtl ? false : true,
   }

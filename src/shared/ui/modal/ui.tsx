@@ -2,6 +2,10 @@ import { ModalProps, useMantineTheme } from '@mantine/core'
 import { ReactNode } from 'react'
 import { Logo } from '../logo'
 import { HModal } from '@shared/styles'
+import { Responsive } from '@shared/hooks/responsive'
+import { RiArrowLeftLine } from 'react-icons/ri'
+import { IoClose } from "react-icons/io5";
+
 
 interface BaseModalProps extends Omit<
   ModalProps,
@@ -29,6 +33,7 @@ const Ui = ({
 }: BaseModalProps) => {
   const modalTitle = customTitle || (showLogo ? <Logo /> : title)
   const theme = useMantineTheme()
+  const { isMobile } = Responsive()
 
   return (
     <HModal
@@ -37,6 +42,9 @@ const Ui = ({
       title={modalTitle}
       centered={centered}
       transitionProps={transitionProps}
+      closeButtonProps={{
+          icon: isMobile?  <RiArrowLeftLine size={20} />: <IoClose size={20}/>,
+        }}
       {...props}
       styles={{
         content: {
@@ -45,6 +53,7 @@ const Ui = ({
         },
         header: {
           display: showOverlay ? 'none' : 'flex',
+          direction: 'rtl',
         },
       }}
     >

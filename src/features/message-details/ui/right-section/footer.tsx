@@ -40,7 +40,7 @@ const Footer = ({
   } = useManageRightfooter({ inputValue, handleSendMessage })
   return (
     <>
-      <StickyPaper type="footer">
+      <StickyPaper type="footer" style={{direction: 'ltr'}}>
         {/* File Previews */}
         {attachedFiles.length > 0 && (
           <Group
@@ -197,6 +197,7 @@ const Footer = ({
               input: {
                 border: 'none',
                 backgroundColor: 'var(--mantine-color-background-9)',
+                unicodeBidi: 'plaintext',
               },
             }}
           />

@@ -28,6 +28,7 @@ const MenuWrapper = ({
       trigger={isMobile || clickTrigger ? 'click' : 'hover'}
       onOpen={toggle}
       onClose={toggle}
+      arrowPosition="center"
     >
       {children}
     </Menu>

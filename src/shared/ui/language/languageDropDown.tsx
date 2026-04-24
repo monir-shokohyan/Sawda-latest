@@ -2,6 +2,7 @@ import { ButtonProps } from '@mantine/core'
 import { useTranslation } from 'react-i18next'
 import { MenuDropDown } from '../menu-dropdown'
 import { MdLanguage } from 'react-icons/md'
+import { useIsRtlLang } from '@shared/hooks'
 
 const LanguageDropDown = (props: ButtonProps) => {
   const { i18n } = useTranslation()
@@ -20,6 +21,7 @@ const LanguageDropDown = (props: ButtonProps) => {
 
   const currentLabel =
     languages.find((l) => l.value === i18n.language)?.label ?? 'English'
+  const { isEnglish } = useIsRtlLang()
 
   return (
     <MenuDropDown
@@ -27,6 +29,7 @@ const LanguageDropDown = (props: ButtonProps) => {
       props={props}
       triggerButton={currentLabel}
       width={120}
+      // position={isEnglish ? 'bottom-end' : 'bottom-start'}
     />
   )
 }

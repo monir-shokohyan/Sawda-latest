@@ -11,11 +11,15 @@ import { useNavigate } from 'react-router-dom'
 import { SettingDropDownSelector } from '../reducers'
 import { useAppSelector } from '@shared/hooks/redux-hooks'
 import { BaseModal } from '@shared/ui/modal'
+import { useIsRtlLang } from '@shared/hooks'
+import { useTranslation } from 'react-i18next'
 
 const ProfileModel = () => {
   const navigate = useNavigate()
   const { ProfileConstant, pathname } = useProfileDropDown({})
   const settingDropDown = useAppSelector(SettingDropDownSelector)
+  const { dir } = useIsRtlLang()
+  const { t } = useTranslation()
 
   return (
     <BaseModal
@@ -23,6 +27,7 @@ const ProfileModel = () => {
       onClose={() => navigate(Paths.Main)}
       fullScreen
       pos="relative"
+      dir='ltr'
     >
       {/* Content */}
       <ScrollArea
@@ -34,6 +39,7 @@ const ProfileModel = () => {
           direction="column"
           w="100%"
           gap={10}
+          dir={dir}
         >
           <OverlayBg>
             <ProfileSection
@@ -53,7 +59,7 @@ const ProfileModel = () => {
             />
           </OverlayBg>
           {ProfileConstant.map((option) => {
-            if (option.label.toLocaleLowerCase() !== 'logout') {
+            if (option.id.toLocaleLowerCase() !== 'logout') {
               return (
                 <MenuItem
                   option={option}
@@ -92,7 +98,7 @@ const ProfileModel = () => {
         left={10}
         radius={5}
       >
-        Sign out
+        {t('profile.signOut')}
       </Button>
     </BaseModal>
   )

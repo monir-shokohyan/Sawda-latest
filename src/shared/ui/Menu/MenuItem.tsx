@@ -7,6 +7,7 @@ import { ExpandArrow } from '../expandArrow'
 import { useAppSelector } from '@shared/hooks/redux-hooks'
 import { SettingDropDownSelector } from '@features/mobile-model/reducers'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { useIsRtlLang } from '@shared/hooks'
 
 export interface Profiletype {
   label: string
@@ -23,6 +24,7 @@ const MenuItem = ({ option }: Props) => {
   const { pathname } = useLocation()
   const settingDropDown = useAppSelector(SettingDropDownSelector)
   const { colors } = useMantineTheme()
+  const { isEnglish } = useIsRtlLang()
 
   return (
     <HoveredItem
@@ -62,6 +64,7 @@ const MenuItem = ({ option }: Props) => {
           <MdOutlineKeyboardArrowRight
             color={colors.primary[8]}
             size={20}
+            style={{rotate: isEnglish ? '0deg' : '180deg'}}
           />
         )}
       </Flex>

@@ -6,6 +6,7 @@ import { TypographySize } from '@shared/typography'
 import { Stack } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { useTranslation } from 'react-i18next'
+import { useIsRtlLang } from '@shared/hooks'
 
 const SettingList = () => {
   const { pathname } = useLocation()
@@ -20,6 +21,7 @@ const SettingList = () => {
     ...item,
     label: t(item.label),
   }))
+  const { textAlign } = useIsRtlLang()
   return (
     <>
       <Stack
@@ -36,6 +38,7 @@ const SettingList = () => {
             <ResText
               c="darkText"
               fontSize={FontSize}
+              style={{textAlign}}
             >
               {item.label}
             </ResText>

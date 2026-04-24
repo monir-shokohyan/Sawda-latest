@@ -9,7 +9,7 @@ const ProfileDropDown = (props: ButtonProps) => {
   const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
   const modifiedProfile = ProfileConstant.filter(
     (profile) =>
-      profile.label !== 'Following' && profile.label !== 'Notification',
+      profile.id !== 'following' && profile.id !== 'notification',
   )
   return (
     <>

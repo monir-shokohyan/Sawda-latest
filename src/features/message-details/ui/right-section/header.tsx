@@ -8,7 +8,7 @@ import { MdArrowBack, MdMoreVert } from 'react-icons/md'
 const Header = ({ selectedMessage, onBack }: RightHeaderProps) => {
   const { isMobile } = Responsive()
   return (
-    <StickyPaper type="header">
+    <StickyPaper type="header" style={{direction: 'ltr'}}>
       <Group justify="space-between">
         <Group gap="md">
           {isMobile && onBack && (
