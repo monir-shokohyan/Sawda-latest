@@ -5,7 +5,7 @@ import { Props } from './type'
 const SubHeading = ({ children, ...props }: Props) => {
   return (
     <ResText
-      fontSize={TypographySize.Normal}
+      fontSize={TypographySize.Small}
       c="darkText"
       {...props}
     >

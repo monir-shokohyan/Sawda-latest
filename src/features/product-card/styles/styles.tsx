@@ -2,7 +2,7 @@ import styled, { css, keyframes } from 'styled-components'
 
 export const StyledImageContainer = styled.div`
   width: 100%;
-  height: 13rem;
+  height: 16rem;
   background: #e8e8e8;
   display: flex;
   align-items: center;

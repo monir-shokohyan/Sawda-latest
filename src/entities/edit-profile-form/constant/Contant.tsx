@@ -44,9 +44,4 @@ const ModalDefaultValue = {
   country: '',
 }
 
-export {
-  NewestToOldestObj,
-  GenderObj,
-  defaultValues,
-  ModalDefaultValue,
-}
+export { NewestToOldestObj, GenderObj, defaultValues, ModalDefaultValue }

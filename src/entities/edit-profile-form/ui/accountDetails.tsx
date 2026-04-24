@@ -14,9 +14,9 @@ interface FormSetProps {
 
 const AccountDetails = ({ control }: FormSetProps) => {
   const { t } = useTranslation()
-  const modifiedProvinceContant = ProvinceConstants.map(item=>({
+  const modifiedProvinceContant = ProvinceConstants.map((item) => ({
     ...item,
-    label: t(item.label as any)
+    label: t(item.label as any),
   }))
   return (
     <>

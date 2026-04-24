@@ -46,6 +46,7 @@ const ProductCard: React.FC<UseModalProps> = ({
       <MantineCard
         shadow="sm"
         padding="0"
+        py={isMobile ? 0 : 3}
         radius="md"
         withBorder={false}
         style={{
@@ -57,6 +58,7 @@ const ProductCard: React.FC<UseModalProps> = ({
         onClick={handleClick}
         onDoubleClick={handleDoubleClick}
         bg="background.7"
+        pos="relative"
       >
         <ProfileSection
           profile={profile}
@@ -101,9 +103,10 @@ const ProductCard: React.FC<UseModalProps> = ({
 
         <Group
           justify="space-between"
-          px="md"
+          px="sm"
           py={isMobile ? '5px' : 'xs'}
           style={{ borderTop: '1px solid #e8e8e8' }}
+          dir='ltr'
         >
           <ActionIconWrapper
             $isAnimating={isAnimating}

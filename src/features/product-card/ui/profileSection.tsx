@@ -20,9 +20,9 @@ const ProfileSection = ({
   size = 'md',
   mobileSize = '33px',
   allowPadding = true,
-  usernameSizeMobile = '0.8rem',
-  usernameSize = 'lg',
-  timeSize = '0.8rem',
+  usernameSizeMobile = '0.7rem',
+  usernameSize = 'sm',
+  timeSize = '0.7rem',
   showEmail = false,
   direction = 'row',
   hoverUsername = true,
@@ -49,6 +49,7 @@ const ProfileSection = ({
         direction={direction}
         align="center"
         gap={isMobile ? 8 : 15}
+        dir='ltr'
       >
         <Avatar
           color="blue"

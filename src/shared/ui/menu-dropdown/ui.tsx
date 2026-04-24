@@ -50,7 +50,7 @@ const Ui = ({
   size = 'sm',
   color = 'textPrimary',
   leftSection,
-  triggerButton = <FaEllipsisV size={16} />,
+  triggerButton = <FaEllipsisV size={14} />,
   clickTrigger = false,
   ...props
 }: Props) => {
@@ -60,7 +60,6 @@ const Ui = ({
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      style={{ marginInline: '10px' }}
     >
       <MenuWrapper
         toggle={toggle}
