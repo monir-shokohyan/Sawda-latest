@@ -76,7 +76,11 @@ const MobileDownbar = () => {
         c="darkText"
         size="xl"
         $isSubtle
-        style={isActive(`${Paths.SecureMobileModel}message-list`) ? ACTIVE_STYLE : undefined}
+        style={
+          isActive(`${Paths.SecureMobileModel}message-list`)
+            ? ACTIVE_STYLE
+            : undefined
+        }
         onClick={() => navigate(`${Paths.SecureMobileModel}message-list`)}
       >
         <MdOutlineMessage size={24} />
@@ -87,7 +91,11 @@ const MobileDownbar = () => {
         c="darkText"
         $isSubtle
         size="xl"
-        style={isActive(`${Paths.SecureMobileModel}profile`) ? ACTIVE_STYLE : undefined}
+        style={
+          isActive(`${Paths.SecureMobileModel}profile`)
+            ? ACTIVE_STYLE
+            : undefined
+        }
         onClick={() => navigate(`${Paths.SecureMobileModel}profile`)}
       >
         <MdPerson size={24} />
