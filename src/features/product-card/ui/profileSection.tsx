@@ -50,16 +50,16 @@ const ProfileSection = ({
         align="center"
         gap={isMobile ? 8 : 15}
         dir="ltr"
-          onClick={(e) => {
-                if (!hoverUsername) return
-                e.stopPropagation()
-                navigate({
-                  pathname: `${Paths.ProfileDetails}${profile?.username}`,
-                  search: new URLSearchParams({
-                    name: `${profile.username?.slice(0, 20)}...`,
-                  }).toString(),
-                })
-              }}
+        onClick={(e) => {
+          if (!hoverUsername) return
+          e.stopPropagation()
+          navigate({
+            pathname: `${Paths.ProfileDetails}${profile?.username}`,
+            search: new URLSearchParams({
+              name: `${profile.username?.slice(0, 20)}...`,
+            }).toString(),
+          })
+        }}
       >
         <Avatar
           color="blue"
@@ -85,7 +85,7 @@ const ProfileSection = ({
               lineClamp={1}
               c={isStaticColor ? 'white' : 'darkText'}
               $isActive={hoverUsername}
-              onClick={()=>{}}
+              onClick={() => {}}
             >
               {profile?.username}
             </HoveredText>
@@ -150,6 +150,7 @@ const ProfileSection = ({
               c={isStaticColor ? 'white' : 'darkText'}
               td="underline"
               $isActive={true}
+              style={{textAlign: 'left'}}
             >
               {t('common.profileDetails')}
             </HoveredText>

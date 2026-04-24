@@ -78,13 +78,15 @@ const ProfileModel = () => {
           </Collapse>
         </Flex>
       </ScrollArea>
-      <Group justify="space-between" px="md">
-      <DarkMode
-        c="primary"
-        iconSize={25}
-      />
-      <LanguageDropDown
-      />
+      <Group
+        justify="space-between"
+        px="md"
+      >
+        <DarkMode
+          c="primary"
+          iconSize={25}
+        />
+        <LanguageDropDown />
       </Group>
       <Button
         w="94%"

@@ -38,6 +38,7 @@ const ProfileHeader = () => {
         pos="absolute"
         top="65%"
         left="50%"
+        style={{direction: 'ltr'}}
       >
         <GradientContainer p={15}>
           <Flex

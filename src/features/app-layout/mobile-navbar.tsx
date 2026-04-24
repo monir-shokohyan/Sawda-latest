@@ -26,6 +26,7 @@ const MobileDownbar = () => {
         backgroundColor: 'var(--mantine-color-background-8)',
         zIndex: 100,
       }}
+      dir='ltr'
     >
       <SActionIcon
         variant="subtle"
