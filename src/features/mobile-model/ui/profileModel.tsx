@@ -1,6 +1,6 @@
 import { ProfileSection } from '@features/product-card/ui/profileSection'
 import { SettingList } from '@features/setting/setting-layout/ui/settingList'
-import { Button, Collapse, Flex, ScrollArea } from '@mantine/core'
+import { Button, Collapse, Flex, Group, ScrollArea } from '@mantine/core'
 import { Paths } from '@shared/api/paths/paths'
 import { DarkMode } from '@shared/ui/darkMode'
 import { LanguageDropDown } from '@shared/ui/language'
@@ -78,19 +78,14 @@ const ProfileModel = () => {
           </Collapse>
         </Flex>
       </ScrollArea>
+      <Group justify="space-between" px="md">
       <DarkMode
-        pos="absolute"
-        bottom={80}
         c="primary"
         iconSize={25}
-        right={20}
-        radius={5}
       />
       <LanguageDropDown
-        pos="absolute"
-        bottom={80}
-        left={10}
       />
+      </Group>
       <Button
         w="94%"
         pos="absolute"
