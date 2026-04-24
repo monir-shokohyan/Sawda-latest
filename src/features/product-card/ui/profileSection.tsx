@@ -54,7 +54,7 @@ const ProfileSection = ({
         onClick={(e) => {
           if (!hoverUsername) return
           e.stopPropagation()
-          if(showDetails){
+          if (showDetails) {
             open()
             return
           }
@@ -179,6 +179,7 @@ const ProfileSection = ({
         onClose={close}
         pos="relative"
         centered
+        fullScreen={isMobile ? true : false}
       >
         <ProfileInfo Profile={profile} />
       </BaseModal>
