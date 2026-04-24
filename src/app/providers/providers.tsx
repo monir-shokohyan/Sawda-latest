@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
+import { PropsWithChildren, useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store, persistor } from './store'
@@ -19,14 +19,12 @@ const RTL_LANGS = ['fa', 'ps']
 
 export const Providers = ({ children }: PropsWithChildren) => {
   const [dir, setDir] = useState<'ltr' | 'rtl'>('ltr')
-  const [lang, setLang] = useState<string>('en')
   const { i18n } = useTranslation()
 
   useEffect(() => {
     const updateDir = (language: string) => {
       const isRtl = RTL_LANGS.includes(language)
       setDir(isRtl ? 'rtl' : 'ltr')
-      setLang(language)
       document.documentElement.lang = language
       document.documentElement.dir = isRtl ? 'rtl' : 'ltr'
     }
@@ -34,16 +32,6 @@ export const Providers = ({ children }: PropsWithChildren) => {
     i18n.on('languageChanged', updateDir)
     return () => i18n.off('languageChanged', updateDir)
   }, [])
-
-  const dynamicTheme = useMemo(
-    () => ({
-      ...theme,
-      fontFamily: RTL_LANGS.includes(lang)
-        ? 'Vazirmatn, sans-serif'
-        : 'Inter, sans-serif',
-    }),
-    [lang],
-  )
   return (
     <BrowserRouter>
       <Provider store={store}>
@@ -56,7 +44,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
             colorSchemeManager={localStorageColorSchemeManager({
               key: 'my-app-theme',
             })}
-            theme={dynamicTheme}
+            theme={theme}
           >
             <PersistGate
               loading={<Loader />}

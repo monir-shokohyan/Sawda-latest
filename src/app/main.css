@@ -4,6 +4,21 @@ body {
   background-color: var(--mantine-color-background-9) !important;
 }
 
+/* Apply Vazirmatn to ALL elements (Mantine + raw HTML) when language is Persian or Pashto */
+html[lang='fa'] *,
+html[lang='ps'] * {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Fix text direction inside inputs and textareas for RTL languages */
+html[lang='fa'] input,
+html[lang='fa'] textarea,
+html[lang='ps'] input,
+html[lang='ps'] textarea {
+  text-align: right !important;
+  unicode-bidi: plaintext !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 

@@ -14,37 +14,6 @@ const NewestToOldestObj = [
   },
 ]
 
-const AfghanistanCities = [
-  { value: 'Kabul', label: 'Kabul' },
-  { value: 'Herat', label: 'Herat' },
-  { value: 'Mazar-i-Sharif', label: 'Mazar-i-Sharif' },
-  { value: 'Kandahar', label: 'Kandahar' },
-  { value: 'Jalalabad', label: 'Jalalabad' },
-  { value: 'Kunduz', label: 'Kunduz' },
-  { value: 'Gardez', label: 'Gardez' },
-  { value: 'Ghazni', label: 'Ghazni' },
-  { value: 'Lashkargah', label: 'Lashkargah' },
-  { value: 'Fayzabad', label: 'Fayzabad' },
-  { value: 'Asadabad', label: 'Asadabad' },
-  { value: 'Qala-e-Naw', label: 'Qala-e-Naw' },
-  { value: 'Pul-e-Khumri', label: 'Pul-e-Khumri' },
-  { value: 'Bamyan', label: 'Bamyan' },
-  { value: 'Maymana', label: 'Maymana' },
-  { value: 'Sheberghan', label: 'Sheberghan' },
-  { value: 'Mehtar Lam', label: 'Mehtar Lam' },
-  { value: 'Mahmud-i-Raqi', label: 'Mahmud-i-Raqi' },
-  { value: 'Zaranj', label: 'Zaranj' },
-  { value: 'Charikar', label: 'Charikar' },
-  { value: 'Nili', label: 'Nili' },
-  { value: 'Chaghcharan', label: 'Chaghcharan' },
-  { value: 'Taloqan', label: 'Taloqan' },
-  { value: 'Qalat', label: 'Qalat' },
-  { value: 'Tarinkot', label: 'Tarinkot' },
-  { value: 'Khost', label: 'Khost' },
-  { value: 'Parun', label: 'Parun' },
-  { value: 'Sharana', label: 'Sharana' },
-  { value: 'Puli Alam', label: 'Puli Alam' },
-]
 const GenderObj = [
   { value: 'Male', label: 'gender.male' },
   { value: 'Female', label: 'gender.female' },
@@ -77,7 +46,6 @@ const ModalDefaultValue = {
 
 export {
   NewestToOldestObj,
-  AfghanistanCities,
   GenderObj,
   defaultValues,
   ModalDefaultValue,

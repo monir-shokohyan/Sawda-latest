@@ -3,10 +3,10 @@ import { FormInput } from '@shared/ui/form'
 import { FormSelect } from '@shared/ui/form/FormSelect'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'
 import { FaRegEye } from 'react-icons/fa'
-import { AfghanistanCities } from '../constant'
 import { Control } from 'react-hook-form'
 import { FormData } from '../types'
 import { useTranslation } from 'react-i18next'
+import { ProvinceConstants } from '@entities/filter-form/constant'
 
 interface FormSetProps {
   control: Control<FormData>
@@ -14,6 +14,10 @@ interface FormSetProps {
 
 const AccountDetails = ({ control }: FormSetProps) => {
   const { t } = useTranslation()
+  const modifiedProvinceContant = ProvinceConstants.map(item=>({
+    ...item,
+    label: t(item.label as any)
+  }))
   return (
     <>
       <Details
@@ -39,11 +43,11 @@ const AccountDetails = ({ control }: FormSetProps) => {
       />
 
       <FormSelect
-        label="Provinces"
+        label={t('profile.provinces')}
         name="province"
-        placeholder="Select province"
+        placeholder={t('profile.selectProvince')}
         control={control}
-        data={AfghanistanCities}
+        data={modifiedProvinceContant}
       />
 
       <FormInput
