@@ -8,8 +8,7 @@ const ProfileDropDown = (props: ButtonProps) => {
   const { isMobile } = Responsive()
   const { ProfileConstant } = useProfileDropDown({ id: 'monir' })
   const modifiedProfile = ProfileConstant.filter(
-    (profile) =>
-      profile.id !== 'following' && profile.id !== 'notification',
+    (profile) => profile.id !== 'following' && profile.id !== 'notification',
   )
   return (
     <>

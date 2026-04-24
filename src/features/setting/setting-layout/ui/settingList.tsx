@@ -38,7 +38,7 @@ const SettingList = () => {
             <ResText
               c="darkText"
               fontSize={FontSize}
-              style={{textAlign}}
+              style={{ textAlign }}
             >
               {item.label}
             </ResText>

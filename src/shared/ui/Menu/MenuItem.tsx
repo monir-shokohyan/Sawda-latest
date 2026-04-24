@@ -11,6 +11,7 @@ import { useIsRtlLang } from '@shared/hooks'
 
 export interface Profiletype {
   label: string
+  id: string
   icon: ReactElement
   handleClick?: () => void
   path?: string
@@ -54,17 +55,17 @@ const MenuItem = ({ option }: Props) => {
             {option.label}
           </ResText>
         </Flex>
-        {option.label.toLocaleLowerCase() === 'settings' && (
+        {option.id.toLocaleLowerCase() === 'settings' && (
           <ExpandArrow
             color={colors.primary[8]}
             isOpen={settingDropDown}
           />
         )}
-        {option.label.toLocaleLowerCase() !== 'settings' && (
+        {option.id.toLocaleLowerCase() !== 'settings' && (
           <MdOutlineKeyboardArrowRight
             color={colors.primary[8]}
             size={20}
-            style={{rotate: isEnglish ? '0deg' : '180deg'}}
+            style={{ rotate: isEnglish ? '0deg' : '180deg' }}
           />
         )}
       </Flex>

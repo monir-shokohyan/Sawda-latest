@@ -4,8 +4,7 @@ import { Logo } from '../logo'
 import { HModal } from '@shared/styles'
 import { Responsive } from '@shared/hooks/responsive'
 import { RiArrowLeftLine } from 'react-icons/ri'
-import { IoClose } from "react-icons/io5";
-
+import { IoClose } from 'react-icons/io5'
 
 interface BaseModalProps extends Omit<
   ModalProps,
@@ -43,8 +42,8 @@ const Ui = ({
       centered={centered}
       transitionProps={transitionProps}
       closeButtonProps={{
-          icon: isMobile?  <RiArrowLeftLine size={20} />: <IoClose size={20}/>,
-        }}
+        icon: isMobile ? <RiArrowLeftLine size={20} /> : <IoClose size={20} />,
+      }}
       {...props}
       styles={{
         content: {

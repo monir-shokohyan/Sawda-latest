@@ -27,7 +27,7 @@ const ProfileModel = () => {
       onClose={() => navigate(Paths.Main)}
       fullScreen
       pos="relative"
-      dir='ltr'
+      dir="ltr"
     >
       {/* Content */}
       <ScrollArea
@@ -70,7 +70,7 @@ const ProfileModel = () => {
           })}
           <Collapse
             in={settingDropDown}
-            pl={20}
+            px={20}
             transitionDuration={200}
             transitionTimingFunction="linear"
           >
