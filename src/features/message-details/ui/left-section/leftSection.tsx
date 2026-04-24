@@ -60,7 +60,7 @@ const LeftSection = ({
           overflowY: 'hidden',
         }}
       >
-        <StickyPaper type="header" >
+        <StickyPaper type="header">
           <Group
             justify="space-between"
             mb="md"

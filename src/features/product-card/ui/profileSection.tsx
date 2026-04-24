@@ -39,6 +39,7 @@ const ProfileSection = ({
   const [opened, { open, close }] = useDisclosure(false)
   const { textAlign } = useIsRtlLang()
   const { t } = useTranslation()
+  const usernameMobileSize = showDetails ? '0.9rem' : usernameSizeMobile
 
   return (
     <>
@@ -53,6 +54,10 @@ const ProfileSection = ({
         onClick={(e) => {
           if (!hoverUsername) return
           e.stopPropagation()
+          if(showDetails){
+            open()
+            return
+          }
           navigate({
             pathname: `${Paths.ProfileDetails}${profile?.username}`,
             search: new URLSearchParams({
@@ -81,7 +86,7 @@ const ProfileSection = ({
           >
             <HoveredText
               fw={600}
-              size={isMobile ? usernameSizeMobile : usernameSize}
+              size={isMobile ? usernameMobileSize : usernameSize}
               lineClamp={1}
               c={isStaticColor ? 'white' : 'darkText'}
               $isActive={hoverUsername}
@@ -143,10 +148,7 @@ const ProfileSection = ({
           {showDetails && (
             <HoveredText
               size={isMobile ? timeSize : '0.7rem'}
-              onClick={(e) => {
-                e.stopPropagation()
-                open()
-              }}
+              onClick={() => {}}
               c={isStaticColor ? 'white' : 'darkText'}
               td="underline"
               $isActive={true}

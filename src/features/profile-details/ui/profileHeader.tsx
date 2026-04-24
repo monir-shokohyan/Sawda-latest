@@ -127,6 +127,7 @@ const ProfileHeader = () => {
                     variant="outline"
                     radius={20}
                     size="compact-md"
+                    fz="sm"
                     w={isMobile ? '70%' : 'auto'}
                   >
                     {t('profile.follow')}
