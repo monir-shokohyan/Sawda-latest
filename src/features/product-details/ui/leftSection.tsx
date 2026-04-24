@@ -6,9 +6,15 @@ import { DetailsList, DetailsObject } from '../constant'
 import { ProductDetails } from './productDetails'
 import { PriceDisplay } from '@shared/ui/price-display'
 import { PrimaryHeading } from '@shared/typography/primary-heading'
+import { useTranslation } from 'react-i18next'
 
 const LeftSection = () => {
   const { isMobile } = Responsive()
+  const { t } = useTranslation()
+  const modifiedDetailsObject = DetailsObject.map(item=>({
+    ...item,
+    title: t(item.title as any)
+  }))
   return (
     <Stack
       w={isMobile ? '100%' : '72%'}
@@ -27,7 +33,7 @@ const LeftSection = () => {
       <Divider />
       <ProductDetails
         DetailsList={DetailsList}
-        DetailsObject={DetailsObject}
+        DetailsObject={modifiedDetailsObject}
       />
       <Divider />
       {!isMobile && <SimilarAdsSection />}

@@ -210,7 +210,7 @@ export const ResText = styled(Text)<
 
   @media (max-width: 575px) {
     font-size: ${({ fontSize }) =>
-      typeof fontSize === 'number' ? fontSize * 0.8 : fontSize}px;
+      typeof fontSize === 'number' ? fontSize * 0.9 : fontSize}px;
   }
 `
 export const SimpleText = styled(Text)<

@@ -11,13 +11,14 @@ import { Responsive } from '@shared/hooks/responsive'
 import { FaRegDotCircle } from 'react-icons/fa'
 import { ProductsDetailsProps } from '../types'
 import { Paragraph } from '@shared/typography/paragraph'
-import { SubHeading } from '@shared/typography/sub-heading'
+import { useIsRtlLang } from '@shared/hooks'
 
 const ProductDetails = ({
   DetailsObject,
   DetailsList,
 }: ProductsDetailsProps) => {
   const { isMobile } = Responsive()
+  const { textAlign } = useIsRtlLang()
   return (
     <Stack>
       <Stack>
@@ -26,31 +27,30 @@ const ProductDetails = ({
           gap={isMobile ? 15 : 25}
         >
           {DetailsObject.map((detail) => {
-            if (detail.title.toLowerCase() === 'discount') {
+            if (detail.id.toLowerCase() === 'discount') {
               return (
                 <Stack
                   w="45%"
                   gap={4}
                 >
-                  <SubHeading fw={500}>{detail.title}</SubHeading>
-
-                  <Paragraph>{detail.description} %</Paragraph>
+                  <Paragraph style={{textAlign}}>{detail.title}</Paragraph>
+                  <Paragraph style={{textAlign}}>{detail.description} %</Paragraph>
                 </Stack>
               )
             }
-            if (detail.title.toLowerCase() === 'color') {
+            if (detail.id.toLowerCase() === 'color') {
               return (
                 <Stack
                   w="45%"
                   gap={4}
                 >
-                  <SubHeading fw={500}>{detail.title}</SubHeading>
+                  <Paragraph fw={500}>{detail.title}</Paragraph>
                   <Group gap={7}>
                     {Array.isArray(detail.description) &&
                       detail.description.map((colorObj) => {
                         return (
                           <ColorSwatch
-                            size={isMobile ? 20 : 30}
+                            size={isMobile ? 15 : 20}
                             color={colorObj || '#009790'}
                           />
                         )
@@ -65,8 +65,8 @@ const ProductDetails = ({
                 w="45%"
                 gap={4}
               >
-                <SubHeading fw={500}>{detail.title}</SubHeading>
-                <Paragraph>{detail.description}</Paragraph>
+                <Paragraph style={{textAlign}} fw={500}>{detail.title}</Paragraph>
+                <Paragraph style={{textAlign}}>{detail.description}</Paragraph>
               </Stack>
             )
           })}
@@ -74,7 +74,7 @@ const ProductDetails = ({
 
         <Divider />
 
-        <Paragraph>
+        <Paragraph >
           True wireless freedom with premium sound. Deep bass, crystal-clear
           highs, and active noise cancellation that actually works. 32-hour
           total battery life (8 hours per charge + case), IPX5 sweat-proof,
@@ -95,7 +95,7 @@ const ProductDetails = ({
         >
           {DetailsList.map((listInfo) => {
             return (
-              <List.Item>
+              <List.Item style={{textAlign}}>
                 <Paragraph>{listInfo.title}</Paragraph>
               </List.Item>
             )

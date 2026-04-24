@@ -102,7 +102,6 @@ const ProfileSection = ({
           {showEmail && (
             <Paragraph
               c={isStaticColor ? 'white' : 'dimmed'}
-              style={{ textAlign }}
             >
               {profile?.email}
             </Paragraph>

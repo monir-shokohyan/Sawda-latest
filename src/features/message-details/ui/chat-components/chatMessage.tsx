@@ -2,7 +2,7 @@ import { Text } from '@mantine/core'
 import { DetectDirection } from '@shared/hooks'
 
 const ChatMessage = ({ content }: { content: string }) => {
-  const dir = DetectDirection(content)
+  const { dir } = DetectDirection(content)
   return (
     <Text
       size="sm"

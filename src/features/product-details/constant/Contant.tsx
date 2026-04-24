@@ -1,10 +1,10 @@
 const DetailsObject = [
-  { title: 'City', description: 'kabul' },
-  { title: 'Model', description: 'anything' },
-  { title: 'Quantity', description: '12' },
-  { title: 'Condition', description: 'new' },
-  { title: 'Discount', description: '30' },
-  { title: 'Color', description: ['red', 'blue', 'black'] },
+  { id:'city', title: 'address.city', description: 'kabul' },
+  { id:'model', title: 'common.model', description: 'anything' },
+  { id:'quantity', title: 'product.quantity', description: '12' },
+  { id:'condition', title: 'product.condition', description: 'new' },
+  { id:'discount', title: 'product.discount', description: '30' },
+  { id:'color', title: 'product.color', description: ['red', 'blue', 'black'] },
 ]
 const DetailsList = [
   {
