@@ -150,7 +150,7 @@ const ProfileSection = ({
               c={isStaticColor ? 'white' : 'darkText'}
               td="underline"
               $isActive={true}
-              style={{textAlign: 'left'}}
+              style={{ textAlign: 'left' }}
             >
               {t('common.profileDetails')}
             </HoveredText>

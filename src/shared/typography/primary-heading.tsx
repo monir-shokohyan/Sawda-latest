@@ -5,7 +5,7 @@ import { Props } from './type'
 const PrimaryHeading = ({ children, ...props }: Props) => {
   return (
     <ResText
-      fontSize={TypographySize.Large}
+      fontSize={TypographySize.SemiLarge}
       c="darkText"
       {...props}
     >
