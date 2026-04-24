@@ -9,10 +9,18 @@ import {
   MdOutlineMessage,
   MdPerson,
 } from 'react-icons/md'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+
+const ACTIVE_STYLE = {
+  backgroundColor: 'var(--mantine-color-primary-light-hover)',
+}
 
 const MobileDownbar = () => {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  const isActive = (path: string) => pathname.startsWith(path)
+
   return (
     <Flex
       justify="space-around"
@@ -33,6 +41,7 @@ const MobileDownbar = () => {
         $isSubtle
         c="darkText"
         size="xl"
+        style={pathname === Paths.Main ? ACTIVE_STYLE : undefined}
         onClick={() => navigate(Paths.Main)}
       >
         <MdHome size={24} />
@@ -43,6 +52,7 @@ const MobileDownbar = () => {
         $isSubtle
         c="darkText"
         size="xl"
+        style={isActive(Paths.Favorites) ? ACTIVE_STYLE : undefined}
         onClick={() => navigate(`${Paths.Favorites}monir`)}
       >
         <MdOutlineFavoriteBorder size={24} />
@@ -66,6 +76,7 @@ const MobileDownbar = () => {
         c="darkText"
         size="xl"
         $isSubtle
+        style={isActive(`${Paths.SecureMobileModel}message-list`) ? ACTIVE_STYLE : undefined}
         onClick={() => navigate(`${Paths.SecureMobileModel}message-list`)}
       >
         <MdOutlineMessage size={24} />
@@ -76,6 +87,7 @@ const MobileDownbar = () => {
         c="darkText"
         $isSubtle
         size="xl"
+        style={isActive(`${Paths.SecureMobileModel}profile`) ? ACTIVE_STYLE : undefined}
         onClick={() => navigate(`${Paths.SecureMobileModel}profile`)}
       >
         <MdPerson size={24} />
