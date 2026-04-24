@@ -49,7 +49,7 @@ const ProfileSection = ({
         direction={direction}
         align="center"
         gap={isMobile ? 8 : 15}
-        dir='ltr'
+        dir="ltr"
       >
         <Avatar
           color="blue"

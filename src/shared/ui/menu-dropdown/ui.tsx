@@ -58,9 +58,7 @@ const Ui = ({
   const navigate = useNavigate()
 
   return (
-    <div
-      onClick={(e) => e.stopPropagation()}
-    >
+    <div onClick={(e) => e.stopPropagation()}>
       <MenuWrapper
         toggle={toggle}
         position={position}

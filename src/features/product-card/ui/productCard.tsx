@@ -106,7 +106,7 @@ const ProductCard: React.FC<UseModalProps> = ({
           px="sm"
           py={isMobile ? '5px' : 'xs'}
           style={{ borderTop: '1px solid #e8e8e8' }}
-          dir='ltr'
+          dir="ltr"
         >
           <ActionIconWrapper
             $isAnimating={isAnimating}

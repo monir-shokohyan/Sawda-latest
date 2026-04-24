@@ -77,17 +77,6 @@ const Ui = ({
       >
         <FiSearch size={isMobile ? 13 : 16} />
       </SActionIcon>
-      {route !== 'favorites' && (
-        <>
-          <VerticalBorder />
-          <SActionIcon
-            size="input-md"
-            radius="0px"
-          >
-            <FiMic size={isMobile ? 13 : 16} />
-          </SActionIcon>
-        </>
-      )}
     </InputContainer>
   )
 }
