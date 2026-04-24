@@ -20,7 +20,7 @@ function Ui() {
       <Container
         fluid
         w="100%"
-        px="2.5%"
+        px="0px"
       >
         <STabs
           value={tab}
