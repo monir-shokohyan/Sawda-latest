@@ -33,8 +33,10 @@ const ProductDetails = ({
                   w="45%"
                   gap={4}
                 >
-                  <Paragraph style={{textAlign}}>{detail.title}</Paragraph>
-                  <Paragraph style={{textAlign}}>{detail.description} %</Paragraph>
+                  <Paragraph style={{ textAlign }}>{detail.title}</Paragraph>
+                  <Paragraph style={{ textAlign }}>
+                    {detail.description} %
+                  </Paragraph>
                 </Stack>
               )
             }
@@ -65,8 +67,15 @@ const ProductDetails = ({
                 w="45%"
                 gap={4}
               >
-                <Paragraph style={{textAlign}} fw={500}>{detail.title}</Paragraph>
-                <Paragraph style={{textAlign}}>{detail.description}</Paragraph>
+                <Paragraph
+                  style={{ textAlign }}
+                  fw={500}
+                >
+                  {detail.title}
+                </Paragraph>
+                <Paragraph style={{ textAlign }}>
+                  {detail.description}
+                </Paragraph>
               </Stack>
             )
           })}
@@ -74,7 +83,7 @@ const ProductDetails = ({
 
         <Divider />
 
-        <Paragraph >
+        <Paragraph>
           True wireless freedom with premium sound. Deep bass, crystal-clear
           highs, and active noise cancellation that actually works. 32-hour
           total battery life (8 hours per charge + case), IPX5 sweat-proof,
@@ -95,7 +104,7 @@ const ProductDetails = ({
         >
           {DetailsList.map((listInfo) => {
             return (
-              <List.Item style={{textAlign}}>
+              <List.Item style={{ textAlign }}>
                 <Paragraph>{listInfo.title}</Paragraph>
               </List.Item>
             )

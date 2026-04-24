@@ -9,7 +9,7 @@ const Paragraph = ({ children, ...props }: Props) => {
     <ResText
       fontSize={TypographySize.SemiSmall}
       c="darkText"
-      style={{textAlign}}
+      style={{ textAlign }}
       {...props}
     >
       {children}

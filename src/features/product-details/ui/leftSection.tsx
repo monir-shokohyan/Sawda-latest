@@ -11,9 +11,9 @@ import { useTranslation } from 'react-i18next'
 const LeftSection = () => {
   const { isMobile } = Responsive()
   const { t } = useTranslation()
-  const modifiedDetailsObject = DetailsObject.map(item=>({
+  const modifiedDetailsObject = DetailsObject.map((item) => ({
     ...item,
-    title: t(item.title as any)
+    title: t(item.title as any),
   }))
   return (
     <Stack
