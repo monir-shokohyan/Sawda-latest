@@ -1,5 +1,4 @@
 import { Flex } from '@mantine/core'
-import { useSearchParams } from 'react-router-dom'
 import { Responsive } from '@shared/hooks/responsive'
 import { RightSection } from './rightSection'
 import { LeftSection } from './leftSection'

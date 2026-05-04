@@ -19,7 +19,6 @@ html[lang='ps'] textarea {
 
 ::-webkit-scrollbar {
   width: 8px;
-
   @media (max-width: 768px) {
     width: 4px;
   }

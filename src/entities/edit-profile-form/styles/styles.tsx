@@ -12,7 +12,6 @@ export const SCenter = styled(Center)<CenterProps>`
     rgba(255, 255, 255, 0.3) 2px 2px 4px inset,
     rgba(0, 0, 0, 0.3) -2px -2px 4px inset;
 `
-///////////////////////////////edit profile
 export const ProfilePhotoSection = styled.div`
   display: flex;
   align-items: center;

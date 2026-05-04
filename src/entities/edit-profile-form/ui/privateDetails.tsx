@@ -1,7 +1,6 @@
 import { Details } from '@shared/ui/details/details'
 import { FormInput } from '@shared/ui/form'
 import { FormSelect } from '@shared/ui/form/FormSelect'
-import { FaRegEyeSlash } from 'react-icons/fa'
 import { GenderObj } from '../constant'
 import { Control } from 'react-hook-form'
 import { FormData } from '../types'

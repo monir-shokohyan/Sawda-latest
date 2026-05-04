@@ -1,11 +1,10 @@
-import { Group, Menu, Stack, Box, Button } from '@mantine/core'
+import { Group, Menu, Stack, Button } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { useIsRtlLang } from '@shared/hooks'
 import { ExpandArrow } from '@shared/ui/expandArrow'
 import { FormNumberInput } from '@shared/ui/form/FormNumberInput'
 import { Control, FieldValues, Path, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { IoIosArrowDown } from 'react-icons/io'
 
 interface PriceFilterPillProps<T extends FieldValues> {
   control: Control<T>

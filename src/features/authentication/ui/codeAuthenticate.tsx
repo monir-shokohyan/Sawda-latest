@@ -1,4 +1,3 @@
-import { ForgetForm } from '@entities/forget-password'
 import { OtpForm } from '@entities/otp'
 import { Center } from '@mantine/core'
 import { Title, Text, Anchor, Stack } from '@mantine/core'

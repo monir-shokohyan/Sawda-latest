@@ -9,7 +9,6 @@ export const SecureLayout = () => {
   return (
     <Flex
       direction="column"
-      // w="100dvw"
       h="dvh"
     >
       <ScrollToTop />

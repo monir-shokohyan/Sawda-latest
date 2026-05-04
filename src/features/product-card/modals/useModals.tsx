@@ -11,7 +11,7 @@ const useModals = ({ profile, handleToggleLike }: UseModalProps) => {
   const [isAnimating, setIsAnimating] = useState<boolean>(false)
   const [showOverlay, setShowOverlay] = useState<boolean>(false)
   const { isAuth } = Auth()
-  let clickTimeout: NodeJS.Timeout | null = null
+  let clickTimeout: any | null = null
 
   const handleClick = (): void => {
     if (clickTimeout) {

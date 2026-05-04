@@ -1,5 +1,3 @@
-///////////////////////////////edit profile
-
 export interface ExpandableContentProps {
   isOpen: boolean
 }
@@ -25,8 +23,6 @@ export interface FormData {
   website: string
   businessEmail: string
 }
-
-//////////////////////////////////////////////business address modal
 
 export interface BusinessAddress {
   streetAddress: string

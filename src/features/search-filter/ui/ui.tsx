@@ -1,5 +1,5 @@
-import { FiSearch, FiMic } from 'react-icons/fi'
-import { SActionIcon, SInput, VerticalBorder } from '@shared/styles'
+import { FiSearch } from 'react-icons/fi'
+import { SActionIcon, SInput } from '@shared/styles'
 import { InputContainer } from '../styles'
 import { FilterButton } from './filterButton'
 import { useNavigate } from 'react-router-dom'

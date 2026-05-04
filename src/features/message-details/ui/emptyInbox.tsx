@@ -1,6 +1,5 @@
 import { Avatar, Card, Stack, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
-import { InteractiveCard } from '@shared/styles'
 import { useTranslation } from 'react-i18next'
 import { MdSend } from 'react-icons/md'
 import styled from 'styled-components'

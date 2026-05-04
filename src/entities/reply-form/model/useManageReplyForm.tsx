@@ -1,4 +1,3 @@
-import { useMantineTheme } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { ReplyFormType } from '../types'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -8,12 +7,11 @@ import { useIsRtlLang } from '@shared/hooks'
 import { quickReplies } from '../constant'
 
 const useManageReplyForm = () => {
-  const theme = useMantineTheme()
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
     reset,
     setValue,
     control,
