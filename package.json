@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "tauri":"tauri"
+    "tauri": "tauri"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
