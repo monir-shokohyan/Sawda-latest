@@ -11,7 +11,8 @@
     "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,ts,mts,jsx,tsx}\" --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "tauri":"tauri"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -22,6 +23,7 @@
     "@mantine/modals": "^8.3.14",
     "@mantine/notifications": "^8.3.14",
     "@reduxjs/toolkit": "^2.11.0",
+    "@tauri-apps/api": "^2.0.1",
     "axios": "^1.13.2",
     "browser-image-compression": "^2.0.2",
     "i18next": "^26.0.6",
@@ -48,6 +50,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@tauri-apps/cli": "^2.0.0-rc.18",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/react-easy-crop": "^1.16.0",

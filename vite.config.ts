@@ -5,10 +5,13 @@ import { qrcode } from 'vite-plugin-qrcode'
 
 export default () => {
   return defineConfig({
+    base: './',
     plugins: [react(), viteTsconfigPaths(), qrcode()],
+    clearScreen:false,
     server: {
       open: true,
       port: 3000,
+      strictPort: true,
       host: '0.0.0.0',
     },
     preview: {
