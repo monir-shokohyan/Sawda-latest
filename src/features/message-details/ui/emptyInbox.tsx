@@ -2,7 +2,7 @@ import { Avatar, Card, Stack, Text } from '@mantine/core'
 import { Responsive } from '@shared/hooks/responsive'
 import { useTranslation } from 'react-i18next'
 import { MdSend } from 'react-icons/md'
-import { EmptyState } from '../styles';
+import { EmptyState } from '../styles'
 
 const EmptyInbox = () => {
   const { isMobile } = Responsive()

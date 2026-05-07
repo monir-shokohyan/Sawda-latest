@@ -1,4 +1,4 @@
-import { ImageFile } from "@features/drag-and-drop/types";
+import { ImageFile } from '@features/drag-and-drop/types'
 
 export interface ProductsDetailsProps {
   DetailsObject: {

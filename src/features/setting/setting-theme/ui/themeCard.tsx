@@ -1,4 +1,4 @@
-import { Card, CardProps, Image, Text } from '@mantine/core'
+import { Card, CardProps, Image } from '@mantine/core'
 import { ResText } from '@shared/styles'
 import { TypographySize } from '@shared/typography'
 

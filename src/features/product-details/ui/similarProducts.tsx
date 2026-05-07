@@ -5,7 +5,7 @@ import { Content, IconWrapper, TitleWrapper } from '../styles'
 import { ProductCard } from '@features/product-card'
 import { PrimaryHeading } from '@shared/typography/primary-heading'
 import { useTranslation } from 'react-i18next'
-import { ProductsMaps } from '../constant';
+import { ProductsMaps } from '../constant'
 
 export function SimilarAdsSection() {
   const [isOpen, setIsOpen] = useState(true)

@@ -4,8 +4,8 @@ import { GradientContainer } from '@shared/ui/containers'
 import { GeneralPadding } from '@shared/constants'
 import { ProductCard } from '@features/product-card'
 import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
-import { generateProducts } from '../constant';
-import { Product } from '../types';
+import { generateProducts } from '../constant'
+import { Product } from '../types'
 
 const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
   const [products, setProducts] = useState<Product[]>(generateProducts(0, 16))

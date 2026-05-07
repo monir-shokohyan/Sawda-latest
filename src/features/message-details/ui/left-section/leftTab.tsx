@@ -1,7 +1,7 @@
 import { Tabs } from '@mantine/core'
 import { LeftTabProps } from '../../types'
 import { useTranslation } from 'react-i18next'
-import { HovTabs } from '@features/message-details/styles';
+import { HovTabs } from '@features/message-details/styles'
 
 const LeftTab = ({
   filter,
