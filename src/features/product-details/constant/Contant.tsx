@@ -28,5 +28,16 @@ const DetailsList = [
       'True wireless freedom with premium sound. Deep bass, crystal-clear highs, and active noise cancellation.',
   },
 ]
+const ProductsMaps = Array.from({ length: 9 }, (_, i) => ({
+  id: i,
+  username: 'abraham534',
+  timestamp: '3 days ago',
+  title:
+    'Wooden Sofa Set with Green Floral Cushions, RRP$3998, 6 months old ...',
+  price: 'S$99',
+  originalPrice: 'S$442',
+  status: 'Likely new',
+  liked: false,
+}))
 
-export { DetailsObject, DetailsList }
+export { DetailsObject, DetailsList, ProductsMaps }

@@ -7,9 +7,10 @@ import {
   Paper,
   PaperProps,
   Stack,
+  Tabs,
+  TabsProps,
 } from '@mantine/core'
 import styled, { keyframes } from 'styled-components'
-import { Message } from '../types'
 
 export const StickyPaper = styled(Paper)<
   PaperProps & { children: React.ReactNode; type?: 'header' | 'footer' }
@@ -114,4 +115,20 @@ export const AnimatedStack = styled(Stack)<{
           ? slideInFromLeft
           : 'none'}
     0.3s ease-out;
+`
+export const HovTabs = styled(Tabs)<TabsProps>`
+  .mantine-Tabs-tab:hover {
+    background-color: transparent;
+  }
+
+  .mantine-Tabs-tab {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .mantine-Tabs-list {
+    position: relative;
+  }
+`
+export const EmptyState = styled(Stack)`
+  text-align: center;
 `

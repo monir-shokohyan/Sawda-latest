@@ -1,28 +1,7 @@
-import { Tabs, TabsProps } from '@mantine/core'
-import { Message, MessageFilter } from '../../types'
-import styled from 'styled-components'
+import { Tabs } from '@mantine/core'
+import { LeftTabProps } from '../../types'
 import { useTranslation } from 'react-i18next'
-
-interface LeftTabProps {
-  filter: MessageFilter
-  handleChange: (value: string | null) => void
-  messages?: Message[]
-  unreadCount: number
-}
-
-const HovTabs = styled(Tabs)<TabsProps>`
-  .mantine-Tabs-tab:hover {
-    background-color: transparent;
-  }
-
-  .mantine-Tabs-tab {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .mantine-Tabs-list {
-    position: relative;
-  }
-`
+import { HovTabs } from '@features/message-details/styles';
 
 const LeftTab = ({
   filter,

@@ -1,6 +1,4 @@
-import {
-  MdMoreVert,
-} from 'react-icons/md'
+import { MdMoreVert } from 'react-icons/md'
 import { MenuOption } from '@shared/ui/menu-dropdown/ui'
 import { MenuDropDown } from '@shared/ui/menu-dropdown'
 

@@ -1,7 +1,6 @@
 import { Flex, Stack } from '@mantine/core'
 import { SActionIcon, SButton } from '@shared/styles'
 import { FiSend } from 'react-icons/fi'
-import { quickReplies } from '../constant'
 import { useManageReplyForm } from '../model'
 import { FormWrapper } from '@shared/ui/form-wrapper'
 import { FormTextarea } from '@shared/ui/form/FormTextArea'

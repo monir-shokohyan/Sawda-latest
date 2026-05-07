@@ -7,7 +7,6 @@ import { useIsRtlLang } from '@shared/hooks'
 import { quickReplies } from '../constant'
 
 const useManageReplyForm = () => {
-
   const {
     register,
     handleSubmit,

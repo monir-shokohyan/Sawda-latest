@@ -1,26 +1,11 @@
 import { useState } from 'react'
 import { Stack, Grid } from '@mantine/core'
 import { GradientContainer } from '@shared/ui/containers'
-import { Product } from '../types'
 import { GeneralPadding } from '@shared/constants'
 import { ProductCard } from '@features/product-card'
 import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'
-
-const generateProducts = (start: number, count: number): Product[] => {
-  const cacheBuster = Math.ceil(Math.random() * 400)
-  return Array.from({ length: count }, (_, i) => ({
-    id: start + i,
-    username: 'abraham534',
-    timestamp: '3 days ago',
-    title:
-      'Wooden Sofa Set with Green Floral Cushions, RRP$3998, 6 months old ...',
-    price: 'S$99',
-    originalPrice: 'S$442',
-    status: 'Likely new',
-    liked: false,
-    imageSrc: `https://picsum.photos/1200/800?random=${cacheBuster}`,
-  }))
-}
+import { generateProducts } from '../constant';
+import { Product } from '../types';
 
 const Ui = ({ allowPadding = true }: { allowPadding?: boolean }) => {
   const [products, setProducts] = useState<Product[]>(generateProducts(0, 16))

@@ -1,4 +1,4 @@
-import { CategoryType } from '../types'
+import { CategoryType, Product } from '../types'
 
 export const categories: CategoryType[] = [
   { id: 1, name: 'Auto', image: '/category/car.png' },
@@ -28,3 +28,19 @@ export const categories: CategoryType[] = [
   },
   { id: 14, name: 'Beauty & health', image: '/category/lipstick.png' },
 ]
+const generateProducts = (start: number, count: number): Product[] => {
+  const cacheBuster = Math.ceil(Math.random() * 400)
+  return Array.from({ length: count }, (_, i) => ({
+    id: start + i,
+    username: 'abraham534',
+    timestamp: '3 days ago',
+    title:
+      'Wooden Sofa Set with Green Floral Cushions, RRP$3998, 6 months old ...',
+    price: 'S$99',
+    originalPrice: 'S$442',
+    status: 'Likely new',
+    liked: false,
+    imageSrc: `https://picsum.photos/1200/800?random=${cacheBuster}`,
+  }))
+}
+export { generateProducts }

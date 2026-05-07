@@ -1,4 +1,4 @@
-import { Stack, Group, Card, Paper } from '@mantine/core'
+import { Stack, Card, Paper } from '@mantine/core'
 import { FollowingFilter, FollowingSectionProps } from '../types'
 import { FollowingTab } from './FollowingTab'
 import { InfiniteScrollWrapper } from '@shared/ui/infinite-scroll'

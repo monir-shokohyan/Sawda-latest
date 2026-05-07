@@ -103,3 +103,9 @@ export interface RecordModalProps {
   recordingTime: string
   stopRecording: () => void
 }
+export interface LeftTabProps {
+  filter: MessageFilter
+  handleChange: (value: string | null) => void
+  messages?: Message[]
+  unreadCount: number
+}
