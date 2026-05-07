@@ -8,7 +8,6 @@ import { useDisclosure } from '@mantine/hooks'
 import { ProfileInfo } from '@features/profile-info'
 import { BaseModal } from '@shared/ui/modal'
 import { Paragraph } from '@shared/typography/paragraph'
-import { useIsRtlLang } from '@shared/hooks'
 import { useTranslation } from 'react-i18next'
 
 const ProfileSection = ({
@@ -37,7 +36,6 @@ const ProfileSection = ({
   const padding =
     isMobile && isCard ? '10px' : isMobile && !isCard ? '0px' : 'xs'
   const [opened, { open, close }] = useDisclosure(false)
-  const { textAlign } = useIsRtlLang()
   const { t } = useTranslation()
   const usernameMobileSize = showDetails ? '0.9rem' : usernameSizeMobile
 
@@ -53,19 +51,13 @@ const ProfileSection = ({
         dir="ltr"
         onClick={(e) => {
           if (!hoverUsername) return
-          e.stopPropagation()
           if (showDetails) {
+            e.stopPropagation()
             open()
             return
           }
-          navigate({
-            pathname: `${Paths.ProfileDetails}${profile?.username}`,
-            search: new URLSearchParams({
-              name: `${profile.username?.slice(0, 20)}...`,
-            }).toString(),
-          })
         }}
-      >
+        >
         <Avatar
           color="blue"
           size={isMobile ? mobileSize : size}
@@ -90,7 +82,16 @@ const ProfileSection = ({
               lineClamp={1}
               c={isStaticColor ? 'white' : 'darkText'}
               $isActive={hoverUsername}
-              onClick={() => {}}
+              onClick={(e) => {
+                  if (!hoverUsername) return
+                  e.stopPropagation()
+                  navigate({
+                  pathname: `${Paths.ProfileDetails}${profile?.username}`,
+                  search: new URLSearchParams({
+                    name: `${profile.username?.slice(0, 20)}...`,
+                  }).toString(),
+                })
+                }}
             >
               {profile?.username}
             </HoveredText>
