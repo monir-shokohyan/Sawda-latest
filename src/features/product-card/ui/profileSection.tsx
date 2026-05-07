@@ -9,6 +9,7 @@ import { ProfileInfo } from '@features/profile-info'
 import { BaseModal } from '@shared/ui/modal'
 import { Paragraph } from '@shared/typography/paragraph'
 import { useTranslation } from 'react-i18next'
+import { ProfileImage } from './profileImage';
 
 const ProfileSection = ({
   profile,
@@ -57,13 +58,8 @@ const ProfileSection = ({
             return
           }
         }}
-        >
-        <Avatar
-          color="blue"
-          size={isMobile ? mobileSize : size}
-          radius="50%"
-          src="/profile.png"
-        />
+      >
+        <ProfileImage src="/profile.png" size={isMobile ? mobileSize : size} />
 
         <Stack
           gap={isMobile ? '4px' : '0px'}
@@ -83,15 +79,15 @@ const ProfileSection = ({
               c={isStaticColor ? 'white' : 'darkText'}
               $isActive={hoverUsername}
               onClick={(e) => {
-                  if (!hoverUsername) return
-                  e.stopPropagation()
-                  navigate({
+                if (!hoverUsername) return
+                e.stopPropagation()
+                navigate({
                   pathname: `${Paths.ProfileDetails}${profile?.username}`,
                   search: new URLSearchParams({
                     name: `${profile.username?.slice(0, 20)}...`,
                   }).toString(),
                 })
-                }}
+              }}
             >
               {profile?.username}
             </HoveredText>
