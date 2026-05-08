@@ -59,7 +59,9 @@ const Ui = ({
           handleClick={handleClick}
         />
       )}
-      {!isMobile && !isDashboard && !isSearch && <MenuFilter arrowPosition="bottom" />}
+      {!isMobile && !isDashboard && !isSearch && (
+        <MenuFilter arrowPosition="bottom" />
+      )}
       <SInput
         type="text"
         placeholder={t('common.search')}

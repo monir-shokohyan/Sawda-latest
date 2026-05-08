@@ -10,7 +10,6 @@ function Ui({ children, title, isSetting = true }: SettingLayout) {
   return (
     <ContainerWithBreadCrumb
       title={title}
-      isSetting
       pxMobile="0px"
     >
       <Flex>
