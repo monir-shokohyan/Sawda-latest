@@ -11,8 +11,7 @@ import '@mantine/core/styles.css'
 import '@mantine/notifications/styles.css'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import '@mantine/carousel/styles.css'
-import '@mantine-bites/lightbox/styles.css';
-
+import '@mantine-bites/lightbox/styles.css'
 
 const container = document.querySelector('#root')
 

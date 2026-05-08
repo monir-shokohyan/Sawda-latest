@@ -125,7 +125,11 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
         </Carousel>
 
         {/* Desktop Thumbnail Carousel */}
-        <Carousel withControls={false} slideSize="16.666%" slideGap="md">
+        <Carousel
+          withControls={false}
+          slideSize="16.666%"
+          slideGap="md"
+        >
           {data?.map((image, index) => (
             <Carousel.Slide key={`thumb-${image.id}`}>
               <Paper

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Avatar, Tooltip } from '@mantine/core'
 import { Lightbox } from '@mantine-bites/lightbox';
-import '@mantine-bites/lightbox/styles.css';
 
 function ProfileImage({ src, size }: { src: string; size: string }) {
   const [opened, setOpened] = useState(false)
@@ -32,6 +31,7 @@ function ProfileImage({ src, size }: { src: string; size: string }) {
           images={profileImage}
           opened={opened}
           onClose={() => setOpened(false)}
+          onClick={(e)=>e.stopPropagation()}
           withControls={false}
           withThumbnails={false}
           withCounter={false}
