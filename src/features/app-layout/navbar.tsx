@@ -48,7 +48,7 @@ const Navbar = () => {
           align="center"
           gap={isMobile ? 12 : 24}
         >
-          <Logo />
+          <Logo parent="navbar" />
           {!isMobile && <CategoryDropDown />}
         </Flex>
 

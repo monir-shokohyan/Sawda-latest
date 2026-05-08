@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import { Avatar, Modal, Image, Tooltip } from '@mantine/core';
+import { useState } from 'react'
+import { Avatar, Modal, Image, Tooltip } from '@mantine/core'
 
-function ProfileImage({src, size}:{src:string, size:string}) {
-  const [opened, setOpened] = useState(false);
+function ProfileImage({ src, size }: { src: string; size: string }) {
+  const [opened, setOpened] = useState(false)
 
   return (
     <>
-      <Tooltip label="View photo" withArrow>
+      <Tooltip
+        label="View photo"
+        withArrow
+      >
         <Avatar
           src={src}
           radius="50%"
@@ -14,7 +17,8 @@ function ProfileImage({src, size}:{src:string, size:string}) {
           size={size}
           onClick={(e) => {
             e.stopPropagation()
-            setOpened(true)}}
+            setOpened(true)
+          }}
         />
       </Tooltip>
 
@@ -23,7 +27,6 @@ function ProfileImage({src, size}:{src:string, size:string}) {
         onClose={() => {
           setOpened(false)
         }}
-
         transitionProps={{ transition: 'fade-down', duration: 200 }}
         centered
         size="lg"
@@ -37,6 +40,6 @@ function ProfileImage({src, size}:{src:string, size:string}) {
         />
       </Modal>
     </>
-  );
+  )
 }
 export { ProfileImage }
