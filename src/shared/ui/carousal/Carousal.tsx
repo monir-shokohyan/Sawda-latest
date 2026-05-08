@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Container, Paper, Stack, rem } from '@mantine/core'
 import { Carousel } from '@mantine/carousel'
 import '@mantine/carousel/styles.css'
+import { Lightbox } from '@mantine-bites/lightbox'
+import '@mantine-bites/lightbox/styles.css'
 import type { EmblaCarouselType } from 'embla-carousel'
 import { Responsive } from '@shared/hooks/responsive'
 import { LazyImage } from '../image'
@@ -24,6 +26,8 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
   const [embla, setEmbla] = useState<EmblaCarouselType | null>(null)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(true)
+  const [lightboxOpened, setLightboxOpened] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
 
   const onSelect = React.useCallback(() => {
     if (!embla) return
@@ -41,37 +45,27 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
   const handleThumbnailClick = (index: number) => {
     embla?.scrollTo(index)
   }
+
+  const handleImageClick = (index: number) => {
+    setLightboxIndex(index)
+    setLightboxOpened(true)
+  }
+
   const { isMobile } = Responsive()
 
-  /////////////////// will be deleted
-  const width = Math.floor(Math.random() * (800 - 300 + 1)) + 300
-  const height = Math.floor(Math.random() * (600 - 200 + 1)) + 200
   const images: ImageData[] = [
-    {
-      id: 1,
-      url: `https://picsum.photos/4000/1800?random=1`,
-    },
-    {
-      id: 2,
-      url: `https://picsum.photos/3100/1700?random=2`,
-    },
-    {
-      id: 3,
-      url: `https://picsum.photos/1600/1400?random=3`,
-    },
-    {
-      id: 4,
-      url: `https://picsum.photos/2000/2300?random=4`,
-    },
-    {
-      id: 5,
-      url: `https://picsum.photos/1400/1400?random=5`,
-    },
-    {
-      id: 6,
-      url: `https://picsum.photos/2500/2500?random=6`,
-    },
+    { id: 1, url: `https://picsum.photos/4000/1800?random=1` },
+    { id: 2, url: `https://picsum.photos/3100/1700?random=2` },
+    { id: 3, url: `https://picsum.photos/1600/1400?random=3` },
+    { id: 4, url: `https://picsum.photos/2000/2300?random=4` },
+    { id: 5, url: `https://picsum.photos/1400/1400?random=5` },
+    { id: 6, url: `https://picsum.photos/2500/2500?random=6` },
   ]
+
+  const lightboxImages = images.map((img) => ({
+    src: img.url,
+    alt: img.name ?? 'product image',
+  }))
 
   return (
     <Container px={0}>
@@ -98,9 +92,7 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
             },
           }}
           styles={{
-            controls: {
-              opacity: isMobile ? '0' : '1',
-            },
+            controls: { opacity: isMobile ? '0' : '1' },
             indicator: {
               width: rem(12),
               height: rem(12),
@@ -112,13 +104,15 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
               },
             },
           }}
-          emblaOptions={{
-            align: 'start',
-          }}
+          emblaOptions={{ align: 'start' }}
           slideSize={isMobile ? '95%' : '97%'}
         >
-          {images?.map((image) => (
-            <Carousel.Slide key={image.id}>
+          {images?.map((image, index) => (
+            <Carousel.Slide
+              key={image.id}
+              onClick={() => handleImageClick(index)}
+              style={{ cursor: 'zoom-in' }}
+            >
               <LazyImage
                 src={image.url}
                 alt="product image"
@@ -130,12 +124,8 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
           ))}
         </Carousel>
 
-        {/*Desktop Thumbnail Carousel */}
-        <Carousel
-          withControls={false}
-          slideSize="16.666%"
-          slideGap="md"
-        >
+        {/* Desktop Thumbnail Carousel */}
+        <Carousel withControls={false} slideSize="16.666%" slideGap="md">
           {data?.map((image, index) => (
             <Carousel.Slide key={`thumb-${image.id}`}>
               <Paper
@@ -185,6 +175,16 @@ const ImageCarousel = ({ data, slideGap = true, fullImage = false }: Props) => {
           ))}
         </Carousel>
       </Stack>
+
+      <Lightbox
+        images={lightboxImages}
+        opened={lightboxOpened}
+        onClose={() => setLightboxOpened(false)}
+        withControls
+        withThumbnails
+        withCounter
+        slidesProps={{ initialSlide: lightboxIndex }}
+      />
     </Container>
   )
 }

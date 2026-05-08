@@ -1,8 +1,14 @@
 import { useState } from 'react'
-import { Avatar, Modal, Image, Tooltip } from '@mantine/core'
+import { Avatar, Tooltip } from '@mantine/core'
+import { Lightbox } from '@mantine-bites/lightbox';
+import '@mantine-bites/lightbox/styles.css';
 
 function ProfileImage({ src, size }: { src: string; size: string }) {
   const [opened, setOpened] = useState(false)
+  const profileImage = [{
+    src: src,
+    alt: "profile image"
+  }]
 
   return (
     <>
@@ -22,23 +28,15 @@ function ProfileImage({ src, size }: { src: string; size: string }) {
         />
       </Tooltip>
 
-      <Modal
-        opened={opened}
-        onClose={() => {
-          setOpened(false)
-        }}
-        transitionProps={{ transition: 'fade-down', duration: 200 }}
-        centered
-        size="lg"
-        title="Profile Photo"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <Image
-          src={src}
-          fit="contain"
-          alt="Profile"
+        <Lightbox
+          images={profileImage}
+          opened={opened}
+          onClose={() => setOpened(false)}
+          withControls={false}
+          withThumbnails={false}
+          withCounter={false}
         />
-      </Modal>
+
     </>
   )
 }
