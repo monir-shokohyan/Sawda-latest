@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { Avatar, Tooltip } from '@mantine/core'
-import { Lightbox } from '@mantine-bites/lightbox';
+import { Lightbox } from '@mantine-bites/lightbox'
 
 function ProfileImage({ src, size }: { src: string; size: string }) {
   const [opened, setOpened] = useState(false)
-  const profileImage = [{
-    src: src,
-    alt: "profile image"
-  }]
+  const profileImage = [
+    {
+      src: src,
+      alt: 'profile image',
+    },
+  ]
 
   return (
     <>
@@ -27,16 +29,15 @@ function ProfileImage({ src, size }: { src: string; size: string }) {
         />
       </Tooltip>
 
-        <Lightbox
-          images={profileImage}
-          opened={opened}
-          onClose={() => setOpened(false)}
-          onClick={(e)=>e.stopPropagation()}
-          withControls={false}
-          withThumbnails={false}
-          withCounter={false}
-        />
-
+      <Lightbox
+        images={profileImage}
+        opened={opened}
+        onClose={() => setOpened(false)}
+        onClick={(e) => e.stopPropagation()}
+        withControls={false}
+        withThumbnails={false}
+        withCounter={false}
+      />
     </>
   )
 }

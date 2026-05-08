@@ -63,7 +63,7 @@ function Ui() {
           />
           <SearchFilter
             isMobile={isMobile}
-            route="favorites"
+            route="search"
           />
         </Group>
       </GradientContainer>

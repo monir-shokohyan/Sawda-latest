@@ -16,7 +16,7 @@ const Ui = ({
   route?: string
 }) => {
   const inputWidth =
-    route === 'favorites'
+    route === 'favorites' || route === 'search'
       ? { base: '90vw', sm: '90vw', md: '40vw', lg: '40vw' }
       : { base: '90vw', sm: '90vw', md: '55vw', lg: '70vw' }
   const navigate = useNavigate()
@@ -34,6 +34,7 @@ const Ui = ({
   }
 
   const isDashboard = route === 'dashboard'
+  const isSearch = route === 'search'
   const getInputPl = () => {
     if (isMobile && isDashboard) {
       return '5px'
@@ -58,7 +59,7 @@ const Ui = ({
           handleClick={handleClick}
         />
       )}
-      {!isMobile && !isDashboard && <MenuFilter arrowPosition="bottom" />}
+      {!isMobile && !isDashboard && !isSearch && <MenuFilter arrowPosition="bottom" />}
       <SInput
         type="text"
         placeholder={t('common.search')}
@@ -68,6 +69,7 @@ const Ui = ({
         styles={{
           input: {
             height: isMobile ? '38px' : '45px',
+            borderRadius: isSearch ? '10px' : '0px',
           },
         }}
       />
