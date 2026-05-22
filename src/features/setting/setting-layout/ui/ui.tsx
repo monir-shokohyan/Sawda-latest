@@ -11,6 +11,7 @@ function Ui({ children, title, isSetting = true }: SettingLayout) {
     <ContainerWithBreadCrumb
       title={title}
       pxMobile="0px"
+      // isSetting={isSetting}
     >
       <Flex>
         {!isMobile && isSetting && <SettingList />}
